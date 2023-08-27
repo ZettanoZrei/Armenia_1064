@@ -1,0 +1,526 @@
+{
+  "$type": "DialogHappening",
+  "PeopleForDialog": [
+    {
+      "$type": "Person",
+      "Name": {
+        "$type": "PersonName",
+        "Name": "Барсег"
+      },
+      "PositionType": 1,
+      "IsApproached": false,
+      "XPosition": 0,
+      "Layer": 0
+    },
+    {
+      "$type": "Person",
+      "Name": {
+        "$type": "PersonName",
+        "Name": "Госпожа Рузан"
+      },
+      "PositionType": 0,
+      "IsApproached": false,
+      "XPosition": 14,
+      "Layer": 1
+    },
+    {
+      "$type": "Person",
+      "Name": {
+        "$type": "PersonName",
+        "Name": "Тер-Григор"
+      },
+      "PositionType": 0,
+      "IsApproached": false,
+      "XPosition": -9,
+      "Layer": 2
+    }
+  ],
+  "IsSpecialBackground": false,
+  "Advisor": {
+    "$type": "Person",
+    "Name": {
+      "$type": "PersonName",
+      "Name": ""
+    },
+    "PositionType": 0,
+    "IsApproached": false,
+    "XPosition": 0,
+    "Layer": 0
+  },
+  "Quest": "Событие Самолечение",
+  "Title": "Самолечение_Диалог",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Госпожа Рузан"
+          },
+          "Index": 0,
+          "Text": "Бедные детки. Что может быть хуже чем болезнь ребенка? Но я думаю, что я в силах им помочь."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Тер-Григор"
+          },
+          "Index": 1,
+          "Text": "Ты слишком самонадеянна, моя госпожа. Никто не может помочь страдающим кроме Господа нашего Бога. "
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "Text": "Госпожа, как ты предлагаешь решить эту проблему?",
+          "ToStep": 2,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": false,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": false,
+            "IsQuestCons": false,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        },
+        {
+          "$type": "Answer",
+          "Text": "Тер-Григор, как ты предлагаешь решить эту проблему?",
+          "ToStep": 3,
+          "IsRestriction": false,
+          "Index": 1,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": false,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": false,
+            "IsQuestCons": false,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        },
+        {
+          "$type": "Answer",
+          "Text": "Госпожа Рузан, помочь этим детям в твоих силах!",
+          "ToStep": 4,
+          "IsRestriction": false,
+          "Index": 2,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": false,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": false,
+            "IsQuestCons": false,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        },
+        {
+          "$type": "Answer",
+          "Text": "Тер-Григор, теперь вся надежда на тебя.",
+          "ToStep": 5,
+          "IsRestriction": false,
+          "Index": 3,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": false,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": false,
+            "IsQuestCons": false,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    },
+    {
+      "$type": "Node",
+      "Step": 2,
+      "Phrases": [
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Госпожа Рузан"
+          },
+          "Index": 2,
+          "Text": "Мне кажется, что дети отравились испорченной пищей. Я помню один отвар своей бабушки, который она давала мне в детстве, когда у меня болел живот. С этим лекарством они быстро поправятся."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 1,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": false,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": false,
+            "IsQuestCons": false,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    },
+    {
+      "$type": "Node",
+      "Step": 3,
+      "Phrases": [
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Тер-Григор"
+          },
+          "Index": 3,
+          "Text": "Молитвами, разумеется! А как же иначе! И людей заставлю молиться вдвое больше обычного. И если на то будет воля Господа, то дети поправятся."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 4,
+          "Text": "Хотя это и не столь важно, все равно нам всем вскоре придется предстать перед страшным судом."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 1,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": false,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": false,
+            "IsQuestCons": false,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    },
+    {
+      "$type": "Node",
+      "Step": 4,
+      "Phrases": [
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Госпожа Рузан"
+          },
+          "Index": 5,
+          "Text": "Я верю в это всем сердцем!"
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Событие Самолечение",
+                "Happening": "Самолечение_Случай2"
+              }
+            ],
+            "PersonConsequences": [
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Госпожа Рузан"
+                },
+                "Value": 1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Тер-Григор"
+                },
+                "Value": -1
+              }
+            ],
+            "HappenConsequences": [],
+            "IsParamCons": false,
+            "IsQuestCons": true,
+            "IsPersonCons": true,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    },
+    {
+      "$type": "Node",
+      "Step": 5,
+      "Phrases": [
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Тер-Григор"
+          },
+          "Index": 6,
+          "Text": "Я лишь голос Его!"
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Событие Самолечение",
+                "Happening": "Самолечение_Случай3"
+              }
+            ],
+            "PersonConsequences": [
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Госпожа Рузан"
+                },
+                "Value": -1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Тер-Григор"
+                },
+                "Value": 1
+              }
+            ],
+            "HappenConsequences": [],
+            "IsParamCons": false,
+            "IsQuestCons": true,
+            "IsPersonCons": true,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 0,
+  "IsBegin": false
+}

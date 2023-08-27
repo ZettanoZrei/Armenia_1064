@@ -1,0 +1,68 @@
+{
+  "$type": "Happening",
+  "Quest": "Основной квест",
+  "Title": "Эпизод_1.1",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "Phrase",
+          "Index": 0,
+          "Text": "Вы оказываетесь за пределами замка и люди готовы идти за вами. В ночной темноте вам удается ускользнуть под носом у вражеских войск, и вот, охваченные пламенем стены могучего Аревберда, остаются позади.\r\nК вам подходит Гарегин. Вид у воина обеспокоенный."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Основной квест",
+                "Happening": "Эпизод_1.2"
+              }
+            ],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": false,
+            "IsQuestCons": true,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "Quest": "Основной квест",
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": true,
+            "IsActivateQuest": true
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 1,
+  "IsBegin": true
+}

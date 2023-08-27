@@ -1,0 +1,229 @@
+{
+  "$type": "DialogHappening",
+  "PeopleForDialog": [
+    {
+      "$type": "Person",
+      "Name": {
+        "$type": "PersonName",
+        "Name": "Барсег"
+      },
+      "PositionType": 1,
+      "IsApproached": false,
+      "XPosition": -5,
+      "Layer": 0
+    },
+    {
+      "$type": "Person",
+      "Name": {
+        "$type": "PersonName",
+        "Name": "Тер-Григор"
+      },
+      "PositionType": 0,
+      "IsApproached": false,
+      "XPosition": 5,
+      "Layer": 1
+    },
+    {
+      "$type": "Person",
+      "Name": {
+        "$type": "PersonName",
+        "Name": "Мариам"
+      },
+      "PositionType": 0,
+      "IsApproached": true,
+      "XPosition": -13,
+      "Layer": 2
+    }
+  ],
+  "IsSpecialBackground": true,
+  "FrontImageUri": "Arevberd_dialog6",
+  "BackImageUri": "Arevberd_dialog5",
+  "Advisor": {
+    "$type": "Person",
+    "Name": {
+      "$type": "PersonName",
+      "Name": ""
+    },
+    "PositionType": 0,
+    "IsApproached": false,
+    "XPosition": 0,
+    "Layer": 0
+  },
+  "Quest": "Аревберд_Штурм",
+  "Title": "Аревберд_Штурм_Диалог_Григор",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 0,
+          "Text": "Отец, что ты делаешь?"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Тер-Григор"
+          },
+          "Index": 1,
+          "Text": "Пришел наш судный день! Покаемся!"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 2,
+          "Text": "Но мы еще живы! Нужно помочь людям спастись!"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Тер-Григор"
+          },
+          "Index": 3,
+          "Text": "Разве ты еще не понял, парень? Мы сражаемся не с людьми! Мы сражаемся со слугами Сатаны! Миру наступил конец и виной тому наши грехи! Мои! Твои! Всех!"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 4,
+          "Text": "Прекрати сеять панику! Слышишь? Посмотри вот на этого “слугу сатаны”, он лежит со вспоротым брюхом в луже собственной крови! Это просто люди! А нам просто не повезло!"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Тер-Григор"
+          },
+          "Index": 5,
+          "Text": "Я… я не знаю, что происходит, сын мой. Это пламя, это адское пламя. Оно нас пожрет…"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 6,
+          "Text": "Вместо того чтобы пугать людей, помоги им добраться до цитадели, там у нас еще будет шанс!"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Тер-Григор"
+          },
+          "Index": 7,
+          "Text": "Если бы у нас был шанс, то Бог дал бы нам знак."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Мариам"
+          },
+          "Index": 8,
+          "Text": "Я твой божественный знак, болван! Куда нам идти, Барсег?"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 9,
+          "Text": "Отыщите Гарегина! С ним безопаснее всего. он должен быть в цитадели с князем. "
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Аревберд_Штурм",
+                "Happening": "Аревберд_Штурм_Случай3"
+              }
+            ],
+            "PersonConsequences": [],
+            "HappenConsequences": [
+              {
+                "$type": "SingleHappeningConsequences",
+                "Quest": "Аревберд_Штурм",
+                "OldHappening": "Аревберд_Штурм_Случай3",
+                "NewHappening": ""
+              }
+            ],
+            "IsParamCons": false,
+            "IsQuestCons": true,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "Quest": "Аревберд_Штурм",
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": true,
+            "IsActivateQuest": true
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 0,
+  "IsBegin": false
+}

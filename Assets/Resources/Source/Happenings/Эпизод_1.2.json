@@ -1,0 +1,323 @@
+{
+  "$type": "DialogHappening",
+  "PeopleForDialog": [
+    {
+      "$type": "Person",
+      "Name": {
+        "$type": "PersonName",
+        "Name": "Барсег"
+      },
+      "PositionType": 1,
+      "IsApproached": false,
+      "XPosition": -8,
+      "Layer": 0
+    },
+    {
+      "$type": "Person",
+      "Name": {
+        "$type": "PersonName",
+        "Name": "Гарегин Востанци"
+      },
+      "PositionType": 0,
+      "IsApproached": false,
+      "XPosition": 4,
+      "Layer": 1
+    }
+  ],
+  "IsSpecialBackground": false,
+  "Advisor": {
+    "$type": "Person",
+    "Name": {
+      "$type": "PersonName",
+      "Name": ""
+    },
+    "PositionType": 1,
+    "IsApproached": false,
+    "XPosition": 13,
+    "Layer": 0
+  },
+  "Quest": "Основной квест",
+  "Title": "Эпизод_1.2",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Гарегин Востанци"
+          },
+          "Index": 0,
+          "Text": "Парон, вокруг еще полно вражеских отрядов, нам следует поскорее убраться отсюда."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 1,
+          "Text": "Так мы и поступим."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Гарегин Востанци"
+          },
+          "Index": 2,
+          "Text": "Но нас отягощают старики и раненные. Они нас сильно замедлят."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 3,
+          "Text": "Что ты хочешь сказать?"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Гарегин Востанци"
+          },
+          "Index": 4,
+          "Text": "Мне самому это не по душе, парон. Но если мы попытаемся спасти всех, враг может настигнуть нас. И тогда не спасем никого."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "Text": "Хорошо, придется оставить тех, кто не может идти достаточно быстро.",
+          "ToStep": 2,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 3,
+                "Value": -20
+              }
+            ],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Основной квест",
+                "Happening": "Эпизод_2.1"
+              }
+            ],
+            "PersonConsequences": [
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Гарегин Востанци"
+                },
+                "Value": 1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Егише"
+                },
+                "Value": 1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Госпожа Рузан"
+                },
+                "Value": -1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Тер-Григор"
+                },
+                "Value": -1
+              }
+            ],
+            "HappenConsequences": [],
+            "Message": "Это тяжелый выбор, но вы убеждены, что так будет лучше для многих. Когда все простились с друзьями и родными, вы продолжаете путь. Еще долго вы слышите крики и стенания брошенных вами несчастных. Вскоре их голоса стихают, сменяясь грубыми фразами сельджукских воинов.",
+            "IsParamCons": true,
+            "IsQuestCons": true,
+            "IsPersonCons": true,
+            "IsHappenCons": false,
+            "IsMessage": true
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        },
+        {
+          "$type": "Answer",
+          "Text": "Эти люди верят нам. Мы либо спасем всех, либо сгинем вместе с ними.",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 1,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Основной квест",
+                "Happening": "Эпизод_1.3"
+              }
+            ],
+            "PersonConsequences": [
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Гарегин Востанци"
+                },
+                "Value": -1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Егише"
+                },
+                "Value": -1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Госпожа Рузан"
+                },
+                "Value": 1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Тер-Григор"
+                },
+                "Value": 1
+              }
+            ],
+            "HappenConsequences": [],
+            "Message": "",
+            "IsParamCons": false,
+            "IsQuestCons": true,
+            "IsPersonCons": true,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "Quest": "Основной квест",
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": true,
+            "IsActivateQuest": true
+          }
+        }
+      ],
+      "Advices": [
+        {
+          "$type": "AdvicePhrase",
+          "Relation": 0,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Егише"
+          },
+          "Index": 0,
+          "Text": "О чем здесь можно думать? Убираемся отсюда, как можно скорее! Кто не поспевает, тот уже покойник!\r\n"
+        },
+        {
+          "$type": "AdvicePhrase",
+          "Relation": 0,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Госпожа Рузан"
+          },
+          "Index": 0,
+          "Text": "Парон Барсег, неужели мы бросим этих несчастных? Как мы после этого сможем называться христианами? Чем мы тогда будем лучше язычников?"
+        },
+        {
+          "$type": "AdvicePhrase",
+          "Relation": 0,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Василий"
+          },
+          "Index": 0,
+          "Text": "Прости друг, но кто я такой, чтобы давать советы по такому вопросу? Мне жаль, что тебе выпало это бремя…"
+        },
+        {
+          "$type": "AdvicePhrase",
+          "Relation": 0,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Тер-Григор"
+          },
+          "Index": 0,
+          "Text": "Кто возьмет на себя великий грех обречь бедных людей на гибель? Ты?! Мы итак достаточно согрешили. Жертвенность и искупление грехов собственной кровью поможет нам спасти свои души!"
+        },
+        {
+          "$type": "AdvicePhrase",
+          "Relation": 0,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Мариам"
+          },
+          "Index": 0,
+          "Text": "Не знаю, что и сказать. Жить хочется, но и бросать бедолаг не дело. Я… я пойму любое твое решение."
+        }
+      ],
+      "IsFocus": true,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 1,
+  "IsBegin": false
+}

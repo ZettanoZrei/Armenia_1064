@@ -1,0 +1,73 @@
+{
+  "$type": "Happening",
+  "Quest": "Событие Частичная Мобилизация",
+  "Title": "Частичная_Мобилизация_Случай2",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "Phrase",
+          "Index": 0,
+          "Text": "Гарегин сделал то, о чем вы договаривались. Он отобрал всех юношей и стариков, кто способен удержать в руках оружие, и раздал им старые топоры, самодельные копья и тесаки для мяса. Новая “армия” получилась довольно неказистой. Еще хуже она показала себя на тренировке, которую Гарегин устроил при первой же возможности. Новоявленные воины расшиблись, поцарапались, потянулись и, в итоге, повалились от усталости. Страшно представить если этим людям доведется побывать в настоящем бою."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 2,
+                "Value": -3
+              }
+            ],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Событие Частичная Мобилизация",
+                "Happening": "-----"
+              }
+            ],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": true,
+            "IsQuestCons": true,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 2,
+  "IsBegin": false
+}

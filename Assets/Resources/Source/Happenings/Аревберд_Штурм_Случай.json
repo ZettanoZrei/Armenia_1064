@@ -1,0 +1,80 @@
+{
+  "$type": "Happening",
+  "Quest": "Аревберд_Штурм",
+  "Title": "Аревберд_Штурм_Случай",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "Phrase",
+          "Index": 0,
+          "Text": "Вы просыпаетесь среди ночи от страшного грохота и криков, доносящихся со внутреннего двора. Вокруг мечутся перепуганные люди. Вы понимаете, что враг уже внутри замка. Каким-то образом они проникли за ворота и застали врасплох сонный гарнизон. Кажется, вы и все прочие обитатели Аревберда оказались в ловушке."
+        },
+        {
+          "$type": "Phrase",
+          "Index": 1,
+          "Text": "Схватив оружие, вы выбегаете наружу, и пытаетесь разобраться, что происходит, как найти путь к спасению. Вы видите Гарегина. Старый воин еле дышит от усталости, а его рука, что еще с трудом стискивает рукоять меча, потемнела от крови."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Аревберд_Штурм",
+                "Happening": "Аревберд_Штурм_Диалог_Гарегин"
+              }
+            ],
+            "PersonConsequences": [],
+            "HappenConsequences": [
+              {
+                "$type": "SingleHappeningConsequences",
+                "Quest": "Аревберд_Штурм",
+                "OldHappening": "Аревберд_Штурм_Диалог_Гарегин",
+                "NewHappening": ""
+              }
+            ],
+            "IsParamCons": false,
+            "IsQuestCons": true,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "Quest": "Аревберд_Штурм",
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": true,
+            "IsActivateQuest": true
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 0,
+  "IsBegin": false
+}

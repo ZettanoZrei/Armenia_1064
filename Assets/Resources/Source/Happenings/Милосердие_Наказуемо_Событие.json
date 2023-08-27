@@ -1,0 +1,123 @@
+{
+  "$type": "Happening",
+  "Quest": "Милосердие Наказуемо",
+  "Title": "Милосердие_Наказуемо_Событие",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "Phrase",
+          "Index": 0,
+          "Text": "Прямо перед вами на дорогу выскакивает девчонка лет десяти. “Парон азат, парон азат”- кричит она писклявым голосом, - мои родители в беде, помоги!” Вам кажется странным это внезапное появление, но люди позади вас уже готовы сделать для бедняжки все что угодно. Вы спрашиваете у девочки, в чем дело."
+        },
+        {
+          "$type": "Phrase",
+          "Index": 1,
+          "Text": "“Мама и папа застряли под завалами, там, в деревне, - она указывает в сторону от тропы по которой движется ваша колонна. Вам не хочется тратить драгоценное время и рисковать, но с другой стороны, бросить в беде несчастных людей - тоже не дело."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "Text": "Заставив свою совесть умолкнуть, вы велите людям двигаться дальше. Рисковать нельзя.",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 1,
+                "Value": -3
+              }
+            ],
+            "QuestConsequences": [],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "Message": "Вы шагаете дальше, а за вами, качая головами и ворча, идут ваши спутники. “Но… мои родители… Парон азат…” - слышите вы у себя за спиной стихающий девичий голос. Вы знаете, что эти слова буду эхом преследовать вас каждую ночь, не давая уснуть.",
+            "IsParamCons": true,
+            "IsQuestCons": false,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": true
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        },
+        {
+          "$type": "Answer",
+          "Text": "Вы с группой мужчин идете вслед за девочкой, чтобы помочь ее родителям.",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 1,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 1,
+                "Value": -3
+              },
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 3,
+                "Value": -2
+              }
+            ],
+            "QuestConsequences": [],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "Message": "Вы продираетесь сквозь заросли и видите заброшенную деревню. Кажется, здесь уже много лет никто не живет. “Что-то мне это не нравится”, - говорит один из ваших спутников и тут, мимо вас со стороны руин со свистом пролетает стрела. Разумеется, засада. Вы и ваши люди бросаетесь вперед с обнаженными клинками прямо навстречу летящим стрелам. Разбойники, не ожидая такого решительного отпора, мгновенно разбегаются кто куда. “А девчонки-то и след простыл” - угрюмо говорит один из воинов, когда все заканчивается.",
+            "IsParamCons": true,
+            "IsQuestCons": false,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": true
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 2,
+  "IsBegin": true
+}

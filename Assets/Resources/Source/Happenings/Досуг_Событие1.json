@@ -1,0 +1,67 @@
+{
+  "$type": "Happening",
+  "Quest": "Событие Досуг",
+  "Title": "Досуг_Событие1",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "Phrase",
+          "Index": 0,
+          "Text": "Вы замечаете, что в последние дни люди особенно предаются унынию. оно и неудивительно, с тех пор как ни их землю напали мусульмане и им пришлось покинуть свои дома, в их жизни нет ничего кроме тяжкого пути, горя и тревог. Помочь в этом вопросе хотят Василий и Мариам."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Событие Досуг",
+                "Happening": "Досуг_Диалог"
+              }
+            ],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": false,
+            "IsQuestCons": true,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 2,
+  "IsBegin": true
+}

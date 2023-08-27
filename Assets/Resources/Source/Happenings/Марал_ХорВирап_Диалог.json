@@ -1,0 +1,783 @@
+{
+  "$type": "DialogHappening",
+  "PeopleForDialog": [
+    {
+      "$type": "Person",
+      "Name": {
+        "$type": "PersonName",
+        "Name": "Барсег"
+      },
+      "PositionType": 1,
+      "IsApproached": false,
+      "XPosition": -7,
+      "Layer": 0
+    },
+    {
+      "$type": "Person",
+      "Name": {
+        "$type": "PersonName",
+        "Name": "Марал"
+      },
+      "PositionType": 0,
+      "IsApproached": false,
+      "XPosition": 5,
+      "Layer": 1
+    },
+    {
+      "$type": "Person",
+      "Name": {
+        "$type": "PersonName",
+        "Name": "Тер-Григор"
+      },
+      "PositionType": 0,
+      "IsApproached": true,
+      "XPosition": 11,
+      "Layer": 2
+    },
+    {
+      "$type": "Person",
+      "Name": {
+        "$type": "PersonName",
+        "Name": "Гарегин Востанци"
+      },
+      "PositionType": 0,
+      "IsApproached": true,
+      "XPosition": -12,
+      "Layer": 3
+    }
+  ],
+  "IsSpecialBackground": false,
+  "Advisor": {
+    "$type": "Person",
+    "Name": {
+      "$type": "PersonName",
+      "Name": ""
+    },
+    "PositionType": 1,
+    "IsApproached": false,
+    "XPosition": 6,
+    "Layer": 0
+  },
+  "Quest": "Марал в Хор Вирапе",
+  "Title": "Марал_ХорВирап_Диалог",
+  "Description": "обязательный лагерный диалог в локации Хор Вирвап",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Марал"
+          },
+          "Index": 0,
+          "Text": "Я видела, что ваш господин серьезно ранен и страдает от жара. Я немного владею лекарским искусством, и могла бы помочь облегчить его долю."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 1,
+          "Text": "Помощь целителя нам точно не помешает. Но кто ты, почтенная? И что делаешь в мужском монастыре?"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Марал"
+          },
+          "Index": 2,
+          "Text": "Меня зовут Марал. Я привела сюда группу страждущих. Мой женский монастырь находится неподалеку, в горах. Когда до нас дошли известия о нашествии врага, наша майрапет решила, что нам следует закрыться в обители и переждать бурю."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 3,
+          "Text": "Но ты, кажется, ослушалась?"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Марал"
+          },
+          "Index": 4,
+          "Text": "Да, парон. Я видела, что люди нуждаются в наставничестве. Их терзало отчаянье. Я пришла в одну из деревень и сопроводила ее жителей сюда, в Хор Вирап. Думаю, после этого ослушания я больше не могу называться монахиней. Но значит, так тому и быть. В моем понимании христианин должен помогать и исцелять, а не молиться взаперти днем и ночью. Бог все видит…"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Тер-Григор"
+          },
+          "Index": 5,
+          "Text": "Отступница! Из-за таких грешников и грешниц как ты, нас всех постигла эта кара! Воистину наступают последние дни, если уж святейшие из людей предаются малодушию!"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Марал"
+          },
+          "Index": 6,
+          "Text": "А… отец Григор. Все так же рассуждаешь о карах Господних?"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 7,
+          "Text": "Вы что, знакомы?"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Марал"
+          },
+          "Index": 8,
+          "Text": "Отца Григора знают во многих обителях. В молодости он довольно ретиво занимался проповедничеством. И местами даже успешно. В нашей обители немало сестер разделяют мысль о том, что Господь вот-вот предаст наш народ страшному суду."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Тер-Григор"
+          },
+          "Index": 9,
+          "Text": "Станешь ли ты теперь отрицать, что мы своими грехами навлекли на себя гнев Господа, и что страшный час близится?"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Марал"
+          },
+          "Index": 10,
+          "Text": "А разве раньше не было войн? Разве впервые нашу землю топчут сапоги варваров и иноверцев? Но мы все еще здесь и мы живы."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Тер-Григор"
+          },
+          "Index": 11,
+          "Text": "Да что ты об этом знаешь?! Я видел этих бесов прямо перед собой! Их глаза горят адским пламенем, а их пасти изрыгают огонь, которым они с легкостью сожгли целый замок!"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Марал"
+          },
+          "Index": 12,
+          "Text": "А люди мне рассказывают, что это просто турки. Из крови и плоти, с оружием в руках…"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Тер-Григор"
+          },
+          "Index": 13,
+          "Text": "Это слуги сатаны!"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Гарегин Востанци"
+          },
+          "Index": 14,
+          "Text": "Думаю, одно другому не мешает. Хотя отец Григор немного приукрашивает… По поводу изрыгания огня из пастей."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 15,
+          "Text": "Как бы то ни было, сейчас нам и правда не помешает человек, владеющий лекарским искусством. Господин Ваан очень плох…"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Марал"
+          },
+          "Index": 16,
+          "Text": "Не могу обещать, что подниму его на ноги за одну ночь, но постараюсь, хотя бы сбить жар. Впрочем, я вижу некоторое сомнение в глазах твоих спутников…"
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "Text": "Это будет неоценимой помощью. Сделай все, что можешь для господина Ваана.",
+          "ToStep": 2,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": false,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [],
+            "PersonConsequences": [
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Рузан Богуни"
+                },
+                "Value": -1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Гарегин Востанци"
+                },
+                "Value": 1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Тер-Григор"
+                },
+                "Value": -1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Мариам"
+                },
+                "Value": 1
+              }
+            ],
+            "HappenConsequences": [],
+            "IsParamCons": false,
+            "IsQuestCons": false,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        },
+        {
+          "$type": "Answer",
+          "Text": "Ты могла бы присоединиться к нам. И помочь не только господину, но еще и другим нашим людям.",
+          "ToStep": 3,
+          "IsRestriction": false,
+          "Index": 1,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": false,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 1,
+                "Value": 2
+              }
+            ],
+            "QuestConsequences": [],
+            "PersonConsequences": [
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Егише Богуни"
+                },
+                "Value": -1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Рузан Богуни"
+                },
+                "Value": -1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Василий Эпидексиос"
+                },
+                "Value": 1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Тер-Григор"
+                },
+                "Value": -1
+              }
+            ],
+            "HappenConsequences": [],
+            "IsParamCons": false,
+            "IsQuestCons": false,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        },
+        {
+          "$type": "Answer",
+          "Text": "Знаешь, поразмыслив, я все таки решил, что мы обойдемся без твоей помощи.",
+          "ToStep": 4,
+          "IsRestriction": false,
+          "Index": 2,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": false,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": false,
+            "IsQuestCons": false,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [
+        {
+          "$type": "AdvicePhrase",
+          "Relation": 3,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Егише"
+          },
+          "Index": 0,
+          "Text": "Мне наплевать, пусть попробует подлатает отца. Все равно он не жилец. Главное, чтобы она потом не увязалась за нами."
+        },
+        {
+          "$type": "AdvicePhrase",
+          "Relation": 3,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Госпожа Рузан"
+          },
+          "Index": 0,
+          "Text": "Мы, конечно, нуждаемся в ее помощи. Но я доверяю отцу Григору. Она действительно нарушила свои монашеские обеты. С Божьей помощью мы обойдемся без этой женщины."
+        },
+        {
+          "$type": "AdvicePhrase",
+          "Relation": 3,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Василий"
+          },
+          "Index": 0,
+          "Text": "О чем здесь думать? Пусть займется стариком. А еще лучше, если она пойдет с нами. Врачеватель нам точно не помешает."
+        },
+        {
+          "$type": "AdvicePhrase",
+          "Relation": 3,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Мариам"
+          },
+          "Index": 0,
+          "Text": "Было бы здорово если бы она смогла облегчить состояние господина. На него больно смотреть."
+        }
+      ],
+      "IsFocus": false,
+      "IsShowFace": true
+    },
+    {
+      "$type": "Node",
+      "Step": 2,
+      "Phrases": [
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Марал"
+          },
+          "Index": 17,
+          "Text": "Обещаю, что завтра ему будет лучше."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [],
+            "PersonConsequences": [
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Егише"
+                },
+                "Value": -1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Гарегин Востанци"
+                },
+                "Value": 1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Тер-Григор"
+                },
+                "Value": -1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Мариам"
+                },
+                "Value": 1
+              }
+            ],
+            "HappenConsequences": [],
+            "IsParamCons": false,
+            "IsQuestCons": false,
+            "IsPersonCons": true,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    },
+    {
+      "$type": "Node",
+      "Step": 3,
+      "Phrases": [
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Марал"
+          },
+          "Index": 18,
+          "Text": "Здесь, в Хор Вирапе, много людей которые тоже нуждаются в моих знаниях. Но с другой стороны, монахи меня едва терпят и, скорее всего, со дня на день все равно выгонят из обители. Так что да, парон, я принимаю твое предложение и продолжу путь с вами."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 1,
+                "Value": 2
+              }
+            ],
+            "QuestConsequences": [],
+            "PersonConsequences": [
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Егише"
+                },
+                "Value": -1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Госпожа Рузан"
+                },
+                "Value": -1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Василий"
+                },
+                "Value": 1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Тер-Григор"
+                },
+                "Value": -1
+              }
+            ],
+            "HappenConsequences": [],
+            "IsParamCons": true,
+            "IsQuestCons": false,
+            "IsPersonCons": true,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    },
+    {
+      "$type": "Node",
+      "Step": 4,
+      "Phrases": [
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Марал"
+          },
+          "Index": 19,
+          "Text": "Твоя воля, парон. Здесь достаточно людей, нуждающихся в моей помощи. Я найду чем заняться."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 1,
+                "Value": -2
+              }
+            ],
+            "QuestConsequences": [],
+            "PersonConsequences": [
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Госпожа Рузан"
+                },
+                "Value": 1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Василий"
+                },
+                "Value": -1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Гарегин Востанци"
+                },
+                "Value": -1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Тер-Григор"
+                },
+                "Value": 1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Мариам"
+                },
+                "Value": -1
+              }
+            ],
+            "HappenConsequences": [],
+            "IsParamCons": true,
+            "IsQuestCons": false,
+            "IsPersonCons": true,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 0,
+  "IsBegin": false
+}

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da109c518dc4fc04d841adf6b78b0b4f, type: 3}
+  m_Name: ArutunePersonPack
+  m_EditorClassIdentifier: 
+  _name: "\u0410\u0440\u0443\u0442\u044E\u043D"
+  complects:
+  - front: {fileID: 21300000, guid: 7d64d5d75fe692a49955cb3c07752ceb, type: 3}
+    back: {fileID: 21300000, guid: 88a2f18db8db77546812b6c81ec1983e, type: 3}
+  portraits:
+  - {fileID: 21300000, guid: b1f1f8d7e09189245b7a95533f500b2a, type: 3}
+  relation: 0
+  mainCharacter: 0

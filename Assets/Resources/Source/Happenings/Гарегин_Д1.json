@@ -1,0 +1,202 @@
+{
+  "$type": "DialogHappening",
+  "PeopleForDialog": [
+    {
+      "$type": "Person",
+      "Name": {
+        "$type": "PersonName",
+        "Name": "Барсег"
+      },
+      "PositionType": 1,
+      "IsApproached": false,
+      "XPosition": -7,
+      "Layer": 0
+    },
+    {
+      "$type": "Person",
+      "Name": {
+        "$type": "PersonName",
+        "Name": "Гарегин Востанци"
+      },
+      "PositionType": 0,
+      "IsApproached": false,
+      "XPosition": 4,
+      "Layer": 1
+    }
+  ],
+  "IsSpecialBackground": false,
+  "Advisor": {
+    "$type": "Person",
+    "Name": {
+      "$type": "PersonName",
+      "Name": ""
+    },
+    "PositionType": 0,
+    "IsApproached": false,
+    "XPosition": 0,
+    "Layer": 0
+  },
+  "Quest": "Обязательные диалоги",
+  "Title": "Гарегин_Д1",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 0,
+          "Text": "Гарегин, можно тебя на пару слов?"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Гарегин Востанци"
+          },
+          "Index": 1,
+          "Text": "Конечно, парон."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 2,
+          "Text": "Стыдно признаться, но я плохо знаю эти места. Как ты думаешь, куда нам следует держать путь?"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Гарегин Востанци"
+          },
+          "Index": 3,
+          "Text": "Самое безопасное место, которое я знаю, это крепость Шаваршан в нескольких днях пути. Но после того, что случилось с Аревбердом, не уверен, что хоть где-то теперь безопасно.."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 4,
+          "Text": "Кажется, это родовой замок князей Аматуни?"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Гарегин Востанци"
+          },
+          "Index": 5,
+          "Text": "Да, парон. Аматуни сильный и древний род. Ваша семья с ними состоит в дальнем родстве. Не могу припомнить кто сейчас носит титул князя, но, надеюсь, мы можем рассчитывать на теплый прием."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 6,
+          "Text": "Хорошо, направимся туда. Но у нас почти нет припасов и нам не помешало бы несколько повозок, чтобы везти раненых и ослабевших. Особенно господина Ваана. Он не продержится долго на носилках из плаща."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Гарегин Востанци"
+          },
+          "Index": 7,
+          "Text": "Недалеко отсюда есть деревня Востан, откуда родом я и мои предки. Надеюсь, турки еще не добрались до нее. Если так, то там мы сможем пополнить припасы и снарядиться всем необходимым. "
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 8,
+          "Text": "Отлично, так и поступим. Спасибо за совет, Гарегин."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Обязательные диалоги",
+                "Happening": "-----"
+              },
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Гарегин Лагерный Диалог",
+                "Happening": "Гарегин_Лагерный_Диалог"
+              }
+            ],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": false,
+            "IsQuestCons": true,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 1,
+  "IsBegin": false
+}

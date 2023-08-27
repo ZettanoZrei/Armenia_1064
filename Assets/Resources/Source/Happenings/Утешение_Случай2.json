@@ -1,0 +1,73 @@
+{
+  "$type": "Happening",
+  "Quest": "Событие Утешение",
+  "Title": "Утешение_Случай2",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "Phrase",
+          "Index": 0,
+          "Text": "После того, как вы доверили Тер-Григору поговорить с людьми и восстановить их моральные силы, многое изменилось. Методы священника были жесткие, он ни с кем не церемонился и укорял каждого за их уныние. Люди пристыженные его словами действительно воспряли духом. в конце концов, каждый из них был верующим человеком и никто не хотел прогневать Всевышнего."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 1,
+                "Value": 3
+              }
+            ],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Событие Утешение",
+                "Happening": "-----"
+              }
+            ],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": true,
+            "IsQuestCons": true,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 2,
+  "IsBegin": false
+}

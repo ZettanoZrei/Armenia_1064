@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/LoadScene.unity
+    guid: 2ec18883071a0384a8020aec8c1ea120
+  - enabled: 1
+    path: Assets/Scenes/MainMenuScene.unity
+    guid: 6343897cb652c354bb481f4260afb48d
+  - enabled: 1
+    path: Assets/Scenes/Travel/Travel_1.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Travel/Travel_2.unity
+    guid: 0076003be7219ed4aa01b77f59a61326
+  - enabled: 1
+    path: Assets/Scenes/CampScene.unity
+    guid: 875f5dd8f1d597f4585ab21ca7e6d8c4
+  - enabled: 1
+    path: Assets/Scenes/DialogScene.unity
+    guid: 21664ff598c405f44a7d6e3827b1cd88
+  - enabled: 1
+    path: Assets/Scenes/Travel/Prologue_0.unity
+    guid: fa9079dc72c0eb64aa0532df54728fb5
+  - enabled: 1
+    path: Assets/Scenes/PlotScene.unity
+    guid: bf5b58357728ee043bb686c15a9af4ec
+  - enabled: 1
+    path: Assets/Scenes/SettingsScene.unity
+    guid: c1443ec5421fcfc49bc5fefb6136b915
+  m_configObjects: {}

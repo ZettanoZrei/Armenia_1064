@@ -1,0 +1,18 @@
+<root>	
+	<happening>
+		<node step="1">
+			<text> Вы скачите без отдыха почти весь день. На закате к вам подскакивает капитан стражи. Он хочет о чем то поговрить. </text>							
+			<answers>
+				<answer tostep="0" index="0">
+					<text>Выслушать</text>
+					<consequences>
+							<quests>
+								<quest title="tiredness" next="explanation"/>
+							</quests>		
+					</consequences>
+					<after type="happening" args="tiredness"/>
+				</answer>
+			</answers>
+		</node>
+	</happening>
+</root>

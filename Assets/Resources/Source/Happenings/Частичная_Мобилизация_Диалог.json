@@ -1,0 +1,515 @@
+{
+  "$type": "DialogHappening",
+  "PeopleForDialog": [
+    {
+      "$type": "Person",
+      "Name": {
+        "$type": "PersonName",
+        "Name": "Барсег"
+      },
+      "PositionType": 1,
+      "IsApproached": false,
+      "XPosition": 0,
+      "Layer": 0
+    },
+    {
+      "$type": "Person",
+      "Name": {
+        "$type": "PersonName",
+        "Name": "Гарегин Востанци"
+      },
+      "PositionType": 0,
+      "IsApproached": false,
+      "XPosition": 12,
+      "Layer": 1
+    },
+    {
+      "$type": "Person",
+      "Name": {
+        "$type": "PersonName",
+        "Name": "Мариам"
+      },
+      "PositionType": 0,
+      "IsApproached": false,
+      "XPosition": -9,
+      "Layer": 2
+    }
+  ],
+  "IsSpecialBackground": false,
+  "Advisor": {
+    "$type": "Person",
+    "Name": {
+      "$type": "PersonName",
+      "Name": ""
+    },
+    "PositionType": 0,
+    "IsApproached": false,
+    "XPosition": 0,
+    "Layer": 0
+  },
+  "Quest": "Событие Частичная Мобилизация",
+  "Title": "Частичная_Мобилизация_Диалог",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Гарегин Востанци"
+          },
+          "Index": 0,
+          "Text": "О чем здесь думать, я сделаю все что нужно."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Мариам"
+          },
+          "Index": 1,
+          "Text": "А мне кажется, дядя Гарегин, что ты подумал еще не обо всем."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "Text": "Гарегин, как ты предлагаешь решить эту проблему?",
+          "ToStep": 2,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": false,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": false,
+            "IsQuestCons": false,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        },
+        {
+          "$type": "Answer",
+          "Text": "Мариам, как ты предлагаешь решить эту проблему?",
+          "ToStep": 3,
+          "IsRestriction": false,
+          "Index": 1,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": false,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": false,
+            "IsQuestCons": false,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        },
+        {
+          "$type": "Answer",
+          "Text": "Гарегин, приступай. Ты знаешь что делать.",
+          "ToStep": 4,
+          "IsRestriction": false,
+          "Index": 2,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": false,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": false,
+            "IsQuestCons": false,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        },
+        {
+          "$type": "Answer",
+          "Text": "Мариам, мне кажется, ты сможешь решить эту задачу успешнее.",
+          "ToStep": 5,
+          "IsRestriction": false,
+          "Index": 3,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": false,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": false,
+            "IsQuestCons": false,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    },
+    {
+      "$type": "Node",
+      "Step": 2,
+      "Phrases": [
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Гарегин Востанци"
+          },
+          "Index": 2,
+          "Text": "Среди нас еще есть юноши и довольно крепкие старики. Они сгодятся. Выдадим им что нибудь, чем можно колоть или рубить. А дальше я прослежу за тем, чтобы они поняли как этим пользоваться."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 1,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": false,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": false,
+            "IsQuestCons": false,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    },
+    {
+      "$type": "Node",
+      "Step": 3,
+      "Phrases": [
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Мариам"
+          },
+          "Index": 3,
+          "Text": "Многие женщины хотят тоже научиться постоять за себя. Вооружим всех желающих и покажем им как обращаться с оружием. Кое-чему я научилась в свое время. Нет, лучше не спрашивай об этом…"
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 1,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": false,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": false,
+            "IsQuestCons": false,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    },
+    {
+      "$type": "Node",
+      "Step": 4,
+      "Phrases": [
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Гарегин Востанци"
+          },
+          "Index": 4,
+          "Text": "Да, парон."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Событие Частичная Мобилизация",
+                "Happening": "Частичная_Мобилизация_Случай2"
+              }
+            ],
+            "PersonConsequences": [
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Гарегин Востанци"
+                },
+                "Value": 1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Мариам"
+                },
+                "Value": -1
+              }
+            ],
+            "HappenConsequences": [],
+            "IsParamCons": false,
+            "IsQuestCons": true,
+            "IsPersonCons": true,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    },
+    {
+      "$type": "Node",
+      "Step": 5,
+      "Phrases": [
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Мариам"
+          },
+          "Index": 5,
+          "Text": "Ты не пожалеешь! Наконец то мы, женщины, сможем показать, чего стоим!"
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Событие Частичная Мобилизация",
+                "Happening": "Частичная_Мобилизация_Случай3"
+              }
+            ],
+            "PersonConsequences": [
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Гарегин Востанци"
+                },
+                "Value": -1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Мариам"
+                },
+                "Value": 1
+              }
+            ],
+            "HappenConsequences": [],
+            "IsParamCons": false,
+            "IsQuestCons": true,
+            "IsPersonCons": true,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 0,
+  "IsBegin": false
+}

@@ -1,0 +1,78 @@
+{
+  "$type": "Happening",
+  "Quest": "Событие Дисциплина",
+  "Title": "Дисциплина_Случай3",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "Phrase",
+          "Index": 0,
+          "Text": "Ваш двоюродный брат Егише не стал терять время и с большим рвением принялся за укрепление дисциплины. Многие люди пришли с жалобами на его “методы”. Он заставил воинов жестоко избивать каждого, кто совершил хотя бы малейший проступок. Не жалели ни женщин, ни стариков, ни детей."
+        },
+        {
+          "$type": "Phrase",
+          "Index": 1,
+          "Text": "Вы убедили его остановить это безумие. И, хотя, по всему видно, что теперь в лагере станет куда спокойнее чем раньше, но люди остались крайне возмущены такой жестокостью."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 1,
+                "Value": -3
+              }
+            ],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Событие Дисциплина",
+                "Happening": "-----"
+              }
+            ],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": true,
+            "IsQuestCons": true,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 2,
+  "IsBegin": false
+}

@@ -1,0 +1,386 @@
+{
+  "$type": "DialogHappening",
+  "PeopleForDialog": [
+    {
+      "$type": "Person",
+      "Name": {
+        "$type": "PersonName",
+        "Name": "Барсег"
+      },
+      "PositionType": 1,
+      "IsApproached": false,
+      "XPosition": 10,
+      "Layer": 0
+    },
+    {
+      "$type": "Person",
+      "Name": {
+        "$type": "PersonName",
+        "Name": "Василий"
+      },
+      "PositionType": 1,
+      "IsApproached": false,
+      "XPosition": -15,
+      "Layer": 1
+    },
+    {
+      "$type": "Person",
+      "Name": {
+        "$type": "PersonName",
+        "Name": "Егише"
+      },
+      "PositionType": 0,
+      "IsApproached": false,
+      "XPosition": -8,
+      "Layer": 2
+    },
+    {
+      "$type": "Person",
+      "Name": {
+        "$type": "PersonName",
+        "Name": "Господин Ваан"
+      },
+      "PositionType": 0,
+      "IsApproached": false,
+      "XPosition": 3,
+      "Layer": 3
+    },
+    {
+      "$type": "Person",
+      "Name": {
+        "$type": "PersonName",
+        "Name": "Госпожа Рузан"
+      },
+      "PositionType": 0,
+      "IsApproached": false,
+      "XPosition": 18,
+      "Layer": 4
+    }
+  ],
+  "IsSpecialBackground": false,
+  "Advisor": {
+    "$type": "Person",
+    "Name": {
+      "$type": "PersonName",
+      "Name": ""
+    },
+    "PositionType": 0,
+    "IsApproached": false,
+    "XPosition": 0,
+    "Layer": 0
+  },
+  "Quest": "Начало",
+  "Title": "Встреча",
+  "Description": "Первый диалог",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Господин Ваан"
+          },
+          "Index": 0,
+          "Text": "А, племянник. Мы получили твое письмо, но ожидали твоего прибытия еще вчера…"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 1,
+          "Text": "Мы задержались на переправе из-за осенних дождей, мой господин."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Господин Ваан"
+          },
+          "Index": 2,
+          "Text": "Хм.. Да… Жаль, что мы так больше не свиделись с твоим отцом, с тех пор как он покинул дом. Сколько же лет прошло? Хм…"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 3,
+          "Text": "Почти тридцать, мой господин."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Господин Ваан"
+          },
+          "Index": 4,
+          "Text": "В самом деле. Расскажи, как умер мой брат?"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 5,
+          "Text": "Его извела легочная болезнь. И отца и матушку…"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Господин Ваан"
+          },
+          "Index": 6,
+          "Text": "Значит он умер как старик… Дааа… Плохая смерть для мужчины. Жаль."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 7,
+          "Text": "А какая для мужчины хорошая смерть, мой господин?"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Господин Ваан"
+          },
+          "Index": 8,
+          "Text": "В постели с женщиной лучше всего. Хотя и на поле брани тоже не плохо."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Госпожа Рузан"
+          },
+          "Index": 9,
+          "Text": "Прошу вас, давайте не будем говорить о смерти в этот светлый, озаренный Господом день. Парон Барсег, с возвращением домой!"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 10,
+          "Text": "Благодарю, госпожа."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Егише"
+          },
+          "Index": 11,
+          "Text": "«Домой?!» Как только император перестал платить за службу, мой кузен вспомнил, где его дом?"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Господин Ваан"
+          },
+          "Index": 12,
+          "Text": "Хм… маловато я тебя бил в детстве…"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 13,
+          "Text": "Я и не забывал где мой дом. Но мои родители много лет болели, я не мог покинуть их. И теперь, когда их не стало, меня больше ничего не держит в стране Ромеев."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Егише"
+          },
+          "Index": 14,
+          "Text": "Интересно, а ты или твой  отец участвовали в походах на Армению? Может быть, брали штурмом Ани? Вы ведь не можете ослушаться приказа самого Императора. Для того и идут на службу, чтобы исполнять приказы."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Господин Ваан"
+          },
+          "Index": 15,
+          "Text": "Довольно, сын. Рано или поздно твой язык тебя погубит."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Егише"
+          },
+          "Index": 16,
+          "Text": "Мой язык возвеличит меня и весь наш род, батюшка."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Господин Ваан"
+          },
+          "Index": 17,
+          "Text": "Ну, дай Бог. Чтож, Барсег… племянник…  Все же ты здесь."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 18,
+          "Text": "Да, мой господин. Я здесь, чтобы служить своему дому и своему князю. Мой меч и мое слово отныне принадлежат тебе, дядя."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Егише"
+          },
+          "Index": 19,
+          "Text": "А вы и вправду родственники: один без труда меняет жен, а другой хозяев."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Господин Ваан"
+          },
+          "Index": 20,
+          "Text": "Да прекрати уже меня позорить,, глупый мальчишка. Хм… Барсег, а что же твой спутник?"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Василий"
+          },
+          "Index": 21,
+          "Text": "Меня зовут Василий из славного рода Эпидексиос, господин. Мы с Барсегом друзья и соратники. Мой срок службы в армии вышел, и я больше не имею желания исполнять приказы Базилевса, о которых недавно упомянул ваш сообразительный сын."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Господин Ваан"
+          },
+          "Index": 22,
+          "Text": "Хм, хм.. Ну что же, Василий из рода Эпидексиос, будь другом и гостем нашего дома, раз уж пришел. А ты, племянник, можешь служить нашему дому, мечом и словом. Проходите в чертоги…"
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Начало",
+                "Happening": "Знакомство"
+              }
+            ],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": false,
+            "IsQuestCons": true,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": false,
+            "Quest": "Начало",
+            "SetupCamp": true,
+            "DialogAvailable": 7,
+            "LeaveCamp": false,
+            "IsAfterAction": true,
+            "IsActivateQuest": true
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 1,
+  "IsBegin": false
+}

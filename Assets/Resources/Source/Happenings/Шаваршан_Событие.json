@@ -1,0 +1,78 @@
+{
+  "$type": "Happening",
+  "Quest": "Шаваршан",
+  "Title": "Шаваршан_Событие",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "Phrase",
+          "Index": 0,
+          "Text": "Над равниной возвышается могучая крепость, вросшая прямо в скалу. Ее темные стены сливаются с каменными породами, так что замок кажется частью ландшафта. Шаваршан выглядит еще более неприступным, чем Аревберд. Впрочем, остались ли неприступные крепости, когда ворота могут открыться руками предателя в любой момент?"
+        },
+        {
+          "$type": "Phrase",
+          "Index": 1,
+          "Text": "У подножия скалы виднеется большой лагерь, состоящий из повозок, палаток и шалашей. должно быть люди со всей округи стекаются к Шаваршану, но хозяин этой твердыни не спешит их пускать внутрь. Когда вы проезжаете через этот лагерь, то видите как сильно досталось этим беженцам. Среди них много больных и раненных, повсюду воняет нечистотами. Кто-то просит еды и воды, плачут дети…"
+        },
+        {
+          "$type": "Phrase",
+          "Index": 2,
+          "Text": "Оказавшись у ворот замка, вы окликаете стражу: “Мы из Аревберда! С нами князь Богуни и вся его семья!” Через некоторое время ворота отворяются и вы видите перед собой властного, сухого старика, окруженного воинами."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Шаваршан",
+                "Happening": "Шаваршан_Диалог"
+              }
+            ],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": false,
+            "IsQuestCons": true,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "Quest": "Шаваршан",
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": true,
+            "IsActivateQuest": true
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 1,
+  "IsBegin": true
+}

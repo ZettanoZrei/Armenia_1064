@@ -1,0 +1,73 @@
+{
+  "$type": "Happening",
+  "Quest": "Событие Самолечение",
+  "Title": "Самолечение_Случай2",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "Phrase",
+          "Index": 0,
+          "Text": "С тех пор как госпожа Рузан взялась за лечение больных детей дела пошли на поправку. Ребятишки стали чувствовать себя лучше. Бабушкин отвар подействовал. Но далеко не все люди остались этим довольны. По отряду пополз слух, что госпожа колдунья, а то и вообще ведьма. Видано ли чтобы княгиня знала толк во врачевании? Определенно в этом замешана какая то магия. Бедная госпожа Рузан так и не получила должной благодарности за свои труды."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 1,
+                "Value": -3
+              }
+            ],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Событие Самолечение",
+                "Happening": "-----"
+              }
+            ],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": true,
+            "IsQuestCons": true,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 2,
+  "IsBegin": false
+}

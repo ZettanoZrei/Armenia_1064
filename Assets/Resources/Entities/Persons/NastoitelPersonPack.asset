@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da109c518dc4fc04d841adf6b78b0b4f, type: 3}
+  m_Name: NastoitelPersonPack
+  m_EditorClassIdentifier: 
+  _name: "\u041D\u0430\u0441\u0442\u043E\u044F\u0442\u0435\u043B\u044C"
+  complects:
+  - front: {fileID: 21300000, guid: 75357d54e95413d44816f10bde617fb5, type: 3}
+    back: {fileID: 21300000, guid: fffc9c13f7fcc99478201aeb37067f22, type: 3}
+  portraits:
+  - {fileID: 21300000, guid: 79a608fa3d3ce3245ac049efa33d7c60, type: 3}
+  relation: 0
+  mainCharacter: 0

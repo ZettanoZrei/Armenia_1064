@@ -1,0 +1,498 @@
+{
+  "$type": "DialogHappening",
+  "PeopleForDialog": [
+    {
+      "$type": "Person",
+      "Name": {
+        "$type": "PersonName",
+        "Name": "Барсег"
+      },
+      "PositionType": 1,
+      "IsApproached": false,
+      "XPosition": -9,
+      "Layer": 0
+    },
+    {
+      "$type": "Person",
+      "Name": {
+        "$type": "PersonName",
+        "Name": "Знатный воин"
+      },
+      "PositionType": 0,
+      "IsApproached": false,
+      "XPosition": 0,
+      "Layer": 1
+    }
+  ],
+  "IsSpecialBackground": false,
+  "Advisor": {
+    "$type": "Person",
+    "Name": {
+      "$type": "PersonName",
+      "Name": ""
+    },
+    "PositionType": 1,
+    "IsApproached": false,
+    "XPosition": 11,
+    "Layer": 0
+  },
+  "Quest": "Армянский военачальник",
+  "Title": "арм_воен_диалог",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Знатный воин"
+          },
+          "Index": 0,
+          "Text": "Вы откуда?"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 1,
+          "Text": "Из Аревберда. Он захвачен и разорен."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Знатный воин"
+          },
+          "Index": 2,
+          "Text": "Турок неподалеку видали?"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 3,
+          "Text": "Турки теперь повсюду… А вы скачете навстречу общему войску, чтобы дать отпор?"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Знатный воин"
+          },
+          "Index": 4,
+          "Text": "Какое еще общее войско, парень? Нынче каждый сам за себя. Кто-то сбежал, кто-то забился в своем замке и ждет неизбежной участи. А кто-то, как мы, сражается, не смотря ни на что."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 5,
+          "Text": "Но вас не наберется и сотни копий. Если вы встретите крупный вражеский отряд, на этом ваша борьба и закончится."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Знатный воин"
+          },
+          "Index": 6,
+          "Text": "Знаю. И каждый из нас это знает. И все же мы сражаемся. Это ведь наша, армянская земля и мы, армяне, должны ее защищать. А ты, парень, и все вы, считаете себя армянами? Я вижу среди вас немало здоровых и сильных мужей. Турок в другой стороне, почему вы бежите от него?"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 7,
+          "Text": "Посмотри внимательнее, уважаемый парон, с нами множество женщин, детей, стариков. Наша задача и наш долг вывести их в безопасное место, защитить их.\r\n"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Знатный воин"
+          },
+          "Index": 8,
+          "Text": "Безопасное место, говоришь? Не будет больше таких мест на армянской земле, если мы не отстоим свою страну. Лучшее, что вы можете сделать для тех, кого защищаете, это пойти и сразиться с турками!"
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "Text": "Что же, согласен. Не буду удерживать никого, кто решит пойти сражаться плечом к плечу с этими благородными воинами.",
+          "ToStep": 2,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": false,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": false,
+            "IsQuestCons": false,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        },
+        {
+          "$type": "Answer",
+          "Text": "Нет, эта затея – чистое самоубийство. Так мы не отстоим свою землю, и близких не защитим. Мы продолжим свой путь, и пока наши люди не окажутся в безопасности, нам не следует заниматься никакими авантюрами.",
+          "ToStep": 3,
+          "IsRestriction": false,
+          "Index": 1,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": false,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": false,
+            "IsQuestCons": false,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [
+        {
+          "$type": "AdvicePhrase",
+          "Relation": 3,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Егише"
+          },
+          "Index": 0,
+          "Text": "Наконец мы встретили кого-то у кого есть хоть капля чести! Надо отправить с ними всех, кто может держать в руках оружие. Пусть изгонят сельджуков с моих земель. Может быть, они даже Аревберд отобьют!"
+        },
+        {
+          "$type": "AdvicePhrase",
+          "Relation": 3,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Госпожа Рузан"
+          },
+          "Index": 0,
+          "Text": "Господь всемилостивый и дева Мариям, что же происходит… Ты ведь не позволишь им забрать наших защитников? Если мужчины уйдут, что будет с нами? Мы все погибнем…"
+        },
+        {
+          "$type": "AdvicePhrase",
+          "Relation": 3,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Василий"
+          },
+          "Index": 0,
+          "Text": "Скажу честно, отпускать наших людей - затея так себе, но сориться с этим типом мне бы не хотелось."
+        },
+        {
+          "$type": "AdvicePhrase",
+          "Relation": 3,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Гарегин Востанци"
+          },
+          "Index": 0,
+          "Text": "Этот знатный воин – настоящий безумец. Он ведет всех этих храбрых парней на верную смерть. Нет в этом никакой доблести. Если хочешь помереть, так помри сам, зачем других за собой тащить на тот свет? Не слушай эти пустые пафосные речи, Барсег."
+        },
+        {
+          "$type": "AdvicePhrase",
+          "Relation": 3,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Тер-Григор"
+          },
+          "Index": 0,
+          "Text": " В речах этого мужа слишком много гнева и скорби. Он не понимает, что грешит, так отчаянно стремясь убивать и быть убиенным. Ты должен уберечь от греха своих людей. "
+        },
+        {
+          "$type": "AdvicePhrase",
+          "Relation": 3,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Мариам"
+          },
+          "Index": 0,
+          "Text": "Мужчины снова суетятся почем зря. Поступай, как считаешь нужным, это не имеет особенного значения. Лишь бы, не терять времени, и побыстрее выбраться из этих гиблых мест."
+        }
+      ],
+      "IsFocus": false,
+      "IsShowFace": false
+    },
+    {
+      "$type": "Node",
+      "Step": 2,
+      "Phrases": [
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Знатный воин"
+          },
+          "Index": 9,
+          "Text": "Посмотрим сколько среди вас настоящих армян!"
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 1,
+                "Value": -10
+              },
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 3,
+                "Value": -6
+              }
+            ],
+            "QuestConsequences": [],
+            "PersonConsequences": [
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Егише"
+                },
+                "Value": 1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Госпожа Рузан"
+                },
+                "Value": -1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Гарегин Востанци"
+                },
+                "Value": -1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Тер-Григор"
+                },
+                "Value": -1
+              }
+            ],
+            "HappenConsequences": [],
+            "Message": "Один за другим начинают выходить мужчины, готовые стать добровольцами. Командир всадников смотрит на вас с легким презрением, должно быть, он ожидал, что и вы сами присоединитесь к этому походу. И все же, он выглядит удовлетворенным, его отряд пополнился свежей кровью. А вы, вместе со всеми, кто остался, продолжаете свой путь.",
+            "IsParamCons": true,
+            "IsQuestCons": false,
+            "IsPersonCons": true,
+            "IsHappenCons": false,
+            "IsMessage": true
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    },
+    {
+      "$type": "Node",
+      "Step": 3,
+      "Phrases": [
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Знатный воин"
+          },
+          "Index": 10,
+          "Text": "Что еще можно ожидать от греческого выкормыша? Да, парень, по твоей одежде и безделушкам все сразу понятно. Ромеи вымыли из тебя все армянское. Лучше к ним и возвращайся."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 1,
+                "Value": -10
+              }
+            ],
+            "QuestConsequences": [],
+            "PersonConsequences": [
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Егише"
+                },
+                "Value": -1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Госпожа Рузан"
+                },
+                "Value": 1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Гарегин Востанци"
+                },
+                "Value": 1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Тер-Григор"
+                },
+                "Value": 1
+              }
+            ],
+            "HappenConsequences": [
+              {
+                "$type": "SingleHappeningConsequences",
+                "Quest": "",
+                "OldHappening": "",
+                "NewHappening": ""
+              }
+            ],
+            "Message": "Командир всадников не скрывает к вам своего презрения. Он не пытается вас уговаривать или угрожать. А только молча седлает коня и дает знак своим воинам продолжать путь, оставляя вас откашливаться в дорожной пыли.",
+            "IsParamCons": true,
+            "IsQuestCons": false,
+            "IsPersonCons": true,
+            "IsHappenCons": false,
+            "IsMessage": true
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 2,
+  "IsBegin": false
+}

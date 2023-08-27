@@ -1,0 +1,429 @@
+{
+  "$type": "DialogHappening",
+  "PeopleForDialog": [
+    {
+      "$type": "Person",
+      "Name": {
+        "$type": "PersonName",
+        "Name": "Барсег"
+      },
+      "PositionType": 1,
+      "IsApproached": false,
+      "XPosition": -1,
+      "Layer": 0
+    },
+    {
+      "$type": "Person",
+      "Name": {
+        "$type": "PersonName",
+        "Name": "Главарь Разбойников"
+      },
+      "PositionType": 0,
+      "IsApproached": false,
+      "XPosition": -9,
+      "Layer": 1
+    }
+  ],
+  "IsSpecialBackground": false,
+  "Advisor": {
+    "$type": "Person",
+    "Name": {
+      "$type": "PersonName",
+      "Name": ""
+    },
+    "PositionType": 0,
+    "IsApproached": false,
+    "XPosition": 0,
+    "Layer": 0
+  },
+  "Quest": "Голодные Бандиты",
+  "Title": "Голодные_Бандиты_Диалог",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Главарь Разбойников"
+          },
+          "Index": 0,
+          "Text": "Здравствуйте вам, добрые люди. Как здорово, что мы вас встретили. Дела наши совсем плохи, у нас закончилась еда. А вы, как добрые христиане, конечно, поделитесь с нами."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "Text": "Конечно. Времена тяжелые, мы обязаны помогать нуждающимся.",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 0,
+                "Value": -10
+              },
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 1,
+                "Value": -5
+              }
+            ],
+            "QuestConsequences": [],
+            "PersonConsequences": [
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Егише"
+                },
+                "Value": -1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Госпожа Рузан"
+                },
+                "Value": 1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Гарегин Востанци"
+                },
+                "Value": -1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Тер-Григор"
+                },
+                "Value": 1
+              }
+            ],
+            "HappenConsequences": [],
+            "Message": "Вы отдаете бандитам часть своих припасов. Люди хмурятся и ворчат. Некоторые качают головой, косясь в вашу сторону.",
+            "IsParamCons": true,
+            "IsQuestCons": false,
+            "IsPersonCons": true,
+            "IsHappenCons": false,
+            "IsMessage": true
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        },
+        {
+          "$type": "Answer",
+          "Text": "Боюсь, что нам самим не легко. Мы не можем вам ничем помочь",
+          "ToStep": 2,
+          "IsRestriction": false,
+          "Index": 1,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": false,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": false,
+            "IsQuestCons": false,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [
+        {
+          "$type": "AdvicePhrase",
+          "Relation": 0,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Егише"
+          },
+          "Index": 0,
+          "Text": "Нечего даже слушать этих оборванцев! Пусть проваливают с дороги! Таким как они, я каждое воскресенье кидаю медяки и наблюдаю, как они рвут друг друга на части за пару монет."
+        },
+        {
+          "$type": "AdvicePhrase",
+          "Relation": 3,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Госпожа Рузан"
+          },
+          "Index": 0,
+          "Text": "Кажется, эти люди, в самом деле, выглядят голодными и несчастными. И… немного опасными. Боже, спаси нас и сохрани! "
+        },
+        {
+          "$type": "AdvicePhrase",
+          "Relation": 3,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Гарегин Востанци"
+          },
+          "Index": 0,
+          "Text": "Не слушай этих проходимцев, парон Барсег. Положишь им палец в рот – откусят руку по локоть. Отвернешься – вонзят нож в спину."
+        },
+        {
+          "$type": "AdvicePhrase",
+          "Relation": 3,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Василий"
+          },
+          "Index": 0,
+          "Text": "Как бы ты ни поступил, советую решать быстрее, пока нас не настиг кто-то пострашнее, чем эти бродяги."
+        },
+        {
+          "$type": "AdvicePhrase",
+          "Relation": 3,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Тер-Григор"
+          },
+          "Index": 0,
+          "Text": "Наш христианский долг в том, чтобы делиться последним куском хлеба. Даже с теми, кто обречен. Даже если и мы сами обречены…"
+        },
+        {
+          "$type": "AdvicePhrase",
+          "Relation": 3,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Мариам"
+          },
+          "Index": 0,
+          "Text": "По осторожнее с этими людьми. Могу поспорить, это самые настоящие головорезы."
+        }
+      ],
+      "IsFocus": false,
+      "IsShowFace": false
+    },
+    {
+      "$type": "Node",
+      "Step": 2,
+      "Phrases": [
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Главарь Разбойников"
+          },
+          "Index": 1,
+          "Text": "Послушай, друг, скажу прямо, нам нужна эта еда. И мы ее заберем с вашего согласия или без него. Мы не желаем вам зла, так что давай обойдемся без кровопролития."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "Text": "Вижу, что выбора у нас нет. Мы с вами поделимся.",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 0,
+                "Value": -10
+              },
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 1,
+                "Value": -5
+              }
+            ],
+            "QuestConsequences": [],
+            "PersonConsequences": [
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Егише"
+                },
+                "Value": -1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Госпожа Рузан"
+                },
+                "Value": 1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Гарегин Востанци"
+                },
+                "Value": -1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Тер-Григор"
+                },
+                "Value": 1
+              }
+            ],
+            "HappenConsequences": [],
+            "Message": "Вы отдаете бандитам часть своих припасов. Люди хмурятся и ворчат. Некоторые качают головой, косясь в вашу сторону.",
+            "IsParamCons": true,
+            "IsQuestCons": false,
+            "IsPersonCons": true,
+            "IsHappenCons": false,
+            "IsMessage": true
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        },
+        {
+          "$type": "Answer",
+          "Text": "Не стоило и прикидываться добрыми путниками. Вы самые обычные бандиты. Мы не дадим себя ограбить!",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 1,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Голодные Бандиты 1",
+                "Happening": "Голодные_Бандиты_Послествие"
+              }
+            ],
+            "PersonConsequences": [
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Егише"
+                },
+                "Value": 1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Госпожа Рузан"
+                },
+                "Value": -1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Гарегин Востанци"
+                },
+                "Value": 1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Тер-Григор"
+                },
+                "Value": -1
+              }
+            ],
+            "HappenConsequences": [],
+            "Message": "",
+            "IsParamCons": false,
+            "IsQuestCons": true,
+            "IsPersonCons": true,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "Quest": "Голодные Бандиты 1",
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": true,
+            "IsActivateQuest": true
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 0,
+  "IsBegin": false
+}

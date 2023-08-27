@@ -1,0 +1,78 @@
+{
+  "$type": "Happening",
+  "Quest": "Событие Самолечение",
+  "Title": "Самолечение_Случай3",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "Phrase",
+          "Index": 0,
+          "Text": "Этой ночью произошла трагедия. Умер один из больных малышей. Тер-Григор запретил лечить детей какими либо средствами и уповал лишь на молитвы. Не смотря на произошедшее горе, даже родители малыша в итоге остались утешены проповедями священника. Он убедил, что их дитя теперь в гораздо более лучшем мире, чем этот. Странное дело, иногда надежда оказывается важнее чем реальный результат."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 1,
+                "Value": 3
+              },
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 3,
+                "Value": -1
+              }
+            ],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Событие Самолечение",
+                "Happening": "-----"
+              }
+            ],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": true,
+            "IsQuestCons": true,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 2,
+  "IsBegin": false
+}

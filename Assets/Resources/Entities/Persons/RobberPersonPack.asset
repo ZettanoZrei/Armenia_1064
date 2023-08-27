@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da109c518dc4fc04d841adf6b78b0b4f, type: 3}
+  m_Name: RobberPersonPack
+  m_EditorClassIdentifier: 
+  _name: "\u0413\u043B\u0430\u0432\u0430\u0440\u044C \u0420\u0430\u0437\u0431\u043E\u0439\u043D\u0438\u043A\u043E\u0432"
+  complects:
+  - front: {fileID: 21300000, guid: ec8d333f385f1db4cb37841616266d0a, type: 3}
+    back: {fileID: 21300000, guid: 52d927f384cd3a04ab54c187a2beae8d, type: 3}
+  portraits:
+  - {fileID: 21300000, guid: 5a938c3c99229bb40bde3edca4c744c8, type: 3}
+  relation: 0
+  mainCharacter: 0

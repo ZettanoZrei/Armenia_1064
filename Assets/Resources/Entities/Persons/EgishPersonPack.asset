@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da109c518dc4fc04d841adf6b78b0b4f, type: 3}
+  m_Name: EgishPersonPack
+  m_EditorClassIdentifier: 
+  _name: "\u0415\u0433\u0438\u0448\u0435"
+  complects:
+  - front: {fileID: 21300000, guid: b248a07b918f79246854e33192bc8350, type: 3}
+    back: {fileID: 21300000, guid: b49ab302200346048b2dab615ff14ab6, type: 3}
+  - front: {fileID: 21300000, guid: faf5fe957ae45394c9032de31bec5a9a, type: 3}
+    back: {fileID: 21300000, guid: 6c9fcf246dd58f94a8130ff82a201177, type: 3}
+  portraits:
+  - {fileID: 21300000, guid: 042c90e8c7054ad42a8beabf9ec20408, type: 3}
+  - {fileID: 21300000, guid: 477c1d6b32491084c8aab4fe9ec43b79, type: 3}
+  relation: 4
+  mainCharacter: 1

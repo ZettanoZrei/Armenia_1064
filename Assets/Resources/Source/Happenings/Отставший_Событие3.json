@@ -1,0 +1,271 @@
+{
+  "$type": "Happening",
+  "Quest": "Событие Отставший",
+  "Title": "Отставший_Событие3",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "Phrase",
+          "Index": 0,
+          "Text": "Вы распоряжаетесь остаться на привале еще какое-то время. И, хотя многие из ваших спутников сочувствуют несчастной женщине, но задерживаться на открытой местности, когда вокруг рыщут отряды турок, не хочется никому."
+        },
+        {
+          "$type": "Phrase",
+          "Index": 1,
+          "Text": "Спустя пару часов до вас доносится ржание лошадей. Звук слабый, всадники еще далеко но вас и ваших спутников это тревожит не на шутку. Сейчас самое время уносить ноги, пока еще не поздно. Но тогда отставшему мужчине никогда в жизни не нагнать отряд."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "Text": "Мы сделали все что могли для этой семьи, но теперь пора уходить.",
+          "ToStep": 2,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": false,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": false,
+            "IsQuestCons": false,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        },
+        {
+          "$type": "Answer",
+          "Text": "Подождем еще немного.",
+          "ToStep": 3,
+          "IsRestriction": false,
+          "Index": 1,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": false,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": false,
+            "IsQuestCons": false,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    },
+    {
+      "$type": "Node",
+      "Step": 2,
+      "Phrases": [
+        {
+          "$type": "Phrase",
+          "Index": 2,
+          "Text": " Вы поднимаете людей, чтобы продолжить путь. Колонна неумолимо движется вперед по дороге. Несчастная женщина, костлявыми руками прижимающая ребенка к груди, плетется где-то в хвосте. Вы даете распоряжение нескольким мужчинам понести ее дитя по очереди, пока та не восстановит силы. Это все что вы можете для нее сделать."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 1,
+                "Value": -5
+              }
+            ],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Событие Отставший",
+                "Happening": "-----"
+              }
+            ],
+            "PersonConsequences": [],
+            "HappenConsequences": [
+              {
+                "$type": "SingleHappeningConsequences",
+                "Quest": "Событие Отставший",
+                "OldHappening": "-----",
+                "NewHappening": ""
+              }
+            ],
+            "IsParamCons": true,
+            "IsQuestCons": true,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    },
+    {
+      "$type": "Node",
+      "Step": 3,
+      "Phrases": [
+        {
+          "$type": "Phrase",
+          "Index": 3,
+          "Text": "Спустя еще какое-то время на пригорке, недалеко от вас появляется всадник. По всему видно, что это турок. На вытянутой руке он держит отрезанную человеческую голову. Турок смотрит на вас и кровожадно ухмыляется."
+        },
+        {
+          "$type": "Phrase",
+          "Index": 4,
+          "Text": "Раздается пронзительный женский вопль. Несчастная женщина, сжимающая костлявыми руками ребенка падает на колени и вы понимаете что отрубленная голова принадлежала ее мужу. "
+        },
+        {
+          "$type": "Phrase",
+          "Index": 5,
+          "Text": "Но, прежде чем кто-то успел что либо предпринять из-за пригорка полетели стрелы и показались новые всадники.  Начинается паника. Люди в спешке снимаются с места и  спешат убраться подальше. Воины прикрывают щитами их отступление. На ваших глазах молодой мужчина падает со стрелой в спине, пытаясь закрыть своим телом младшего брата. "
+        },
+        {
+          "$type": "Phrase",
+          "Index": 6,
+          "Text": "Вы тоже хватаетесь за щит и и идете в хвост колонны. Турки продолжают поливать вас стрелами. Их не не очень много, они не решаются атаковать в лоб, но и вы не смогли бы угнаться за всадниками. Еще и еще рядом с вами падают люди и это продолжается до тех пор, пока всему вашему отряду не удается скрыться в  роще."
+        },
+        {
+          "$type": "Phrase",
+          "Index": 7,
+          "Text": "Когда стрелы перестали свистеть между стволами деревьев, вы вспоминаете о женщине с ребенком, но их нигде не видно. Впрочему теперь до них уже никому нет дела, ибо горе коснулось всех. А на вас смотрят как на причину этого горя."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 2,
+                "Value": -5
+              },
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 3,
+                "Value": -10
+              }
+            ],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Событие Отставший",
+                "Happening": "-----"
+              }
+            ],
+            "PersonConsequences": [],
+            "HappenConsequences": [
+              {
+                "$type": "SingleHappeningConsequences",
+                "Quest": "Событие Отставший",
+                "OldHappening": "-----",
+                "NewHappening": ""
+              }
+            ],
+            "IsParamCons": true,
+            "IsQuestCons": true,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 0,
+  "IsBegin": false
+}

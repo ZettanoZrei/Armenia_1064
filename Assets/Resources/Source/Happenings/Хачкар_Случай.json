@@ -1,0 +1,77 @@
+{
+  "$type": "Happening",
+  "Quest": "Событие Хачкар",
+  "Title": "Хачкар_Случай",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "Phrase",
+          "Index": 0,
+          "Text": "Немного в стороне от дороги на небольшом пригорке вы замечаете большой прямоугольный силуэт. Подойдя ближе, вам становится видно, что это хачкар. Очень большой, вырезанный из темного туфа и, кажется, очень древний."
+        },
+        {
+          "$type": "Phrase",
+          "Index": 1,
+          "Text": "Возможно, его установили здесь еще во времена Григория Просветителя. Каменный крест выглядит величественно, даже не смотря на то что искусная резьба на нем уже почти стерлась. "
+        },
+        {
+          "$type": "Phrase",
+          "Index": 2,
+          "Text": "Люди вокруг вас начинают креститься и падать на колени. Всем хочется верить, что это добрый знак, людям нужна надежда. С удивлением, вы осознаете, что тоже стоите на коленях и шепчете: “Отче наш…” Надежда нужна всем."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 1,
+                "Value": 5
+              }
+            ],
+            "QuestConsequences": [],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": true,
+            "IsQuestCons": false,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 2,
+  "IsBegin": true
+}

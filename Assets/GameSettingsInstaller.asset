@@ -1,0 +1,104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60b2c6304f2641a48acda6a0d3dcff27, type: 3}
+  m_Name: GameSettingsInstaller
+  m_EditorClassIdentifier: 
+  parametersConfig:
+    food: 50
+    spirit: 50
+    stamina: 50
+    people: 80
+    removePeopleTimes: 4
+    countPeopleRemoved: 2
+    changeSpeed: 0.005
+    whiteProgress: {fileID: 21300000, guid: ae7cb08e8a604b849a393a3326a68b23, type: 3}
+  startBackgroundsConfig:
+    campBackground: "\u0410\u0440\u0435\u0432\u0431\u0435\u0440\u0434"
+    dialogBackground:
+      dialogFrontTravel: Arevberd_Dialog
+      dialogBackTravel: Arevberd_Dialog2
+      dialogFrontCamp: Arevberd_Dialog
+      dialogBackCamp: Arevberd_Dialog2
+      state: 0
+  caravanConfig:
+    speed: 3.3
+    spendTime: 2
+    staminaSpend: 0.52
+    foodSpendCoef: 0.0052
+    spiritSpendCoef: 0.00266
+  restConfiguration:
+    plusParam: 10
+    minusParam: -10
+  startSceneConfig:
+    startScene: 5
+    fullStart: 0
+  soundConfig:
+    buttonClick: {fileID: 8300000, guid: 8fff23651a4de6d43a42523413afe9ba, type: 3}
+    tense: {fileID: 8300000, guid: f1ddba0be66c23045bea98b85fbba886, type: 3}
+    title: {fileID: 8300000, guid: e44aa09e50846d54f9cf5457ea5e8ea7, type: 3}
+    ambient: {fileID: 8300000, guid: 98d9e8b15dc4bef43ad1616415cdb174, type: 3}
+    speedUp: 0.009
+    speedDown: 0.1
+    volumeMusic: 0
+    activateMusic: 1
+    volumeSounds: 0.414
+    activateSounds: 1
+  tutorialConfig:
+    activate: 1
+    startStep: 0
+  plotConfig:
+    activate: 1
+    startStep: 0
+    fistWordsTime: 10
+    extraDialogPhraseTime: 2
+    darkWordTime: 3
+    mapPlot:
+      aimScale: 1.4
+      timeInterval: 0.1
+      stepMax: 0.0005
+      stepMin: 0.0004
+    gameTitlePlot:
+      startDelayTime: 2
+      appearTime: 3
+      stayTime: 5
+      fadeTime: 3
+      blackoutTime: 3
+  timeConfig:
+    secPerDay: 60
+    restDay: 0.5
+  popupConfig:
+    flyinngPopup:
+      upLimit: 6
+      speed: 0.07
+      fadeSpeed: 0.015
+    reactionPopupConfig:
+      stayTime: 5
+      appearSpeed: 0.1
+    blackPanelConfig:
+      darkUpSpeed: 0.01
+      darkDownSpeed: 0.005
+      delayAfterDark: 0.05
+  otherConfig:
+    adviceRelationRestriction: 3
+  saveConfing:
+    isSave: 1
+    timeSave: 2
+  introConfig:
+    activate: 0
+    startStep: 0
+    logoAppearTime: 1
+    logoStayTime: 2.5
+    logoFadeTime: 0.8
+    historyDelayTime: 1
+    historyAppearTime: 2
+    historyStayTime: 30
+    historyFadeime: 2

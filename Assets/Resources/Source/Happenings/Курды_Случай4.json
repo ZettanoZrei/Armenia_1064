@@ -1,0 +1,90 @@
+{
+  "$type": "Happening",
+  "Quest": "Событие Курды",
+  "Title": "Курды_Случай4",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "Phrase",
+          "Index": 0,
+          "Text": "Ваш отряд переходит вброд небольшую, но бурную горную речку. Едва не ломая ноги о подводные камни, люди с трудом, один за другим, оказываются на другом берегу. Но тут до вас доносится детский крик. Девочка, еще совсем малышка, не удержалась на\r\nруках у матери оказалась в воде, и прежде чем кто-либо успел понять что происходит - скрылась в бурном потоке."
+        },
+        {
+          "$type": "Phrase",
+          "Index": 1,
+          "Text": "Как ни странно, первым бросается ей на помощь один из курдов, что не так давно присоединились к вам. Еще несколько мужчин идут следом, но им не успеть за быстрым потоком. Все взоры устремлены на молодого мусульманина, пытающегося спасти дитя. Спустя пару мгновений, девочка оказывается у него в руках. Им помогают выбраться на берег, и мать снова воссоединяется со своим ребенком."
+        },
+        {
+          "$type": "Phrase",
+          "Index": 2,
+          "Text": "Люди в смущении благодарят этого смелого парня. А ведь еще совсем недавно они яростно желали расправы над всеми курдами. Хорошо что этого удалось избежать."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 1,
+                "Value": 15
+              }
+            ],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Событие Курды",
+                "Happening": "Курды_Случай5"
+              }
+            ],
+            "PersonConsequences": [],
+            "HappenConsequences": [
+              {
+                "$type": "SingleHappeningConsequences",
+                "Quest": "Событие Курды",
+                "OldHappening": "Курды_Случай5",
+                "NewHappening": ""
+              }
+            ],
+            "IsParamCons": true,
+            "IsQuestCons": true,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 2,
+  "IsBegin": false
+}

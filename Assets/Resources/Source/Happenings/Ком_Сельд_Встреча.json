@@ -1,0 +1,73 @@
+{
+  "$type": "Happening",
+  "Quest": "Командир сельджуков",
+  "Title": "Ком_Сельд_Встреча",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "Phrase",
+          "Index": 0,
+          "Text": "Дорога, по которой вы движетесь, пролегает на дне поросшего кустарником и высокой травой оврага. “Идеальное место для засады” - мелькнуло у вас в голове. И в этот момент вам под ноги прилетает стрела. Вы тотчас выхватываете из ножен меч, но уже поздно: со всех сторон показываются сельджукские воины. Но странное дело: если бы они хотели вас просто перебить, они бы этим уже занялись. “Чего они хотят?” - шепнул позади вас чей-то напряженный голос."
+        },
+        {
+          "$type": "Phrase",
+          "Index": 1,
+          "Text": "Хорошенько осмотревшись, вы понимаете, что враги не так уж многочисленны. Должно быть, они стараются избежать прямого столкновения. Так и есть. Вперед выходит их командир, смуглый, коренастый, с жесткими чертами лица. Он горделиво и с нескрываемой ненавистью смотрит на вас, будто бросая вызов."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Событие Командир сельджуков",
+                "Happening": "Ком_Сельд_Диалог"
+              }
+            ],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": false,
+            "IsQuestCons": true,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "Quest": "Событие Командир сельджуков",
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": true,
+            "IsActivateQuest": true
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 2,
+  "IsBegin": true
+}

@@ -1,0 +1,59 @@
+<root>
+	<happening>
+		<node step="1">
+			<text> Постой. Дальше люди идти уже не могут. Разобьем лагерь здесь </text>							
+			<answers>
+				<answer tostep="2">
+					<text> Им придеться. Идем дальше. </text>										
+				</answer>
+				<answer tostep="3">
+					<text> Сельджуки еще могут нас нагнать.</text>										
+				</answer>
+				<answer tostep="0">
+					<text> Если ты так считаешь, то ладно.</text>
+					<consequences>
+						<quests>
+							<quest title="tiredness" next="death"/>
+						</quests>		
+					</consequences>
+					<after type="camp"/>
+				</answer>
+			</answers>
+		</node>
+		<node step="2">
+			<text> Капитан стражи смотрит на вас не одобрительно. "Тебе решать парень, но если мы пойдем дальше то потеряем людей." </text>		
+			<answers>
+				<answer tostep="0" index="0">
+					<text> Ладно, разбиваем лагерь </text>
+					<consequences>
+						<quests>
+							<quest title="tiredness" next="death"/>
+						</quests>		
+					</consequences>
+					<after type="camp"/>
+				</answer>
+				<answer tostep="0" index="1">
+					<text> Я знаю, старик. Мы идем дальше. </text>										
+				</answer>
+			</answers>
+		</node>
+		<node step="3">
+			<text> Мы немного от них оторвались. Лучше воспользоваться возможностью и передохнуть. </text>		
+			<answers>
+				<answer tostep="0" index="0">
+					<text> Ладно, разбиваем лагерь </text>
+					<consequences>
+						<quests>
+							<quest title="tiredness" next="death"/>
+						</quests>		
+					</consequences>
+					<after type="camp"/>
+				
+			</answer>
+				<answer tostep="2" index="1">
+					<text> Чем больше мы пройдем тем лучше </text>										
+				</answer>
+			</answers>
+		</node>
+	</happening>
+</root>

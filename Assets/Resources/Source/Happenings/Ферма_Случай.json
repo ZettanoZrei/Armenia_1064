@@ -1,0 +1,120 @@
+{
+  "$type": "Happening",
+  "Quest": "Событие Ферма",
+  "Title": "Ферма_Случай",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "Phrase",
+          "Index": 0,
+          "Text": "Чуть в стороне от дороги, по которой вы движетесь, виднеется группа крепких каменных строений. Кажется их еще не коснулась война. Вы посылаете пару человек обследовать это место."
+        },
+        {
+          "$type": "Phrase",
+          "Index": 1,
+          "Text": "Они возвращаются довольно быстро и в хорошем настроении. “Это ферма, - говорит один из них, - совсем нетронутая, но хозяев нигде не видно. Зато там полно съестных запасов и несколько живых свиней в сарае. Кажется, нам повезло!”"
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "Text": "Да, нам действительно повезло, давайте остановимся ненадолго на этой ферме и соберем все полезное.",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 0,
+                "Value": 10
+              },
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 1,
+                "Value": 5
+              },
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 2,
+                "Value": 3
+              }
+            ],
+            "QuestConsequences": [],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": true,
+            "IsQuestCons": false,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        },
+        {
+          "$type": "Answer",
+          "Text": "Должно быть хозяева укрылись в безопасном месте, но они наверняка захотят вернуться домой после войны. Мы не станем грабить честных людей!",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 1,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": false,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": false,
+            "IsQuestCons": false,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 2,
+  "IsBegin": true
+}

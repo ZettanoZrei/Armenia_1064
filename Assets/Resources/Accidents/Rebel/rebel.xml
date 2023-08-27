@@ -1,0 +1,18 @@
+<root>	
+	<happening>
+		<node step="1">
+			<text> Капитан хмуро подходит к вам. "Люди не довольны тобой, парень. Сейчас мне удалось подподрить их, но еще пару таких волнений и боюсь они взбунтуются" </text>							
+			<answers>
+				<answer tostep="0" index="0">
+					<text>Благодарю</text>
+					<consequences>
+							<spirit>15</spirit>
+							<quests>
+								<quest title="rebel" next="rebelTwo"/>
+							</quests>		
+					</consequences>
+				</answer>
+			</answers>
+		</node>
+	</happening>
+</root>

@@ -1,0 +1,188 @@
+{
+  "$type": "Happening",
+  "Quest": "Событие Волки",
+  "Title": "Волки_Случай",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "Phrase",
+          "Index": 0,
+          "Text": "Из леса, неподалеку от вас раздаются страшные звуки: рычат звери, кричат люди, трещат и ломаются ветви деревьев…"
+        },
+        {
+          "$type": "Phrase",
+          "Index": 1,
+          "Text": "Взяв с собой несколько человек, вы отправляетесь на разведку. В лесу перед вами открывается пугающая картина. Огромная стая волков, не меньше тридцати лютых зверей, загнала на вершину дуба группу людей. По виду это обычные крестьяне разного возраста, возможно семья, пытавшаяся укрыться от войны в этой роще. А волки, вкусившие человечину на полях недавних сражений, видимо совсем озверели."
+        },
+        {
+          "$type": "Phrase",
+          "Index": 2,
+          "Text": "Необходимо срочно принять решение. Очень скоро люди совсем ослабнут и посыпятся с этого дуба как осенняя листва, прямо в пасти к хищникам."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "Text": "Попробуем отогнать зверей громко крича и гремя оружием о щиты.",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Событие Волки",
+                "Happening": "Волки_Результат1"
+              }
+            ],
+            "PersonConsequences": [],
+            "HappenConsequences": [
+              {
+                "$type": "SingleHappeningConsequences",
+                "Quest": "Событие Волки",
+                "OldHappening": "Волки_Результат1",
+                "NewHappening": ""
+              }
+            ],
+            "IsParamCons": false,
+            "IsQuestCons": true,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "Quest": "Событие Волки",
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": true,
+            "IsActivateQuest": true
+          }
+        },
+        {
+          "$type": "Answer",
+          "Text": "Это займет время, но необходимо вернуться за подмогой.",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 1,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Событие Волки",
+                "Happening": "Волки_Результат2"
+              }
+            ],
+            "PersonConsequences": [],
+            "HappenConsequences": [
+              {
+                "$type": "SingleHappeningConsequences",
+                "Quest": "Событие Волки",
+                "OldHappening": "Волки_Результат2",
+                "NewHappening": ""
+              }
+            ],
+            "IsParamCons": false,
+            "IsQuestCons": true,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "Quest": "Событие Волки",
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": true,
+            "IsActivateQuest": true
+          }
+        },
+        {
+          "$type": "Answer",
+          "Text": "Нам нельзя рисковать. У нас есть свои люди, нуждающиеся в защите. Уходим…",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 2,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Событие Волки",
+                "Happening": "Волки_Результат3"
+              }
+            ],
+            "PersonConsequences": [],
+            "HappenConsequences": [
+              {
+                "$type": "SingleHappeningConsequences",
+                "Quest": "Событие Волки",
+                "OldHappening": "Волки_Результат3",
+                "NewHappening": ""
+              }
+            ],
+            "IsParamCons": false,
+            "IsQuestCons": true,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "Quest": "Событие Волки",
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": true,
+            "IsActivateQuest": true
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 2,
+  "IsBegin": true
+}

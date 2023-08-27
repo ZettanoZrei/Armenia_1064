@@ -1,0 +1,515 @@
+{
+  "$type": "DialogHappening",
+  "PeopleForDialog": [
+    {
+      "$type": "Person",
+      "Name": {
+        "$type": "PersonName",
+        "Name": "Барсег"
+      },
+      "PositionType": 1,
+      "IsApproached": false,
+      "XPosition": 0,
+      "Layer": 0
+    },
+    {
+      "$type": "Person",
+      "Name": {
+        "$type": "PersonName",
+        "Name": "Егише"
+      },
+      "PositionType": 0,
+      "IsApproached": false,
+      "XPosition": 7,
+      "Layer": 1
+    },
+    {
+      "$type": "Person",
+      "Name": {
+        "$type": "PersonName",
+        "Name": "Госпожа Рузан"
+      },
+      "PositionType": 1,
+      "IsApproached": false,
+      "XPosition": -13,
+      "Layer": 2
+    },
+    {
+      "$type": "Person",
+      "Name": {
+        "$type": "PersonName",
+        "Name": "Гарегин Востанци"
+      },
+      "PositionType": 0,
+      "IsApproached": false,
+      "XPosition": 14,
+      "Layer": 3
+    },
+    {
+      "$type": "Person",
+      "Name": {
+        "$type": "PersonName",
+        "Name": "Василий"
+      },
+      "PositionType": 1,
+      "IsApproached": false,
+      "XPosition": 20,
+      "Layer": 4
+    },
+    {
+      "$type": "Person",
+      "Name": {
+        "$type": "PersonName",
+        "Name": "Тер-Григор"
+      },
+      "PositionType": 0,
+      "IsApproached": false,
+      "XPosition": -8,
+      "Layer": 5
+    },
+    {
+      "$type": "Person",
+      "Name": {
+        "$type": "PersonName",
+        "Name": "Мариам"
+      },
+      "PositionType": 1,
+      "IsApproached": false,
+      "XPosition": -20,
+      "Layer": 6
+    }
+  ],
+  "IsSpecialBackground": true,
+  "FrontImageUri": "Arevberd_dialog3",
+  "BackImageUri": "Arevberd_dialog4",
+  "Advisor": {
+    "$type": "Person",
+    "Name": {
+      "$type": "PersonName",
+      "Name": ""
+    },
+    "PositionType": 0,
+    "IsApproached": false,
+    "XPosition": 0,
+    "Layer": 0
+  },
+  "Quest": "Аревберд_Штурм",
+  "Title": "Аревберд_Штурм_Диалог_Все",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 0,
+          "Text": "Как турки добрались до него?"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Егише"
+          },
+          "Index": 1,
+          "Text": "Это не турки. Это был предательский удар в спину."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 2,
+          "Text": "Кто совершил это преступление?"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Гарегин Востанци"
+          },
+          "Index": 3,
+          "Text": "Должно быть тот же, кто открыл ворота туркам…"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 4,
+          "Text": "Значит, есть предатель, который сдал нас врагу? Ты уверен в этом?"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Гарегин Востанци"
+          },
+          "Index": 5,
+          "Text": "Я говорил с выжившими стражниками. Турки не смогли бы так быстро и незаметно прорваться в замок."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Егише"
+          },
+          "Index": 6,
+          "Text": "Ты должен был охранять эти ворота, старик! От тебя никакой пользы!"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Гарегин Востанци"
+          },
+          "Index": 7,
+          "Text": "Я ведь не стражник, мой господин. Но я с покорностью беру вину на себя, если тебе так угодно."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 8,
+          "Text": "Какое это теперь имеет значение? Нам нужно придумать как спастись!"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Тер-Григор"
+          },
+          "Index": 9,
+          "Text": "Я еще могу успеть принять покаяние у господина Ваана. он говорил что нибудь? Покаялся в грехах?"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Гарегин Востанци"
+          },
+          "Index": 10,
+          "Text": "Последними своими словами он наказал мне оберегать своего сына и наследника Егише. Так что враг не доберется до него, покуда я жив."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Госпожа Рузан"
+          },
+          "Index": 11,
+          "Text": "Только лишь его? А как же другой его ребенок? Вот он, здесь, у меня под сердцем!"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Гарегин Востанци"
+          },
+          "Index": 12,
+          "Text": "Мне очень жаль…"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Мариам"
+          },
+          "Index": 13,
+          "Text": "Госпожа, не стоит переживать так сильно. Какая разница, если мы погибнем на две минуты раньше чем Егише?"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Егише"
+          },
+          "Index": 14,
+          "Text": "Заткнись, девка! Я не собираюсь тут подыхать."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Госпожа Рузан"
+          },
+          "Index": 15,
+          "Text": "Неужели надежды совсем нет?! Гарегин, Барсег, вы же воины, вы должны что-то предпринять!"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Гарегин Востанци"
+          },
+          "Index": 16,
+          "Text": "Мы можем лишь держаться столько, сколько Бог даст нам сил."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Егише"
+          },
+          "Index": 17,
+          "Text": "Цитадель битком набита чернью. Нужно от них избавиться, оставить только тех, кто способен держать оружие в руках. Остальные только съедят все наши припасы."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Тер-Григор"
+          },
+          "Index": 18,
+          "Text": "Бог с тобой, юный господин, разве можно говорить так о бедных людях?! Усмирите свой страх и гнев. Мы все на пороге страшного суда. Лучше очистим свои души."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 19,
+          "Text": "Отец рассказывал, что в Аревберде есть потайной ход, уходящий под землю. Он должен вывести за пределы замка."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Гарегин Востанци"
+          },
+          "Index": 20,
+          "Text": "Да, но вход в подземелье по ту сторону внутреннего двора. Теперь путь до него преграждает целая толпа турок."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Егише"
+          },
+          "Index": 21,
+          "Text": "Забудьте об этом! Мы не выйдем из цитадели. Здесь у нас есть хоть какие-то шансы."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 22,
+          "Text": "Шансы на что? Умереть от голода? Если прежде турки не спалят нас заживо…"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Егише"
+          },
+          "Index": 23,
+          "Text": "Нам нужно продержаться пару недель. Отец говорил, что отправил гонца к нашим союзникам."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 24,
+          "Text": "Мы не знаем, придет ли кто-то нам на помощь. Может быть, эти союзники находятся в еще худшем положении чем мы."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Госпожа Рузан"
+          },
+          "Index": 25,
+          "Text": "Парон Барсег, парон Гарегин, мы должны попытаться добраться до этого прохода. Здесь нам не спастись!"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Гарегин Востанци"
+          },
+          "Index": 26,
+          "Text": "Моя госпожа, но мы не знаем, что нас ждет в конце этого тоннеля. Быть может, турки нашли этот выход и уже сторожат его."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 27,
+          "Text": "Лучше попытаться, чем сидеть здесь и ждать своего рокового часа. Я удивлюсь, если турки не попытаются поджечь цитадель вместе со всем остальным замком."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Егише"
+          },
+          "Index": 28,
+          "Text": "Кто ты такой, чтобы советовать Гарегину, что делать? Ты не слышал, что сказал мой отец? Гарегин будет оберегать меня, а я намерен остаться здесь!  "
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Гарегин Востанци"
+          },
+          "Index": 29,
+          "Text": "Я… Я не уверен, что мы сможем прорваться. У нас мало воинов… "
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 30,
+          "Text": "Я понимаю, что ты измотан и ранен, и сейчас ты не в силах вдохновить людей на столь решительный шаг. Но взгляни правде в глаза, у нас больше шансов, если мы рискнем выйти наружу."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 31,
+          "Text": "Тебе приказано охранять сына князя, так выполни свой долг, прикрывай его своим щитом. А вылазку возглавлю я сам."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Аревберд_Штурм",
+                "Happening": "Аревберд_Штурм_Случай4"
+              }
+            ],
+            "PersonConsequences": [],
+            "HappenConsequences": [
+              {
+                "$type": "SingleHappeningConsequences",
+                "Quest": "Аревберд_Штурм",
+                "OldHappening": "Аревберд_Штурм_Случай4",
+                "NewHappening": ""
+              }
+            ],
+            "IsParamCons": false,
+            "IsQuestCons": true,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "Quest": "Аревберд_Штурм",
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": true,
+            "IsActivateQuest": true
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 1,
+  "IsBegin": false
+}

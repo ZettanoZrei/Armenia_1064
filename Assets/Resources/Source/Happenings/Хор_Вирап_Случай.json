@@ -1,0 +1,78 @@
+{
+  "$type": "Happening",
+  "Quest": "Хор Вирап",
+  "Title": "Хор_Вирап_Случай",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "Phrase",
+          "Index": 0,
+          "Text": "Еще издалека вы видите небольшую твердыню, построенную на скальном выступе посреди плоской равнины. За стенами тянутся к небу треугольные крыши, увенчанные крестами. А над монастырем величественно возвышаются вершины Сис и Масис.\r\n"
+        },
+        {
+          "$type": "Phrase",
+          "Index": 1,
+          "Text": "Ваш отряд с большой надеждой подходит к стенам Хор Вирапа, ожидая передышку и безопасный приют. Здесь, как и в Шаваршане ютятся беженцы в своих скромных палатках и шалашах. Очевидно, что и до этих краев дошла война. Это дурной знак."
+        },
+        {
+          "$type": "Phrase",
+          "Index": 2,
+          "Text": "У входа вас встречают простые монахи с озабоченными и усталыми лицами. Старший среди них, маленький седой старик, не отличающийся ни убранством ни саном."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Хор Вирап",
+                "Happening": "Хор_Вирап_Диалог"
+              }
+            ],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": false,
+            "IsQuestCons": true,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "Quest": "Хор Вирап",
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": true,
+            "IsActivateQuest": true
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 0,
+  "IsBegin": true
+}

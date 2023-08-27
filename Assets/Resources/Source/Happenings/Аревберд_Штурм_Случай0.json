@@ -1,0 +1,77 @@
+{
+  "$type": "Happening",
+  "Quest": "Аревберд_Штурм",
+  "Title": "Аревберд_Штурм_Случай0",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "Phrase",
+          "Index": 0,
+          "Text": "Больше трех недель Аревберд находится в осаде. Сельджуки не решаются штурмовать крепкие стены, но и не отступаются, будто выжидая чего-то. "
+        },
+        {
+          "$type": "Phrase",
+          "Index": 1,
+          "Text": "Защитники замка стараются не терять надежду, хоть помощи от союзников все не видно. А придет ли вообще кто-то? Некоторые говорят, что туркам не по зубам Аревберд, а другие начинают впадать в уныние, ведь запасы еды понемногу заканчиваются. Если осада продлится еще столько же, то неминуемо начнется голод. "
+        },
+        {
+          "$type": "Phrase",
+          "Index": 2,
+          "Text": "Но этому не суждено случиться - гром грянул раньше…"
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Аревберд_Штурм",
+                "Happening": "Аревберд_Штурм_Случай"
+              }
+            ],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": false,
+            "IsQuestCons": true,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 1,
+  "IsBegin": true
+}

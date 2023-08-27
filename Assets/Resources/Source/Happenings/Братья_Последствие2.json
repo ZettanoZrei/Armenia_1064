@@ -1,0 +1,72 @@
+{
+  "$type": "Happening",
+  "Quest": "Событие Братья",
+  "Title": "Братья_Последствие2",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "Phrase",
+          "Index": 0,
+          "Text": "Во время привала вас нагоняет группа людей. Присмотревшись внимательнее, вы с удивлением узнаете тех троих братьев, что несколько дней назад ушли на поиски родственников. Но с собой они привели лишь двух женщин. И вид у всех них был не очень-то радостный."
+        },
+        {
+          "$type": "Phrase",
+          "Index": 1,
+          "Text": "Братья поведали свою историю. Долго они шли до деревни и совсем бы выбились из сил, если бы вы не дали им немного съестных припасов. Когда-же они, наконец нашли нужное селение, оказалось что в этот момент на него напали мародеры. Братья вступили с ними в бой, и, воспользовавшись элементом неожиданности, сумели обратить злодеев в бегство. К сожалению почти все селяне были уже мертвы. Остались лишь эти две женщины - дальние родственницы братьев."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 3,
+                "Value": 5
+              }
+            ],
+            "QuestConsequences": [],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": true,
+            "IsQuestCons": false,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 2,
+  "IsBegin": false
+}

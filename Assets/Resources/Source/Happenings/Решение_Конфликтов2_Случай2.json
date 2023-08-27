@@ -1,0 +1,83 @@
+{
+  "$type": "Happening",
+  "Quest": "Событие решение Конфликтов2",
+  "Title": "Решение_Конфликтов2_Случай2",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "Phrase",
+          "Index": 0,
+          "Text": "Последнее время священник Тер-Григор проводил в бесконечных беседах с людьми, между которыми возникали ссоры. Да, зачастую он перебарщивает со следованием религиозным догмам, но в этот раз все остались довольны. Страсти в лагере поутихли. "
+        },
+        {
+          "$type": "Phrase",
+          "Index": 1,
+          "Text": "Более того, один человек, который до этого хранил в закромах большой кусок солонины и не хотел ни с кем делиться, после разговора со священником, передумал и раздал еду самым нуждающимся."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 1,
+                "Value": 10
+              },
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 0,
+                "Value": 10
+              }
+            ],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Событие решение Конфликтов2",
+                "Happening": "-----"
+              }
+            ],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": true,
+            "IsQuestCons": true,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 2,
+  "IsBegin": false
+}

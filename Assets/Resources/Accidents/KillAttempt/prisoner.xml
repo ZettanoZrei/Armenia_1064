@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+	<happening>
+		<node step="1">
+			<text>
+				Капитан стражи и священик подходят к вам. Вы удивляетесь, не часто этих двоих можно увидеть вместе.
+				Капитан: "Парень, что пытался убить тебя, очнулся. Хочу допросить его, перед тем как повесить".
+				Священик: "Позволь мне допросить его. Возможно человек захочет отчистить душу, перед повешением. Пытки редко доводят до хорошего"
+			</text>
+			<answers>
+				<answer tostep="2" index="0">
+					<text>Капитан, действуйте</text>
+				</answer>
+				<answer tostep="3" index="1">
+					<text>Хорошо, священник, попробуй разговорить его</text>
+				</answer>
+			</answers>
+		</node>
+		<node step="2">
+			<text>
+				Пол час спустя, капитан возвращаеться к вам. Вы замечаете что его руки слегка дрожат.
+				Капитан: "Он сознался. Говорит, что деньги за покушение на тебя ему дала женщина. Он не знает ее имя, но видел ее вместе с вдвой князя"
+			</text>
+			<answers>
+				<answer tostep="0" index="0">
+					<text>Спасибо. Стоит подумать об этом</text>
+					<quests>
+						<quest title="killattempt" next="decition"/>
+						<consequences>
+							<quests>
+								<quest title="killattempt" next="confession"/>
+							</quests>
+						</consequences>
+					</quests>
+				</answer>
+			</answers>
+		</node>
+		<node step="3">
+			<text>
+				Пол час спустя, священие возвращаеться к вам. Вы замечаете что его руки слегка дрожат.
+				Свящнник: "Он сознался. Говорит, что деньги за покушение на тебя ему дал мужчина. Он не знает его имя, но видел его вместе с юнным наследником князя"
+			</text>
+			<answers>
+				<answer tostep="0" index="0">
+					<text>Спасибо. Стоит подумать об этом</text>
+					<consequences>
+						<quests>
+							<quest title="killattempt" next="confession"/>
+						</quests>
+					</consequences>
+				</answer>
+			</answers>
+		</node>
+	</happening>
+</root>

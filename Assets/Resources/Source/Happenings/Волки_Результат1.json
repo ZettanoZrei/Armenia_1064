@@ -1,0 +1,84 @@
+{
+  "$type": "Happening",
+  "Quest": "Событие Волки",
+  "Title": "Волки_Результат1",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "Phrase",
+          "Index": 0,
+          "Text": "Вы с группой соратников выбегаете из зарослей, шумя так как только можете. И сначала кажется что это срабатывает. Напуганные вашим внезапным появление, большая часть волков разбегаются. Но остаются самые матерые и злые. Зверюги рычат, клацают зубами и бросаются в атаку. Приходится браться за мечи."
+        },
+        {
+          "$type": "Phrase",
+          "Index": 1,
+          "Text": "Когда все заканчивается, вокруг раскидистого дуба лежит с десяток мертвых и умирающих волков. Но и двое из ваших людей пали с обгрызанными глотками. Одному из них пришлось даровать милосердный удар кинжалом, чтобы он не страдал в агонии."
+        },
+        {
+          "$type": "Phrase",
+          "Index": 2,
+          "Text": "Между тем, дрожащие и рыдающие от страха крестьяне спускаются с дерева. Вы испытываете к ним злость из-за потери товарищей, но понимаете, что люди не виноваты, да, к тому же вы сами приняли решение отогнать волков. Если кого-то и стоит винить, то лишь самого себя."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 3,
+                "Value": -2
+              }
+            ],
+            "QuestConsequences": [],
+            "PersonConsequences": [],
+            "HappenConsequences": [
+              {
+                "$type": "SingleHappeningConsequences",
+                "Quest": "Событие Волки",
+                "OldHappening": "-----",
+                "NewHappening": ""
+              }
+            ],
+            "IsParamCons": true,
+            "IsQuestCons": false,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 0,
+  "IsBegin": false
+}

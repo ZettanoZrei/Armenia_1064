@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da109c518dc4fc04d841adf6b78b0b4f, type: 3}
+  m_Name: RuzanPersonPack
+  m_EditorClassIdentifier: 
+  _name: "\u0413\u043E\u0441\u043F\u043E\u0436\u0430 \u0420\u0443\u0437\u0430\u043D"
+  complects:
+  - front: {fileID: 21300000, guid: 90e8ce85d1d287649a7cfd302e177b47, type: 3}
+    back: {fileID: 21300000, guid: f275c40f0c4ad9a46a0dea214d02dc3a, type: 3}
+  - front: {fileID: 21300000, guid: 296b3b844e4d2f24fae1af76c4d76f2f, type: 3}
+    back: {fileID: 21300000, guid: 57eb842b58004a54a8cec66cc538c406, type: 3}
+  portraits:
+  - {fileID: 21300000, guid: aadea0f82124b704d8e8da064595ba22, type: 3}
+  - {fileID: 21300000, guid: 832579c8cdf476241b316333535d0156, type: 3}
+  relation: 4
+  mainCharacter: 1

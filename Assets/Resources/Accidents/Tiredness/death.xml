@@ -1,0 +1,18 @@
+<root>	
+	<happening>
+		<node step="1">
+			<text> Вы потеряли несколько человек. Они слишком устали и отстали от остальных </text>							
+			<answers>
+				<answer tostep="0" index="0">
+					<text>Дальше</text>
+					<consequences>
+							<people>-10</people>
+							<quests>
+								<quest title="tiredness" next="death"/>
+							</quests>		
+					</consequences>
+				</answer>
+			</answers>
+		</node>
+	</happening>
+</root>

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da109c518dc4fc04d841adf6b78b0b4f, type: 3}
+  m_Name: GrigorPersonPack
+  m_EditorClassIdentifier: 
+  _name: "\u0422\u0435\u0440-\u0413\u0440\u0438\u0433\u043E\u0440"
+  complects:
+  - front: {fileID: 21300000, guid: 90f2795a5dcaf1346bebaeee73064b71, type: 3}
+    back: {fileID: 21300000, guid: fc93250233670ee469d7faef496d1cc2, type: 3}
+  - front: {fileID: 21300000, guid: 7da4aead568523a40b6ce252e3ed29df, type: 3}
+    back: {fileID: 21300000, guid: 158807bb325452647a4309f25561fdba, type: 3}
+  portraits:
+  - {fileID: 21300000, guid: 7e38db4fc404c1243ae5cc976b11ed09, type: 3}
+  - {fileID: 21300000, guid: 2b2556cc1649a4b43bd6e6a5476a891a, type: 3}
+  relation: 4
+  mainCharacter: 1

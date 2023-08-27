@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da109c518dc4fc04d841adf6b78b0b4f, type: 3}
+  m_Name: WarlordPersonPack
+  m_EditorClassIdentifier: 
+  _name: "\u0417\u043D\u0430\u0442\u043D\u044B\u0439 \u0432\u043E\u0438\u043D"
+  complects:
+  - front: {fileID: 21300000, guid: 304830cda81ab0d409e9e203dbf0a663, type: 3}
+    back: {fileID: 21300000, guid: 98bac1663e342934eab01e90f99c67f6, type: 3}
+  portraits:
+  - {fileID: 21300000, guid: 878b821b695b2c044936370dd1eb8209, type: 3}
+  relation: 0
+  mainCharacter: 0

@@ -1,0 +1,105 @@
+<root>
+	<happening>
+		<node step="1">
+			<text>Вам на встречу выходят несколько мужчин лихого вида. Вы замечаете что еще несколько окружают вас.
+			"Приветсвую, добрые люди. Нам не помешала бы помощь. Совсем немного еды могло бы спасти немало жизней"</text>							
+			<answers>
+				<answer tostep="2" index="0">
+					<text> "Мне жаль, но лишних запасов у нас нет" </text>										
+				</answer>
+				<answer tostep="3" index="1">
+					<text> Напасть</text>
+					<consequences>
+						<people>-5</people>
+					</consequences>
+				</answer>
+				<answer tostep="4" index="2">
+					<text> Хорошо, забирайте</text>
+					<consequences>
+						<food>-15</food>
+						<quests>
+							<quest title="rogues" next="0"/>
+						</quests>
+					</consequences>
+				</answer>
+			</answers>
+		</node>
+		<node step="4">
+			<text> Вы отдаете часть еды и продолжаете путь с миром </text>		
+			<answers>
+				<answer tostep="0" index="0">
+					<text> Продолжить путь </text>	
+				</answer>
+			</answers>
+		</node>
+		<node step="3">
+			<text> Вам удаеться быстро одалеть противников и взять несколько пленных.
+				Они сразу же изъявили желание присоедениться к вам</text>		
+			<answers>
+				<answer tostep="0" index="0">
+					<text> Казнить их</text>
+					<consequences>
+						<spirit>-5</spirit>
+						<quests>
+							<quest title="rogues" next="0"/>
+						</quests>
+					</consequences>
+				</answer>
+				<answer tostep="0" index="1">
+					<text> Принять их </text>
+					<consequences>
+						<people>5</people>
+						<quests>
+							<quest title="rogues" next="consequences"/>
+						</quests>
+					</consequences>
+				</answer>
+			</answers>
+		</node>
+		<node step="2">
+			<text> "Послушай, друг. Если откажете нам, нам придеться драться, ведь без еды нам не выжить.
+			Люди погибнут. Так что сделай правильный выбор" </text>		
+			<answers>
+				<answer tostep="0" index="0">
+					<text> Хорошо, забирайте</text>
+					<consequences>
+						<food>-15</food>
+						<quests>
+							<quest title="rogues" next="0"/>
+						</quests>
+					</consequences>
+				</answer>
+				<answer tostep="5" index="1">
+					<text> Напасть</text>
+					<consequences>
+						<people>-15</people>
+					</consequences>
+				</answer>
+			</answers>
+		</node>
+		<node step="5">
+			<text> Пока вы говорили, противник окружил вас. Хотя вам и удалось победить, но многие погибли. Также вам удалось взять несколько пленных.
+				Они сразу же изъявили желание присоедениться к вам</text>		
+			<answers>
+				<answer tostep="0" index="0">
+					<text> Казнить их</text>
+					<consequences>
+						<spirit>5</spirit>
+						<quests>
+							<quest title="rogues" next="0"/>
+						</quests>
+					</consequences>
+				</answer>
+				<answer tostep="0" index="1">
+					<text> Принять их </text>
+					<consequences>
+						<people>3</people>
+						<quests>
+							<quest title="rogues" next="consequences"/>
+						</quests>
+					</consequences>
+				</answer>
+			</answers>
+		</node>
+	</happening>
+</root>

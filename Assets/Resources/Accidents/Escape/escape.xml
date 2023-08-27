@@ -1,0 +1,57 @@
+<root>
+	<happening>
+		<node step="1">
+			<texts>
+				<text>Вам чудом удалось избежать бойни.</text>
+				<text>Но враг попрежнему подстеригает за каждым поворотом.</text>					
+				<text>Вам нужно скорее покинуть эти земли, однако старики и раненые задерживают вас.</text>
+			</texts>
+			<answers>
+				<answer tostep="2" index="0">
+					<text> Бросить тех кто не успевает</text>
+					<consequences>
+						<spirit>-10</spirit>
+						<people>-20</people>
+					</consequences>
+				</answer>
+				<answer tostep="3" index="1">
+					<text> Попытаться спасти всех</text>
+				</answer>
+			</answers>
+		</node>
+		<node step="2">
+			<text> Вам и большинству удается скрыться. Сбегая вы слышате крики оставленных вам позади. Остаеться надеяться, что дорога вперед теперь открыта. </text>
+			<answers>
+				<answer tostep="0" index="0">
+					<text> Продолжить путь</text>
+				</answer>
+			</answers>
+		</node>
+		<node step="3">
+			<text> Вам не удалось проскачить. Всадники у вас на хвосте. Но вы понятия не имеете сколько их</text>
+			<answers>
+				<answer tostep="2" index="0">
+					<text> Попытаться оторваться</text>
+					<consequences>
+						<people>-20</people>
+					</consequences>
+				</answer>
+				<answer tostep="4" index="1">
+					<text> Устроить засаду</text>
+				</answer>
+			</answers>
+		</node>
+		<node step="4">
+			<text> Врагов оказалось немного. Вы одержали вверх почти без потерь. Остаеться надеяться, что дорога вперед теперь открыта. </text>
+			<answers>
+				<answer tostep="0" index="0">
+					<text> Продолжить путь</text>
+					<consequences>
+						<spirit>5</spirit>
+						<people>-5</people>
+					</consequences>
+				</answer>
+			</answers>
+		</node>
+	</happening>
+</root>

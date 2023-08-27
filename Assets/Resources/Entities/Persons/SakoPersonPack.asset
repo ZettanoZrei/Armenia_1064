@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da109c518dc4fc04d841adf6b78b0b4f, type: 3}
+  m_Name: SakoPersonPack
+  m_EditorClassIdentifier: 
+  _name: "\u041A\u0430\u0446\u0438\u043D-\u0421\u0430\u043A\u043E"
+  complects:
+  - front: {fileID: 21300000, guid: ef9f50d5f77b6a94c9ec07cb101ca0fa, type: 3}
+    back: {fileID: 21300000, guid: f9f181ca82786cf4a97e8e5e39d4f236, type: 3}
+  portraits:
+  - {fileID: 21300000, guid: b9e57c78e23063740975f3ac596db9a3, type: 3}
+  relation: 0
+  mainCharacter: 0

@@ -1,0 +1,62 @@
+<root>
+	<happening>
+		<node step="1">
+			<text> Вы слишите крики раздующеися с хвоста колонны. Поспешив назад вы выидите что здесь случилось кровопролитие. Несколько принятых вами разбоников схелстнулись с другими беженцеми
+			Есть погибшие с обоих сторон.</text>							
+			<answers>
+				<answer tostep="3" index="0">
+					<text> Изгнать бывших разбойников </text>	
+					<consequences>
+						<people>-3</people>
+						<spirit>10</spirit>
+					</consequences>					
+				</answer>
+				<answer tostep="4" index="1">
+					<text> Изгнать беженцев</text>	
+					<consequences>
+						<people>-5</people>
+						<spirit>-5</spirit>
+					</consequences>	
+				</answer>
+				<answer tostep="2" index="2">
+					<text> Опросить свидетелей</text>	
+				</answer>
+			</answers>
+		</node>
+		<node step="2">
+			<text> Свидетели уверяют что драку затеяли беженцы желавшие отомстить за погибших в бою товарищей </text>		
+			<answers>
+				<answer tostep="3" index="0">
+					<text> Изгнать бывших разбойников </text>	
+					<consequences>
+						<people>-3</people>
+						<spirit>10</spirit>
+					</consequences>					
+				</answer>
+				<answer tostep="4" index="1">
+					<text> Изгнать беженцев</text>	
+					<consequences>
+						<people>-5</people>
+						<spirit>-10</spirit>
+					</consequences>	
+				</answer>
+			</answers>
+		</node>
+		<node step="3">
+			<text> Люди поприветствовали ваше решение </text>		
+			<answers>
+				<answer tostep="0" index="0">
+					<text> Продолжить путь</text>										
+				</answer>
+			</answers>
+		</node>
+		<node step="4">
+			<text> Люди негативно воприняли ваше решение. У изгнанных в каравене остались родственники </text>		
+			<answers>
+				<answer tostep="0" index="0">
+					<text> Продолжить путь</text>										
+				</answer>
+			</answers>
+		</node>
+	</happening>
+</root>

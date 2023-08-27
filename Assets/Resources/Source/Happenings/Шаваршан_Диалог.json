@@ -1,0 +1,699 @@
+{
+  "$type": "DialogHappening",
+  "PeopleForDialog": [
+    {
+      "$type": "Person",
+      "Name": {
+        "$type": "PersonName",
+        "Name": "Барсег"
+      },
+      "PositionType": 1,
+      "IsApproached": false,
+      "XPosition": 0,
+      "Layer": 0
+    },
+    {
+      "$type": "Person",
+      "Name": {
+        "$type": "PersonName",
+        "Name": "Господин Партев"
+      },
+      "PositionType": 0,
+      "IsApproached": false,
+      "XPosition": -7,
+      "Layer": 1
+    },
+    {
+      "$type": "Person",
+      "Name": {
+        "$type": "PersonName",
+        "Name": "Егише"
+      },
+      "PositionType": 1,
+      "IsApproached": true,
+      "XPosition": 7,
+      "Layer": 2
+    },
+    {
+      "$type": "Person",
+      "Name": {
+        "$type": "PersonName",
+        "Name": "Госпожа Рузан"
+      },
+      "PositionType": 1,
+      "IsApproached": true,
+      "XPosition": -19,
+      "Layer": 3
+    },
+    {
+      "$type": "Person",
+      "Name": {
+        "$type": "PersonName",
+        "Name": "Гарегин Востанци"
+      },
+      "PositionType": 1,
+      "IsApproached": true,
+      "XPosition": 13,
+      "Layer": 4
+    }
+  ],
+  "IsSpecialBackground": true,
+  "FrontImageUri": "Shavarshan_Dialog 2.2",
+  "BackImageUri": "Shavarshan_Dialog 2.1",
+  "Advisor": {
+    "$type": "Person",
+    "Name": {
+      "$type": "PersonName",
+      "Name": ""
+    },
+    "PositionType": 0,
+    "IsApproached": false,
+    "XPosition": 0,
+    "Layer": 0
+  },
+  "Quest": "Шаваршан",
+  "Title": "Шаваршан_Диалог",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Господин Партев"
+          },
+          "Index": 0,
+          "Text": "Я Партев Аматуни, князь этих земель и хозяин Шаваршана. С кем я говорю?"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 1,
+          "Text": "Я Барсег из рода Богуни, племянник князя Ваана Богуни, твоего родича. Я привел его семью и его людей под защиту твоих стен, ибо Аревберд пал."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Господин Партев"
+          },
+          "Index": 2,
+          "Text": "Аревберд пал? Значит, все еще хуже, чем я думал. Почему же я не говорю с князем Вааном лично?"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 3,
+          "Text": "Он ранен и лежит в нашем обозе почти без сознания…"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Егише"
+          },
+          "Index": 4,
+          "Text": "Но его сын вполне может говорить от имени отца! Я Егише, наследник князя! Партев, впусти нас в свой замок!"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Господин Партев"
+          },
+          "Index": 5,
+          "Text": "Даже мои внуки не смеют так бесцеремонно обращаться ко мне, сопляк! А ведь они куда старше тебя! Ступай к женщинам и детям, пока мужчины разговаривают!"
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "Text": "Кузен, сейчас не время показывать характер. Я выскажусь от имени нашей семьи.",
+          "ToStep": 2,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": false,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": false,
+            "IsQuestCons": false,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        },
+        {
+          "$type": "Answer",
+          "Text": "Господин Партев, возможно, Егише вскоре сам станет князем и равным тебе. Он имеет право говорить.",
+          "ToStep": 3,
+          "IsRestriction": false,
+          "Index": 1,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": false,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": false,
+            "IsQuestCons": false,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    },
+    {
+      "$type": "Node",
+      "Step": 2,
+      "Phrases": [
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Егише"
+          },
+          "Index": 6,
+          "Text": "Проклятый старик…"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Господин Партев"
+          },
+          "Index": 7,
+          "Text": "Мальчишке следует поучиться манерам. Надеюсь, Ваан выживет и еще успеет воспитать сына."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 8,
+          "Text": "Выживет, если ты поможешь нам, господин."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Господин Партев"
+          },
+          "Index": 9,
+          "Text": "И чем же я помогу? Хочешь, чтобы я впустил вас в замок? Предположим. Но почему ты решил, что здесь вы будете в безопасности? Раз уж турки взяли Аревберд, то могут взять и Шаваршан. "
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 10,
+          "Text": "За стенами твоей твердыни куда безопаснее, чем снаружи. Очень скоро все окрестности будут кишеть вражескими отрядами."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Господин Партев"
+          },
+          "Index": 11,
+          "Text": "У меня тоже есть семья, есть о ком заботиться. Наши припасы ограничены, и места внутри не так много… Хм… Я мог бы предоставить убежище семье князя Ваана. Но только ему и членам его семьи. Больше никому!"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 12,
+          "Text": "Мы не можем спрятаться за стенами и бросить наших людей на растерзание туркам. Они рассчитывали на нас, они шли за нами…"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Господин Партев"
+          },
+          "Index": 13,
+          "Text": "Это не обсуждается, юноша. Если кто и войдет в эти ворота, то лишь княжеская семья."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Гарегин Востанци"
+          },
+          "Index": 14,
+          "Text": "Это лучшее на что мы можем рассчитывать. Соглашайся, парон Барсег. А я позабочусь о людях."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Госпожа Рузан"
+          },
+          "Index": 15,
+          "Text": "Ни за что! Мы не оставим наших бедных людей! Я не пойду!"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Господин Партев"
+          },
+          "Index": 16,
+          "Text": "О чем вы там бормочите? Решайтесь скорее, пока чернь не взбунтовалась."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 17,
+          "Text": "Мы благодарны тебе, господин, но не согласны на такие условия. Но возможно, стоит оставить здесь хотя бы князя, он тяжело ранен, ему нужен уход."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Господин Партев"
+          },
+          "Index": 18,
+          "Text": "В этом я не откажу, но у меня сейчас даже нет толкового лекаря. Не уверен, что мы сможем его выходить."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Господин Партев"
+          },
+          "Index": 19,
+          "Text": "Раз уж вы не останетесь, то советую вам держать путь в монастырь Хор Вирап. Он хорошо укреплен и там позаботятся о вас и о Ваане. Даст Бог, турки вообще не доберутся так далеко вглубь страны."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 20,
+          "Text": "Значит, мы так и поступим. Благодарю за совет, господин."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Господин Партев"
+          },
+          "Index": 21,
+          "Text": "Хотел бы я помочь чем-то большим, но времена нынче грозные и каждому следует заботиться, в первую очередь, о своих близких."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 22,
+          "Text": "Да господин…"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Господин Партев"
+          },
+          "Index": 23,
+          "Text": "Сегодня переночуйте в тени Шаваршана. Мои люди вынесут для вас немного еды и воды. Чтобы никто не сказал, что князь Аматуни бросил своих родичей в беде."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": false,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": false,
+            "IsQuestCons": false,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    },
+    {
+      "$type": "Node",
+      "Step": 3,
+      "Phrases": [
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Господин Партев"
+          },
+          "Index": 24,
+          "Text": "Не забывайте, юнцы, что вы в княжестве Аматуник, здесь все подчиняются лишь моему слову! Но будь по вашему, пусть говорит сын Ваана. Это даже интересно…"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Егише"
+          },
+          "Index": 25,
+          "Text": "Ты должен предоставить нам убежище, ведь мы твои родичи, пусть и дальние!"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Господин Партев"
+          },
+          "Index": 26,
+          "Text": "Партев: Я? ДОЛЖЕН?"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Егише"
+          },
+          "Index": 27,
+          "Text": "Но я наследник… Я буду, вот-вот…"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 28,
+          "Text": "Мы хотели сказать, что нуждаемся в твоей помощи господин."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Господин Партев"
+          },
+          "Index": 29,
+          "Text": "Это больше похоже на правду. Возможно, я подумаю, как вам помочь."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Егише"
+          },
+          "Index": 30,
+          "Text": "Мы шли сюда много дней и ночей. Мы рассчитывали, что найдем убежище в Шаваршане. А затем вместе отобьем Аревберд."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 31,
+          "Text": "Господин, может быть, ты хотя бы согласишься оставить у себя князя? он тяжело ранен, ему нужен уход."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Господин Партев"
+          },
+          "Index": 32,
+          "Text": "Каковы времена, таковы и нравы. Если я впущу всю вашу ораву, то подвергну риску свою семью, своих людей. А твое поведение вовсе не улучшает вашего положения."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Господин Партев"
+          },
+          "Index": 33,
+          "Text": "И где все ваши друзья, мальчишка!? Что? Не знаешь? А я тебе скажу: сидят каждый в своей крепости и стараются защитить своих близких. Что им до Богуни?"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Егише"
+          },
+          "Index": 34,
+          "Text": "Что скажут другие князья, если узнают, что Аматуни бросил нас в беде? Богуни - далеко не последний род Васпуракана! У нас много друзей!"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Господин Партев"
+          },
+          "Index": 35,
+          "Text": "Так теперь я еще должен помочь вам вернуть ваш замок?"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Господин Партев"
+          },
+          "Index": 36,
+          "Text": "В этом я не откажу, но у меня сейчас даже нет толкового лекаря. Не уверен, что мы сможем его выходить."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Господин Партев"
+          },
+          "Index": 37,
+          "Text": "Советую вам держать путь в монастырь Хор Вирап. Он хорошо укреплен и там позаботятся о вас и о Ваане. Даст Бог, турки вообще не доберутся так далеко вглубь страны."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 38,
+          "Text": "Значит, мы так и поступим, господин. Благодарю за совет."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Господин Партев"
+          },
+          "Index": 39,
+          "Text": "Сегодня переночуйте в тени Шаваршана, а завтра, не теряя времени, продолжайте путь. Храни вас господь."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": false,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": false,
+            "IsQuestCons": false,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 0,
+  "IsBegin": false
+}

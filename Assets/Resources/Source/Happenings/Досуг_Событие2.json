@@ -1,0 +1,78 @@
+{
+  "$type": "Happening",
+  "Quest": "Событие Досуг",
+  "Title": "Досуг_Событие2",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "Phrase",
+          "Index": 0,
+          "Text": "Удивительно, но Василий действительно умудрился организовать что-то вроде скромного пира. Уговорил женщин выложить лучшую пищу, а тот парень с настойками и сам был рад проставиться. Поначалу все шло хорошо, давно люди так не веселились и не ели от души."
+        },
+        {
+          "$type": "Phrase",
+          "Index": 1,
+          "Text": "Но когда в ход пошли напитки все испортилось. Несколько мужчин сильно напились и поссорились. Дошло до драки в которой участвовали и совсем уж непричастные. К счастью, обошлось без серьезных последствий, но вечер был определенно испорчен."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 0,
+                "Value": -5
+              }
+            ],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Событие Досуг",
+                "Happening": "-----"
+              }
+            ],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": true,
+            "IsQuestCons": true,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 2,
+  "IsBegin": false
+}

@@ -1,0 +1,79 @@
+{
+  "$type": "Happening",
+  "Quest": "Событие Волки",
+  "Title": "Волки_Результат3",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "Phrase",
+          "Index": 0,
+          "Text": "Ваши люди смотрят на вас с непониманием: как можно оставить несчастных людей в такой беде? Но вы остаетесь непреклонны. Сейчас не время рисковать. У вас есть цель и следует ее придерживаться."
+        },
+        {
+          "$type": "Phrase",
+          "Index": 1,
+          "Text": "Вы покидаете злополучную рощу, стараясь не обращать внимание на крики загнанных людей. Вы знаете, что скоро крики стихнут. Правда не уверены в том, что они не продолжат мучить вас в ночных кошмарах."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 1,
+                "Value": -10
+              }
+            ],
+            "QuestConsequences": [],
+            "PersonConsequences": [],
+            "HappenConsequences": [
+              {
+                "$type": "SingleHappeningConsequences",
+                "Quest": "Событие Волки",
+                "OldHappening": "-----",
+                "NewHappening": ""
+              }
+            ],
+            "IsParamCons": true,
+            "IsQuestCons": false,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 0,
+  "IsBegin": false
+}

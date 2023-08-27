@@ -1,0 +1,73 @@
+{
+  "$type": "Happening",
+  "Quest": "Событие Исчезновение еды2",
+  "Title": "Исчезновение_Еды2_Случай1",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "Phrase",
+          "Index": 0,
+          "Text": "До вас доходят тревожные известия. Похоже, кто-то среди ваших людей ворует еду. По крайней мере, общие запасы пищи уменьшаются быстрее, чем ожидается. Люди начинают косо смотреть друг на друга. Каждый подозревает каждого. шутка ли: сейчас пища дороже золота. Обстановка быстро накаляется. "
+        },
+        {
+          "$type": "Phrase",
+          "Index": 1,
+          "Text": "Нужно без промедления выяснить, что здесь происходит. Василий и Гарегин вызываются помочь вам с этим вопросом."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Событие Исчезновение еды2",
+                "Happening": "Исчезновение_Еды2_Диалог"
+              }
+            ],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": false,
+            "IsQuestCons": true,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "Quest": "Событие Исчезновение еды2",
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": true,
+            "IsActivateQuest": true
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 2,
+  "IsBegin": true
+}

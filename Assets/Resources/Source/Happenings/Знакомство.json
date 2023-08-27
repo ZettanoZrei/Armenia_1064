@@ -1,0 +1,74 @@
+{
+  "$type": "Happening",
+  "Quest": "Начало",
+  "Title": "Знакомство",
+  "Description": "Появляется в замке/лагере ",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "Phrase",
+          "Index": 0,
+          "Text": "Слуги отводят вас в ваши новые покои, где вы, наконец, можете немного отдохнуть после тяжелой дороги. Не смотря на неоднозначное приветствие родственников, вы рады, что оказываетесь снова в доме ваших предков."
+        },
+        {
+          "$type": "Phrase",
+          "Index": 1,
+          "Text": "Отдохнув некоторое время, вы начинаете осматриваться. Похоже, что обитатели замка не прочь с вами познакомиться и пообщаться. Видно, не каждый день здесь появляются новые люди."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "Text": "",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Начало",
+                "Happening": "-----"
+              }
+            ],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": false,
+            "IsQuestCons": true,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 3,
+  "IsBegin": false
+}

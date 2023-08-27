@@ -1,0 +1,184 @@
+{
+  "$type": "Happening",
+  "Quest": "Событие Курды",
+  "Title": "Курды_Случай3",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "Phrase",
+          "Index": 0,
+          "Text": "Снова среди ваших людей шум и гам. В голову закрадываются нехорошие мысли, пока вы, расталкивая толпу, пробираетесь к месту происшествия. Двое мужчин лежат в луже собственной крови. Они еще живы, но по ужасным хрипам и бульканью понятно, что их агония продлится недолго."
+        },
+        {
+          "$type": "Phrase",
+          "Index": 1,
+          "Text": "И вновь причиной всему стала ссора из-за религии. В этот раз оружие достали оба, и курд и армянин, и нанесли друг другу смертельные раны. Если вы, как можно скорее не примите решения, начнется массовая резня в которой погибнет еще немало людей."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "Text": "Все кто достал оружие, уже наказали сами себя. Мы обязаны сохранить мир между нашими народами, даже если кто-то останется с уязвленным чувством справедливости!",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 3,
+                "Value": -2
+              }
+            ],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Событие Курды",
+                "Happening": "Курды_Случай4"
+              }
+            ],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "Message": "Ваши слова немного отрезвили народ. Потасовка быстро утихла, люди собрались вокруг раненых мужчин и в скорбной тишине проводили их в последний путь. Как это ни странно, но общее горе как будто даже немного объединило армян и курдов. Вам хочется верить, что это первый шаг к примирению народов.",
+            "IsParamCons": true,
+            "IsQuestCons": true,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": true
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        },
+        {
+          "$type": "Answer",
+          "Text": "Это зашло слишком далеко. Курды должны покинуть нас, прежде чем еще кто-то пострадает.",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 1,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 3,
+                "Value": -2
+              },
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 3,
+                "Value": -14
+              },
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 1,
+                "Value": 2
+              }
+            ],
+            "QuestConsequences": [],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "Message": "Под страшной руганью и проклятиями, группа курдов уходит прочь, понуро опустив головы. Вам даже немного жаль этих несчастных, но безопасность и спокойствие ваших собственных людей куда важнее.",
+            "IsParamCons": true,
+            "IsQuestCons": false,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": true
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        },
+        {
+          "$type": "Answer",
+          "Text": "Не знаю как поступить. Пусть люди разберутся с этим сами…",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 2,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Событие Курды",
+                "Happening": "Курды_Последствия1"
+              }
+            ],
+            "PersonConsequences": [],
+            "HappenConsequences": [
+              {
+                "$type": "SingleHappeningConsequences",
+                "Quest": "Событие Курды",
+                "OldHappening": "Курды_Последствия1",
+                "NewHappening": ""
+              }
+            ],
+            "IsParamCons": false,
+            "IsQuestCons": true,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 2,
+  "IsBegin": false
+}

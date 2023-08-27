@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da109c518dc4fc04d841adf6b78b0b4f, type: 3}
+  m_Name: BarsegPersonPack
+  m_EditorClassIdentifier: 
+  _name: "\u0411\u0430\u0440\u0441\u0435\u0433"
+  complects:
+  - front: {fileID: 21300000, guid: b6c10ec60e55b9a4fbd865def41e2fec, type: 3}
+    back: {fileID: 21300000, guid: 621cc23e7ee7ec64382c1bffa7cf5d7a, type: 3}
+  - front: {fileID: 21300000, guid: 6d8fdc19909821c4580365fca2832012, type: 3}
+    back: {fileID: 21300000, guid: c07a178944872d648828277e661256ef, type: 3}
+  portraits:
+  - {fileID: 21300000, guid: b1e9b7607123a184c9d00cdb0f08fa2f, type: 3}
+  - {fileID: 21300000, guid: a8e4f1d88811c77468f45b4dd62e6b3e, type: 3}
+  relation: 0
+  mainCharacter: 0

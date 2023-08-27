@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+	<happening>
+		<node step="1">
+			<texts>
+				<text>
+					На очередной переправе караван замедляется, вы решаете воспользоваться моментом и уединиться в зарослях. Стоило вам зайти за деревья,
+					как кто-то резко сбивает вас с ног. Надо вами стоит мужчина, обычный крестьянин на вид, с мечом в руках. Он бросается на вас.
+				</text>
+				<text>
+					QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+				</text>
+				<text>
+					ffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+					gggggggggggggggggggggggggggggggggggggggggggggggggggggg
+					ffffffffffffffffffffffffffffffffffffffffffffffffffff
+					fffffffffffffffffffffffffffffffffffffffffffffffffff
+					fffffffffffffffffffffffffffffffffffffffffffffffffff
+					fffffffffffffffffffffffffffffffffffffffffffffffffff
+					fffffffffffffffffffffffffffffffffffffffffffffffffff
+					fffffffffffffffffffffffffffffffffffffffffffffffffff
+					fffffffffffffffffffffffffffffffffffffffffffffffffff
+					fffffffffffffffffffffffffffffffffffffffffffffffffff
+					fffffffffffffffffffffffffffffffffffffffffffffffffff
+					fffffffffffffffffffffffffffffffffffffffffffffffffff
+					fffffffffffffffffffffffffffffffffffffffffffffffffff
+				</text>
+				<text>
+					DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDd
+					DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDd
+					DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDd
+					DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDd
+					DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDd
+					DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDd
+					DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDd
+					DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDd
+					DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDd
+					DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDd
+					DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDd
+					DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDd
+					DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDd
+					DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDd
+					DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDd
+				</text>
+				<text>
+					fpppppppppppppppppppppppddff
+				</text>
+			</texts>
+			<answers>
+				<answer tostep="2">
+					<text>Выхватить меч</text>
+				</answer>
+				<answer tostep="3">
+					<text>Схватить палку неподалеку</text>
+				</answer>
+				<answer tostep="3">
+					<text>Схватить палку неподалеку2</text>
+				</answer>
+				<answer tostep="3">
+					<text>Схватить палку неподалеку3</text>
+				</answer>
+				<answer tostep="3">
+					<text>Схватить палку неподалеку4</text>
+				</answer>
+				<answer tostep="3">
+					<text>Схватить палку неподалеку5</text>
+				</answer>
+			</answers>
+		</node>
+		<node step="2">
+			<text>
+				Ваш противник не особо умело обращаеться с оружением. Вам быстро удаеться одолеть его, нанеся при этом серьезную рану.
+			</text>
+			<answers>
+				<answer tostep="4">
+					<text>Помочь раненому</text>
+					<consequences>
+						<quests>
+							<quest title="killattempt" next="wounded"/>
+						</quests>
+					</consequences>
+				</answer>
+				<answer tostep="5">
+					<text>Добить</text>
+				</answer>
+			</answers>
+		</node>
+		<node step="3">
+			<text>
+				Ваш противник не особо умело обращаеться с оружением. Вам достаточно быстро удаеться вырубить его.
+			</text>
+			<answers>
+				<answer tostep="4" index="0">
+					<text>Взять напавшего в плен</text>
+					<consequences>
+						<quests>
+							<quest title="killattempt" next="prisoner"/>
+						</quests>
+					</consequences>
+				</answer>
+				<answer tostep="5" index="1">
+					<text>Добить</text>
+				</answer>
+			</answers>
+		</node>
+		<node step="4">
+			<text>
+				Люди сбежавшиеся на ваш крик, забрали пленного. Ему предстоит допрос, когда он очнется.
+			</text>
+			<answers>
+				<answer tostep="0" index="0">
+					<text>Продолжить путь</text>
+				</answer>
+			</answers>
+		</node>
+		<node step="5">
+			<text>
+				Вы возвращаетесь к каравану
+			</text>
+			<answers>
+				<answer tostep="0" index="0">
+					<text>Продолжить путь</text>
+				</answer>
+			</answers>
+		</node>
+	</happening>
+</root>

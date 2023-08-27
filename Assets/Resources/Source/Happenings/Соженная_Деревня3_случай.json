@@ -1,0 +1,107 @@
+{
+  "$type": "Happening",
+  "Quest": "Соженная Деревня 1",
+  "Title": "Соженная_Деревня3_случай",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "Phrase",
+          "Index": 0,
+          "Text": "Путь ваш пролегает мимо покинутого, разоренного селения. Видно, турецкие банды были здесь совсем недавно: пепелище все еще дымится. На ваш взгляд, мудрее всего будет пройти мимо и не навлекать на себя лихо, но некоторые из ваших спутников считают иначе. Одни говорят, что в селении могли остаться выжившие, и любой добрый христианин обязан попытаться им помочь. Другие уверены, что турки не могли разграбить все подчистую и в местных погребах можно разжиться чем-нибудь съестным. Все ожидают вашего слова."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "Text": "Запретить этот напрасный риск и двигаться дальше.",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": false,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "Message": "Люди ворчат, вздыхают с досадой, но безропотно подчиняются. ",
+            "IsParamCons": false,
+            "IsQuestCons": false,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": true
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        },
+        {
+          "$type": "Answer",
+          "Text": "Послать в селение группу добровольцев.",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 1,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 1,
+                "Value": -3
+              }
+            ],
+            "QuestConsequences": [],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "Message": "Примерно через час добровольцы возвращаются с пустыми руками. Но не это самое худшее. Вид у них такой, будто они заглянули в ворота самой преисподней.Из их сбивчивого рассказа вы понимаете чт ов этой деревне они не нашли ничего кроме смерти и крови. Это лишний раз всем напомнило, какая ужасная опасность нависла над вашей страной и над каждый человеком ее населяющим.",
+            "IsParamCons": true,
+            "IsQuestCons": false,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": true
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 2,
+  "IsBegin": false
+}

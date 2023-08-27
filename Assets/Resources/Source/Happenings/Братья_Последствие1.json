@@ -1,0 +1,77 @@
+{
+  "$type": "Happening",
+  "Quest": "Событие Братья",
+  "Title": "Братья_Последствие1",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "Phrase",
+          "Index": 0,
+          "Text": "Во время привала вас нагоняет измученный, перепачканный грязью мужчина. Посмотрев на него внимательнее, вы с удивлением узнаете в нем одного из братьев, что несколько дней назад ушли на поиски своих родственников. "
+        },
+        {
+          "$type": "Phrase",
+          "Index": 1,
+          "Text": "Он поведал печальную историю их неудачного похода. Целый день и целую ночь они брели до нужной деревни, выбились из сил и ослабли от голода. А в деревне наткнулись на мародеров, которые как раз в этот момент напали на селян. Братья вступили в неравный бой, и двое из них полегли. Третий сумел унести ноги, хоть теперь и клянет себя за трусость, ведь он не уберег ни братьев, ни родственников."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 3,
+                "Value": 1
+              },
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 1,
+                "Value": -2
+              }
+            ],
+            "QuestConsequences": [],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": true,
+            "IsQuestCons": false,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 2,
+  "IsBegin": false
+}

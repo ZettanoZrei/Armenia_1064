@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da109c518dc4fc04d841adf6b78b0b4f, type: 3}
+  m_Name: GareginPersonPack
+  m_EditorClassIdentifier: 
+  _name: "\u0413\u0430\u0440\u0435\u0433\u0438\u043D \u0412\u043E\u0441\u0442\u0430\u043D\u0446\u0438"
+  complects:
+  - front: {fileID: 21300000, guid: 10d0549daf423bb4c9e5073d4ddd5f79, type: 3}
+    back: {fileID: 21300000, guid: aeb02571ea775ec4c826bdf65d55a943, type: 3}
+  - front: {fileID: 21300000, guid: e16adc09df9c26d42b007d6cb8cb3af4, type: 3}
+    back: {fileID: 21300000, guid: d09cb2de4b4567547b2928cc3602d421, type: 3}
+  - front: {fileID: 21300000, guid: a7e0f92008ca24345a3b4d0025f53879, type: 3}
+    back: {fileID: 21300000, guid: 5b9e0a575e604704fa59c011ee876d74, type: 3}
+  portraits:
+  - {fileID: 21300000, guid: 9153fd99fb8753e47abed19a802b72bb, type: 3}
+  - {fileID: 21300000, guid: 9153fd99fb8753e47abed19a802b72bb, type: 3}
+  relation: 4
+  mainCharacter: 1

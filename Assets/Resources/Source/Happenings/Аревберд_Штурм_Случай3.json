@@ -1,0 +1,85 @@
+{
+  "$type": "Happening",
+  "Quest": "Аревберд_Штурм",
+  "Title": "Аревберд_Штурм_Случай3",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "Phrase",
+          "Index": 0,
+          "Text": "Вокруг все полыхает. Там и тут среди людей появляются фигуры турок, сеющих смерть. Еще немного и вся их орда хлынет во внутренний двор. Вы помогаете всем кому можете, и одним из последних поднимаетесь на порог цитадели."
+        },
+        {
+          "$type": "Phrase",
+          "Index": 1,
+          "Text": "Солдаты с гулом захлопывают за вами тяжелую дверь. В темноте и духоте вы протискиваетесь через толпу и оказываетесь, наконец, в чертоге князя, где собрались все его приближенные. "
+        },
+        {
+          "$type": "Phrase",
+          "Index": 2,
+          "Text": "Но к вашему удивлению, самого князя среди стоящих там вы не видите. “Где господин?” - спрашиваете вы и тут замечаете своего дядю на окровавленном ложе. Он тяжело дышит а взгляд его бессмысленно блуждает по потолку."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Аревберд_Штурм",
+                "Happening": "Аревберд_Штурм_Диалог_Все"
+              }
+            ],
+            "PersonConsequences": [],
+            "HappenConsequences": [
+              {
+                "$type": "SingleHappeningConsequences",
+                "Quest": "Аревберд_Штурм",
+                "OldHappening": "Аревберд_Штурм_Диалог_Все",
+                "NewHappening": ""
+              }
+            ],
+            "IsParamCons": false,
+            "IsQuestCons": true,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "Quest": "Аревберд_Штурм",
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": true,
+            "IsActivateQuest": true
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 0,
+  "IsBegin": false
+}

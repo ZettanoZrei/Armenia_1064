@@ -1,0 +1,368 @@
+{
+  "$type": "DialogHappening",
+  "PeopleForDialog": [
+    {
+      "$type": "Person",
+      "Name": {
+        "$type": "PersonName",
+        "Name": "Барсег"
+      },
+      "PositionType": 1,
+      "IsApproached": false,
+      "XPosition": -5,
+      "Layer": 0
+    },
+    {
+      "$type": "Person",
+      "Name": {
+        "$type": "PersonName",
+        "Name": "Сельджук"
+      },
+      "PositionType": 0,
+      "IsApproached": false,
+      "XPosition": 0,
+      "Layer": 1
+    }
+  ],
+  "IsSpecialBackground": false,
+  "Advisor": {
+    "$type": "Person",
+    "Name": {
+      "$type": "PersonName",
+      "Name": ""
+    },
+    "PositionType": 1,
+    "IsApproached": false,
+    "XPosition": 11,
+    "Layer": 0
+  },
+  "Quest": "Командир сельджуков",
+  "Title": "Ком_Сельд_Диалог",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Сельджук"
+          },
+          "Index": 0,
+          "Text": "Эрмени! Слушай меня! Ты окружен!"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 1,
+          "Text": "И чего ты ждешь?"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Сельджук"
+          },
+          "Index": 2,
+          "Text": "Дать мне еда, эрмени! И пять пленный!"
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": true,
+          "IsShowFace": false,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Барсег"
+          },
+          "Index": 3,
+          "Text": "Лучше пропусти нас и каждый пойдет своей дорогой, без лишней крови."
+        },
+        {
+          "$type": "DialogPhrase",
+          "IsCameraShow": false,
+          "IsShowFace": true,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Сельджук"
+          },
+          "Index": 4,
+          "Text": "Хитрый, трусливый домуз! Ты - дать еда и пленный. Мы - дать дорога."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "Text": "Мы согласны…",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 3,
+                "Value": -5
+              },
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 1,
+                "Value": -6
+              },
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 0,
+                "Value": -6
+              }
+            ],
+            "QuestConsequences": [],
+            "PersonConsequences": [
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Егише"
+                },
+                "Value": -1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Госпожа Рузан"
+                },
+                "Value": 1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Гарегин Востанци"
+                },
+                "Value": 1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Василий"
+                },
+                "Value": -1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Тер-Григор"
+                },
+                "Value": -1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Мариам"
+                },
+                "Value": -1
+              }
+            ],
+            "HappenConsequences": [],
+            "Message": "То был страшный выбор. Люди решали кому из них отправиться в турецкий полон и, возможно, никогда больше не увидеть свободы. Когда решение было принято, несчастные с понурыми головами ушли к туркам. Так же вам пришлось отдать немало припасов, прежде чем враг согласился освободить дорогу. \r\nВы убеждены, что этим выбором сохранили множество жизней своих соплеменников, но тогда почему на сердце так тяжело? И почему люди смотрят на вас с таким безнадежным укором?\r\n",
+            "IsParamCons": true,
+            "IsQuestCons": false,
+            "IsPersonCons": true,
+            "IsHappenCons": false,
+            "IsMessage": true
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        },
+        {
+          "$type": "Answer",
+          "Text": "Мы на это не пойдем. Обнажить мечи!",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 1,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 3,
+                "Value": -15
+              }
+            ],
+            "QuestConsequences": [],
+            "PersonConsequences": [
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Егише"
+                },
+                "Value": 1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Госпожа Рузан"
+                },
+                "Value": -1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Гарегин Востанци"
+                },
+                "Value": -1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Василий"
+                },
+                "Value": 1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Тер-Григор"
+                },
+                "Value": 1
+              },
+              {
+                "$type": "SinglePersonConsequences",
+                "PersonName": {
+                  "$type": "PersonName",
+                  "Name": "Мариам"
+                },
+                "Value": 1
+              }
+            ],
+            "HappenConsequences": [],
+            "Message": "Все произошло стремительно. Вокруг засвистели стрелы. Отовсюду послышались крики перепуганных людей. Все кто мог держать в руках оружие, ринусь навстречу врагу. Одним мощным ударом меча вы смертельно ранили командира сельджуков и пинком оттолкнули его тело в сторону. Немало крови пролилось на склонах оврага, прежде чем пыль не улеглась и сражение не стихло.\r\nВы и ваши люди отстояли свою честь, но какой ценой! Всюду на земле лежали тела погибших, стонали раненые, рыдали матери, отцы, сыновья и дочери, что потеряли своих родных. Не в силах видеть эту картину, вы опускаете взор. До конца своей жизни вы не перестанете думать о том, что было бы, если бы вы сегодня приняли другое решение.",
+            "IsParamCons": true,
+            "IsQuestCons": false,
+            "IsPersonCons": true,
+            "IsHappenCons": false,
+            "IsMessage": true
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [
+        {
+          "$type": "AdvicePhrase",
+          "Relation": 3,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Василий"
+          },
+          "Index": 0,
+          "Text": "Я, конечно не хочу умирать, но как мы можем отдать наших людей этим… Нет, так нельзя!"
+        },
+        {
+          "$type": "AdvicePhrase",
+          "Relation": 3,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Егише"
+          },
+          "Index": 0,
+          "Text": "Убей эту турецкую сволочь! Они ничего от нас не получат!"
+        },
+        {
+          "$type": "AdvicePhrase",
+          "Relation": 3,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Госпожа Рузан"
+          },
+          "Index": 0,
+          "Text": "Парон, поступись своей гордыней, прошу! Господь учит нас смирению. Дай ему то что он просит, иначе мы все погибнем!"
+        },
+        {
+          "$type": "AdvicePhrase",
+          "Relation": 3,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Гарегин Востанци"
+          },
+          "Index": 0,
+          "Text": "Парон, дела плохи. Мы в окружении, у них лучники. Погибнет много людей. Похоже, настало время поступиться своей гордостью."
+        },
+        {
+          "$type": "AdvicePhrase",
+          "Relation": 3,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Мариам"
+          },
+          "Index": 0,
+          "Text": "Мы влипли, да? Должна признаться, я знаю, что такое тюркский плен. Не повезет тем, кому выпадет такая учесть. Лучше уж погибель."
+        },
+        {
+          "$type": "AdvicePhrase",
+          "Relation": 3,
+          "PersonName": {
+            "$type": "PersonName",
+            "Name": "Тер-Григор"
+          },
+          "Index": 0,
+          "Text": "Как можно подумать о сделке с дьяволом!?"
+        }
+      ],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 2,
+  "IsBegin": false
+}

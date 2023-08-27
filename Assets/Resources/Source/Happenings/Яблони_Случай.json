@@ -1,0 +1,77 @@
+{
+  "$type": "Happening",
+  "Quest": "Событие Яблони",
+  "Title": "Яблони_Случай",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "Phrase",
+          "Index": 0,
+          "Text": "Ваш отряд проходит мимо выгоревших полей и разоренный поселков. Кажется, что в этих местах совершенно не осталось какой-либо жизни. Но внезапно, среди обугленных стволов дымящегося леса вы замечаете островок зелени. Небольшая роща, едва тронутая осенним золотом стоит совершенно невредимая, среди этой мертвой пустоши."
+        },
+        {
+          "$type": "Phrase",
+          "Index": 1,
+          "Text": "Очень скоро становится видно, что это яблони. Могучие высокие деревья, усыпанные наливными фруктами. Это похоже на какое-то чудо! Дети, вопя от восторга, бросаются в эту рощу, собирать яблоки. Взрослые со смехом следуют за ними. Вы не возражаете: это поднимет людям настроение, а заодно поможет пополнить припасы."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 0,
+                "Value": 5
+              },
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 1,
+                "Value": 5
+              }
+            ],
+            "QuestConsequences": [],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": true,
+            "IsQuestCons": false,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": true
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 2,
+  "IsBegin": true
+}

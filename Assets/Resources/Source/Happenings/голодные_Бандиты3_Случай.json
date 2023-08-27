@@ -1,0 +1,78 @@
+{
+  "$type": "Happening",
+  "Quest": "Голодные Бандиты 1",
+  "Title": "Голодные_Бандиты3_Случай",
+  "Description": "Это событие должно активироваться в лагере",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "Phrase",
+          "Index": 0,
+          "Text": "Вы просыпаетесь от страшных криков и выбегаете из палатки с обнаженным клинком. Но все закончилось так же быстро, как и началось. С ужасом вы видите мертвые тела людей из вашего отряда с перерезанными горлами. Среди них есть и женщины и дети… Кажется, все они погибли во сне. Перепуганные свидетели рассказывают, что напавшие тайком проникли в лагерь, учинили резню и скрылись, прежде чем им успели дать отпор."
+        },
+        {
+          "$type": "Phrase",
+          "Index": 1,
+          "Text": "Поймать удалось лишь одного из них. Этот человек тяжело ранен, но перед тем как испустить дух, он злорадно ухмыляется, отплевываясь кровью и говорит: «это месть за наших парней, которых вы убили безоружными. Кровь за кровь…»"
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 1,
+                "Value": -10
+              },
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 3,
+                "Value": -10
+              }
+            ],
+            "QuestConsequences": [],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": true,
+            "IsQuestCons": false,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 3,
+  "IsBegin": false
+}

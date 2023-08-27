@@ -1,0 +1,69 @@
+{
+  "$type": "Happening",
+  "Quest": "Начало",
+  "Title": "Прибытие",
+  "Description": "Барсег и Василий прибывают к родовому замку",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "Phrase",
+          "Index": 0,
+          "Text": "Вы оказываетесь у подножия величественного Аревберда, который до сей поры жил лишь в виде мутных образов в ваших детских воспоминаниях. Стража пропускает вас без лишних вопросов. Должно быть, дозорные на стене, в самом деле,  вас узнали.\r\nА во дворе замка вас встречают его обитатели во главе с самим хозяином – вашим дядей, князем Вааном Богуни.\r\n"
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Начало",
+                "Happening": "Встреча"
+              }
+            ],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": false,
+            "IsQuestCons": true,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "Quest": "Начало",
+            "SetupCamp": false,
+            "DialogAvailable": 7,
+            "LeaveCamp": false,
+            "IsAfterAction": true,
+            "IsActivateQuest": true
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 1,
+  "IsBegin": true
+}

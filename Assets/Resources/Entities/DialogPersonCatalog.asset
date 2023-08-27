@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0482f580df9bd7c478081f3500d2a0d0, type: 3}
+  m_Name: DialogPersonCatalog
+  m_EditorClassIdentifier: 
+  dialogPersonPacks:
+  - {fileID: 11400000, guid: e682a926abdc88f40bb0138cf5217867, type: 2}
+  - {fileID: 11400000, guid: 98ef6bf145d921a44b99e6db51f16e63, type: 2}
+  - {fileID: 11400000, guid: f6ce58f8f17bd8a4b86733d9d992d1dd, type: 2}
+  - {fileID: 11400000, guid: 989a06f526399204db608443de9c1aae, type: 2}
+  - {fileID: 11400000, guid: c34aa22b01c457040b04baf2eb009285, type: 2}
+  - {fileID: 11400000, guid: 04dd2986a79de9744b8fd9113be9fa52, type: 2}
+  - {fileID: 11400000, guid: 7790f0cc6465b6e4a989e4d53579a65b, type: 2}
+  - {fileID: 11400000, guid: b75f61f799af5fd4180bd75ef8e84a4c, type: 2}
+  - {fileID: 11400000, guid: 10810fc672384c5448e5cd7d41703dcc, type: 2}
+  - {fileID: 11400000, guid: 603eb4ba968e2af4cb2de1f3b65b8888, type: 2}
+  - {fileID: 11400000, guid: 9ea8b72fa6ea3dd42b4db88015f018ae, type: 2}
+  - {fileID: 11400000, guid: ec943d839dcd1664798a09c025872865, type: 2}
+  - {fileID: 11400000, guid: fde8450893ec0e545b270108336aa8d4, type: 2}
+  - {fileID: 11400000, guid: b7c0aceb14d72a9409346dee3885b1cb, type: 2}
+  - {fileID: 11400000, guid: 8955cc89046a021468262a8568f14f00, type: 2}
+  - {fileID: 11400000, guid: 23b365330025e294a951dbfd0bf48c49, type: 2}
+  - {fileID: 11400000, guid: e66faf879a4d8fc4d87a1a19bdb95b7a, type: 2}
+  - {fileID: 11400000, guid: 3288fee4062f5ad43b5edee618d7a34a, type: 2}
+  - {fileID: 11400000, guid: 5740c1a38439e684594120383068c255, type: 2}
+  - {fileID: 11400000, guid: a93fdaa4119746c418f25e5148c30b65, type: 2}
+  - {fileID: 11400000, guid: 719220f024a196b4b9f011ce04ed37f6, type: 2}
+  - {fileID: 11400000, guid: 19efaff17dd791c448a12113b2fbc97c, type: 2}

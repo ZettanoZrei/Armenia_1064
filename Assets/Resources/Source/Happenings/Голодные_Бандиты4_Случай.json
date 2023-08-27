@@ -1,0 +1,74 @@
+{
+  "$type": "Happening",
+  "Quest": "Голодные Бандиты 1",
+  "Title": "Голодные_Бандиты4_Случай",
+  "Description": "По задумке это событие активируется когда заканчивается еда. Но я так понял этой системы нет и хуй с ней.",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "Phrase",
+          "Index": 0,
+          "Text": "Вы слышите странный шум в хвосте колонны и спешите туда, чтобы во всем разобраться."
+        },
+        {
+          "$type": "Phrase",
+          "Index": 1,
+          "Text": "Ваши люди обступили группу мужчин, похожих на бродяг. Присмотревшись, вы понимаете, что это те самые разбойники, которых вы недавно взяли в плен и отпустили на волю. И странное дело, с собой они привели жирную свинью."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Голодные Бандиты 1",
+                "Happening": "Голодные_Бандиты4_Диалог"
+              }
+            ],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": false,
+            "IsQuestCons": true,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "Quest": "Голодные Бандиты 1",
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": true,
+            "IsActivateQuest": true
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 2,
+  "IsBegin": false
+}

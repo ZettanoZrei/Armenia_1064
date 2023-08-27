@@ -1,0 +1,68 @@
+﻿using Assets.Game.Core;
+using Assets.Game.HappeningSystem;
+using Assets.Game.HappeningSystem.Happenings;
+using Assets.Game.Tutorial.Core;
+using Assets.Game.Tutorial.UI;
+using Assets.GameEngine;
+using Entities;
+using Model.Entities.Happenings;
+using Model.Entities.Phrases;
+using System;
+using UnityEngine.SceneManagement;
+using Zenject;
+
+namespace Assets.Game.Tutorial.Steps
+{
+    //суть в то что сначала мы отслеживаем диалог,  а затем конец нода 
+    class StepShowDialogRelation : StepShowPopup, ILeaveGameComponentDI
+    {
+        private readonly MySceneManager sceneManager;
+        private readonly DialogModelDecorator dialogModelDecorator;
+
+
+        public override event Action<INarrativeStep<TutorialStepType>> OnLaunchStep;
+        public StepShowDialogRelation(PopupManager popupManager, MySceneManager sceneManager, DialogModelDecorator dialogModelDecorator, GameSystemDIController zenjectGameSystem,
+            PopupType popupType) : base(popupManager, popupType, zenjectGameSystem)
+        {
+            this.stepType = TutorialStepType.DialogRelation;
+            this.sceneManager = sceneManager;
+            this.dialogModelDecorator = dialogModelDecorator;
+            zenjectGameSystem.AddComponent(this);
+        }
+
+        public override void Begin()
+        {
+            sceneManager.OnChangeScene_Post += CheckIfDialog;
+        }
+
+        private void CheckIfDialog(Scene scene)
+        {
+            if (scene == Scene.DialogScene)
+            {
+                DoBegin1();
+            }
+        }
+
+        private void DoBegin1()
+        {
+            sceneManager.OnChangeScene_Post -= CheckIfDialog;
+            dialogModelDecorator.OnShowAnswers += DoBegin2;
+        }
+
+        private void DoBegin2()
+        {
+            dialogModelDecorator.OnShowAnswers -= DoBegin2;
+            OnLaunchStep?.Invoke(this);
+            popup = popupManager.ShowPopup(popupType) as TutorialPopup;
+            popup.OnFinish += Finish;
+        }
+
+
+        public override void LeaveGame()
+        {
+            sceneManager.OnChangeScene_Post -= CheckIfDialog;
+            if(dialogModelDecorator.IsModel)
+                dialogModelDecorator.OnShowAnswers -= DoBegin2;
+        }
+    }
+}

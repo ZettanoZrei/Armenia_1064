@@ -1,0 +1,206 @@
+{
+  "$type": "Happening",
+  "Quest": "Событие Курды",
+  "Title": "Курды_Случай2",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "Phrase",
+          "Index": 0,
+          "Text": "Среди людей поднимается страшный гам. Кажется, кто-то с кем-то повздорил. По накалу страстей вы понимаете, что вам придется вмешаться. Вы проталкиваетесь через толпу и видите на земле кровь. Ранен молодой парень, над ним суетятся женщины. Все остальные кричат и ругаются на курдов. Мусульмане, словно загнанные звери сгрудились тесной кучкой и испуганно озираются по сторонам."
+        },
+        {
+          "$type": "Phrase",
+          "Index": 1,
+          "Text": "Быстро выясняется, что ссора возникла из-за религии. Армяне ворчали на мусульманские молитвы, а те в ответ огрызались. В итоге молодой парень из курдов не выдержал и ударил ножом армянина. Разумеется, люди требуют наказания."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "Text": "Все живы, и это главное. Нам следует забыть этот прискорбный инцидент и впредь быть терпимее друг к другу!",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 1,
+                "Value": -3
+              }
+            ],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Событие Курды",
+                "Happening": "Курды_Случай3"
+              }
+            ],
+            "PersonConsequences": [],
+            "HappenConsequences": [
+              {
+                "$type": "SingleHappeningConsequences",
+                "Quest": "Событие Курды",
+                "OldHappening": "Курды_Случай3",
+                "NewHappening": ""
+              }
+            ],
+            "Message": "Люди еще долго кричат и возмущаются, но, в конце концов, все успокаиваются и продолжают путь. Вы очень надеетесь, что не зря проявили милосердие.",
+            "IsParamCons": true,
+            "IsQuestCons": true,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": true
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        },
+        {
+          "$type": "Answer",
+          "Text": "Преступник, что пустил в ход оружие, будет изгнан, но остальные курды ни в чем не виноваты.",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 1,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 3,
+                "Value": -1
+              }
+            ],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Событие Курды",
+                "Happening": "Курды_Случай4"
+              }
+            ],
+            "PersonConsequences": [],
+            "HappenConsequences": [
+              {
+                "$type": "SingleHappeningConsequences",
+                "Quest": "Событие Курды",
+                "OldHappening": "Курды_Случай3",
+                "NewHappening": ""
+              }
+            ],
+            "Message": "Вы едва удерживаете людей от расправы над молодым курдом. Его гонят прочь, бросая вслед камни. Остальные курды стоят в угрюмом молчании. Они понимают, что их собрат сам стал причиной своего изгнания, и едва не навлек беду на всех них.",
+            "IsParamCons": true,
+            "IsQuestCons": true,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": true
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        },
+        {
+          "$type": "Answer",
+          "Text": "Принять к себе мусульман было ошибкой. Пусть убираются от нас подальше!",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 2,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 3,
+                "Value": -15
+              },
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 1,
+                "Value": 2
+              }
+            ],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Событие Курды",
+                "Happening": "-----"
+              }
+            ],
+            "PersonConsequences": [],
+            "HappenConsequences": [
+              {
+                "$type": "SingleHappeningConsequences",
+                "Quest": "Событие Курды",
+                "OldHappening": "-----",
+                "NewHappening": ""
+              }
+            ],
+            "Message": "Под страшной руганью и проклятиями, группа курдов уходит прочь, понуро опустив головы. Вам даже немного жаль этих несчастных, но безопасность и спокойствие ваших собственных людей куда важнее.",
+            "IsParamCons": true,
+            "IsQuestCons": true,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": true
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 2,
+  "IsBegin": false
+}

@@ -1,0 +1,85 @@
+{
+  "$type": "Happening",
+  "Quest": "Армянский военачальник",
+  "Title": "арм_воен_встреча",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "Phrase",
+          "Index": 0,
+          "Text": "Вы замечаете впереди что-то напоминающее облако дыма. Нынче пожары и пепелища не редкость, но облако приближается прямо навстречу вашему отряду. Тогда вы понимаете, что это не дым, а пыль. Еще спустя мгновение вы уже можете расслышать рокочущий перестук множества лошадиных копыт, и ваши худшие опасения подтверждаются."
+        },
+        {
+          "$type": "Phrase",
+          "Index": 1,
+          "Text": "Люди начинают паниковать, женщины вскрикивают от страха. С помощью Гарегина вам удается вывести вперед боеспособных мужчин и выстроить что-то вроде боевого построения. Едва вы с этим заканчиваете, как из-за поворота дороги показывается колонна всадников. Но над ними развеваются армянские стяги, и вы вздыхаете с облегчением."
+        },
+        {
+          "$type": "Phrase",
+          "Index": 2,
+          "Text": "Воины останавливаются перед вашим отрядом и спешиваются. Их военачальник, коренастый мужчина средних лет с холодным решительным взглядом подходит к вам и коротко кивает в знак приветствия."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "События Армянский военачальник",
+                "Happening": "арм_воен_диалог"
+              }
+            ],
+            "PersonConsequences": [],
+            "HappenConsequences": [
+              {
+                "$type": "SingleHappeningConsequences",
+                "Quest": "Армянский военачальник",
+                "OldHappening": "арм_воен_диалог",
+                "NewHappening": ""
+              }
+            ],
+            "IsParamCons": false,
+            "IsQuestCons": true,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "Quest": "События Армянский военачальник",
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": true,
+            "IsActivateQuest": true
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 2,
+  "IsBegin": true
+}

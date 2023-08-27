@@ -1,0 +1,83 @@
+{
+  "$type": "Happening",
+  "Quest": "Событие решение Конфликтов",
+  "Title": "Решение_Конфликтов_Случай3",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "Phrase",
+          "Index": 0,
+          "Text": "Егише довольно неплохо справился с той задачей которую вы ему поручили. Люди стали поговаривать, что молодой господин мудр и справедлив, хоть иногда бывает излишне строг. "
+        },
+        {
+          "$type": "Phrase",
+          "Index": 1,
+          "Text": " А самое главное, он разобрался с самой важной проблемой. Люди постоянно спорили: кому и когда следует отдыхать в пути на повозках. ведь их мало а народу много. Стоит ли пускать вперед детей, стариков или раненных и больных? Егише распределил время поровну, так чтобы никто не оказался в обиде, это позволило людям экономить больше времени в дороге."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 2,
+                "Value": 10
+              },
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 1,
+                "Value": 10
+              }
+            ],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Событие решение Конфликтов",
+                "Happening": "-----"
+              }
+            ],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": true,
+            "IsQuestCons": true,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": false,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 2,
+  "IsBegin": false
+}

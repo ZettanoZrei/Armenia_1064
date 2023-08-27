@@ -1,0 +1,94 @@
+{
+  "$type": "Happening",
+  "Quest": "Востан",
+  "Title": "Востан_Событие",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "Phrase",
+          "Index": 0,
+          "Text": "Когда вы подходите достаточно близко к Востану, в нос бьет едкий запах гари, а сердца людей вокруг вас холодеют от тревоги. Еще немного, и ваши худшие опасения оправдываются."
+        },
+        {
+          "$type": "Phrase",
+          "Index": 1,
+          "Text": "Деревня выглядит разоренной и покинутой. Поля и огороды потоптаны копытами лошадей, фруктовые сады дымятся после пожаров, а крепкие каменные дома стоят разграбленными. Тут и там виднеются безжизненные тела людей, которые не успели спастись от нападения сельджукских воинов."
+        },
+        {
+          "$type": "Phrase",
+          "Index": 2,
+          "Text": "Ваша надежда на гостеприимный ночлег угасла, сменившись скорбью. Ни вам, ни вашим спутникам не хочется останавливаться в этом гиблом месте, но все таки, вам нужен отдых на эту ночь, пусть и омраченный такой удручающей картиной."
+        },
+        {
+          "$type": "Phrase",
+          "Index": 3,
+          "Text": "Внезапно, вы слышите армянскую речь со стороны деревни. Из обгоревшей церкви появляется группа мужчин с топорами в руках. Мрачные и молчаливые, они подходят к вам без всякого страха. С вами говорит старший из них, бородатый здоровяк."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 1,
+                "Value": 30
+              },
+              {
+                "$type": "SingleParamConsequences",
+                "ParameterType": 2,
+                "Value": 30
+              }
+            ],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Востан",
+                "Happening": "Востан_Диалог"
+              }
+            ],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": true,
+            "IsQuestCons": true,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "Quest": "Востан",
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": true,
+            "IsActivateQuest": true
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 1,
+  "IsBegin": true
+}

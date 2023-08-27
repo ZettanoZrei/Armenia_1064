@@ -1,0 +1,79 @@
+{
+  "$type": "Happening",
+  "Quest": "Основной квест",
+  "Title": "Эпизод_2.1",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "Phrase",
+          "Index": 0,
+          "Text": "В конце тяжелого дневного перехода к вам подходит госпожа Рузан. Кажется, ей нужно о чем-то с вами поговорить."
+        },
+        {
+          "$type": "Phrase",
+          "Index": 1,
+          "Text": "\"Может быть, мы можем остановиться и немного передохнуть? Среди нас есть ранненые. Моему бедному мужу Ваану, все хуже. От самого Аревберда его несут на плаще…\""
+        },
+        {
+          "$type": "Phrase",
+          "Index": 2,
+          "Text": "Вы соглашатесь. Людям необходим отдых, да и вам тоже."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "Text": "",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Основной квест",
+                "Happening": "-----"
+              }
+            ],
+            "PersonConsequences": [],
+            "HappenConsequences": [],
+            "IsParamCons": false,
+            "IsQuestCons": true,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "Quest": "Основной квест",
+            "SetupCamp": true,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": true,
+            "IsActivateQuest": false
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 1,
+  "IsBegin": false
+}

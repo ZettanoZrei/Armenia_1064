@@ -1,0 +1,86 @@
+{
+  "$type": "Happening",
+  "Quest": "Аревберд Нападение",
+  "Title": "Аревберд_Нападение_Случай",
+  "Description": "",
+  "Nodes": [
+    {
+      "$type": "Node",
+      "Step": 1,
+      "Phrases": [
+        {
+          "$type": "Phrase",
+          "Index": 0,
+          "Text": "Едва солнце прикоснулось к горизонту, в замок, стуча копытами разгоряченного скакуна, врывается гонец. «Турки» - кричит он, срывая голос, - «войско врага идет с востока!».  "
+        },
+        {
+          "$type": "Phrase",
+          "Index": 1,
+          "Text": "Весь вечер крепостные ворота Аревберда остаются открытыми. Крестьяне, ремесленники и торговцы стекаются со всей округи под защиту крепких стен. К ночи двор замка становится полон сотнями перепуганных людей.  "
+        },
+        {
+          "$type": "Phrase",
+          "Index": 2,
+          "Text": "Вы опоясываетесь мечом и отправляетесь в тронный чертог замка, где князь Ваан созывает военный совет."
+        }
+      ],
+      "Answers": [
+        {
+          "$type": "Answer",
+          "ToStep": 0,
+          "IsRestriction": false,
+          "Index": 0,
+          "Restriction": {
+            "$type": "Restriction",
+            "PersonName": {
+              "$type": "PersonName",
+              "Name": ""
+            },
+            "Value": 0
+          },
+          "IsConsequences": true,
+          "Consequences": {
+            "$type": "Consequences",
+            "ParamConsequences": [],
+            "QuestConsequences": [
+              {
+                "$type": "SingleQuestConsequences",
+                "Quest": "Аревберд Нападение",
+                "Happening": "Аревберд_Нападение_Диалог"
+              }
+            ],
+            "PersonConsequences": [],
+            "HappenConsequences": [
+              {
+                "$type": "SingleHappeningConsequences",
+                "Quest": "Аревберд Нападение",
+                "OldHappening": "Аревберд_Нападение_Диалог",
+                "NewHappening": ""
+              }
+            ],
+            "IsParamCons": false,
+            "IsQuestCons": true,
+            "IsPersonCons": false,
+            "IsHappenCons": false,
+            "IsMessage": false
+          },
+          "AfterAction": {
+            "$type": "AfterAction",
+            "Immediately": true,
+            "Quest": "Аревберд Нападение",
+            "SetupCamp": false,
+            "DialogAvailable": 1,
+            "LeaveCamp": false,
+            "IsAfterAction": true,
+            "IsActivateQuest": true
+          }
+        }
+      ],
+      "Advices": [],
+      "IsFocus": false,
+      "IsShowFace": false
+    }
+  ],
+  "Priority": 1,
+  "IsBegin": true
+}
