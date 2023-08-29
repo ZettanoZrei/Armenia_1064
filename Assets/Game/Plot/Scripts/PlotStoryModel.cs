@@ -42,6 +42,7 @@ namespace Assets.Game.Plot
 
         private void OnEnable()
         {
+            Debug.Log("PlotStoryModel -OnEnable");
             var xTexts = plotHelper.Deserialize(textMapFile);
             foreach (var xText in xTexts)
             {
