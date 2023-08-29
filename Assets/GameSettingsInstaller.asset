@@ -40,7 +40,7 @@ MonoBehaviour:
     minusParam: -10
   startSceneConfig:
     startScene: 5
-    fullStart: 0
+    fullStart: 1
   soundConfig:
     buttonClick: {fileID: 8300000, guid: 8fff23651a4de6d43a42523413afe9ba, type: 3}
     tense: {fileID: 8300000, guid: f1ddba0be66c23045bea98b85fbba886, type: 3}
@@ -93,7 +93,7 @@ MonoBehaviour:
     isSave: 1
     timeSave: 2
   introConfig:
-    activate: 0
+    activate: 1
     startStep: 0
     logoAppearTime: 1
     logoStayTime: 2.5
