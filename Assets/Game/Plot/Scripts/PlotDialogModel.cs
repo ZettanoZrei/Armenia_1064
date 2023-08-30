@@ -38,6 +38,8 @@ namespace Assets.Game.Plot.Scripts
 
         private void OnEnable()
         {
+            if (textDialogFile == null)
+                return;
             var xElems = plotHelper.Deserialize(textDialogFile);
             phrases = GetPhrasesInfos(xElems);
         }
