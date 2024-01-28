@@ -1,28 +1,34 @@
 ﻿using Assets.Game.Parameters;
+using Assets.Modules;
 using Entities;
-using GameSystems;
+using GameSystems.Modules;
 using System;
 using UnityEngine;
 using Zenject;
 
 namespace Parameters
 {
-    class TirednessCotroller : MonoBehaviour,
-        IGameInitElement, IGameReadyElement, IGameFinishElement, IGameChangeSceneElement
+    class TirednessCotroller : IInitializable,
+        IGameInitElement, IGameReadyElement, IGameFinishElement
     {
         private IMoveComponent moveComponent;
         private ITirednessComponent tirednessComponent;
         private IEntity caravan;
         private ParametersManager parametersManager;
+        private readonly SignalBus signalBus;
 
         [Inject]
-        public void Construct([Inject(Id = "caravan")] IEntity caravan, ParametersManager parametersManager)
+        public TirednessCotroller([Inject(Id = "caravan")] IEntity caravan, ParametersManager parametersManager, SignalBus signalBus)
         {
             this.caravan = caravan;
             this.parametersManager = parametersManager;
+            this.signalBus = signalBus;
         }
-
-        void IGameInitElement.InitGame(IGameSystem _)
+        public void Initialize()
+        {
+            signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
+        }
+        void IGameInitElement.InitGame()
         {
             moveComponent = this.caravan.Element<IMoveComponent>();
             tirednessComponent = this.caravan.Element<ITirednessComponent>();
@@ -35,17 +41,9 @@ namespace Parameters
             moveComponent.OnMovingEvent += StartTired;
             moveComponent.OnFinishMovingEvent += StopTired;
         }
-        void IGameChangeSceneElement.ChangeScene()
-        {
-            Unsubscribe();
-        }
+
 
         void IGameFinishElement.FinishGame()
-        {
-            Unsubscribe();
-        }
-
-        private void Unsubscribe()
         {
             tirednessComponent.OnDecreaseStamina -= parametersManager.ChangeStamina;
             moveComponent.OnMovingEvent -= StartTired;
@@ -61,5 +59,7 @@ namespace Parameters
         {
             tirednessComponent.StopTired();
         }
+
+       
     }
 }

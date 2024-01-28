@@ -1,29 +1,33 @@
 ﻿using Assets.Game.Menu;
+using Assets.Modules;
 using Assets.Modules.UI;
-using GameSystems;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using GameSystems.Modules;
 using UnityEngine;
 using Zenject;
 
 namespace Assets.Game.InputSystem
 {
-    internal class InputController : MonoBehaviour, 
-        IGameReadyElement, IGameFinishElement
+    internal class InputController : IInitializable, 
+        IGameReadyElement, 
+        IGameFinishElement
     {
-        [SerializeField] private SimpleButton menu;
-        [SerializeField] private SimpleButton diary;
-        [SerializeField] private SimpleButton map;
+        private SimpleButton menu;
+        private SimpleButton diary;
+        private SimpleButton map;
 
-        private MenuManager menuManager;    
+        private MenuManager menuManager;
+        private readonly SignalBus signalBus;
 
-        [Inject]
-        public void Constuct(MenuManager menuManager)
+        public InputController(MenuManager menuManager, SignalBus signalBus, [Inject(Id = "menu")] SimpleButton menu)
         {
             this.menuManager = menuManager;
+            this.signalBus = signalBus;
+            this.menu = menu;
+        }
+
+        void IInitializable.Initialize()
+        {
+            signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
         }
 
         void IGameReadyElement.ReadyGame()
@@ -37,6 +41,6 @@ namespace Assets.Game.InputSystem
         private void OpenMenu()
         {
             menuManager.ShowMenu();
-        }              
+        }
     }
 }

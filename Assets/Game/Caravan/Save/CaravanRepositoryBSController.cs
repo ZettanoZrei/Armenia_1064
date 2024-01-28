@@ -1,26 +1,35 @@
-﻿using Assets.Save;
+﻿using Assets.Modules;
+using Assets.Save;
 using Entities;
-using GameSystems;
+using GameSystems.Modules;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public class CaravanRepositoryBSController : MonoBehaviour,
-    IGameInitElement, IGameStartElement
+public class CaravanRepositoryBSController : IInitializable,
+    IGameInitElement, 
+    IGameStartElement
 {
     private ISaveComponent<List<CaravanData>> saveComponent;
     private BSRepositoryCaravan repositoryBS;
     private IEntity caravan;
     private MySceneManager sceneManager;
+    private readonly SignalBus signalBus;
 
-    [Inject]
-    public void Construct([Inject(Id = "caravan")] IEntity caravan, BSRepositoryCaravan repositoryCaravan, MySceneManager sceneManager)
+    public CaravanRepositoryBSController([Inject(Id = "caravan")] IEntity caravan, BSRepositoryCaravan repositoryCaravan, MySceneManager sceneManager,
+        SignalBus signalBus)
     {
         this.caravan = caravan;
         this.repositoryBS = repositoryCaravan;
         this.sceneManager = sceneManager;
+        this.signalBus = signalBus;
     }
-    void IGameInitElement.InitGame(IGameSystem _)
+
+    void IInitializable.Initialize()
+    {
+        signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
+    }
+    void IGameInitElement.InitGame()
     {
         saveComponent = this.caravan.Element<ISaveComponent<List<CaravanData>>>();
     }
@@ -46,6 +55,6 @@ public class CaravanRepositoryBSController : MonoBehaviour,
         {
             saveComponent.LoadData(data);
         }
-    }
+    }   
 }
 

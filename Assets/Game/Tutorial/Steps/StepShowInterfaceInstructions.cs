@@ -2,18 +2,21 @@
 using Assets.Game.Tutorial.Core;
 using Assets.Game.Tutorial.UI;
 using Assets.GameEngine;
+using GameSystems.Modules;
 using System;
 using System.Threading.Tasks;
 using UnityEngine.SceneManagement;
+using Zenject;
 
 namespace Assets.Game.Tutorial.Steps
 {
     class StepShowInterfaceInstructions : StepShowPopup
     {
         private readonly MySceneManager sceneManager;
+
         public override event Action<INarrativeStep<TutorialStepType>> OnLaunchStep;
-        public StepShowInterfaceInstructions(PopupManager popupManager, MySceneManager sceneManager, PopupType popupType, GameSystemDIController zenjectGameSystem)
-            : base(popupManager, popupType, zenjectGameSystem)
+        public StepShowInterfaceInstructions(PopupManager popupManager, MySceneManager sceneManager, PopupType popupType, SignalBus signalBus)
+            : base(popupManager, popupType, signalBus)
         {
             this.stepType = TutorialStepType.InterfaceInstructions;
             this.sceneManager = sceneManager;
@@ -23,7 +26,6 @@ namespace Assets.Game.Tutorial.Steps
         {
             //sceneManager.OnChangeScene += CheckScene;
              DoBegin();
-
         }
 
         private async Task DoBegin()
@@ -35,9 +37,9 @@ namespace Assets.Game.Tutorial.Steps
             popup.OnFinish += Finish;
         }
 
-        public override void LeaveGame()
+        public override void FinishGame()
         {
-            if(popup != null)
+            if (popup != null)
                 popup.OnFinish -= Finish;
         }
     }

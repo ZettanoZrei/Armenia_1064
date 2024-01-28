@@ -13,7 +13,6 @@ public class MySceneManager
     public event Func<Task> OnToMenuScene;
     public event Action OnToTravelScene;
 
-    private IGameSystem gameSystem;
     public Scene CurrentScene => GetCurrentScene();
     public Scene PreviousScene { get; private set; }
 
@@ -21,11 +20,6 @@ public class MySceneManager
     private readonly List<Scene> systemScenes = new List<Scene>{ Scene.LoadScene, Scene.MainMenuScene, Scene.SettingsScene };
     public bool IsTravelScene(Scene scene) => travelScenes.Contains(scene);
     public bool IsSystemSceme(Scene scene) => systemScenes.Contains(scene);
-
-    public void InitGameSystem(IGameSystem gameSystem)
-    {
-        this.gameSystem = gameSystem;
-    }
 
     public static void LoadSceneForBegin(Scene name)
     {
@@ -35,7 +29,6 @@ public class MySceneManager
     public void LoadScene(Scene name)
     {
         InvoleAllEvents(name);
-        gameSystem.ChangeScene();
         PreviousScene = CurrentScene;
         SceneManager.LoadScene(name.ToString());
     }

@@ -1,18 +1,8 @@
 ﻿using Zenject;
 using UnityEngine;
 using Assets.Game.HappeningSystem;
-using Parameters;
-using Entities;
-using Assets.Systems.Zenject;
-using System.ComponentModel;
 using Loader;
-using Zenject.SpaceFighter;
-using Assets.Game.HappeningSystem.AfterHappenAction;
-using Assets.Game.HappeningSystem.Happenings;
-using Assets.Game.HappeningSystem.ManagementHappens;
 using Assets.Game.HappeningSystem.View.Advice;
-using Assets.Game.Camp.IconsSystem;
-using Model.Entities.Persons;
 using Assets.Systems.SaveSystem;
 using Assets.Game.HappeningSystem.Persons;
 using Assets.Game;
@@ -37,8 +27,7 @@ using Assets.Game.UI.EndPopupSystem;
 using Assets.Game.Intro;
 using Assets.Game.Intro.Step;
 using Assets.Game.UI.FailGameSystem;
-using Assets.Game.InputSystem;
-using Assets.GameEngine.Menu.Settings;
+
 
 
 public class MonoLoadSceneInstaller : MonoInstaller
@@ -64,12 +53,10 @@ public class MonoLoadSceneInstaller : MonoInstaller
         BindQuestSystem();
         BindParameters();
         BindSaveSystem();
-        BindCampIconsSystem();
         BindHappeningsSystem();
         BindSceneSystems();
         BindBSRopositories();
         BindAudioSource();
-        BindPopupSystem();
         BindTutorialSystem();
         BindPlotSystem();
         BindIntroSystem();
@@ -85,7 +72,6 @@ public class MonoLoadSceneInstaller : MonoInstaller
         Container.Bind<ConfigurationRuntime>().AsSingle();
         Container.BindInterfacesTo<EndGameManager>().AsSingle();
         Container.Bind<GameOverManager>().AsSingle();
-        Container.BindInterfacesAndSelfTo<GameSystemDIController>().AsSingle();
         Container.Bind<ShowUIElementsModel>().AsTransient();
        
 
@@ -161,12 +147,7 @@ public class MonoLoadSceneInstaller : MonoInstaller
         Container.Bind<INarrativeStep<PlotStepType>>().To<PStep14LeaveCastle>().AsSingle();
     }
 
-    private void BindPopupSystem()
-    {
-        Container.Bind<PopupManager>().AsSingle();
-        Container.Bind<PopupFabrica>().AsSingle();
-        Container.Bind<PopupCatalog>().FromScriptableObjectResource("Entities/PopupCatalog").AsSingle();
-    }
+    
     private void BindBSRopositories()
     {
         Container.Bind<BSRepositoryCaravan>().AsSingle();
@@ -181,12 +162,7 @@ public class MonoLoadSceneInstaller : MonoInstaller
     }
     private void BindParameters()
     {
-        Container.Bind<ParametersManager>().AsSingle();
-
-        Container.BindInterfacesAndSelfTo<ParameterEndedObserver>().AsSingle();
-        Container.BindInterfacesAndSelfTo<EndedParamMechanics>().AsSingle();
-        Container.BindInterfacesTo<EndedParamViewHandler>().AsSingle();
-        Container.BindInterfacesTo<EndedParamRemovingPeopleHandler>().AsSingle();
+        Container.Bind<ParametersManager>().AsSingle();     
         //Container.BindInterfacesAndSelfTo<EndedParamController>().AsSingle();
     }
     private void BindSaveSystem()
@@ -197,13 +173,7 @@ public class MonoLoadSceneInstaller : MonoInstaller
         Container.Bind<SaveHelper<SaveData>>().AsSingle();
         Container.BindInterfacesAndSelfTo<SaveController>().AsSingle();
     }
-    private void BindCampIconsSystem()
-    {
-        Container.BindFactory<bool, string, CampIcon, CampIcon.Factory>()
-                    .FromComponentInNewPrefab(campIconPrefab)
-                    .UnderTransform(uiHeap.transform);
-        Container.Bind<IconsFabrica>().AsSingle();
-    }
+
     private void BindLoadTasks()
     {
         Container.BindInterfacesTo<TaskLoadHappenings>().AsTransient();
@@ -217,36 +187,11 @@ public class MonoLoadSceneInstaller : MonoInstaller
         Container.Bind<QuestManager>().AsSingle();
     }
     private void BindHappeningsSystem()
-    {
-        Container.Bind<HappeningManager>().AsSingle();
-        Container.Bind<HappeningLauncher>().AsSingle();
-        Container.Bind<HappeningCatalog>().AsSingle();
-        Container.Bind<AfterActionManager>().AsSingle();
-        Container.Bind<HappeningModel>().AsTransient();
-        Container.Bind<DialogModelDecorator>().AsSingle();
-        Container.Bind<AccidentPresenter>().AsSingle();
-        Container.Bind<MessageManager>().AsTransient();
-        Container.Bind<HappeningReplaceManager>().AsSingle();
-        Container.BindInterfacesTo<LaunchComeOutFromCamp>().AsSingle();
-
-        
-        Container.BindInterfacesTo<ConsequencesController>().AsSingle();
-        Container.Bind<ConsequencesHandler>().AsSingle();
-
-
+    {       
+        Container.Bind<HappeningCatalog>().AsSingle();          
         Container.BindFactory<PortraitButton, PortraitButton.Factory>()
             .FromComponentInNewPrefab(portraitButtonPrefab)
-            .UnderTransform(uiHeap.transform);
-
-        CustomHappenManagerBinding();
-
-        void CustomHappenManagerBinding()
-        {
-            Container.Bind<ManagerTypeResolver>().AsSingle();
-            Container.BindFactory<DialogManager, DialogManager.Factory>();
-            Container.BindFactory<AccidentManager, AccidentManager.Factory>();
-            Container.BindFactory<IHappeningManager, HappeningManagerFactory>().FromFactory<CustomManagerFactory>();
-        }
+            .UnderTransform(uiHeap.transform);      
     }    
     private void BindAudioSource()
     {        

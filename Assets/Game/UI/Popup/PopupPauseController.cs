@@ -1,23 +1,29 @@
 using Assets.Game;
-using Cinemachine;
-using GameSystems;
-using System.Collections;
-using System.Collections.Generic;
+using Assets.Modules;
+using GameSystems.Modules;
 using UnityEngine;
 using Zenject;
 
-public class PopupPauseController : MonoBehaviour, IGameReadyElement, IGameFinishElement
+public class PopupPauseController : IInitializable, 
+    IGameReadyElement, 
+    IGameFinishElement
 {
-    private IGameSystem gameSystem;
-    private PopupManager popupManager;
+    private readonly PopupManager popupManager;
+    private readonly SignalBus signalBus;
+    private readonly SceneManager sceneManager;
 
     [Inject]
-    public void Construct(PopupManager popupManager, IGameSystem gameSystem)
+    public PopupPauseController(PopupManager popupManager, SignalBus signalBus, SceneManager sceneManager)
     {
         this.popupManager = popupManager;
-        this.gameSystem = gameSystem;
+        this.signalBus = signalBus;
+        this.sceneManager = sceneManager;
     }
 
+    void IInitializable.Initialize()
+    {
+        signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
+    }
     void IGameReadyElement.ReadyGame()
     {
         popupManager.OnPopupChanged += PauseHandle;
@@ -40,13 +46,13 @@ public class PopupPauseController : MonoBehaviour, IGameReadyElement, IGameFinis
     }
     private void Pause()
     {
-        gameSystem.PauseGame();
         Time.timeScale = 0;
+        sceneManager.PauseGame();
     }
 
     private void Resume()
     {
-        gameSystem.ResumeGame();
+        sceneManager.ContinueGame();
         Time.timeScale = 1;
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assets.Game.Configurations
 {
-    //Это класс посредник нужен для того чтобы можно было менять некоторые параметры в игре, не меняя их в скриптблобжект настройках
+    //Это класс посредник нужен для того, чтобы можно было менять некоторые параметры в игре, не меняя их в скриптблобжект настройках
     public class ConfigurationRuntime
     {
         public StartSceneConfig StartSceneConfig { get; } = new StartSceneConfig();

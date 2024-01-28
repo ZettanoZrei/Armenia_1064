@@ -1,22 +1,30 @@
-﻿using Entities;
-using GameSystems;
+﻿using Assets.Modules;
+using Entities;
+using GameSystems.Modules;
 using UnityEngine;
 using Zenject;
 
-public class ParamSpendingController : MonoBehaviour, 
-    IGameInitElement, IGameReadyElement, IGameChangeSceneElement, IGameFinishElement
+public class ParamSpendingController : IInitializable, 
+    IGameInitElement, 
+    IGameReadyElement, 
+    IGameFinishElement
 {
-    private IEntity caravan;
+    private readonly IEntity caravan;
+    private readonly SignalBus signalBus;
     private IMoveComponent moveComponent;
     private ParamSpendingComponent paramSpendingComponent;
 
     [Inject]
-    public void Construct([Inject(Id = "caravan")] IEntity caravan)
+    public ParamSpendingController([Inject(Id = "caravan")] IEntity caravan, SignalBus signalBus)
     {
         this.caravan = caravan;
+        this.signalBus = signalBus;
     }
-
-    void IGameInitElement.InitGame(IGameSystem _)
+    void IInitializable.Initialize()
+    {
+        signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
+    }
+    void IGameInitElement.InitGame()
     {
         moveComponent = this.caravan.Element<IMoveComponent>();
         paramSpendingComponent = this.caravan.Element<ParamSpendingComponent>();
@@ -24,26 +32,13 @@ public class ParamSpendingController : MonoBehaviour,
 
     void IGameReadyElement.ReadyGame()
     {
-        Subcribe();
-    }
-    void IGameChangeSceneElement.ChangeScene()
-    {
-        Unsubscribe();
-    }
-
-    void IGameFinishElement.FinishGame()
-    {
-        Unsubscribe();
-    }
-    private void Subcribe()
-    {
         moveComponent.OnMovingEvent += paramSpendingComponent.SpendParam;
         moveComponent.OnFinishMovingEvent += paramSpendingComponent.StopSpendParam;
     }
 
-    private void Unsubscribe()
+    void IGameFinishElement.FinishGame()
     {
         moveComponent.OnMovingEvent -= paramSpendingComponent.SpendParam;
         moveComponent.OnFinishMovingEvent -= paramSpendingComponent.StopSpendParam;
-    }
+    }   
 }

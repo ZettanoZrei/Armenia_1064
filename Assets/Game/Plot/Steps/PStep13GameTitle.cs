@@ -6,6 +6,7 @@ using Assets.Game.Plot.Core;
 using Assets.Game.Plot.UI;
 using Assets.GameEngine;
 using Assets.Modules;
+using GameSystems.Modules;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -14,33 +15,45 @@ using System.Threading;
 using System.Threading.Tasks;
 using UniRx;
 using UnityEngine;
+using Zenject;
 
 namespace Assets.Game.Plot.Steps
 {
     //13
-    class PStep13GameTitle : PlotStep, ILeaveGameComponentDI
+    class PStep13GameTitle : PlotStep, IInitializable, IGameFinishElement
     {
         public override event Action OnFinishStep;
         public override event Action<INarrativeStep<PlotStepType>> OnLaunchStep;
 
         private readonly ShowUIElementsModel showUIElementsModel;
         private readonly PopupManager popupManager;
+        private readonly SignalBus signalBus;
         private GameTitleConfig config;
 
         private BlackPanelPopup blackPanel;
         //private CompositeDisposable disposables = new CompositeDisposable();
 
         CancellationTokenSource cancelTokenSource;
-        
-        public PStep13GameTitle(PlotConfig plotConfig, ShowUIElementsModel showUIElementsModel, PopupManager popupManager, GameSystemDIController zenjectGameSystem)
+
+        public PStep13GameTitle(PlotConfig plotConfig, ShowUIElementsModel showUIElementsModel, PopupManager popupManager,
+            SignalBus signalBus)
         {
             this.stepType = PlotStepType.GameTitle;
             this.showUIElementsModel = showUIElementsModel;
             this.popupManager = popupManager;
+            this.signalBus = signalBus;
             this.config = plotConfig.gameTitlePlot;
-            zenjectGameSystem.AddComponent(this);
         }
-
+        void IInitializable.Initialize()
+        {
+            signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
+        }
+        void IGameFinishElement.FinishGame()
+        {
+            if (cancelTokenSource != null)
+                cancelTokenSource.Cancel();
+            showUIElementsModel.OnFinish -= Finish;
+        }
 
         public override void Begin()
         {
@@ -59,18 +72,13 @@ namespace Assets.Game.Plot.Steps
         private async void ShowBlackout(float time, CancellationToken token)
         {
             await Task.Delay((int)time * 1000);
-            if(token.IsCancellationRequested)
+            if (token.IsCancellationRequested)
             {
                 return;
             }
             blackPanel = popupManager.ShowPopup(PopupType.BlackPanelPopup) as BlackPanelPopup;
             blackPanel.Show(0.002f, 0, config.blackoutTime);
         }
-        //private void ShowBlackout()
-        //{
-            
-        //}
-
 
         public override void Finish()
         {
@@ -78,15 +86,6 @@ namespace Assets.Game.Plot.Steps
             //disposables.Clear();
             blackPanel.Stop();
             OnFinishStep?.Invoke();
-
-        }
-
-        void ILeaveGameComponentDI.LeaveGame()
-        {
-            //disposables.Clear();
-            if(cancelTokenSource!=null)
-                cancelTokenSource.Cancel();
-            showUIElementsModel.OnFinish -= Finish;
-        }
+        }              
     }
 }

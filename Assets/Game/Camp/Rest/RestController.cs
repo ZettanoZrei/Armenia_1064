@@ -1,7 +1,8 @@
 ﻿using Assets.Game.Configurations;
 using Assets.Game.Parameters;
+using Assets.Modules;
 using Assets.Modules.UI;
-using GameSystems;
+using GameSystems.Modules;
 using System;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -10,26 +11,33 @@ using Zenject;
 
 namespace Assets.Game.Camp
 {
-    class RestController : MonoBehaviour, 
-        IGameReadyElement, IGameFinishElement, IGameStartElement
+    class RestController : IInitializable,
+        IGameReadyElement, 
+        IGameFinishElement, 
+        IGameStartElement
     {
-        [SerializeField] private SimpleButton restButton;
+        private readonly SimpleButton restButton;
+        private readonly RestManager restManager;
+        private readonly RestConfig restConfiguration;
+        private readonly ParametersManager parametersManager;
+        private readonly RestLocker restLocker;
+        private readonly SignalBus signalBus;
 
-        private RestManager restManager;
-        private RestConfig restConfiguration;
-        private ParametersManager parametersManager;
-        private RestLocker restLocker;
-
-        [Inject]
-        public void Construct(RestManager restManager, RestConfig restConfiguration, ParametersManager parametersManager,
-            RestLocker restLocker)
+        public RestController(RestManager restManager, RestConfig restConfiguration, ParametersManager parametersManager,
+            RestLocker restLocker, SignalBus signalBus, [Inject(Id = "restButton")] SimpleButton restButton)
         {
             this.restManager = restManager;
             this.restConfiguration = restConfiguration;
             this.parametersManager = parametersManager;
             this.restLocker = restLocker;
+            this.signalBus = signalBus;
+            this.restButton = restButton;
         }
 
+        void IInitializable.Initialize()
+        {
+            signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
+        }
         void IGameReadyElement.ReadyGame()
         {
             restButton.OnClick += DoRest;
@@ -66,6 +74,8 @@ namespace Assets.Game.Camp
                 && parametersManager.Spirit.Value < minusParam;
 
             return !paramBlock && !restLocker.IsRestOnceBlock;
-        }       
+        }
+
+        
     }
 }

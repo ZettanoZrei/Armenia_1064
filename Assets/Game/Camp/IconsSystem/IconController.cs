@@ -1,6 +1,7 @@
 ﻿using Assets.Game.Camp.Background;
 using Assets.Game.HappeningSystem;
-using GameSystems;
+using Assets.Modules;
+using GameSystems.Modules;
 using Model.Entities.Persons;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,22 +10,28 @@ using Zenject;
 
 namespace Assets.Game.Camp.IconsSystem
 {
-    public class IconController : MonoBehaviour, IGameInitElement
+    public class IconController : IInitializable, IGameReadyElement
     {
-        private IconsFabrica iconsManager;
-        private CampBackgroundManager campBackgroundManager;
-        private CampIncomingData incomingData;
+        private readonly IconsFabrica iconsManager;
+        private readonly CampBackgroundManager campBackgroundManager;
+        private readonly CampIncomingData incomingData;
+        private readonly SignalBus signalBus;
 
-
-        [Inject]
-        public void Construct(IconsFabrica iconsManager, CampBackgroundManager campBackgroundManager, CampIncomingData incomingData)
+        public IconController(IconsFabrica iconsManager, CampBackgroundManager campBackgroundManager, CampIncomingData incomingData,
+            SignalBus signalBus)
         {
             this.iconsManager = iconsManager;
             this.campBackgroundManager = campBackgroundManager;
             this.incomingData = incomingData;
+            this.signalBus = signalBus;
         }
 
-        void IGameInitElement.InitGame(IGameSystem _)
+        void IInitializable.Initialize()
+        {
+            signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
+        }
+
+        void IGameReadyElement.ReadyGame()
         {
             IEnumerable<Quest> availableCampQuests = incomingData.DialogAvailable > 0 ? incomingData.CampQuests.OrderByDescending(x => x.IsRequired)
                 : incomingData.CampQuests.Where(x => x.IsRequired);
@@ -35,7 +42,7 @@ namespace Assets.Game.Camp.IconsSystem
             var iconGenerator = new IconsFieldAllocator();
             iconGenerator.AllocateIcons(icons, campBackgroundManager.CampBackground.Fields);
 
-            foreach (var icon in icons.Where(x => !x.IsRequired)) 
+            foreach (var icon in icons.Where(x => !x.IsRequired))
             {
                 icon.OnIconClick += MinusAvailableDialogs;
             }
@@ -45,6 +52,6 @@ namespace Assets.Game.Camp.IconsSystem
         {
             incomingData.MinusDialogAvailable(1);
             incomingData.MinusCampDialog(quest);
-        }
+        }       
     }
 }

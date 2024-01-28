@@ -1,19 +1,35 @@
 ﻿using Assets.Game.Parameters;
+using Assets.Modules;
 using Entities;
-using GameSystems;
+using GameSystems.Modules;
 using Model.Types;
 using Parameters;
 using UniRx;
 using UnityEngine;
 using Zenject;
 
-public class ParamWidgetAdapter : MonoBehaviour,
-    IGameReadyElement, IGameFinishElement
+public class ParamWidgetAdapter : IInitializable,
+    IGameReadyElement, 
+    IGameFinishElement
 {
-    [SerializeField] private ParamsWidget paramsWidget;
-    [Inject] private ParametersManager parameters;
+    private readonly ParamsWidget paramsWidget;
+    private readonly SignalBus signalBus;
+    private readonly ParametersManager parameters;
 
     private CompositeDisposable disposable = new CompositeDisposable();
+
+    public ParamWidgetAdapter(ParametersManager parameters, ParamsWidget paramsWidget, SignalBus signalBus)
+    {
+        this.parameters = parameters;
+        this.paramsWidget = paramsWidget;
+        this.signalBus = signalBus;
+    }
+
+    void IInitializable.Initialize()
+    {
+        signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
+    }
+
     void IGameReadyElement.ReadyGame()
     {
         paramsWidget.AddImmediately(ParameterType.Stamina, parameters.Stamina.Value);
@@ -33,7 +49,6 @@ public class ParamWidgetAdapter : MonoBehaviour,
         disposable.Clear();
     }
 
-
     private void SetUIFood(float value)
     {
         paramsWidget.SetFood(value);
@@ -47,5 +62,5 @@ public class ParamWidgetAdapter : MonoBehaviour,
     private void SetUIStamina(float value)
     {
         paramsWidget.SetStamina(value);
-    }
+    }    
 }

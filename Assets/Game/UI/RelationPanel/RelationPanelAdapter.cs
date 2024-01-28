@@ -1,21 +1,30 @@
 ﻿using Assets.Game.HappeningSystem.Persons;
-using GameSystems;
+using Assets.Modules;
+using GameSystems.Modules;
 using System;
 using UniRx;
 using UnityEngine;
 using Zenject;
 
-class RelationPanelAdapter : MonoBehaviour, IGameReadyElement, IGameFinishElement, IGameChangeSceneElement
+class RelationPanelAdapter : IInitializable, 
+    IGameReadyElement, 
+    IGameFinishElement
 {
-    [SerializeField] private RelationPanelView panelView;
-    private RelationManager relationManager;
+    private readonly RelationPanelView panelView;
+    private readonly SignalBus signalBus;
+    private readonly RelationManager relationManager;
     private CompositeDisposable disposable = new CompositeDisposable();
-    [Inject]
-    private void Construct(RelationManager relationManager)
+
+    public RelationPanelAdapter(RelationManager relationManager, RelationPanelView panelView, SignalBus signalBus)
     {
         this.relationManager = relationManager;
+        this.panelView = panelView;
+        this.signalBus = signalBus;
     }
-
+    void IInitializable.Initialize()
+    {
+        signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
+    }
     void IGameReadyElement.ReadyGame()
     {
         foreach(var relation in relationManager)
@@ -28,10 +37,5 @@ class RelationPanelAdapter : MonoBehaviour, IGameReadyElement, IGameFinishElemen
     void IGameFinishElement.FinishGame()
     {
         disposable.Clear();
-    }
-
-    void IGameChangeSceneElement.ChangeScene()
-    {
-        disposable.Clear();
-    }
+    }   
 }

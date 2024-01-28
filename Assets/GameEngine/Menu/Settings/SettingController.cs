@@ -3,42 +3,57 @@ using Zenject;
 using UnityEngine;
 using Assets.Modules.UI;
 using Assets.Game.Plot.Scripts;
+using Assets.Modules;
+using GameSystems.Modules;
 
 namespace Assets.GameEngine.Menu.Settings
 {
-    internal class SettingController : MonoBehaviour, IInitializable, ILateDisposable
+    internal class SettingController : IInitializable, 
+        IGameReadyElement, 
+        IGameFinishElement
     {
-        [SerializeField] private SimpleButton backButton;
-        [SerializeField] private SoundSettingView sliderView;
-        [SerializeField] private SoundSettingView musicSliderView;
-        private MySceneManager sceneManager;
-        private MusicManager musicManager;
+        private readonly SimpleButton backButton;
+        private readonly SoundSettingView sliderView;
+        private readonly SoundSettingView musicSliderView;
+        private readonly MySceneManager sceneManager;
+        private readonly MusicManager musicManager;
+        private readonly SignalBus signalBus;
 
-        [Inject]
-        public void Construct(MySceneManager sceneManager, MusicManager musicManager)
+        public SettingController(MySceneManager sceneManager, MusicManager musicManager, SignalBus signalBus, [Inject(Id = "sliderView")] SoundSettingView sliderView,
+            [Inject(Id = "musicSliderView")] SoundSettingView musicSliderView, SimpleButton backButton)
         {
+            this.sliderView = sliderView;
+            this.musicSliderView = musicSliderView;
+            this.backButton = backButton;
             this.sceneManager = sceneManager;
             this.musicManager = musicManager;
+            this.signalBus = signalBus;
         }
 
         void IInitializable.Initialize()
+        {
+            signalBus.Fire(new ConnectGameElementEvent { GameElement = this });                    
+        }
+
+        void IGameReadyElement.ReadyGame()
         {
             sliderView.SetSound(musicManager.SoundValue);
             musicSliderView.SetSound(musicManager.MusicValue);
 
             backButton.OnClick += BackHandler;
             sliderView.AddListener(musicManager.ChangeSound);
-            musicSliderView.AddListener(musicManager.SetMusicVolumeImmediately);           
+            musicSliderView.AddListener(musicManager.SetMusicVolumeImmediately);
         }
-        void ILateDisposable.LateDispose()
+        void IGameFinishElement.FinishGame()
         {
             backButton.OnClick -= BackHandler;
             sliderView.RemoveListener(musicManager.ChangeSound);
             musicSliderView.RemoveListener(musicManager.SetMusicVolumeImmediately);
         }
+
         private void BackHandler()
         {
             sceneManager.LoadMainMenuScene();
-        }
+        }       
     }
 }

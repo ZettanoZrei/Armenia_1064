@@ -1,22 +1,29 @@
-﻿using Assets.Modules.UI;
+﻿using Assets.Modules;
+using Assets.Modules.UI;
 using Entities;
-using GameSystems;
+using GameSystems.Modules;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Zenject;
 
-class LeaveController : MonoBehaviour,
-    IGameReadyElement, IGameFinishElement
+class LeaveController : IInitializable,
+    IGameReadyElement, 
+    IGameFinishElement
 {
     private SetupCampManager setupCampManager;
-    [SerializeField] private SimpleButton leaveButton;
+    private readonly SignalBus signalBus;
+    private SimpleButton leaveButton;
 
-    [Inject]
-    public void Construct(SetupCampManager setupCampManager)
+    public LeaveController(SetupCampManager setupCampManager, SignalBus signalBus, [Inject(Id = "leaveButton")] SimpleButton leaveButton)
     {
         this.setupCampManager = setupCampManager;
+        this.signalBus = signalBus;
+        this.leaveButton = leaveButton;
     }
-
+    void IInitializable.Initialize()
+    {
+        signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
+    }
     void IGameReadyElement.ReadyGame()
     {
         leaveButton.OnClick += LeaveCamp;
@@ -29,6 +36,8 @@ class LeaveController : MonoBehaviour,
     {
         setupCampManager.LeaveCamp();
     }
+
+    
 }
 
 

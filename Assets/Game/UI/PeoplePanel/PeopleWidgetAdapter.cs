@@ -1,21 +1,32 @@
 ﻿using Assets.Game.Parameters;
+using Assets.Modules;
 using Entities;
-using GameSystems;
+using GameSystems.Modules;
 using Parameters;
 using UniRx;
 using UnityEngine;
 using Zenject;
 
-public class PeopleWidgetAdapter : MonoBehaviour,
-    IGameReadyElement, IGameFinishElement, IGameChangeSceneElement
+public class PeopleWidgetAdapter : IInitializable,
+    IGameReadyElement, 
+    IGameFinishElement
 {
-    [SerializeField]
-    private PeopleWidget peopleWidget;
-
-    [Inject]
-    private ParametersManager parametersManager;
+    private readonly PeopleWidget peopleWidget;
+    private readonly ParametersManager parametersManager;
 
     private CompositeDisposable disposable = new CompositeDisposable();
+    private readonly SignalBus signalBus;
+
+    public PeopleWidgetAdapter(ParametersManager parametersManager, SignalBus signalBus, PeopleWidget peopleWidget)
+    {
+        this.signalBus = signalBus;
+        this.parametersManager = parametersManager;
+        this.peopleWidget = peopleWidget;
+    }
+    void IInitializable.Initialize()
+    {
+        signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
+    }
     void IGameReadyElement.ReadyGame()
     {
         //SetUIPeople(parametersManager.People.Value);
@@ -28,14 +39,11 @@ public class PeopleWidgetAdapter : MonoBehaviour,
     {
         disposable.Clear();
     }
-    void IGameChangeSceneElement.ChangeScene()
-    {
-        disposable.Clear();
-    }
+
     private void SetUIPeople(int value)
     {
         peopleWidget.SetPeople(value.ToString());
     }
 
-
+    
 }

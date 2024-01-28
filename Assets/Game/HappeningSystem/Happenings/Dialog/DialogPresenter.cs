@@ -3,8 +3,9 @@ using Assets.Game.HappeningSystem.Happenings;
 using Assets.Game.HappeningSystem.Persons;
 using Assets.Game.HappeningSystem.View.Common;
 using Assets.Game.HappeningSystem.View.Dialog;
+using Assets.Modules;
 using Entities;
-using GameSystems;
+using GameSystems.Modules;
 using Model.Entities.Answers;
 using Model.Entities.Nodes;
 using Model.Entities.Persons;
@@ -17,27 +18,35 @@ using Zenject;
 
 namespace Assets.Game.HappeningSystem
 {
-    class DialogPresenter : MonoBehaviour, IGameReadyElement, IGameStartElement
+    class DialogPresenter : IInitializable, 
+        IGameReadyElement, 
+        IGameStartElement
     {
         private DialogView dialogView;
         private DialogModelDecorator dialogModelDecorator;
         private PortraitButton.Factory factory;
         private DialogPersonPackCatalog personPackCatalog;
         private RelationManager relationManager;
+        private readonly SignalBus signalBus;
         private OtherConfig otherConfig;
 
         private UpdatePacket currentUpdatePacket;
 
-        [Inject]
-        public void Construct(DialogView dialogViewFacade, DialogModelDecorator dialogModelDecorator, OtherConfig otherConfig,
-            PortraitButton.Factory factory, DialogPersonPackCatalog personPackCatalog, RelationManager relationManager)
+        public DialogPresenter(DialogView dialogViewFacade, DialogModelDecorator dialogModelDecorator, OtherConfig otherConfig,
+            PortraitButton.Factory factory, DialogPersonPackCatalog personPackCatalog, RelationManager relationManager, SignalBus signalBus)
         {
             this.dialogModelDecorator = dialogModelDecorator;
             this.dialogView = dialogViewFacade;
             this.factory = factory;
             this.personPackCatalog = personPackCatalog;
             this.relationManager = relationManager;
+            this.signalBus = signalBus;
             this.otherConfig = otherConfig;
+        }
+
+        void IInitializable.Initialize()
+        {
+            signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
         }
 
         void IGameReadyElement.ReadyGame()
@@ -195,5 +204,7 @@ namespace Assets.Game.HappeningSystem
 
             dialogView.OnNextPhrase -= dialogModelDecorator.MoveNextPhrase;
         }
+
+        
     }
 }

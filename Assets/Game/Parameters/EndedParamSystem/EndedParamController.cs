@@ -1,4 +1,5 @@
-﻿using GameSystems;
+﻿using Assets.Modules;
+using GameSystems.Modules;
 using Model.Types;
 using System;
 using UnityEngine;
@@ -6,20 +7,29 @@ using Zenject;
 
 namespace Assets.Game.Parameters.EndedParamSystem
 {
-    class EndedParamController : MonoBehaviour, IGameReadyElement, IGameFinishElement, IGameChangeSceneElement
+    class EndedParamController : IInitializable, 
+        IGameReadyElement, 
+        IGameFinishElement
     {
         private ParameterEndedObserver endedObserver;
         private PopupManager popupManager;
         private MySceneManager sceneManager;
         private EndedParamMechanics endedParamMechanics;
+        private readonly SignalBus signalBus;
 
-        [Inject]
-        public void Construct(ParameterEndedObserver endedObserver, PopupManager popupManager, MySceneManager sceneManager, EndedParamMechanics endedParamMechanics)
+        public EndedParamController(ParameterEndedObserver endedObserver, PopupManager popupManager, MySceneManager sceneManager, EndedParamMechanics endedParamMechanics,
+            SignalBus signalBus)
         {
             this.endedObserver = endedObserver;
             this.popupManager = popupManager;
             this.sceneManager = sceneManager;
             this.endedParamMechanics = endedParamMechanics;
+            this.signalBus = signalBus;
+        }
+
+        void IInitializable.Initialize()
+        {
+            signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
         }
         void IGameReadyElement.ReadyGame()
         {
@@ -36,14 +46,8 @@ namespace Assets.Game.Parameters.EndedParamSystem
             popupManager.OnPopupChanged -= CheckPopup;
             sceneManager.OnChangeScene_Post -= CheckScene;
         }
-        void IGameChangeSceneElement.ChangeScene()
-        {
-            endedObserver.OnParamZero -= BeginPeopleRemoveTimer;
-            endedObserver.OnParamNonZero -= FinishPeopleRemoveTimer;
-            popupManager.OnPopupChanged -= CheckPopup;
-            sceneManager.OnChangeScene_Post -= CheckScene;
-        }
 
+        
         private void CheckScene(Scene scene)
         {
             if(sceneManager.IsTravelScene(scene))
@@ -76,8 +80,6 @@ namespace Assets.Game.Parameters.EndedParamSystem
         private void FinishPeopleRemoveTimer(ParameterType parameterType)
         {
             endedParamMechanics.FinishTimer(parameterType);
-        }
-
-        
+        }       
     }
 }

@@ -1,35 +1,50 @@
+using Assets.Modules;
 using Assets.Modules.UI;
 using Assets.Systems.SaveSystem;
-using GameSystems;
+using GameSystems.Modules;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Zenject;
 
-public class MenuController : MonoBehaviour, 
-    IGameReadyElement, IGameStartElement, IGameFinishElement
+public class MenuController : IInitializable,
+    IGameReadyElement,
+    IGameStartElement,
+    IGameFinishElement
 {
-    [SerializeField] private SimpleButton _continue;
-    [SerializeField] private SimpleButton newGame;
-    [SerializeField] private SimpleButton settings;
-    [SerializeField] private SimpleButton exit;
-    [SerializeField] private SimpleButton encyclopedia;
+    private SimpleButton _continue;
+    private SimpleButton newGame;
+    private SimpleButton settings;
+    private SimpleButton exit;
+    private SimpleButton encyclopedia;
 
     private SaveHelper<SaveData> saveHelper;
+    private readonly SignalBus signalBus;
     private IMenuCommand continueCommand;
     private IMenuCommand startCommand;
     private IMenuCommand settingsCommand;
 
-    [Inject]
-    public void Construct(List<IMenuCommand> menuCommands, SaveHelper<SaveData> saveHelper)
+    public MenuController(List<IMenuCommand> menuCommands, SaveHelper<SaveData> saveHelper, SignalBus signalBus,
+        [Inject(Id = "continue")] SimpleButton _continue, [Inject(Id = "newGame")] SimpleButton newGame, [Inject(Id = "settings")] SimpleButton settings,
+        [Inject(Id = "exit")] SimpleButton exit, [Inject(Id = "encyclopedia")] SimpleButton encyclopedia)
     {
+        this._continue = _continue;
+        this.newGame = newGame;
+        this.settings = settings;
+        this.exit = exit;
+        this.encyclopedia = encyclopedia;
         this.saveHelper = saveHelper;
+        this.signalBus = signalBus;
         continueCommand = menuCommands.First(x => x is ContinueCommand);
         startCommand = menuCommands.First(x => x is NewGameCommand);
         settingsCommand = menuCommands.First(x => x is SettingsCommand);
     }
 
+    void IInitializable.Initialize()
+    {
+        signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
+    }
     void IGameReadyElement.ReadyGame()
     {
         _continue.OnClick += ContinueHandler;

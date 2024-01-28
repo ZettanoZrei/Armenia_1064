@@ -12,15 +12,14 @@ namespace Assets.Game.Tutorial.Steps
 {
     class StepShowRest : StepShowPopup
     {
-        private HappeningManager happeningManager;
+        private readonly HappeningManager happeningManager;
         private string expectedHappening;
         private readonly MySceneManager sceneManager;
 
         public override event Action<INarrativeStep<TutorialStepType>> OnLaunchStep;
 
         public StepShowRest(PopupManager popupManager, PopupType popupType, HappeningManager happeningManager,
-             MySceneManager sceneManager, GameSystemDIController zenjectGameSystem)
-            : base(popupManager, popupType, zenjectGameSystem)
+             MySceneManager sceneManager, SignalBus signalBus) : base(popupManager, popupType, signalBus)
         {
             this.stepType = TutorialStepType.Rest;
             this.happeningManager = happeningManager;
@@ -60,12 +59,12 @@ namespace Assets.Game.Tutorial.Steps
             popup.OnFinish += Finish;
         }
 
-        public override void LeaveGame()
+        public override void FinishGame()
         {
             happeningManager.OnFinishHappening -= CheckCampIntroduceHappening;
             sceneManager.OnChangeScene_Post -= CheckReturnToCamp;
 
-            if(popup != null)
+            if (popup != null)
                 popup.OnFinish -= Finish;
         }
     }

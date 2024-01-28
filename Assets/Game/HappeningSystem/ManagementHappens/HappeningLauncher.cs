@@ -1,6 +1,7 @@
 ﻿using Assets.Game.HappeningSystem.ManagementHappens;
 using Assets.GameEngine;
 using Assets.Modules;
+using GameSystems.Modules;
 using Model.Entities.Happenings;
 using System;
 using System.Collections.Generic;
@@ -11,25 +12,35 @@ using Zenject;
 
 namespace Assets.Game.HappeningSystem
 {
-    public class HappeningLauncher : ICallBack, ILeaveGameComponentDI
+    public class HappeningLauncher : IInitializable, ICallBack, IGameFinishElement
     {
         private readonly List<Happening> happeningsQueue = new List<Happening>();
 
         public event Action<Happening> OnBeginHappening;
         public event Action<Happening> OnFinishHappening;
         public event Func<Task> OnFinishHappeningAsync;
-        private HappeningManagerFactory managerFactory;
-        private ManagerTypeResolver typeResolver;
+        private readonly HappeningManagerFactory managerFactory;
+        private readonly ManagerTypeResolver typeResolver;
+        private readonly SignalBus signalBus;
         private bool isHappeningActive;
 
         public bool IsHappeningActive => isHappeningActive; 
 
-        [Inject]
-        public void Construct(HappeningManagerFactory managerFactory, ManagerTypeResolver typeResolver, GameSystemDIController systemDIController)
+        public HappeningLauncher(HappeningManagerFactory managerFactory, ManagerTypeResolver typeResolver, SignalBus signalBus)
         {
             this.managerFactory = managerFactory;
             this.typeResolver = typeResolver;
-            systemDIController.AddComponent(this);
+            this.signalBus = signalBus;
+        }
+
+        void IInitializable.Initialize()
+        {
+            signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
+        }
+
+        void IGameFinishElement.FinishGame()
+        {
+            isHappeningActive = false;
         }
         public void AddHappening(Happening happening)
         {
@@ -101,11 +112,6 @@ namespace Assets.Game.HappeningSystem
             OnFinishHappening?.Invoke((Happening)data);
             OnFinishHappeningAsync?.Invoke();
             isHappeningActive = false;
-        }
-
-        void ILeaveGameComponentDI.LeaveGame()
-        {
-            isHappeningActive = false;
-        }
+        }       
     }
 }

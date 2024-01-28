@@ -13,21 +13,20 @@ using Zenject;
 
 namespace Assets.Game.Tutorial.Steps
 {
-    class StepShowAdvices : StepShowPopup, ILeaveGameComponentDI
+    class StepShowAdvices : StepShowPopup
     {
-        private HappeningManager happeningManager;
+        private readonly HappeningManager happeningManager;
         public override event Action<INarrativeStep<TutorialStepType>> OnLaunchStep;
         protected string expectedHappening;
         private readonly DialogModelDecorator dialogModelDecorator;
 
         public StepShowAdvices(PopupManager popupManager, PopupType popupType, HappeningManager happeningManager,
-            DialogModelDecorator dialogModelDecorator, GameSystemDIController zenjectGameSystem) : base(popupManager, popupType, zenjectGameSystem)
+            DialogModelDecorator dialogModelDecorator, SignalBus signalBus) : base(popupManager, popupType, signalBus)
         {
             this.happeningManager = happeningManager;
             this.stepType = TutorialStepType.Advices;
             this.expectedHappening = "Эпизод_1.2";
             this.dialogModelDecorator = dialogModelDecorator;
-            zenjectGameSystem.AddComponent(this);
         }
 
         public override void Begin()
@@ -58,10 +57,10 @@ namespace Assets.Game.Tutorial.Steps
             popup.OnFinish += Finish;
         }
 
-        public override void LeaveGame()
+        public override void FinishGame()
         {
             happeningManager.OnLaunchHappening -= CheckCampIntroduceHappening;
-            if(dialogModelDecorator.IsModel)
+            if (dialogModelDecorator.IsModel)
                 dialogModelDecorator.OnShowAnswers -= DoBegin2;
         }
     }

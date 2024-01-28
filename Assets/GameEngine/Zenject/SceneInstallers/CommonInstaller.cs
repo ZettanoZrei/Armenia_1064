@@ -3,6 +3,7 @@ using Assets.Game.HappeningSystem;
 using Assets.Game.InputSystem;
 using Assets.Game.Menu;
 using Assets.Game.Plot.Core;
+using Assets.Game.SceneScripts;
 using Assets.Game.Tutorial.Observers;
 using Assets.Game.UI.FailGameSystem;
 using GameSystems;
@@ -28,6 +29,8 @@ namespace Assets.Systems.Zenject
             
             Container.BindInterfacesTo<ObserverIsActive>().FromComponentsInHierarchy().AsTransient();
             Container.BindInterfacesTo<PlotObserver2>().FromComponentsInHierarchy().AsTransient();
+
+            Container.BindInterfacesTo<SceneStartBeacon>().FromComponentInHierarchy().AsCached();
         }        
     }
 }

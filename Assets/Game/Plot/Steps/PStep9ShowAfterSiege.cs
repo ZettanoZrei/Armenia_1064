@@ -3,15 +3,19 @@ using Assets.Game.Core;
 using Assets.Game.Plot.Core;
 using Assets.Game.Plot.UI;
 using Assets.GameEngine;
+using Assets.Modules;
+using GameSystems.Modules;
 using System;
 using UnityEngine.SceneManagement;
+using Zenject;
 
 namespace Assets.Game.Plot.Steps
 {
     //9
-    class PStep9ShowAfterSiege : PlotStep, ILeaveGameComponentDI
+    class PStep9ShowAfterSiege : PlotStep, IInitializable, IGameFinishElement
     {
         private readonly PopupManager popupManager;
+        private readonly SignalBus signalBus;
         private readonly PlotConfig plotConfig;
         private PlotWordPresentor presentor;
 
@@ -19,14 +23,22 @@ namespace Assets.Game.Plot.Steps
         public override event Action<INarrativeStep<PlotStepType>> OnLaunchStep;
         private readonly string text = "Спустя три недели...";
 
-        public PStep9ShowAfterSiege(PopupManager popupManager, ConfigurationRuntime config, GameSystemDIController zenjectGameSystem)
+        public PStep9ShowAfterSiege(PopupManager popupManager, ConfigurationRuntime config, SignalBus signalBus)
         {
             this.stepType = PlotStepType.AfterSiege;
             this.popupManager = popupManager;
+            this.signalBus = signalBus;
             this.plotConfig = config.PlotConfig;
-            zenjectGameSystem.AddComponent(this);
         }
-
+        void IInitializable.Initialize()
+        {
+            signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
+        }
+        void IGameFinishElement.FinishGame()
+        {
+            if (presentor != null)
+                presentor.OnFinish -= Finish;
+        }
         public override void Begin()
         {
             var popup = popupManager.ShowPopup(PopupType.PlotDarkWords) as PlotWordsPopup;
@@ -43,11 +55,6 @@ namespace Assets.Game.Plot.Steps
             //sceneManager.LoadCamp();
             OnFinishStep?.Invoke();
         }
-
-        void ILeaveGameComponentDI.LeaveGame()
-        {
-            if(presentor!=null)
-                presentor.OnFinish -= Finish;
-        }
+            
     }
 }

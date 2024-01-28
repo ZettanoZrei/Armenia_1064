@@ -14,20 +14,19 @@ using Zenject;
 namespace Assets.Game.Tutorial.Steps
 {
     //суть в то что сначала мы отслеживаем диалог,  а затем конец нода 
-    class StepShowDialogRelation : StepShowPopup, ILeaveGameComponentDI
+    class StepShowDialogRelation : StepShowPopup
     {
         private readonly MySceneManager sceneManager;
         private readonly DialogModelDecorator dialogModelDecorator;
 
 
         public override event Action<INarrativeStep<TutorialStepType>> OnLaunchStep;
-        public StepShowDialogRelation(PopupManager popupManager, MySceneManager sceneManager, DialogModelDecorator dialogModelDecorator, GameSystemDIController zenjectGameSystem,
-            PopupType popupType) : base(popupManager, popupType, zenjectGameSystem)
+        public StepShowDialogRelation(PopupManager popupManager, MySceneManager sceneManager, DialogModelDecorator dialogModelDecorator, 
+            SignalBus signalBus, PopupType popupType) : base(popupManager, popupType, signalBus)
         {
             this.stepType = TutorialStepType.DialogRelation;
             this.sceneManager = sceneManager;
             this.dialogModelDecorator = dialogModelDecorator;
-            zenjectGameSystem.AddComponent(this);
         }
 
         public override void Begin()
@@ -57,11 +56,10 @@ namespace Assets.Game.Tutorial.Steps
             popup.OnFinish += Finish;
         }
 
-
-        public override void LeaveGame()
+        public override void FinishGame()
         {
             sceneManager.OnChangeScene_Post -= CheckIfDialog;
-            if(dialogModelDecorator.IsModel)
+            if (dialogModelDecorator.IsModel)
                 dialogModelDecorator.OnShowAnswers -= DoBegin2;
         }
     }

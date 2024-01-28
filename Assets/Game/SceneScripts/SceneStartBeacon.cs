@@ -1,4 +1,5 @@
-﻿using GameSystems;
+﻿using Assets.Modules;
+using GameSystems.Modules;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,31 +11,35 @@ using Zenject;
 
 namespace Assets.Game.SceneScripts
 {
-    internal class SceneStartBeacon : MonoBehaviour, IGameStartElement
+    internal class SceneStartBeacon : MonoBehaviour, IInitializable, IGameStartElement
     {
         private MySceneManager sceneManager;
+        private SignalBus signalBus;
         [SerializeField] private Scene currentScene;
 
         [Inject]
-        public void Construct(MySceneManager sceneManager)
+        public void Construct(MySceneManager sceneManager, SignalBus signalBus)
         {
             this.sceneManager = sceneManager;
+            this.signalBus = signalBus;
+        }
+
+        void IInitializable.Initialize()
+        {
+            signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
         }
         void IGameStartElement.StartGame()
         {
-            StartCoroutine(DelayInvoke());
+            sceneManager.InvokeOnChangeScene(currentScene);
+            //StartCoroutine(DelayInvoke());
         }
-
-        //private void Start()
+        
+        //IEnumerator DelayInvoke()
         //{
+        //    yield return new WaitForEndOfFrame();
         //    sceneManager.InvokeOnChangeScene(currentScene);
-        //    Debug.Log("SceneStartBeacon:" + currentScene);
         //}
 
-        IEnumerator DelayInvoke()
-        {
-            yield return new WaitForEndOfFrame();
-            sceneManager.InvokeOnChangeScene(currentScene);
-        }
+        
     }
 }

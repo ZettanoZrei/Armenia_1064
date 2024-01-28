@@ -4,7 +4,9 @@ using Assets.Game.HappeningSystem;
 using Assets.Game.Plot.Core;
 using Assets.Game.Plot.UI;
 using Assets.GameEngine;
+using Assets.Modules;
 using Entities;
+using GameSystems.Modules;
 using Model.Entities.Happenings;
 using System;
 using System.Threading.Tasks;
@@ -13,18 +15,27 @@ using Zenject;
 namespace Assets.Game.Plot.Steps
 {
     //8
-    class PStep8SiegeAbout : PlotStep, ILeaveGameComponentDI
+    class PStep8SiegeAbout : PlotStep, IInitializable, IGameFinishElement
     {
         public override event Action OnFinishStep;
         public override event Action<INarrativeStep<PlotStepType>> OnLaunchStep;
 
-        private HappeningManager happeningManager;
+        private readonly HappeningManager happeningManager;
+        private readonly SignalBus signalBus;
 
-        public PStep8SiegeAbout(HappeningManager happeningManager, GameSystemDIController zenjectGameSystem)
+        public PStep8SiegeAbout(HappeningManager happeningManager, SignalBus signalBus)
         {
             this.happeningManager = happeningManager;
+            this.signalBus = signalBus;
             this.stepType = PlotStepType.SiegeAbout;
-            zenjectGameSystem.AddComponent(this);
+        }
+        void IInitializable.Initialize()
+        {
+            signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
+        }
+        void IGameFinishElement.FinishGame()
+        {
+            happeningManager.OnFinishHappening -= DoFinsih;
         }
         public override async void Begin()
         {
@@ -41,11 +52,6 @@ namespace Assets.Game.Plot.Steps
         {
             happeningManager.OnFinishHappening -= DoFinsih;
             OnFinishStep?.Invoke();
-        }
-
-        void ILeaveGameComponentDI.LeaveGame()
-        {
-            happeningManager.OnFinishHappening -= DoFinsih;
-        }
+        }        
     }
 }

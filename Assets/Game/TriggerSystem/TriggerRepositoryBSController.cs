@@ -1,8 +1,9 @@
 ﻿using Assets.Game.Camp;
 using Assets.Game.DialogBackTriggers;
 using Assets.Game.Stoppage;
+using Assets.Modules;
 using Assets.Save;
-using GameSystems;
+using GameSystems.Modules;
 using Model.Entities.Answers;
 using System;
 using System.Collections.Generic;
@@ -12,8 +13,8 @@ using Zenject;
 
 namespace Assets.Game.HappeningSystem
 {
-    class TriggerRepositoryBSController : MonoBehaviour,
-        IGameReadyElement, IGameFinishElement, IGameInitElement, IGameChangeSceneElement, IGameStartElement
+    class TriggerRepositoryBSController : IInitializable,
+        IGameReadyElement, IGameFinishElement, IGameInitElement, IGameStartElement
     {
         private IEnumerable<ActivatorStaticTrigger> staticRoadTriggers;
         private IEnumerable<LaunchStaticTrigger> beginHappeningTriggers;
@@ -26,17 +27,23 @@ namespace Assets.Game.HappeningSystem
         private BSRepositoryCampQuestTrigger bSRepositoryCampQuestTrigger;
         private FiniteTriggerCatalog finiteTriggerCatalog;
         private MySceneManager sceneManager;
+        private readonly SignalBus signalBus;
 
-        [Inject]
-        public void Construct(BSRepositoryTrigger repositoryBS, BSRepositoryCampQuestTrigger bSRepositoryCampQuestTrigger, FiniteTriggerCatalog finiteTriggerCatalog,
-            MySceneManager sceneManager)
+        public TriggerRepositoryBSController(BSRepositoryTrigger repositoryBS, BSRepositoryCampQuestTrigger bSRepositoryCampQuestTrigger, FiniteTriggerCatalog finiteTriggerCatalog,
+            MySceneManager sceneManager, SignalBus signalBus)
         {
             this.repositoryBS = repositoryBS;
             this.bSRepositoryCampQuestTrigger = bSRepositoryCampQuestTrigger;
             this.finiteTriggerCatalog = finiteTriggerCatalog;
             this.sceneManager = sceneManager;
+            this.signalBus = signalBus;
         }
-        void IGameInitElement.InitGame(IGameSystem _)
+
+        void IInitializable.Initialize()
+        {
+            signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
+        }
+        void IGameInitElement.InitGame()
         {
             staticRoadTriggers = finiteTriggerCatalog.GetElements<ActivatorStaticTrigger>(); 
             beginHappeningTriggers = finiteTriggerCatalog.GetElements<LaunchStaticTrigger>();
@@ -54,10 +61,6 @@ namespace Assets.Game.HappeningSystem
         void IGameStartElement.StartGame()
         {
             LoadTriggersBetweenScenes();
-        }
-        void IGameChangeSceneElement.ChangeScene()
-        {
-            Unsubscribe();
         }
         void IGameFinishElement.FinishGame()
         {
@@ -147,6 +150,6 @@ namespace Assets.Game.HappeningSystem
             repositoryBS.Add(sceneManager.CurrentScene, dialogBackTriggers.ToDictionary(x => x.Index, x => x.IsDone));
             repositoryBS.Add(sceneManager.CurrentScene, stoppageTriggers.ToDictionary(x => x.Index, x => x.IsDone));
             bSRepositoryCampQuestTrigger.Add(sceneManager.CurrentScene, campQuestTriggerModes.ToDictionary(x => x.Index, x => new CampQuestTriggerInfo(x.IsDone, x.SavesState)));
-        }       
+        }        
     }
 }

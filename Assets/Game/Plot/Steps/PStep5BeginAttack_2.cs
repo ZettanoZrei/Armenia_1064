@@ -4,7 +4,9 @@ using Assets.Game.Core;
 using Assets.Game.HappeningSystem;
 using Assets.Game.Plot.Core;
 using Assets.GameEngine;
+using Assets.Modules;
 using Entities;
+using GameSystems.Modules;
 using Model.Entities.Happenings;
 using System;
 using System.Threading.Tasks;
@@ -13,20 +15,28 @@ using Zenject;
 namespace Assets.Game.Plot.Steps
 {
     //5.2
-    class PStep5BeginAttack_2 : PlotStep, ILeaveGameComponentDI
+    class PStep5BeginAttack_2 : PlotStep, IInitializable, IGameFinishElement
     {
         public override event Action OnFinishStep;
         public override event Action<INarrativeStep<PlotStepType>> OnLaunchStep;
         private readonly HappeningManager happeningManager;
+        private readonly SignalBus signalBus;
 
-
-        public PStep5BeginAttack_2(HappeningManager happeningManager, GameSystemDIController zenjectGameSystem)
+        public PStep5BeginAttack_2(HappeningManager happeningManager, SignalBus signalBus)
         {
             this.happeningManager = happeningManager;
+            this.signalBus = signalBus;
             this.stepType = PlotStepType.BeginAttack_2;
-            zenjectGameSystem.AddComponent(this);
+        }
+        void IGameFinishElement.FinishGame()
+        {
+            happeningManager.OnFinishHappening -= DoFinsih;
         }
 
+        void IInitializable.Initialize()
+        {
+            signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
+        }
         public override void Begin()
         {
             DoBegin();
@@ -53,9 +63,6 @@ namespace Assets.Game.Plot.Steps
             OnFinishStep?.Invoke();
         }
 
-        void ILeaveGameComponentDI.LeaveGame()
-        {
-            happeningManager.OnFinishHappening -= DoFinsih;
-        }
+        
     }
 }

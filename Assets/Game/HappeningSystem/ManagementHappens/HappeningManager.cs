@@ -33,8 +33,7 @@ namespace Assets.Game.HappeningSystem
             remove { happeningLauncher.OnFinishHappeningAsync -= value; }
         }
 
-        [Inject]
-        public void Construct(QuestManager questManager, HappeningCatalog happenCatalog, HappeningReplaceManager replaceManager, HappeningLauncher happeningLauncher)
+        public HappeningManager(QuestManager questManager, HappeningCatalog happenCatalog, HappeningReplaceManager replaceManager, HappeningLauncher happeningLauncher)
         {
             this.questManager = questManager;
             this.happenCatalog = happenCatalog;

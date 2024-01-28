@@ -1,9 +1,7 @@
 using Assets.Game.DialogBackTriggers;
-using Assets.Game.HappeningSystem;
-using Entities;
-using GameSystems;
-using Model.Entities.Persons;
-using System.Collections;
+using Assets.Game.Stoppage;
+using Assets.Modules;
+using GameSystems.Modules;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -12,8 +10,10 @@ using Zenject;
 
 namespace Assets.Game.HappeningSystem
 {
-    class TriggerController : MonoBehaviour,
-        IGameReadyElement, IGameFinishElement, IGameInitElement
+    class TriggerController : IInitializable,
+        IGameInitElement,
+        IGameReadyElement, 
+        IGameFinishElement
     {
         private QuestManager questManager;
         private HappeningManager happeningManager;
@@ -24,36 +24,43 @@ namespace Assets.Game.HappeningSystem
         private IEnumerable<DialogBackTrigger> dialogBackTriggers; 
         private IEnumerable<CampIcon> campIcons;
         private DialogBackgroundKeeper backgroundManager;
+        private readonly SignalBus signalBus;
+        private readonly FiniteTriggerCatalog finiteTriggerCatalog;
 
-
-        [Inject]
-        public void Construct(HappeningManager happeningManager, QuestManager questManager, DialogBackgroundKeeper backgroundManager)
+        public TriggerController(HappeningManager happeningManager, QuestManager questManager, DialogBackgroundKeeper backgroundManager, SignalBus signalBus,
+            FiniteTriggerCatalog finiteTriggerCatalog)
         {
             this.questManager = questManager;
             this.backgroundManager = backgroundManager;
-            this.happeningManager = happeningManager;
+            this.signalBus = signalBus;
+            this.finiteTriggerCatalog = finiteTriggerCatalog;
+            this.happeningManager = happeningManager;             
+        }
+        void IInitializable.Initialize()
+        {
+            signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
         }
 
-        void IGameInitElement.InitGame(IGameSystem gameSystem)
+        void IGameInitElement.InitGame()
         {
-            //find another way to get links
-            beginHappeningTriggers = FindObjectsOfType<LaunchStaticTrigger>();
-            staticRoadTriggers = FindObjectsOfType<ActivatorStaticTrigger>();
-            fastPointerTriggers = FindObjectsOfType<FastPointerTrigger>(); 
-            campQuestTriggerModes = FindObjectsOfType<CampQuestTriggerModel>();
-            dialogBackTriggers = FindObjectsOfType<DialogBackTrigger>();
+            staticRoadTriggers = finiteTriggerCatalog.GetElements<ActivatorStaticTrigger>();
+            beginHappeningTriggers = finiteTriggerCatalog.GetElements<LaunchStaticTrigger>();
+            fastPointerTriggers = finiteTriggerCatalog.GetElements<FastPointerTrigger>();
+            campQuestTriggerModes = finiteTriggerCatalog.GetElements<CampQuestTriggerModel>();
+            dialogBackTriggers = finiteTriggerCatalog.GetElements<DialogBackTrigger>();
+            //stoppageTriggers = finiteTriggerCatalog.GetElements<StoppageTrigger>(); //TODO: оно здесь должно быть?
+        }
+
+        void IGameReadyElement.ReadyGame()
+        {
+            //campIcons = MonoBehaviour.FindObjectsOfType<CampIcon>();
+            Subscribe();
         }
         void IGameFinishElement.FinishGame()
         {
             Unsubscribe();
         }
-
-        void IGameReadyElement.ReadyGame()
-        {
-            campIcons = FindObjectsOfType<CampIcon>();
-            Subscribe();
-        }
-
+       
         private void ActivateHappening(string quest)
         {
             happeningManager.PutHappeningToQueue(quest);
@@ -117,5 +124,7 @@ namespace Assets.Game.HappeningSystem
             foreach (var trigger in dialogBackTriggers)
                 trigger.OnChangeDialogBack -= backgroundManager.SetDialogBackground;
         }
+
+        
     }
 }

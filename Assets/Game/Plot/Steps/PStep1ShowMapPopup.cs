@@ -64,7 +64,6 @@ namespace Assets.Game.Plot.Steps
         private void DoBegin()
         {
             sceneManager.OnChangeScene_Post -= CheckPlotScene;
-
         }
 
         public override void Finish()

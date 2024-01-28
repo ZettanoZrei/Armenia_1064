@@ -1,28 +1,33 @@
 ﻿using Assets.Game.Camp;
 using Assets.Game.Configurations;
-using GameSystems;
+using Assets.Modules;
+using GameSystems.Modules;
 using System.Threading.Tasks;
 using UnityEngine;
 using Zenject;
 
 namespace Assets.Game.Timer
 {
-    class TimeRestController : MonoBehaviour, 
-        IGameReadyElement, IGameFinishElement, IGameChangeSceneElement
+    class TimeRestController : IInitializable, 
+        IGameReadyElement, 
+        IGameFinishElement
     {
-        private TimeMechanics timeManager;
-        private RestManager restManager;
-        private TimeConfig config;
+        private readonly TimeMechanics timeManager;
+        private readonly RestManager restManager;
+        private readonly TimeConfig config;
+        private readonly SignalBus signalBus;
 
-
-        [Inject]
-        public void Construct(TimeMechanics parametersManager, RestManager restManager, TimeConfig config)
+        public TimeRestController(TimeMechanics parametersManager, RestManager restManager, TimeConfig config, SignalBus signalBus)
         {
             this.timeManager = parametersManager;
             this.restManager = restManager;
             this.config = config;
+            this.signalBus = signalBus;
         }
-
+        void IInitializable.Initialize()
+        {
+            signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
+        }
         void IGameReadyElement.ReadyGame()
         {
             restManager.OnRest += AddTime;
@@ -33,15 +38,10 @@ namespace Assets.Game.Timer
             restManager.OnRest -= AddTime;
         }
 
-        void IGameChangeSceneElement.ChangeScene()
-        {
-            restManager.OnRest -= AddTime;
-        }
-
         private Task AddTime()
         {
             timeManager.AddDay(config.restDay);
             return Task.CompletedTask;
-        }      
+        }       
     }
 }

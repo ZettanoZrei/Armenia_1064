@@ -1,25 +1,35 @@
 ﻿using Assets.Game.Core;
 using Assets.Game.Tutorial.Core;
 using Assets.GameEngine;
+using Assets.Modules;
+using GameSystems.Modules;
 using System;
+using Zenject;
 
 namespace Assets.Game.Tutorial.Steps
 {
-    class StepComeFromCastleCheck : TutorialStep, ILeaveGameComponentDI
+    class StepComeFromCastleCheck : TutorialStep, IInitializable, IGameFinishElement
     {
         public override event Action OnFinishStep;
         public override event Action<INarrativeStep<TutorialStepType>> OnLaunchStep;
 
         private MySceneManager sceneManager;
+        private readonly SignalBus signalBus;
 
-
-        public StepComeFromCastleCheck(MySceneManager sceneManager, GameSystemDIController zenjectGameSystem)
+        public StepComeFromCastleCheck(MySceneManager sceneManager, SignalBus signalBus)
         {
             this.sceneManager = sceneManager;
+            this.signalBus = signalBus;
             stepType = TutorialStepType.CheckCastleLeave;
-            zenjectGameSystem.AddComponent(this);
         }
-
+        void IInitializable.Initialize()
+        {
+            signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
+        }
+        void IGameFinishElement.FinishGame()
+        {
+            sceneManager.OnChangeScene_Post -= CheckTravel_1Scene;
+        }
         public override void Begin()
         {
             sceneManager.OnChangeScene_Post += CheckTravel_1Scene;
@@ -38,10 +48,6 @@ namespace Assets.Game.Tutorial.Steps
                 Finish();
             }
         }
-
-        void ILeaveGameComponentDI.LeaveGame()
-        {
-            sceneManager.OnChangeScene_Post -= CheckTravel_1Scene;
-        }
+             
     }
 }

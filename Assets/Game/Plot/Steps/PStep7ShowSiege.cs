@@ -3,18 +3,22 @@ using Assets.Game.Plot.Core;
 using Assets.Game.Plot.Scripts;
 using Assets.Game.Plot.UI;
 using Assets.GameEngine;
+using Assets.Modules;
+using GameSystems.Modules;
 using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Zenject;
 
 namespace Assets.Game.Plot.Steps
 {
     //7
-    class PStep7ShowSiege : PlotStep, ILeaveGameComponentDI
+    class PStep7ShowSiege : PlotStep, IInitializable, IGameFinishElement
     {
         private readonly PopupManager popupManager;
         private readonly PlotStoryModel storyModel;
+        private readonly SignalBus signalBus;
         private PlotStoryPopup popup;
         private PlotStoryPresenter plotStoryPresenter;
         private PlotCamerasViewConponent cameraConponent;
@@ -23,13 +27,22 @@ namespace Assets.Game.Plot.Steps
         public override event Action<INarrativeStep<PlotStepType>> OnLaunchStep;
 
 
-        public PStep7ShowSiege(PopupManager popupManager, PlotStoryModel storyModel, GameSystemDIController zenjectGameSystem)
+        public PStep7ShowSiege(PopupManager popupManager, PlotStoryModel storyModel, SignalBus signalBus)
         {
             this.popupManager = popupManager;
             this.storyModel = storyModel;
+            this.signalBus = signalBus;
             this.stepType = PlotStepType.Siege;
-            zenjectGameSystem.AddComponent(this);
         }
+        void IInitializable.Initialize()
+        {
+            signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
+        }
+        void IGameFinishElement.FinishGame()
+        {
+            if (plotStoryPresenter != null)
+                plotStoryPresenter.OnFinish -= Finish;
+        }      
         public override void Begin()
         {
             popup = popupManager.ShowPopup(PopupType.PlotStoryPopup) as PlotStoryPopup;
@@ -55,12 +68,6 @@ namespace Assets.Game.Plot.Steps
             popupManager.ClosePopup(PopupType.PlotStoryPopup);
             cameraConponent.gameObject.SetActive(false);
             OnFinishStep?.Invoke();
-        }
-
-        void ILeaveGameComponentDI.LeaveGame()
-        {
-            if (plotStoryPresenter != null)
-                plotStoryPresenter.OnFinish -= Finish;
-        }
+        }       
     }
 }

@@ -1,24 +1,35 @@
 ﻿using Assets.Game.Core;
 using Assets.Game.Tutorial.Core;
 using Assets.GameEngine;
+using Assets.Modules;
+using GameSystems.Modules;
 using System;
+using Zenject;
 
 namespace Assets.Game.Tutorial.Steps
 {
     //проверяет заход в замок чтобы дать команду для активации тутора в первом диалоге
-    class StepComeInCastleCheck : TutorialStep, ILeaveGameComponentDI
+    class StepComeInCastleCheck : TutorialStep, IInitializable, IGameFinishElement
     {
         private SetupCampManager setupCampManager;
-
-        public StepComeInCastleCheck(SetupCampManager setupCampManager, GameSystemDIController zenjectGameSystem)
-        {
-            this.setupCampManager = setupCampManager;
-            stepType = TutorialStepType.CheckCastle;
-            zenjectGameSystem.AddComponent(this);
-        }
-
+        private readonly SignalBus signalBus;
         public override event Action OnFinishStep;
         public override event Action<INarrativeStep<TutorialStepType>> OnLaunchStep;
+        public StepComeInCastleCheck(SetupCampManager setupCampManager, SignalBus signalBus)
+        {
+            this.setupCampManager = setupCampManager;
+            this.signalBus = signalBus;
+            stepType = TutorialStepType.CheckCastle;
+        }
+        void IInitializable.Initialize()
+        {
+            signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
+        }
+        void IGameFinishElement.FinishGame()
+        {
+            setupCampManager.OnSetupCamp_Before -= Finish;
+        }
+        
 
         public override void Begin()
         {
@@ -31,10 +42,6 @@ namespace Assets.Game.Tutorial.Steps
             setupCampManager.OnSetupCamp_Before -= Finish;
             OnFinishStep?.Invoke();
         }
-
-        void ILeaveGameComponentDI.LeaveGame()
-        {
-            setupCampManager.OnSetupCamp_Before -= Finish;
-        }
+           
     }
 }

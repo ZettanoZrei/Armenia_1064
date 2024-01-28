@@ -1,29 +1,36 @@
 using Assets.Game;
 using Assets.Game.HappeningSystem;
+using Assets.Modules;
 using Entities;
-using GameSystems;
-using Model.Entities.Happenings;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using GameSystems.Modules;
 using Zenject;
 
-class MoveController : MonoBehaviour,
-    IGameReadyElement, IGameFinishElement, IGameInitElement, IGameStartElement, IGameChangeSceneElement, IGamePauseElement, IGameResumeElement
+class MoveController : IInitializable,
+    IGameReadyElement, 
+    IGameFinishElement, 
+    IGameInitElement, 
+    IGameStartElement, 
+    IGamePauseElement, 
+    IGameResumeElement
 {
     private IMoveComponent moveComponent;
-    private SetupCampManager setupCampManager;
-    private IEntity caravanEntity;
+    private readonly SetupCampManager setupCampManager;
+    private readonly SignalBus signalBus;
+    private readonly IEntity caravanEntity;
 
 
     [Inject]
-    public void Construct(SetupCampManager setupCampManager, [Inject(Id = "caravan")] IEntity caravan)
+    public MoveController(SetupCampManager setupCampManager, SignalBus signalBus, [Inject(Id = "caravan")] IEntity caravan)
     {
         this.setupCampManager = setupCampManager;
+        this.signalBus = signalBus;
         this.caravanEntity = caravan;
     }
-
-    void IGameInitElement.InitGame(IGameSystem _)
+    void IInitializable.Initialize()
+    {
+        signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
+    }
+    void IGameInitElement.InitGame()
     {
         moveComponent = caravanEntity.Element<IMoveComponent>();
     }
@@ -31,17 +38,14 @@ class MoveController : MonoBehaviour,
     {
         setupCampManager.OnSetupCamp_Before += moveComponent.Stop;
     }
-    void IGameChangeSceneElement.ChangeScene()
-    {
-        Unsubcribe();
-    }
+
     void IGameStartElement.StartGame()
     {
         moveComponent.Move();
     }
     void IGameFinishElement.FinishGame()
     {
-        Unsubcribe();
+        setupCampManager.OnSetupCamp_Before -= moveComponent.Stop;
         moveComponent.Stop();
     }
     void IGamePauseElement.PauseGame()
@@ -52,9 +56,5 @@ class MoveController : MonoBehaviour,
     void IGameResumeElement.ResumeGame()
     {
         moveComponent.Move();
-    }
-    private void Unsubcribe()
-    {
-        setupCampManager.OnSetupCamp_Before -= moveComponent.Stop;
     }   
 }

@@ -1,5 +1,4 @@
 ﻿using Entities;
-using GameSystems;
 using Interfeces;
 using System.Linq;
 using System.Collections.Generic;
@@ -10,24 +9,36 @@ using Zenject;
 using Assets.Modules.UI;
 using Assets.Game.Camp;
 using System.ComponentModel;
+using GameSystems.Modules;
+using Assets.Modules;
 
-class SetupCampController : MonoBehaviour,
-    IGameReadyElement, IGameFinishElement, IGameInitElement
+class SetupCampController : IInitializable,
+    IGameReadyElement, 
+    IGameFinishElement, 
+    IGameInitElement
 {
     private ITriggerComponent caravanTrigger;
-    private SetupCampManager setupCampManager;
-    private IEntity caravan;
-    private CampIncomingData campIncomingData;
-    [SerializeField] private SimpleButton setupCampButton;
+    private readonly SetupCampManager setupCampManager;
+    private readonly IEntity caravan;
+    private readonly SignalBus signalBus;
+    private readonly CampIncomingData campIncomingData;
+    private readonly SimpleButton setupCampButton;
 
-    [Inject]
-    public void Construct(SetupCampManager setupCampManager, CampIncomingData campIncomingData, [Inject(Id = "caravan")] IEntity caravan)
+    public SetupCampController(SetupCampManager setupCampManager, CampIncomingData campIncomingData, [Inject(Id = "caravan")] IEntity caravan,
+        SignalBus signalBus, [Inject(Id = "setupCampButton")] SimpleButton setupCampButton)
     {
         this.setupCampManager = setupCampManager;
         this.caravan = caravan;
+        this.signalBus = signalBus;
         this.campIncomingData = campIncomingData;
+        this.setupCampButton = setupCampButton;
     }
-    void IGameInitElement.InitGame(IGameSystem _)
+
+    void IInitializable.Initialize()
+    {
+        signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
+    }
+    void IGameInitElement.InitGame()
     {
         caravanTrigger = caravan.Element<ITriggerComponent>();
     }
@@ -63,4 +74,6 @@ class SetupCampController : MonoBehaviour,
     {
         setupCampManager.SetupCamp();
     }
+
+    
 }
