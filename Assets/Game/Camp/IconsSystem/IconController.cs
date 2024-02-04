@@ -10,7 +10,7 @@ using Zenject;
 
 namespace Assets.Game.Camp.IconsSystem
 {
-    public class IconController : IInitializable, IGameReadyElement
+    public class IconController : IInitializable, ISceneReady
     {
         private readonly IconsFabrica iconsManager;
         private readonly CampBackgroundManager campBackgroundManager;
@@ -31,7 +31,7 @@ namespace Assets.Game.Camp.IconsSystem
             signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
         }
 
-        void IGameReadyElement.ReadyGame()
+        void ISceneReady.ReadyScene()
         {
             IEnumerable<Quest> availableCampQuests = incomingData.DialogAvailable > 0 ? incomingData.CampQuests.OrderByDescending(x => x.IsRequired)
                 : incomingData.CampQuests.Where(x => x.IsRequired);

@@ -1,4 +1,6 @@
 ﻿using Assets.Game.HappeningSystem;
+using ExtraInjection;
+using GameSystems.Modules;
 using Model.Entities.Happenings;
 using System;
 using UniRx;
@@ -6,28 +8,32 @@ using Zenject;
 
 namespace Assets.Game.UI.EndPopupSystem
 {
-    class EndGameManager : IInitializable, ILateDisposable
+    class EndGameManager : 
+        ISceneReady, 
+        ISceneFinish, 
+        IExtraInject
     {
-        private readonly PopupManager popupManager;
+        [ExtraInject] private PopupManager popupManager;
         private readonly MySceneManager sceneManager;
         private readonly HappeningManager happeningManager;
         private EndGamePopup popup;
 
-        public EndGameManager(PopupManager popupManager, MySceneManager sceneManager, HappeningManager happeningManager)
+        public EndGameManager(MySceneManager sceneManager, HappeningManager happeningManager)
         {
-            this.popupManager = popupManager;
             this.sceneManager = sceneManager;
             this.happeningManager = happeningManager;
         }
 
-        void IInitializable.Initialize()
+        void ISceneReady.ReadyScene()
         {
             happeningManager.OnFinishHappening += CheckLastHappening;
         }
-        void ILateDisposable.LateDispose()
+
+        void ISceneFinish.FinishScene()
         {
             happeningManager.OnFinishHappening -= CheckLastHappening;
         }
+
         private void CheckLastHappening(Happening happening)
         {
             if (happening.Title == "Шаваршан_Диалог")
@@ -46,5 +52,6 @@ namespace Assets.Game.UI.EndPopupSystem
             popupManager.ClosePopup(PopupType.EndGamePopup);
             sceneManager.LoadMainMenuScene();
         }
+
     }
 }

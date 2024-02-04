@@ -9,7 +9,7 @@ using Zenject;
 namespace Assets.Game.Tutorial.Steps
 {
     //проверяет заход в замок чтобы дать команду для активации тутора в первом диалоге
-    class StepComeInCastleCheck : TutorialStep, IInitializable, IGameFinishElement
+    class StepComeInCastleCheck : TutorialStep, IInitializable, ISceneFinish
     {
         private SetupCampManager setupCampManager;
         private readonly SignalBus signalBus;
@@ -25,7 +25,7 @@ namespace Assets.Game.Tutorial.Steps
         {
             signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
         }
-        void IGameFinishElement.FinishGame()
+        void ISceneFinish.FinishScene()
         {
             setupCampManager.OnSetupCamp_Before -= Finish;
         }

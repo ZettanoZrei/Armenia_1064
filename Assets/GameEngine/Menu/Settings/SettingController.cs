@@ -9,8 +9,8 @@ using GameSystems.Modules;
 namespace Assets.GameEngine.Menu.Settings
 {
     internal class SettingController : IInitializable, 
-        IGameReadyElement, 
-        IGameFinishElement
+        ISceneReady, 
+        ISceneFinish
     {
         private readonly SimpleButton backButton;
         private readonly SoundSettingView sliderView;
@@ -35,7 +35,7 @@ namespace Assets.GameEngine.Menu.Settings
             signalBus.Fire(new ConnectGameElementEvent { GameElement = this });                    
         }
 
-        void IGameReadyElement.ReadyGame()
+        void ISceneReady.ReadyScene()
         {
             sliderView.SetSound(musicManager.SoundValue);
             musicSliderView.SetSound(musicManager.MusicValue);
@@ -44,7 +44,7 @@ namespace Assets.GameEngine.Menu.Settings
             sliderView.AddListener(musicManager.ChangeSound);
             musicSliderView.AddListener(musicManager.SetMusicVolumeImmediately);
         }
-        void IGameFinishElement.FinishGame()
+        void ISceneFinish.FinishScene()
         {
             backButton.OnClick -= BackHandler;
             sliderView.RemoveListener(musicManager.ChangeSound);

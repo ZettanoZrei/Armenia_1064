@@ -7,8 +7,8 @@ using UnityEngine.SceneManagement;
 using Zenject;
 
 class LeaveController : IInitializable,
-    IGameReadyElement, 
-    IGameFinishElement
+    ISceneReady,
+    ISceneFinish
 {
     private SetupCampManager setupCampManager;
     private readonly SignalBus signalBus;
@@ -24,11 +24,11 @@ class LeaveController : IInitializable,
     {
         signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
     }
-    void IGameReadyElement.ReadyGame()
+    void ISceneReady.ReadyScene()
     {
         leaveButton.OnClick += LeaveCamp;
     }
-    void IGameFinishElement.FinishGame()
+    void ISceneFinish.FinishScene()
     {
         leaveButton.OnClick -= LeaveCamp;
     }

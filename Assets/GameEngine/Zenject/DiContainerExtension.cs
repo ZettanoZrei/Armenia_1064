@@ -13,6 +13,7 @@ using Assets.Game.HappeningSystem.ManagementHappens;
 using Assets.Game.Parameters.EndedParamSystem;
 using Assets.Game.Parameters;
 using Assets.Game;
+using Assets.Modules;
 
 namespace Assets.GameEngine.Zenject
 {
@@ -55,6 +56,14 @@ namespace Assets.GameEngine.Zenject
             Container.Bind<PopupManager>().AsSingle();
             Container.Bind<PopupFabrica>().AsSingle();
             Container.Bind<PopupCatalog>().FromScriptableObjectResource("Entities/PopupCatalog").AsSingle();
+            Container.Bind<PopupContainer>().FromComponentInHierarchy().AsCached();    
+            Container.Bind<BlockCurtain>().FromComponentInHierarchy().AsCached();    
+        }
+
+        public static void BindSceneScriptSystem(this DiContainer Container)
+        {
+            Container.Bind<SceneScriptManager>().AsSingle();
+            Container.Bind<SceneScriptContext>().AsSingle();
         }
     }
 }

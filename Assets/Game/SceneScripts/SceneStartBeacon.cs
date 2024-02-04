@@ -11,7 +11,7 @@ using Zenject;
 
 namespace Assets.Game.SceneScripts
 {
-    internal class SceneStartBeacon : MonoBehaviour, IInitializable, IGameStartElement
+    internal class SceneStartBeacon : MonoBehaviour, IInitializable, ISceneStart
     {
         private MySceneManager sceneManager;
         private SignalBus signalBus;
@@ -28,7 +28,7 @@ namespace Assets.Game.SceneScripts
         {
             signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
         }
-        void IGameStartElement.StartGame()
+        void ISceneStart.StartScene()
         {
             sceneManager.InvokeOnChangeScene(currentScene);
             //StartCoroutine(DelayInvoke());

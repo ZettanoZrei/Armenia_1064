@@ -19,8 +19,8 @@ using Zenject;
 namespace Assets.Game.HappeningSystem
 {
     class DialogPresenter : IInitializable, 
-        IGameReadyElement, 
-        IGameStartElement
+        ISceneReady, 
+        ISceneStart
     {
         private DialogView dialogView;
         private DialogModelDecorator dialogModelDecorator;
@@ -49,12 +49,12 @@ namespace Assets.Game.HappeningSystem
             signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
         }
 
-        void IGameReadyElement.ReadyGame()
+        void ISceneReady.ReadyScene()
         {
             Subscribe();
         }
 
-        void IGameStartElement.StartGame()
+        void ISceneStart.StartScene()
         {
             this.dialogModelDecorator.Begin();
         }

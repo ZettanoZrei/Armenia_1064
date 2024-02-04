@@ -10,9 +10,9 @@ namespace Assets.Game.Timer
 {
     class TimeTravelController : IInitializable, 
         ILateTickable,
-        IGameInitElement,
-        IGameReadyElement, 
-        IGameFinishElement
+        ISceneInitialize,
+        ISceneReady, 
+        ISceneFinish
     {
         private readonly TimeMechanics timeMechanics;
         private readonly TimeConfig config;
@@ -47,17 +47,17 @@ namespace Assets.Game.Timer
                 }
             }
         }
-        void IGameInitElement.InitGame()
+        void ISceneInitialize.InitScene()
         {
             this.moveComponent = caravan.Element<IMoveComponent>();
         }
-        void IGameReadyElement.ReadyGame()
+        void ISceneReady.ReadyScene()
         {
             moveComponent.OnMovingEvent += TimerBegin;
             moveComponent.OnFinishMovingEvent += TimerStop;
         }
 
-        void IGameFinishElement.FinishGame()
+        void ISceneFinish.FinishScene()
         {
             moveComponent.OnMovingEvent -= TimerBegin;
             moveComponent.OnFinishMovingEvent -= TimerStop;

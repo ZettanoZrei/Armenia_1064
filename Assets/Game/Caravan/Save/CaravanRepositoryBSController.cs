@@ -7,8 +7,8 @@ using UnityEngine;
 using Zenject;
 
 public class CaravanRepositoryBSController : IInitializable,
-    IGameInitElement, 
-    IGameStartElement
+    ISceneInitialize, 
+    ISceneStart
 {
     private ISaveComponent<List<CaravanData>> saveComponent;
     private BSRepositoryCaravan repositoryBS;
@@ -29,12 +29,12 @@ public class CaravanRepositoryBSController : IInitializable,
     {
         signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
     }
-    void IGameInitElement.InitGame()
+    void ISceneInitialize.InitScene()
     {
         saveComponent = this.caravan.Element<ISaveComponent<List<CaravanData>>>();
     }
 
-    void IGameStartElement.StartGame()
+    void ISceneStart.StartScene()
     {
         Load();
     }
@@ -55,6 +55,7 @@ public class CaravanRepositoryBSController : IInitializable,
         {
             saveComponent.LoadData(data);
         }
-    }   
+    }
+
 }
 

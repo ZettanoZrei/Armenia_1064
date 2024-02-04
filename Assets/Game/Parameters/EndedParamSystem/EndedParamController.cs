@@ -8,8 +8,8 @@ using Zenject;
 namespace Assets.Game.Parameters.EndedParamSystem
 {
     class EndedParamController : IInitializable, 
-        IGameReadyElement, 
-        IGameFinishElement
+        ISceneReady, 
+        ISceneFinish
     {
         private ParameterEndedObserver endedObserver;
         private PopupManager popupManager;
@@ -31,7 +31,7 @@ namespace Assets.Game.Parameters.EndedParamSystem
         {
             signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
         }
-        void IGameReadyElement.ReadyGame()
+        void ISceneReady.ReadyScene()
         {
             endedObserver.OnParamZero += BeginPeopleRemoveTimer;
             endedObserver.OnParamNonZero += FinishPeopleRemoveTimer;
@@ -39,7 +39,7 @@ namespace Assets.Game.Parameters.EndedParamSystem
             sceneManager.OnChangeScene_Post += CheckScene;
         }
 
-        void IGameFinishElement.FinishGame()
+        void ISceneFinish.FinishScene()
         {
             endedObserver.OnParamZero -= BeginPeopleRemoveTimer;
             endedObserver.OnParamNonZero -= FinishPeopleRemoveTimer;

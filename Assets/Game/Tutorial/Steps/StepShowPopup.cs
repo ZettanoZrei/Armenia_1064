@@ -2,6 +2,7 @@
 using Assets.Game.Tutorial.UI;
 using Assets.GameEngine;
 using Assets.Modules;
+using ExtraInjection;
 using GameSystems.Modules;
 using System;
 using System.Collections.Generic;
@@ -12,17 +13,16 @@ using Zenject;
 
 namespace Assets.Game.Tutorial.Steps
 {
-    internal abstract class StepShowPopup : TutorialStep, IInitializable, IGameFinishElement
+    internal abstract class StepShowPopup : TutorialStep, IInitializable, ISceneFinish, IExtraInject
     {
+        [ExtraInject] protected PopupManager popupManager;
         public override event Action OnFinishStep;
-        protected readonly PopupManager popupManager;
         protected readonly PopupType popupType;
         private readonly SignalBus signalBus;
         protected TutorialPopup popup;
 
-        public StepShowPopup(PopupManager popupManager, PopupType popupType, SignalBus signalBus)
+        public StepShowPopup(PopupType popupType, SignalBus signalBus)
         {
-            this.popupManager = popupManager;
             this.popupType = popupType;
             this.signalBus = signalBus;
         }
@@ -37,6 +37,6 @@ namespace Assets.Game.Tutorial.Steps
             popupManager.ClosePopup(popupType);
             OnFinishStep?.Invoke();
         }
-        public abstract void FinishGame();       
+        public abstract void FinishScene();       
     }
 }

@@ -20,8 +20,8 @@ namespace Assets.Game.Tutorial.Steps
         protected string expectedHappening;
         private readonly DialogModelDecorator dialogModelDecorator;
 
-        public StepShowAdvices(PopupManager popupManager, PopupType popupType, HappeningManager happeningManager,
-            DialogModelDecorator dialogModelDecorator, SignalBus signalBus) : base(popupManager, popupType, signalBus)
+        public StepShowAdvices(PopupType popupType, HappeningManager happeningManager,
+            DialogModelDecorator dialogModelDecorator, SignalBus signalBus) : base(popupType, signalBus)
         {
             this.happeningManager = happeningManager;
             this.stepType = TutorialStepType.Advices;
@@ -57,7 +57,7 @@ namespace Assets.Game.Tutorial.Steps
             popup.OnFinish += Finish;
         }
 
-        public override void FinishGame()
+        public override void FinishScene()
         {
             happeningManager.OnLaunchHappening -= CheckCampIntroduceHappening;
             if (dialogModelDecorator.IsModel)

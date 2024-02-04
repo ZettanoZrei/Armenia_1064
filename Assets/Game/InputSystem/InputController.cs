@@ -8,8 +8,8 @@ using Zenject;
 namespace Assets.Game.InputSystem
 {
     internal class InputController : IInitializable, 
-        IGameReadyElement, 
-        IGameFinishElement
+        ISceneReady, 
+        ISceneFinish
     {
         private SimpleButton menu;
         private SimpleButton diary;
@@ -30,11 +30,11 @@ namespace Assets.Game.InputSystem
             signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
         }
 
-        void IGameReadyElement.ReadyGame()
+        void ISceneReady.ReadyScene()
         {
             menu.OnClick += OpenMenu;
         }
-        void IGameFinishElement.FinishGame()
+        void ISceneFinish.FinishScene()
         {
             menu.OnClick -= OpenMenu;
         }

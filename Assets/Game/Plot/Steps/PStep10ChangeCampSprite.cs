@@ -10,7 +10,7 @@ using Zenject;
 namespace Assets.Game.Plot.Steps
 {
     //10
-    class PStep10ChangeCampSprite : PlotStep, IInitializable, IGameFinishElement
+    class PStep10ChangeCampSprite : PlotStep, IInitializable, ISceneFinish
     {
         private readonly SetupCampManager campManager;
         private readonly CampIncomingData incomingData;
@@ -33,7 +33,7 @@ namespace Assets.Game.Plot.Steps
             signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
         }
 
-        void IGameFinishElement.FinishGame()
+        void ISceneFinish.FinishScene()
         {
             sceneManager.OnChangeScene_Post -= DoFinish;
         }

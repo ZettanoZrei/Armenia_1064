@@ -7,9 +7,9 @@ using Zenject;
 namespace Assets.Game.UI.TimeUI
 {
     class TimeAdapter : IInitializable, 
-        IGameReadyElement, 
-        IGameFinishElement, 
-        IGameStartElement
+        ISceneReady, 
+        ISceneFinish, 
+        ISceneStart
     {
         [SerializeField] private TimeView view;
         private readonly TimeMechanics model;
@@ -26,19 +26,19 @@ namespace Assets.Game.UI.TimeUI
         {
             signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
         }
-        void IGameReadyElement.ReadyGame()
+        void ISceneReady.ReadyScene()
         {
             model.OnTimeChanged += view.SetTime;
             model.OnDayChanged += view.SetDay;
         }       
 
-        void IGameStartElement.StartGame()
+        void ISceneStart.StartScene()
         {
             view.SetDay(model.Days);
             view.SetTime(model.Time);
         }
 
-        void IGameFinishElement.FinishGame()
+        void ISceneFinish.FinishScene()
         {
             model.OnTimeChanged -= view.SetTime;
             model.OnDayChanged -= view.SetDay;

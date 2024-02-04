@@ -10,32 +10,32 @@ namespace GameSystems.Modules
     {
     }
 
-    public interface IGameInitElement : IGameElement
+    public interface ISceneInitialize : IGameElement
     {
-        void InitGame();
+        void InitScene();
     }
 
-    public interface IGameReadyElement : IGameElement
+    public interface ISceneReady : IGameElement
     {
-        void ReadyGame();
+        void ReadyScene();
     }
-    public interface IGameStartElement : IGameElement
+    public interface ISceneStart : IGameElement
     {
-        void StartGame();
-    }
-
-    public interface IGameFinishElement : IGameElement
-    {
-        void FinishGame();
+        void StartScene();
     }
 
-    public interface IGamePauseElement : IGameElement
+    public interface ISceneFinish : IGameElement
     {
-        void PauseGame();
+        void FinishScene();
     }
 
-    public interface IGameResumeElement : IGameElement
+    public interface IScenePause : IGameElement
     {
-        void ResumeGame();
+        void PauseScene();
+    }
+
+    public interface ISceneResume : IGameElement
+    {
+        void ResumeScene();
     }
 }

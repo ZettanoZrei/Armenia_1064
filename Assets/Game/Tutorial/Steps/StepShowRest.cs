@@ -18,8 +18,8 @@ namespace Assets.Game.Tutorial.Steps
 
         public override event Action<INarrativeStep<TutorialStepType>> OnLaunchStep;
 
-        public StepShowRest(PopupManager popupManager, PopupType popupType, HappeningManager happeningManager,
-             MySceneManager sceneManager, SignalBus signalBus) : base(popupManager, popupType, signalBus)
+        public StepShowRest(PopupType popupType, HappeningManager happeningManager,
+             MySceneManager sceneManager, SignalBus signalBus) : base(popupType, signalBus)
         {
             this.stepType = TutorialStepType.Rest;
             this.happeningManager = happeningManager;
@@ -59,7 +59,7 @@ namespace Assets.Game.Tutorial.Steps
             popup.OnFinish += Finish;
         }
 
-        public override void FinishGame()
+        public override void FinishScene()
         {
             happeningManager.OnFinishHappening -= CheckCampIntroduceHappening;
             sceneManager.OnChangeScene_Post -= CheckReturnToCamp;

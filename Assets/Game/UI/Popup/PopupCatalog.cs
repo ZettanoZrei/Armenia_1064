@@ -8,7 +8,7 @@ namespace Assets.Game
         fileName = "HappenViewCatalog",
         menuName = "View/HappenViewCatalog"
     )]
-    class PopupCatalog : ScriptableObject
+    public class PopupCatalog : ScriptableObject
     {
         [SerializeField]
         private Popup[] popups;

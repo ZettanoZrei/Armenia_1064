@@ -7,8 +7,8 @@ using UnityEngine;
 using Zenject;
 
 class RelationPanelAdapter : IInitializable, 
-    IGameReadyElement, 
-    IGameFinishElement
+    ISceneReady, 
+    ISceneFinish
 {
     private readonly RelationPanelView panelView;
     private readonly SignalBus signalBus;
@@ -25,7 +25,7 @@ class RelationPanelAdapter : IInitializable,
     {
         signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
     }
-    void IGameReadyElement.ReadyGame()
+    void ISceneReady.ReadyScene()
     {
         foreach(var relation in relationManager)
         {
@@ -34,7 +34,7 @@ class RelationPanelAdapter : IInitializable,
         }
     }
 
-    void IGameFinishElement.FinishGame()
+    void ISceneFinish.FinishScene()
     {
         disposable.Clear();
     }   

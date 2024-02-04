@@ -15,8 +15,8 @@ namespace Assets.Game.Tutorial.Steps
         private readonly MySceneManager sceneManager;
 
         public override event Action<INarrativeStep<TutorialStepType>> OnLaunchStep;
-        public StepShowInterfaceInstructions(PopupManager popupManager, MySceneManager sceneManager, PopupType popupType, SignalBus signalBus)
-            : base(popupManager, popupType, signalBus)
+        public StepShowInterfaceInstructions(MySceneManager sceneManager, PopupType popupType, SignalBus signalBus)
+            : base(popupType, signalBus)
         {
             this.stepType = TutorialStepType.InterfaceInstructions;
             this.sceneManager = sceneManager;
@@ -37,7 +37,7 @@ namespace Assets.Game.Tutorial.Steps
             popup.OnFinish += Finish;
         }
 
-        public override void FinishGame()
+        public override void FinishScene()
         {
             if (popup != null)
                 popup.OnFinish -= Finish;

@@ -12,9 +12,9 @@ using Zenject;
 namespace Assets.Game.Camp
 {
     class RestController : IInitializable,
-        IGameReadyElement, 
-        IGameFinishElement, 
-        IGameStartElement
+        ISceneReady,
+        ISceneFinish,
+        ISceneStart
     {
         private readonly SimpleButton restButton;
         private readonly RestManager restManager;
@@ -38,19 +38,19 @@ namespace Assets.Game.Camp
         {
             signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
         }
-        void IGameReadyElement.ReadyGame()
+        void ISceneReady.ReadyScene()
         {
             restButton.OnClick += DoRest;
             restManager.OnRest += BlockRest;
         }
 
       
-        void IGameStartElement.StartGame()
+        void ISceneStart.StartScene()
         {
             if(!CheckRestPosibility(restConfiguration, parametersManager))
                 restButton.SetActiveButton(false);
         }
-        void IGameFinishElement.FinishGame()
+        void ISceneFinish.FinishScene()
         {
             restButton.OnClick -= DoRest;
             restManager.OnRest -= BlockRest;

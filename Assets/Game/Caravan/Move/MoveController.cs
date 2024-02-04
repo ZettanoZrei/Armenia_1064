@@ -5,56 +5,56 @@ using Entities;
 using GameSystems.Modules;
 using Zenject;
 
-class MoveController : 
-    IGameReadyElement, 
-    IGameFinishElement, 
-    IGameInitElement, 
-    IGameStartElement, 
-    IGamePauseElement, 
-    IGameResumeElement
+class MoveController : IInitializable,
+    ISceneInitialize, 
+    ISceneReady, 
+    ISceneStart, 
+    IScenePause, 
+    ISceneResume,
+    ISceneFinish 
 {
     private IMoveComponent moveComponent;
     private readonly SetupCampManager setupCampManager;
-    private readonly SignalBus signalBus;
     private readonly IEntity caravanEntity;
+    private readonly SignalBus signalBus;
 
-
-    [Inject]
-    public MoveController(SetupCampManager setupCampManager, SignalBus signalBus, [Inject(Id = "caravan")] IEntity caravan)
+    public MoveController(SetupCampManager setupCampManager, [Inject(Id = "caravan")] IEntity caravan, SignalBus signalBus)
     {
         this.setupCampManager = setupCampManager;
-        this.signalBus = signalBus;
         this.caravanEntity = caravan;
+        this.signalBus = signalBus;
     }
+
     void IInitializable.Initialize()
     {
         signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
     }
-    void IGameInitElement.InitGame()
+    void ISceneInitialize.InitScene()
     {
         moveComponent = caravanEntity.Element<IMoveComponent>();
     }
-    void IGameReadyElement.ReadyGame()
+    void ISceneReady.ReadyScene()
     {
         setupCampManager.OnSetupCamp_Before += moveComponent.Stop;
     }
 
-    void IGameStartElement.StartGame()
+    void ISceneStart.StartScene()
     {
         moveComponent.Move();
     }
-    void IGameFinishElement.FinishGame()
+    void ISceneFinish.FinishScene()
     {
         setupCampManager.OnSetupCamp_Before -= moveComponent.Stop;
         moveComponent.Stop();
     }
-    void IGamePauseElement.PauseGame()
+    void IScenePause.PauseScene()
     {
         moveComponent.Stop();
     }
 
-    void IGameResumeElement.ResumeGame()
+    void ISceneResume.ResumeScene()
     {
         moveComponent.Move();
-    }   
+    }
+
 }

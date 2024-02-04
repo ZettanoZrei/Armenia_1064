@@ -12,7 +12,7 @@ using Zenject;
 namespace Assets.Game.Plot.Steps
 {
     //5.1
-    class PStep5BeginAttack_1 : PlotStep, IInitializable, IGameFinishElement
+    class PStep5BeginAttack_1 : PlotStep, IInitializable, ISceneFinish
     {
         private readonly CampIncomingData incomingData;
         private readonly HappeningManager happeningManager;
@@ -28,7 +28,7 @@ namespace Assets.Game.Plot.Steps
             this.stepType = PlotStepType.BeginAttack_1;
         }
 
-        void IGameFinishElement.FinishGame()
+        void ISceneFinish.FinishScene()
         {
             incomingData.OnDialogAvailableChange -= CheckIfAllDialogFinished;
             happeningManager.OnFinishHappeningAsync -= DoFinish;

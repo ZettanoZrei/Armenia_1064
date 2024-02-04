@@ -10,7 +10,7 @@ using Zenject;
 
 namespace Assets.Game.HappeningSystem
 {
-    public class FiniteTriggerCatalog : MonoBehaviour, IInitializable, IGameReadyElement
+    public class FiniteTriggerCatalog : MonoBehaviour, IInitializable, ISceneReady
     {
         private List<BaseFiniteTrigger> triggers = new List<BaseFiniteTrigger>();
         private int index = 0;
@@ -36,7 +36,7 @@ namespace Assets.Game.HappeningSystem
             signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
         }
 
-        void IGameReadyElement.ReadyGame()
+        void ISceneReady.ReadyScene()
         {
             SetIndex();
         }

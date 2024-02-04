@@ -8,8 +8,8 @@ using UnityEngine;
 using Zenject;
 
 public class PeopleWidgetAdapter : IInitializable,
-    IGameReadyElement, 
-    IGameFinishElement
+    ISceneReady, 
+    ISceneFinish
 {
     private readonly PeopleWidget peopleWidget;
     private readonly ParametersManager parametersManager;
@@ -27,7 +27,7 @@ public class PeopleWidgetAdapter : IInitializable,
     {
         signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
     }
-    void IGameReadyElement.ReadyGame()
+    void ISceneReady.ReadyScene()
     {
         //SetUIPeople(parametersManager.People.Value);
         parametersManager.People
@@ -35,7 +35,7 @@ public class PeopleWidgetAdapter : IInitializable,
             .Subscribe(_ => SetUIPeople(_))
             .AddTo(disposable);
     }
-    void IGameFinishElement.FinishGame()
+    void ISceneFinish.FinishScene()
     {
         disposable.Clear();
     }

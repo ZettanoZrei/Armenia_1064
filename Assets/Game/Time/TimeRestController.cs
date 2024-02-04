@@ -9,8 +9,8 @@ using Zenject;
 namespace Assets.Game.Timer
 {
     class TimeRestController : IInitializable, 
-        IGameReadyElement, 
-        IGameFinishElement
+        ISceneReady, 
+        ISceneFinish
     {
         private readonly TimeMechanics timeManager;
         private readonly RestManager restManager;
@@ -28,12 +28,12 @@ namespace Assets.Game.Timer
         {
             signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
         }
-        void IGameReadyElement.ReadyGame()
+        void ISceneReady.ReadyScene()
         {
             restManager.OnRest += AddTime;
         }
 
-        void IGameFinishElement.FinishGame()
+        void ISceneFinish.FinishScene()
         {
             restManager.OnRest -= AddTime;
         }

@@ -15,6 +15,7 @@ using Assets.Game.DialogBackTriggers;
 using Assets.Game.Parameters.EndedParamSystem;
 using Assets.Game.UI.TimeUI;
 using Assets.Game.InputSystem;
+using Assets.GameEngine.Zenject;
 
 public class MonoTravelSceneInstaller : MonoInstaller
 {
@@ -27,11 +28,11 @@ public class MonoTravelSceneInstaller : MonoInstaller
     [SerializeField] private RelationPanelView relationPanelView;
     public override void InstallBindings()
     {
+        CommonInstaller.Install(Container);
         Container.Bind<IEntity>().WithId("caravan").To<MonoEntity>().FromInstance(caravan).AsSingle();      
         Container.Bind<FiniteTriggerCatalog>().FromComponentInHierarchy().AsSingle();       
         Container.BindInterfacesTo<TravelSceneNavigatorController>().AsTransient();
         Container.Bind<NextTravelSceneTrigger>().FromComponentsInHierarchy().AsSingle();
-        CommonInstaller.Install(Container);
 
 
         //UI
@@ -64,7 +65,6 @@ public class MonoTravelSceneInstaller : MonoInstaller
         //Triggers
         Container.Bind<FiniteTriggerCatalog>().FromComponentInHierarchy().AsCached();
 
-
-        Container.Bind<SceneManager>().FromComponentInHierarchy().AsCached();       
+        Container.BindSceneScriptSystem();     
     }    
 }

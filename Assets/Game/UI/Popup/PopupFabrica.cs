@@ -9,18 +9,18 @@ namespace Assets.Game
 {
     public class PopupFabrica
     {
-        private Transform popupContainer;
-
-        [Inject]
+        private PopupContainer popupContainer;
         private PopupCatalog happenViewsCatalog;
 
-        public void InjectPopupContainer(Transform popupContainer)
+        public PopupFabrica(PopupCatalog happenViewsCatalog, PopupContainer popupContainer)
         {
+            this.happenViewsCatalog = happenViewsCatalog;
             this.popupContainer = popupContainer;
         }
+
         internal IPopup GetPopup(PopupType popupName)
         {            
-            return MonoBehaviour.Instantiate(happenViewsCatalog.GetPopup(popupName), popupContainer);
+            return MonoBehaviour.Instantiate(happenViewsCatalog.GetPopup(popupName), popupContainer.transform);
 
             //if (cache.TryGetValue(popupName, out IEntity popup))
             //{

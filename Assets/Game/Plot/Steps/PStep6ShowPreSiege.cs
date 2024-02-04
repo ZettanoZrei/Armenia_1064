@@ -2,6 +2,7 @@
 using Assets.Game.Core;
 using Assets.Game.Plot.Core;
 using Assets.Game.Plot.UI;
+using ExtraInjection;
 using System;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -10,20 +11,19 @@ using UnityEngine.SceneManagement;
 namespace Assets.Game.Plot.Steps
 {
     //6
-    class PStep6ShowPreSiege : PlotStep
+    class PStep6ShowPreSiege : PlotStep, IExtraInject
     {
         public override event Action OnFinishStep;
         public override event Action<INarrativeStep<PlotStepType>> OnLaunchStep;
 
+        [ExtraInject] private PopupManager popupManager;
         private PlotWordPresentor presentor;
-        private readonly PopupManager popupManager;
         private readonly MySceneManager sceneManager;
         private readonly PlotConfig plotConfig;
         private readonly string text = "А на рассвете к стенам Аревберда подошло войско турок-сельджуков.";
-        public PStep6ShowPreSiege(PopupManager popupManager, ConfigurationRuntime config, MySceneManager sceneManager)
+        public PStep6ShowPreSiege(ConfigurationRuntime config, MySceneManager sceneManager)
         {
             this.stepType = PlotStepType.PreSiege;
-            this.popupManager = popupManager;
             this.sceneManager = sceneManager;
             this.plotConfig = config.PlotConfig;
         }

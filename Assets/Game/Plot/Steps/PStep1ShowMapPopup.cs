@@ -3,6 +3,7 @@ using Assets.Game.Core;
 using Assets.Game.Plot.Core;
 using Assets.Game.Plot.Scripts;
 using Assets.Game.Plot.UI;
+using ExtraInjection;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -10,9 +11,9 @@ using UnityEngine;
 namespace Assets.Game.Plot.Steps
 {
     //1
-    class PStep1ShowMapPopup : PlotStep
+    class PStep1ShowMapPopup : PlotStep, IExtraInject
     {
-        private readonly PopupManager popupManager;
+        [ExtraInject] private PopupManager popupManager;
         private readonly MySceneManager sceneManager;
         private readonly PlotStoryModel storyModel;
         private readonly PlotConfig plotConfig;
@@ -22,9 +23,8 @@ namespace Assets.Game.Plot.Steps
         public override event Action OnFinishStep;
         public override event Action<INarrativeStep<PlotStepType>> OnLaunchStep;
 
-        public PStep1ShowMapPopup(PopupManager popupManager, MySceneManager sceneManager, PlotStoryModel storyModel, ConfigurationRuntime config)
+        public PStep1ShowMapPopup(MySceneManager sceneManager, PlotStoryModel storyModel, ConfigurationRuntime config)
         {
-            this.popupManager = popupManager;
             this.sceneManager = sceneManager;
             this.storyModel = storyModel;
             this.plotConfig = config.PlotConfig;

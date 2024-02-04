@@ -9,9 +9,9 @@ using UnityEngine;
 using Zenject;
 
 public class MenuController : IInitializable,
-    IGameReadyElement,
-    IGameStartElement,
-    IGameFinishElement
+    ISceneReady,
+    ISceneStart,
+    ISceneFinish
 {
     private SimpleButton _continue;
     private SimpleButton newGame;
@@ -45,20 +45,20 @@ public class MenuController : IInitializable,
     {
         signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
     }
-    void IGameReadyElement.ReadyGame()
+    void ISceneReady.ReadyScene()
     {
         _continue.OnClick += ContinueHandler;
         newGame.OnClick += StartHandler;
         settings.OnClick += SettingsHandler;
         exit.OnClick += ExitHandler;
     }
-    void IGameStartElement.StartGame()
+    void ISceneStart.StartScene()
     {
         _continue.SetActiveButton(saveHelper.CheckSaveFile());
         encyclopedia.SetActiveButton(false);
     }
 
-    void IGameFinishElement.FinishGame()
+    void ISceneFinish.FinishScene()
     {
         _continue.OnClick -= ContinueHandler;
         newGame.OnClick -= StartHandler;

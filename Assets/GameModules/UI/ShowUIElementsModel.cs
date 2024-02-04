@@ -1,13 +1,14 @@
 ﻿using Assets.Game.Plot.UI;
+using ExtraInjection;
 using System;
 using UniRx;
 
 namespace Assets.Game.Intro.Step
 {
-    class ShowUIElementsModel
+    class ShowUIElementsModel : IExtraInject
     {
+        [ExtraInject] private PopupManager popupManager;
         private ShowUiElements popup;
-        private readonly PopupManager popupManager;
         private PopupType popupType;
         private float startDelayTime;
         private float appearTime;
@@ -16,10 +17,6 @@ namespace Assets.Game.Intro.Step
         private CompositeDisposable disposables = new CompositeDisposable();
 
         public event Action OnFinish;
-        public ShowUIElementsModel(PopupManager popupManager)
-        {
-            this.popupManager = popupManager;
-        }
 
         public void Init(PopupType popupType, float startDelayTime, float appearTime, float stayTime, float fadeTime)
         {

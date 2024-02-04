@@ -14,8 +14,9 @@ using Zenject;
 using Assets.Game.Configurations;
 using Assets.Game.Tutorial.Core;
 using System.Linq;
+using ExtraInjection;
 
-public class LoadManager
+public class LoadManager : IExtraInject
 {
     private readonly Repository repository;
     private readonly QuestManager questManager;
@@ -30,16 +31,16 @@ public class LoadManager
     private readonly HappeningReplaceManager replaceManager;
     private readonly CampIncomingData campIncomingData;
     private readonly TimeMechanics timeManager;
-    private readonly EndedParamMechanics endedParamMechanics;
     private readonly DialogPersonPackCatalog personPacks;
     private readonly PlotManager plotManager;
     private readonly TutorialManager tutorialManager;
     private readonly HappeningManager happeningManager;
+    [ExtraInject] private EndedParamMechanics endedParamMechanics;
 
     public LoadManager(Repository repository, QuestManager questManager, ConfigurationRuntime configurationRuntime, DialogBackgroundKeeper backgroundManager,
         RelationManager relationManager, ParametersManager parametersManager, TravelSceneNavigator travelSceneNavigator, BSRepositoryCaravan repositoryCaravan,
         BSRepositoryTrigger repositoryTriggers, BSRepositoryCampQuestTrigger repositoryCampQuests, HappeningManager happeningManager,
-        HappeningReplaceManager replaceManager, CampIncomingData campIncomingData, TimeMechanics timeManager, EndedParamMechanics endedParamMechanics,
+        HappeningReplaceManager replaceManager, CampIncomingData campIncomingData, TimeMechanics timeManager, 
         DialogPersonPackCatalog personPacks, PlotManager plotManager, TutorialManager tutorialManager)
     {
         this.repository = repository;

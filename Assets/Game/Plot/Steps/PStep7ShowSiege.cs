@@ -4,6 +4,7 @@ using Assets.Game.Plot.Scripts;
 using Assets.Game.Plot.UI;
 using Assets.GameEngine;
 using Assets.Modules;
+using ExtraInjection;
 using GameSystems.Modules;
 using System;
 using System.Collections;
@@ -14,9 +15,9 @@ using Zenject;
 namespace Assets.Game.Plot.Steps
 {
     //7
-    class PStep7ShowSiege : PlotStep, IInitializable, IGameFinishElement
+    class PStep7ShowSiege : PlotStep, IInitializable, ISceneFinish, IExtraInject
     {
-        private readonly PopupManager popupManager;
+        [ExtraInject] private PopupManager popupManager;
         private readonly PlotStoryModel storyModel;
         private readonly SignalBus signalBus;
         private PlotStoryPopup popup;
@@ -27,9 +28,8 @@ namespace Assets.Game.Plot.Steps
         public override event Action<INarrativeStep<PlotStepType>> OnLaunchStep;
 
 
-        public PStep7ShowSiege(PopupManager popupManager, PlotStoryModel storyModel, SignalBus signalBus)
+        public PStep7ShowSiege(PlotStoryModel storyModel, SignalBus signalBus)
         {
-            this.popupManager = popupManager;
             this.storyModel = storyModel;
             this.signalBus = signalBus;
             this.stepType = PlotStepType.Siege;
@@ -38,7 +38,7 @@ namespace Assets.Game.Plot.Steps
         {
             signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
         }
-        void IGameFinishElement.FinishGame()
+        void ISceneFinish.FinishScene()
         {
             if (plotStoryPresenter != null)
                 plotStoryPresenter.OnFinish -= Finish;

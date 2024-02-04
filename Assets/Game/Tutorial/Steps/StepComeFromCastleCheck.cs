@@ -8,7 +8,7 @@ using Zenject;
 
 namespace Assets.Game.Tutorial.Steps
 {
-    class StepComeFromCastleCheck : TutorialStep, IInitializable, IGameFinishElement
+    class StepComeFromCastleCheck : TutorialStep, IInitializable, ISceneFinish
     {
         public override event Action OnFinishStep;
         public override event Action<INarrativeStep<TutorialStepType>> OnLaunchStep;
@@ -26,7 +26,7 @@ namespace Assets.Game.Tutorial.Steps
         {
             signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
         }
-        void IGameFinishElement.FinishGame()
+        void ISceneFinish.FinishScene()
         {
             sceneManager.OnChangeScene_Post -= CheckTravel_1Scene;
         }

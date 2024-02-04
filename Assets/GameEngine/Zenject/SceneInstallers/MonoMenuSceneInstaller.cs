@@ -1,4 +1,5 @@
-﻿using Assets.Modules.UI;
+﻿using Assets.GameEngine.Zenject;
+using Assets.Modules.UI;
 using Assets.Systems.Zenject;
 using Loader;
 using UnityEditor;
@@ -20,5 +21,7 @@ public class MonoMenuSceneInstaller : MonoInstaller
         Container.Bind<SimpleButton>().WithId("encyclopedia").FromInstance(encyclopedia).AsCached();
 
         Container.BindInterfacesTo<MenuController>().AsSingle();
+        Container.BindInterfacesTo<ClearOldData>().AsSingle();
+        Container.BindSceneScriptSystem();
     }
 }

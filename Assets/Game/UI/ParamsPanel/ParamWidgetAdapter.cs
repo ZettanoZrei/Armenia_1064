@@ -9,8 +9,8 @@ using UnityEngine;
 using Zenject;
 
 public class ParamWidgetAdapter : IInitializable,
-    IGameReadyElement, 
-    IGameFinishElement
+    ISceneReady, 
+    ISceneFinish
 {
     private readonly ParamsWidget paramsWidget;
     private readonly SignalBus signalBus;
@@ -30,7 +30,7 @@ public class ParamWidgetAdapter : IInitializable,
         signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
     }
 
-    void IGameReadyElement.ReadyGame()
+    void ISceneReady.ReadyScene()
     {
         paramsWidget.AddImmediately(ParameterType.Stamina, parameters.Stamina.Value);
         paramsWidget.AddImmediately(ParameterType.Spirit, parameters.Spirit.Value);
@@ -44,7 +44,7 @@ public class ParamWidgetAdapter : IInitializable,
     }
 
 
-    void IGameFinishElement.FinishGame()
+    void ISceneFinish.FinishScene()
     {
         disposable.Clear();
     }

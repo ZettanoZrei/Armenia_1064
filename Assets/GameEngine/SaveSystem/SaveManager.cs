@@ -10,6 +10,7 @@ using Assets.Game.Timer;
 using Assets.Game.Tutorial.Core;
 using Assets.Save;
 using Entities;
+using ExtraInjection;
 using Model.Types;
 using System;
 using System.Collections.Generic;
@@ -20,8 +21,8 @@ using Zenject;
 
 namespace Assets.Systems.SaveSystem
 {
-    public class SaveManager
-    {      
+    public class SaveManager : IExtraInject
+    {
         private readonly DialogBackgroundKeeper backgroundManager;
         private readonly MySceneManager sceneManager;
         private readonly Repository repository;
@@ -37,15 +38,15 @@ namespace Assets.Systems.SaveSystem
         private readonly TimeMechanics timeManager;
         private readonly TutorialManager tutorialManager;
         private readonly PlotManager plotManager;
-        private readonly EndedParamMechanics endedParamMechanics;
         private readonly HappeningManager happeningManager;
         private readonly DialogPersonPackCatalog personPacks;
+        [ExtraInject] private EndedParamMechanics endedParamMechanics;
 
         public SaveManager(Repository repository, DialogBackgroundKeeper backgroundManager, MySceneManager sceneManager, QuestManager questManager,
                 RelationManager relationManager, ParametersManager parametersManager, TravelSceneNavigator travelSceneNavigator, PlotManager plotManager,
                 BSRepositoryCaravan repositoryCaravan, BSRepositoryTrigger repositoryTriggers, BSRepositoryCampQuestTrigger repositoryCampQuests,
                 HappeningReplaceManager replaceManager, CampIncomingData campIncomingData, TimeMechanics timeManager,
-                TutorialManager tutorialManager, EndedParamMechanics endedParamMechanics, HappeningManager happeningManager,
+                TutorialManager tutorialManager, HappeningManager happeningManager,
                 DialogPersonPackCatalog personPacks)
         {
             this.backgroundManager = backgroundManager;
@@ -63,7 +64,6 @@ namespace Assets.Systems.SaveSystem
             this.timeManager = timeManager;
             this.tutorialManager = tutorialManager;
             this.plotManager = plotManager;
-            this.endedParamMechanics = endedParamMechanics;
             this.happeningManager = happeningManager;
             this.personPacks = personPacks;
         }
@@ -103,7 +103,7 @@ namespace Assets.Systems.SaveSystem
         }
         private void SaveActivedHappening()
         {
-            foreach(var happen in happeningManager.EnumerableHappenings())
+            foreach (var happen in happeningManager.EnumerableHappenings())
             {
                 repository.SaveActivedHappenig(happen.Title);
             }
@@ -150,7 +150,7 @@ namespace Assets.Systems.SaveSystem
 
         private void SaveCampQuestTrigger()
         {
-            foreach (var trigger in repositoryCampQuests.Triggers) 
+            foreach (var trigger in repositoryCampQuests.Triggers)
             {
                 repository.SaveCampQuestTrigger(trigger.Key, trigger.Value);
             }
@@ -164,10 +164,10 @@ namespace Assets.Systems.SaveSystem
         }
         private void SaveCaravanPosition()
         {
-            foreach(var sceneData in repositoryCaravan.PositionData)
+            foreach (var sceneData in repositoryCaravan.PositionData)
             {
                 repository.SaveCaravanPosition(sceneData.Key, sceneData.Value);
-            }               
+            }
         }
         private void SaveBackground()
         {

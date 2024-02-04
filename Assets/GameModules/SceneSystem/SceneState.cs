@@ -6,6 +6,6 @@
         Ready,
         Played,
         Pause,
-        Finish
+        Finished
     } 
 }

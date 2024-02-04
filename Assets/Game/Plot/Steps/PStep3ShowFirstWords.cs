@@ -2,15 +2,16 @@
 using Assets.Game.Core;
 using Assets.Game.Plot.Core;
 using Assets.Game.Plot.UI;
+using ExtraInjection;
 using System;
 using UnityEngine;
 
 namespace Assets.Game.Plot.Steps
 {
     //3
-    class PStep3ShowFirstWords : PlotStep
+    class PStep3ShowFirstWords : PlotStep, IExtraInject
     {
-        private readonly PopupManager popupManager;
+        [ExtraInject] private PopupManager popupManager;
         private readonly PlotConfig plotConfig;
         private PlotWordsPopup popup;
         private PlotWordPresentor presentor;
@@ -18,10 +19,9 @@ namespace Assets.Game.Plot.Steps
         public override event Action<INarrativeStep<PlotStepType>> OnLaunchStep;
 
         private readonly string text = "1064 год от рождества Христова.\r\nЗемли бывшего Васпураканского царства. Княжество Богуник.\r\n\r\nВы возвращаетесь на родину предков, впервые с тех пор,\r\nкак вас, еще ребенком, родители вывезли в Византию.";
-        public PStep3ShowFirstWords(PopupManager popupManager, ConfigurationRuntime config)
+        public PStep3ShowFirstWords(ConfigurationRuntime config)
         {
             this.stepType = PlotStepType.FirstWords;
-            this.popupManager = popupManager;
             this.plotConfig = config.PlotConfig;
         }
         public override void Begin()

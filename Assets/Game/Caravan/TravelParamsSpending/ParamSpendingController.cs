@@ -5,9 +5,9 @@ using UnityEngine;
 using Zenject;
 
 public class ParamSpendingController : IInitializable, 
-    IGameInitElement, 
-    IGameReadyElement, 
-    IGameFinishElement
+    ISceneInitialize, 
+    ISceneReady, 
+    ISceneFinish
 {
     private readonly IEntity caravan;
     private readonly SignalBus signalBus;
@@ -24,19 +24,19 @@ public class ParamSpendingController : IInitializable,
     {
         signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
     }
-    void IGameInitElement.InitGame()
+    void ISceneInitialize.InitScene()
     {
         moveComponent = this.caravan.Element<IMoveComponent>();
         paramSpendingComponent = this.caravan.Element<ParamSpendingComponent>();
     }
 
-    void IGameReadyElement.ReadyGame()
+    void ISceneReady.ReadyScene()
     {
         moveComponent.OnMovingEvent += paramSpendingComponent.SpendParam;
         moveComponent.OnFinishMovingEvent += paramSpendingComponent.StopSpendParam;
     }
 
-    void IGameFinishElement.FinishGame()
+    void ISceneFinish.FinishScene()
     {
         moveComponent.OnMovingEvent -= paramSpendingComponent.SpendParam;
         moveComponent.OnFinishMovingEvent -= paramSpendingComponent.StopSpendParam;

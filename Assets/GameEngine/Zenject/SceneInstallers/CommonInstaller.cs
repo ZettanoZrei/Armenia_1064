@@ -6,6 +6,7 @@ using Assets.Game.Plot.Core;
 using Assets.Game.SceneScripts;
 using Assets.Game.Tutorial.Observers;
 using Assets.Game.UI.FailGameSystem;
+using Assets.GameEngine.Zenject;
 using GameSystems;
 using System;
 using System.Collections.Generic;
@@ -20,10 +21,8 @@ namespace Assets.Systems.Zenject
     {
         public override void InstallBindings()
         {
-            Container.BindInterfacesTo<ViewInjector>().FromComponentInHierarchy().AsCached();
             Container.Bind<MenuManager>().AsSingle();
             Container.Bind<MenuModel>().AsSingle();
-            Container.Bind<IGameSystem>().To<GameSystem>().FromComponentInHierarchy().AsSingle();
             Container.BindInterfacesTo<KeyInputController>().AsSingle();
             Container.BindInterfacesTo<GameOverController>().AsSingle();
             
@@ -31,6 +30,7 @@ namespace Assets.Systems.Zenject
             Container.BindInterfacesTo<PlotObserver2>().FromComponentsInHierarchy().AsTransient();
 
             Container.BindInterfacesTo<SceneStartBeacon>().FromComponentInHierarchy().AsCached();
+            Container.BindSceneScriptSystem();
         }        
     }
 }

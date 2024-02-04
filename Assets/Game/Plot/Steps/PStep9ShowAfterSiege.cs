@@ -4,6 +4,7 @@ using Assets.Game.Plot.Core;
 using Assets.Game.Plot.UI;
 using Assets.GameEngine;
 using Assets.Modules;
+using ExtraInjection;
 using GameSystems.Modules;
 using System;
 using UnityEngine.SceneManagement;
@@ -12,9 +13,9 @@ using Zenject;
 namespace Assets.Game.Plot.Steps
 {
     //9
-    class PStep9ShowAfterSiege : PlotStep, IInitializable, IGameFinishElement
+    class PStep9ShowAfterSiege : PlotStep, IInitializable, ISceneFinish, IExtraInject
     {
-        private readonly PopupManager popupManager;
+        [ExtraInject] private PopupManager popupManager;
         private readonly SignalBus signalBus;
         private readonly PlotConfig plotConfig;
         private PlotWordPresentor presentor;
@@ -23,10 +24,9 @@ namespace Assets.Game.Plot.Steps
         public override event Action<INarrativeStep<PlotStepType>> OnLaunchStep;
         private readonly string text = "Спустя три недели...";
 
-        public PStep9ShowAfterSiege(PopupManager popupManager, ConfigurationRuntime config, SignalBus signalBus)
+        public PStep9ShowAfterSiege(ConfigurationRuntime config, SignalBus signalBus)
         {
             this.stepType = PlotStepType.AfterSiege;
-            this.popupManager = popupManager;
             this.signalBus = signalBus;
             this.plotConfig = config.PlotConfig;
         }
@@ -34,7 +34,7 @@ namespace Assets.Game.Plot.Steps
         {
             signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
         }
-        void IGameFinishElement.FinishGame()
+        void ISceneFinish.FinishScene()
         {
             if (presentor != null)
                 presentor.OnFinish -= Finish;

@@ -2,7 +2,7 @@
 
 namespace Assets.Game
 {
-    class Popup : MonoBehaviour, IPopup
+    public class Popup : MonoBehaviour, IPopup
     {
         [SerializeField] private GameObject popup;
         [SerializeField] private PopupType happeningType;

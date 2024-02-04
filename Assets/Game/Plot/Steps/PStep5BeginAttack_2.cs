@@ -15,7 +15,7 @@ using Zenject;
 namespace Assets.Game.Plot.Steps
 {
     //5.2
-    class PStep5BeginAttack_2 : PlotStep, IInitializable, IGameFinishElement
+    class PStep5BeginAttack_2 : PlotStep, IInitializable, ISceneFinish
     {
         public override event Action OnFinishStep;
         public override event Action<INarrativeStep<PlotStepType>> OnLaunchStep;
@@ -28,7 +28,7 @@ namespace Assets.Game.Plot.Steps
             this.signalBus = signalBus;
             this.stepType = PlotStepType.BeginAttack_2;
         }
-        void IGameFinishElement.FinishGame()
+        void ISceneFinish.FinishScene()
         {
             happeningManager.OnFinishHappening -= DoFinsih;
         }

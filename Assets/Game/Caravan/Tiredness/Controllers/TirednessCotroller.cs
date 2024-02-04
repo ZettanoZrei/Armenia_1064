@@ -9,7 +9,9 @@ using Zenject;
 namespace Parameters
 {
     class TirednessCotroller : IInitializable,
-        IGameInitElement, IGameReadyElement, IGameFinishElement
+        ISceneInitialize, 
+        ISceneReady, 
+        ISceneFinish
     {
         private IMoveComponent moveComponent;
         private ITirednessComponent tirednessComponent;
@@ -28,14 +30,14 @@ namespace Parameters
         {
             signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
         }
-        void IGameInitElement.InitGame()
+        void ISceneInitialize.InitScene()
         {
             moveComponent = this.caravan.Element<IMoveComponent>();
             tirednessComponent = this.caravan.Element<ITirednessComponent>();
         }
 
 
-        void IGameReadyElement.ReadyGame()
+        void ISceneReady.ReadyScene()
         {
             tirednessComponent.OnDecreaseStamina += parametersManager.ChangeStamina;
             moveComponent.OnMovingEvent += StartTired;
@@ -43,7 +45,7 @@ namespace Parameters
         }
 
 
-        void IGameFinishElement.FinishGame()
+        void ISceneFinish.FinishScene()
         {
             tirednessComponent.OnDecreaseStamina -= parametersManager.ChangeStamina;
             moveComponent.OnMovingEvent -= StartTired;

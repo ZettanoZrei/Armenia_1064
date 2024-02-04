@@ -14,6 +14,7 @@ using Assets.Modules;
 using Assets.Game.UI.TimeUI;
 using Assets.Game.Parameters.EndedParamSystem;
 using Assets.Game.InputSystem;
+using Assets.GameEngine.Zenject;
 
 public class MonoCampSceneInstaller : MonoInstaller
 {
@@ -26,7 +27,6 @@ public class MonoCampSceneInstaller : MonoInstaller
     public override void InstallBindings()
     {
         CommonInstaller.Install(Container);
-        Container.BindInterfacesAndSelfTo<CampBackgroundManager>().FromComponentInHierarchy().AsSingle();
         Container.BindInterfacesTo<LaunchComeInCampQuest>().AsTransient();
         BindRestMechanics();
 
@@ -57,7 +57,7 @@ public class MonoCampSceneInstaller : MonoInstaller
 
 
         Container.BindInterfacesAndSelfTo<CampBackgroundManager>().AsSingle();
-        Container.Bind<SceneManager>().FromComponentInHierarchy().AsSingle();
+        Container.BindSceneScriptSystem(); 
 
 
         Container.BindFactory<bool, string, CampIcon, CampIcon.Factory>()

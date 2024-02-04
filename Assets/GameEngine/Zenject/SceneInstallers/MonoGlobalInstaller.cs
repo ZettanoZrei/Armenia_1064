@@ -27,10 +27,10 @@ using Assets.Game.UI.EndPopupSystem;
 using Assets.Game.Intro;
 using Assets.Game.Intro.Step;
 using Assets.Game.UI.FailGameSystem;
+using Assets.GameEngine.Zenject;
+using Assets.Modules;
 
-
-
-public class MonoLoadSceneInstaller : MonoInstaller
+public class MonoGlobalInstaller : MonoInstaller
 {
     [SerializeField] private GameObject portraitButtonPrefab;
     [SerializeField] private GameObject campIconPrefab;
@@ -73,10 +73,14 @@ public class MonoLoadSceneInstaller : MonoInstaller
         Container.BindInterfacesTo<EndGameManager>().AsSingle();
         Container.Bind<GameOverManager>().AsSingle();
         Container.Bind<ShowUIElementsModel>().AsTransient();
-       
+
+        Container.BindHappeningSystem();
 
         Container.BindFactory<string, ReactionPart, ReactionPart.Factory>()
             .FromMonoPoolableMemoryPool(x => x.WithInitialSize(6).FromComponentInNewPrefab(reactionPartPrefab).UnderTransform(uiHeap.transform));
+
+        Container.Bind<SceneScriptContext>().AsSingle();
+        SignalBusInstaller.Install(Container);
     }
 
     private void BindDialogSubSystem()
@@ -167,7 +171,6 @@ public class MonoLoadSceneInstaller : MonoInstaller
     }
     private void BindSaveSystem()
     {
-        Container.BindInterfacesTo<ClearOldData>().AsTransient();
         Container.Bind<Repository>().AsSingle();
         Container.Bind<FileHelper>().AsTransient();
         Container.Bind<SaveHelper<SaveData>>().AsSingle();

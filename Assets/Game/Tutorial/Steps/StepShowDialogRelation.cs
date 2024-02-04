@@ -21,8 +21,8 @@ namespace Assets.Game.Tutorial.Steps
 
 
         public override event Action<INarrativeStep<TutorialStepType>> OnLaunchStep;
-        public StepShowDialogRelation(PopupManager popupManager, MySceneManager sceneManager, DialogModelDecorator dialogModelDecorator, 
-            SignalBus signalBus, PopupType popupType) : base(popupManager, popupType, signalBus)
+        public StepShowDialogRelation(MySceneManager sceneManager, DialogModelDecorator dialogModelDecorator, 
+            SignalBus signalBus, PopupType popupType) : base(popupType, signalBus)
         {
             this.stepType = TutorialStepType.DialogRelation;
             this.sceneManager = sceneManager;
@@ -56,7 +56,7 @@ namespace Assets.Game.Tutorial.Steps
             popup.OnFinish += Finish;
         }
 
-        public override void FinishGame()
+        public override void FinishScene()
         {
             sceneManager.OnChangeScene_Post -= CheckIfDialog;
             if (dialogModelDecorator.IsModel)

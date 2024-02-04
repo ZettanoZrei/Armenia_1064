@@ -14,7 +14,10 @@ using Zenject;
 namespace Assets.Game.HappeningSystem
 {
     class TriggerRepositoryBSController : IInitializable,
-        IGameReadyElement, IGameFinishElement, IGameInitElement, IGameStartElement
+        ISceneInitialize, 
+        ISceneStart,
+        ISceneReady, 
+        ISceneFinish 
     {
         private IEnumerable<ActivatorStaticTrigger> staticRoadTriggers;
         private IEnumerable<LaunchStaticTrigger> beginHappeningTriggers;
@@ -43,7 +46,7 @@ namespace Assets.Game.HappeningSystem
         {
             signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
         }
-        void IGameInitElement.InitGame()
+        void ISceneInitialize.InitScene()
         {
             staticRoadTriggers = finiteTriggerCatalog.GetElements<ActivatorStaticTrigger>(); 
             beginHappeningTriggers = finiteTriggerCatalog.GetElements<LaunchStaticTrigger>();
@@ -53,16 +56,16 @@ namespace Assets.Game.HappeningSystem
             stoppageTriggers = finiteTriggerCatalog.GetElements<StoppageTrigger>();
         }
 
-        void IGameReadyElement.ReadyGame()
+        void ISceneReady.ReadyScene()
         {           
             Subscribe();
         }
 
-        void IGameStartElement.StartGame()
+        void ISceneStart.StartScene()
         {
             LoadTriggersBetweenScenes();
         }
-        void IGameFinishElement.FinishGame()
+        void ISceneFinish.FinishScene()
         {
             Unsubscribe();
         }

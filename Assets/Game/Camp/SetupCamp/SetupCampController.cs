@@ -13,9 +13,9 @@ using GameSystems.Modules;
 using Assets.Modules;
 
 class SetupCampController : IInitializable,
-    IGameReadyElement, 
-    IGameFinishElement, 
-    IGameInitElement
+    ISceneInitialize,
+    ISceneReady,
+    ISceneFinish
 {
     private ITriggerComponent caravanTrigger;
     private readonly SetupCampManager setupCampManager;
@@ -38,16 +38,16 @@ class SetupCampController : IInitializable,
     {
         signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
     }
-    void IGameInitElement.InitGame()
+    void ISceneInitialize.InitScene()
     {
         caravanTrigger = caravan.Element<ITriggerComponent>();
     }
-    void IGameReadyElement.ReadyGame()
+    void ISceneReady.ReadyScene()
     {
         setupCampButton.OnClick += SetupCamp;
         caravanTrigger.OnTriggerEnter += StoppageCollision;
     }
-    void IGameFinishElement.FinishGame()
+    void ISceneFinish.FinishScene()
     {
         setupCampButton.OnClick -= SetupCamp;
         caravanTrigger.OnTriggerEnter -= StoppageCollision;

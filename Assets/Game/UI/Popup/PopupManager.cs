@@ -14,12 +14,13 @@ namespace Assets.Game
         private Dictionary<PopupType, PopupInfo> activePopup = new Dictionary<PopupType, PopupInfo>();
         public event EventHandler<PopupChangedEventArgs> OnPopupChanged;
 
-        private GameObject blockCurtain;
+        private BlockCurtain blockCurtain;
         private PopupFabrica popupFabrica;
 
-        public PopupManager(PopupFabrica popupFabrica)
+        public PopupManager(PopupFabrica popupFabrica, BlockCurtain blockCurtain)
         {
             this.popupFabrica = popupFabrica;
+            this.blockCurtain = blockCurtain;
         }
 
         internal IPopup ShowPopup(PopupType popupType, bool pause = true)
@@ -31,7 +32,7 @@ namespace Assets.Game
             activePopup[popupType] = new PopupInfo { Popup = popup, Pause = pause };
             popup.Activate();
 
-            blockCurtain.SetActive(true);
+            blockCurtain.gameObject.SetActive(true);
             OnPopupChanged?.Invoke(this, GeneratePopupEvent(popupType, true));
             //OnAnyPopupShown?.Invoke();
             return popup;
@@ -51,7 +52,7 @@ namespace Assets.Game
             OnPopupChanged?.Invoke(this, GeneratePopupEvent(popupType, false));
             if (activePopup.Count == 0)
             {
-                blockCurtain.SetActive(false);
+                blockCurtain.gameObject.SetActive(false);
             }
         }
 
@@ -64,10 +65,7 @@ namespace Assets.Game
         {
             activePopup.Clear();
         }
-        public void InjectBlockCurtain(GameObject blockCurtain)
-        {
-            this.blockCurtain = blockCurtain;
-        }
+
         public bool CheckActivePausePopups()
         {
             return activePopup.Values.Any(x => x.Pause);

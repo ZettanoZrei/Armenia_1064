@@ -4,6 +4,7 @@ using Assets.Game.HappeningSystem;
 using Assets.Game.Plot.Core;
 using Assets.Game.Plot.Scripts;
 using Assets.Game.Plot.UI;
+using ExtraInjection;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -11,9 +12,9 @@ using UnityEngine;
 namespace Assets.Game.Plot.Steps
 {
     //4
-    class PStep4ShowDialog : PlotStep
+    class PStep4ShowDialog : PlotStep, IExtraInject
     {
-        private readonly PopupManager popupManager;
+        [ExtraInject] private PopupManager popupManager;
         private readonly PlotConfig config;
         private readonly PlotDialogModel model;
         private PlotDialogPopup popup;
@@ -21,9 +22,8 @@ namespace Assets.Game.Plot.Steps
         public override event Action OnFinishStep;
         public override event Action<INarrativeStep<PlotStepType>> OnLaunchStep;
         private PlotDialogPresenter dialogPresenter;
-        public PStep4ShowDialog(PopupManager popupManager, ConfigurationRuntime config, PlotDialogModel model)
+        public PStep4ShowDialog(ConfigurationRuntime config, PlotDialogModel model)
         {
-            this.popupManager = popupManager;
             this.config = config.PlotConfig;
             this.model = model;
             this.stepType = PlotStepType.Dialog;

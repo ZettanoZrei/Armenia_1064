@@ -12,7 +12,7 @@ using Zenject;
 
 namespace Assets.Game.HappeningSystem
 {
-    public class HappeningLauncher : IInitializable, ICallBack, IGameFinishElement
+    public class HappeningLauncher : IInitializable, ICallBack, ISceneFinish
     {
         private readonly List<Happening> happeningsQueue = new List<Happening>();
 
@@ -38,7 +38,7 @@ namespace Assets.Game.HappeningSystem
             signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
         }
 
-        void IGameFinishElement.FinishGame()
+        void ISceneFinish.FinishScene() 
         {
             isHappeningActive = false;
         }

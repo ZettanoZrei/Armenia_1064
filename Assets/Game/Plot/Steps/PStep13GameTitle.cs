@@ -6,6 +6,7 @@ using Assets.Game.Plot.Core;
 using Assets.Game.Plot.UI;
 using Assets.GameEngine;
 using Assets.Modules;
+using ExtraInjection;
 using GameSystems.Modules;
 using System;
 using System.Collections;
@@ -20,13 +21,16 @@ using Zenject;
 namespace Assets.Game.Plot.Steps
 {
     //13
-    class PStep13GameTitle : PlotStep, IInitializable, IGameFinishElement
+    class PStep13GameTitle : PlotStep, 
+        IInitializable, 
+        ISceneFinish, 
+        IExtraInject
     {
         public override event Action OnFinishStep;
         public override event Action<INarrativeStep<PlotStepType>> OnLaunchStep;
 
+        [ExtraInject] private PopupManager popupManager;
         private readonly ShowUIElementsModel showUIElementsModel;
-        private readonly PopupManager popupManager;
         private readonly SignalBus signalBus;
         private GameTitleConfig config;
 
@@ -35,12 +39,10 @@ namespace Assets.Game.Plot.Steps
 
         CancellationTokenSource cancelTokenSource;
 
-        public PStep13GameTitle(PlotConfig plotConfig, ShowUIElementsModel showUIElementsModel, PopupManager popupManager,
-            SignalBus signalBus)
+        public PStep13GameTitle(PlotConfig plotConfig, ShowUIElementsModel showUIElementsModel, SignalBus signalBus)
         {
             this.stepType = PlotStepType.GameTitle;
             this.showUIElementsModel = showUIElementsModel;
-            this.popupManager = popupManager;
             this.signalBus = signalBus;
             this.config = plotConfig.gameTitlePlot;
         }
@@ -48,7 +50,7 @@ namespace Assets.Game.Plot.Steps
         {
             signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
         }
-        void IGameFinishElement.FinishGame()
+        void ISceneFinish.FinishScene()
         {
             if (cancelTokenSource != null)
                 cancelTokenSource.Cancel();

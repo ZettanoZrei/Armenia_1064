@@ -9,7 +9,7 @@ using Assets.Save;
 
 namespace Loader
 {
-    class ClearOldData : IInitializable
+    class ClearOldData : IInitializable  //TODO: удалить это или изменить по сцен систему
     {
         private readonly MySceneManager sceneManager;
         private readonly QuestManager questManager;

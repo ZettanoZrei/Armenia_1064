@@ -11,9 +11,9 @@ using Zenject;
 namespace Assets.Game.HappeningSystem
 {
     class TriggerController : IInitializable,
-        IGameInitElement,
-        IGameReadyElement, 
-        IGameFinishElement
+        ISceneInitialize,
+        ISceneReady, 
+        ISceneFinish
     {
         private QuestManager questManager;
         private HappeningManager happeningManager;
@@ -41,7 +41,7 @@ namespace Assets.Game.HappeningSystem
             signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
         }
 
-        void IGameInitElement.InitGame()
+        void ISceneInitialize.InitScene()
         {
             staticRoadTriggers = finiteTriggerCatalog.GetElements<ActivatorStaticTrigger>();
             beginHappeningTriggers = finiteTriggerCatalog.GetElements<LaunchStaticTrigger>();
@@ -51,12 +51,12 @@ namespace Assets.Game.HappeningSystem
             //stoppageTriggers = finiteTriggerCatalog.GetElements<StoppageTrigger>(); //TODO: оно здесь должно быть?
         }
 
-        void IGameReadyElement.ReadyGame()
+        void ISceneReady.ReadyScene()
         {
             //campIcons = MonoBehaviour.FindObjectsOfType<CampIcon>();
             Subscribe();
         }
-        void IGameFinishElement.FinishGame()
+        void ISceneFinish.FinishScene()
         {
             Unsubscribe();
         }

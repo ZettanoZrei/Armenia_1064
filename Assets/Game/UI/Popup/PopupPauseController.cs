@@ -5,15 +5,15 @@ using UnityEngine;
 using Zenject;
 
 public class PopupPauseController : IInitializable, 
-    IGameReadyElement, 
-    IGameFinishElement
+    ISceneReady, 
+    ISceneFinish
 {
     private readonly PopupManager popupManager;
     private readonly SignalBus signalBus;
-    private readonly SceneManager sceneManager;
+    private readonly SceneScriptManager sceneManager;
 
     [Inject]
-    public PopupPauseController(PopupManager popupManager, SignalBus signalBus, SceneManager sceneManager)
+    public PopupPauseController(PopupManager popupManager, SignalBus signalBus, SceneScriptManager sceneManager)
     {
         this.popupManager = popupManager;
         this.signalBus = signalBus;
@@ -24,12 +24,12 @@ public class PopupPauseController : IInitializable,
     {
         signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
     }
-    void IGameReadyElement.ReadyGame()
+    void ISceneReady.ReadyScene()
     {
         popupManager.OnPopupChanged += PauseHandle;
     }   
 
-    void IGameFinishElement.FinishGame()
+    void ISceneFinish.FinishScene()
     {
         popupManager.OnPopupChanged -= PauseHandle;
     }

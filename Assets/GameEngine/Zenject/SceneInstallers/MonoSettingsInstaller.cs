@@ -1,5 +1,6 @@
 ﻿using Assets.Game;
 using Assets.GameEngine.Menu.Settings;
+using Assets.GameEngine.Zenject;
 using Assets.Modules.UI;
 using System;
 using UnityEditor;
@@ -20,5 +21,6 @@ public class MonoSettingsInstaller : MonoInstaller
         Container.Bind<SimpleButton>().FromInstance(backButton).AsCached();
 
         Container.BindInterfacesTo<SettingController>().AsSingle();
+        Container.BindSceneScriptSystem();
     }
 }
