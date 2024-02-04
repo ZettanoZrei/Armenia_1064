@@ -5,7 +5,7 @@ using Entities;
 using GameSystems.Modules;
 using Zenject;
 
-class MoveController : IInitializable,
+class MoveController : 
     IGameReadyElement, 
     IGameFinishElement, 
     IGameInitElement, 
