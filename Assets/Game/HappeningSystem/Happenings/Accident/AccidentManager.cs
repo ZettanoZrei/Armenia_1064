@@ -4,6 +4,7 @@ using Assets.Game.HappeningSystem.Persons;
 using Assets.Game.Message;
 using Assets.Modules;
 using Entities;
+using ExtraInjection;
 using Model.Entities.Answers;
 using Model.Entities.Happenings;
 using System;
@@ -17,10 +18,10 @@ namespace Assets.Game.HappeningSystem
         private readonly AccidentPresenter accidentPresenter;
         private readonly AfterActionManager afterActionManager;
         private readonly MessageManager messageManager;
-        private readonly PopupManager popupManager;
+        private PopupManager popupManager;
         private ICallBack launcherCallBack;
-        public AccidentManager(HappeningModel model, AccidentPresenter accidentPresenter, PopupManager popupManager,
-              AfterActionManager afterActionManager, MessageManager messageManager)
+        public AccidentManager(HappeningModel model, AccidentPresenter accidentPresenter, AfterActionManager afterActionManager, 
+            MessageManager messageManager, PopupManager popupManager)
         {
             this.model = model;
             this.accidentPresenter = accidentPresenter;

@@ -31,7 +31,7 @@ abstract class TutorialObserver : MonoBehaviour,  IInitializable, ILateDisposabl
         }
     }
 
-    protected void CheckStep(INarrativeStep<TutorialStepType> step)
+    protected void CheckStep(IStep<TutorialStepType> step)
     {
         if (!tutorialManager.IsActive) return;
         Logger.WriteLog($"{gameObject.name}. await: {expectedStep}, get: {step.StepType}, result: {step.StepType >= expectedStep}");

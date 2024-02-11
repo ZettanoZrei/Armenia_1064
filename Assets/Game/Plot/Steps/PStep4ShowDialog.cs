@@ -20,7 +20,7 @@ namespace Assets.Game.Plot.Steps
         private PlotDialogPopup popup;
 
         public override event Action OnFinishStep;
-        public override event Action<INarrativeStep<PlotStepType>> OnLaunchStep;
+        public override event Action<IStep<PlotStepType>> OnLaunchStep;
         private PlotDialogPresenter dialogPresenter;
         public PStep4ShowDialog(ConfigurationRuntime config, PlotDialogModel model)
         {

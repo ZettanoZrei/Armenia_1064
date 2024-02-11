@@ -16,7 +16,7 @@ namespace Assets.Game.Plot.Steps
         private PlotWordsPopup popup;
         private PlotWordPresentor presentor;
         public override event Action OnFinishStep;
-        public override event Action<INarrativeStep<PlotStepType>> OnLaunchStep;
+        public override event Action<IStep<PlotStepType>> OnLaunchStep;
 
         private readonly string text = "1064 год от рождества Христова.\r\nЗемли бывшего Васпураканского царства. Княжество Богуник.\r\n\r\nВы возвращаетесь на родину предков, впервые с тех пор,\r\nкак вас, еще ребенком, родители вывезли в Византию.";
         public PStep3ShowFirstWords(ConfigurationRuntime config)

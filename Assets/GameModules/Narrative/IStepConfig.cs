@@ -1,6 +1,6 @@
 ﻿namespace Assets.Game.Core
 {
-    public interface INarrativeConfig
+    public interface IStepConfig
     {
         bool Activate { get; }
         int StartStep { get; }

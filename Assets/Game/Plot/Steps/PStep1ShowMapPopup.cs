@@ -21,7 +21,7 @@ namespace Assets.Game.Plot.Steps
         private PlotStoryPopup popup;
 
         public override event Action OnFinishStep;
-        public override event Action<INarrativeStep<PlotStepType>> OnLaunchStep;
+        public override event Action<IStep<PlotStepType>> OnLaunchStep;
 
         public PStep1ShowMapPopup(MySceneManager sceneManager, PlotStoryModel storyModel, ConfigurationRuntime config)
         {

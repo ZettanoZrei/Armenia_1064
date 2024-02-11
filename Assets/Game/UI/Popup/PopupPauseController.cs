@@ -52,7 +52,7 @@ public class PopupPauseController : IInitializable,
 
     private void Resume()
     {
-        sceneManager.ContinueGame();
+        sceneManager.ResumeGame();
         Time.timeScale = 1;
     }
 }

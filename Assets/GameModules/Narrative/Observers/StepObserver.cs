@@ -10,11 +10,11 @@ using Zenject;
 
 namespace Assets.GameModules.Narrative
 {
-    abstract class NarrativeObserver<StepType> : MonoBehaviour, IInitializable, ILateDisposable
+    abstract class StepObserver<StepType> : MonoBehaviour, IInitializable, ILateDisposable
     {
-        [SerializeField] protected List<NarrativeObserverCondition<StepType>> actions;
+        [SerializeField] protected List<StepObserverCondition<StepType>> actions;
 
-        protected NarrativeManager<StepType> manager;
+        protected StepManager<StepType> manager;
 
         void IInitializable.Initialize()
         {
@@ -30,7 +30,7 @@ namespace Assets.GameModules.Narrative
         {
             CheckStepType(manager.LastShownStep);
         }
-        private void CheckStep(INarrativeStep<StepType> step)
+        private void CheckStep(IStep<StepType> step)
         {
             CheckStepType(step.StepType);
         }

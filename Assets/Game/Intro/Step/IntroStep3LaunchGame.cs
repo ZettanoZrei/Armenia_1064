@@ -6,7 +6,7 @@ namespace Assets.Game.Intro.Step
     class IntroStep3LaunchGame : IntroStep
     {
         public override event Action OnFinishStep;
-        public override event Action<INarrativeStep<IntroStepType>> OnLaunchStep;
+        public override event Action<IStep<IntroStepType>> OnLaunchStep;
         public IntroStep3LaunchGame()
         {
             this.stepType = IntroStepType.Launch;

@@ -9,9 +9,9 @@ using Zenject;
 
 namespace Assets.Game.Plot.Core
 {
-    public class PlotManager : NarrativeManager<PlotStepType>, IInitializable, ILateDisposable
+    public class PlotManager : StepManager<PlotStepType>, IInitializable, ILateDisposable
     {
-        public PlotManager(List<INarrativeStep<PlotStepType>> steps, ConfigurationRuntime config) : base(steps)
+        public PlotManager(List<IStep<PlotStepType>> steps, ConfigurationRuntime config) : base(steps)
         {
             this.config = config.PlotConfig;
         }

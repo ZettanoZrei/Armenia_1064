@@ -5,20 +5,20 @@ using UnityEngine;
 
 namespace Assets.Game.Core
 {
-    public abstract class NarrativeManager<IType>
+    public abstract class StepManager<IType>
     {
-        protected readonly List<INarrativeStep<IType>> steps;
-        protected INarrativeConfig config;
+        protected readonly List<IStep<IType>> steps;
+        protected IStepConfig config;
         public bool IsActive => config.Activate;
 
         private int currentStepIndex = 0;
         public int CurrentStepIndex => currentStepIndex;
         public IType LastShownStep { get; set; }
 
-        public event Action<INarrativeStep<IType>> OnShowStep;
+        public event Action<IStep<IType>> OnShowStep;
         public event Action OnComplete;
         public bool IsComplete { get; set; }
-        public NarrativeManager(List<INarrativeStep<IType>> steps)
+        public StepManager(List<IStep<IType>> steps)
         {
             this.steps = steps;
             foreach (var step in steps)
@@ -70,7 +70,7 @@ namespace Assets.Game.Core
             }
         }
 
-        protected void InvokeOnShowStep(INarrativeStep<IType> step)
+        protected void InvokeOnShowStep(IStep<IType> step)
         {
             LastShownStep = step.StepType;
             OnShowStep?.Invoke(step);

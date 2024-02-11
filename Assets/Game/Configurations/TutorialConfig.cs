@@ -6,7 +6,7 @@ using System;
 namespace Assets.Game.Configurations
 {
     [Serializable]
-    public class TutorialConfig : INarrativeConfig, IClone<TutorialConfig>
+    public class TutorialConfig : IStepConfig, IClone<TutorialConfig>
     {
         public bool activate;
         public TutorialStepType startStep;

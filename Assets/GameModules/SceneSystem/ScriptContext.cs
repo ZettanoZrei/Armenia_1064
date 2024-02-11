@@ -4,29 +4,27 @@ using Zenject;
 
 namespace Assets.Modules
 {
-
-    public class SceneScriptContext: IInitializable, ISceneFinish
+    //TODO: Для глобального контекста FinishScene не сработает ведь там нет менеджера
+    public class ScriptContext : ISceneFinish<Scene>
     {
         private readonly List<IGameElement> elements = new List<IGameElement>();
         private readonly SignalBus signalBus;
 
-        public SceneScriptContext(SignalBus signalBus)
+        public ScriptContext(SignalBus signalBus)
         {
             this.signalBus = signalBus;
-            elements.Add(this);
+            signalBus.Subscribe<ConnectGameElementEvent>(AddElement);
         }
 
         public List<IGameElement> Elements => elements;
 
-        void IInitializable.Initialize()
-        {
-            signalBus.Subscribe<ConnectGameElementEvent>(AddElement);
-        }
+        public Scene Scene => Scene.LoadScene;
 
-        void ISceneFinish.FinishScene()
+        public void FinishScene()
         {
             signalBus.Unsubscribe<ConnectGameElementEvent>(AddElement);
         }
+
         private void AddElement(ConnectGameElementEvent e)
         {
             if (!elements.Contains(e.GameElement))
@@ -34,7 +32,5 @@ namespace Assets.Modules
                 elements.Add(e.GameElement);
             }
         }
-
-       
     }
 }

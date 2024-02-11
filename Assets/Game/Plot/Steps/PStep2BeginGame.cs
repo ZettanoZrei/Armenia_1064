@@ -10,7 +10,7 @@ namespace Assets.Game.Plot.Steps
     class PStep2BeginGame : PlotStep
     {
         public override event Action OnFinishStep;
-        public override event Action<INarrativeStep<PlotStepType>> OnLaunchStep;
+        public override event Action<IStep<PlotStepType>> OnLaunchStep;
 
         private readonly MySceneManager sceneManager;
         private readonly StartSceneConfig startSceneConfig;

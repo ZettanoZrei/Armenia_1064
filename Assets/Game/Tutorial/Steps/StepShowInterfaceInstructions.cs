@@ -14,7 +14,7 @@ namespace Assets.Game.Tutorial.Steps
     {
         private readonly MySceneManager sceneManager;
 
-        public override event Action<INarrativeStep<TutorialStepType>> OnLaunchStep;
+        public override event Action<IStep<TutorialStepType>> OnLaunchStep;
         public StepShowInterfaceInstructions(MySceneManager sceneManager, PopupType popupType, SignalBus signalBus)
             : base(popupType, signalBus)
         {
@@ -22,10 +22,10 @@ namespace Assets.Game.Tutorial.Steps
             this.sceneManager = sceneManager;
         }
 
-        public override void Begin()
+        public override async void Begin()
         {
             //sceneManager.OnChangeScene += CheckScene;
-             DoBegin();
+             await DoBegin();
         }
 
         private async Task DoBegin()

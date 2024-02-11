@@ -10,7 +10,7 @@ namespace Assets.Game.Intro.Step
         private readonly InputIntroController.Factory factory;
 
         public override event Action OnFinishStep;
-        public override event Action<INarrativeStep<IntroStepType>> OnLaunchStep;
+        public override event Action<IStep<IntroStepType>> OnLaunchStep;
         public IntroStep0CreateSkipController(MySceneManager sceneManager, InputIntroController.Factory factory)
         {
             this.stepType = IntroStepType.Skip;

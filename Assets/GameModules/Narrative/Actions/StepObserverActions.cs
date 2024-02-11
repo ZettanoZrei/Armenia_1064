@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Assets.Game.Plot.Core
 {
-    class NarrativeObserverActions: MonoBehaviour
+    class StepObserverActions: MonoBehaviour
     {
         public void Activate(GameObject gameObject)
         {

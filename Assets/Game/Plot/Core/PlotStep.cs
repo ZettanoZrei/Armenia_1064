@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace Assets.Game.Plot.Core
 {
-    abstract class PlotStep : INarrativeStep<PlotStepType>
+    abstract class PlotStep : IStep<PlotStepType>
     {
         public abstract event Action OnFinishStep;
-        public abstract event Action<INarrativeStep<PlotStepType>> OnLaunchStep;
+        public abstract event Action<IStep<PlotStepType>> OnLaunchStep;
         public PlotStepType StepType => stepType;
 
         protected PlotStepType stepType;

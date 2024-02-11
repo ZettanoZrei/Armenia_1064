@@ -32,7 +32,7 @@ namespace Assets.Game.Plot.Core
             }
         }
 
-        protected void CheckStep(INarrativeStep<PlotStepType> step)
+        protected void CheckStep(IStep<PlotStepType> step)
         {
             if (!plotManager.IsActive) return;
 

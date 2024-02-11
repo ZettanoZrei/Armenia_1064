@@ -1,4 +1,5 @@
 ﻿using Assets.Game.Camp;
+using Assets.Modules;
 using GameSystems;
 using Model.Entities.Answers;
 using System.Collections.Generic;
@@ -13,11 +14,11 @@ namespace Assets.Game.Menu
     internal class MenuModel
     {
         private readonly MySceneManager sceneManager;
-        private IGameSystem gameSystem;
-        public MenuModel(MySceneManager sceneManager, IGameSystem gameSystem)
+        private readonly SceneScriptManager scriptManager;
+        public MenuModel(MySceneManager sceneManager, SceneScriptManager scriptManager)
         {
             this.sceneManager = sceneManager;
-            this.gameSystem = gameSystem;
+            this.scriptManager = scriptManager;
         }
 
         public List<Answer> GetMenuOptions()
@@ -68,13 +69,13 @@ namespace Assets.Game.Menu
 
         private void Continue()
         {
-            gameSystem.ResumeGame();
+            scriptManager.ResumeGame();
             //Time.timeScale = 1;
         }
 
         public void Pause()
         {
-            gameSystem.PauseGame();
+            scriptManager.PauseGame();
             //Time.timeScale = 0;
         }
     }

@@ -6,7 +6,7 @@ using System;
 namespace Assets.Game.Configurations
 {
     [Serializable]
-    public class IntroConfig : INarrativeConfig
+    public class IntroConfig : IStepConfig
     {
         public bool activate;
         public IntroStepType startStep;

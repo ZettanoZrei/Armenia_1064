@@ -14,26 +14,19 @@ using Zenject;
 namespace Assets.Game.Plot.Steps
 {
     //12
-    class PStep12Storming : PlotStep, IInitializable, ISceneFinish
+    class PStep12Storming : PlotStep, IGameLeave
     {
         public override event Action OnFinishStep;
-        public override event Action<INarrativeStep<PlotStepType>> OnLaunchStep;
+        public override event Action<IStep<PlotStepType>> OnLaunchStep;
         private HappeningManager happeningManager;
-        private readonly SignalBus signalBus;
 
-        public PStep12Storming(HappeningManager happeningManager, SignalBus signalBus)
+        public PStep12Storming(HappeningManager happeningManager)
         {
             this.happeningManager = happeningManager;
-            this.signalBus = signalBus;
             stepType = PlotStepType.Storming;
         }
 
-        void IInitializable.Initialize()
-        {
-            signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
-        }
-
-        public void FinishScene()
+        void IGameLeave.LeaveGame()
         {
             happeningManager.OnFinishHappening -= HappenFinsihHandler;
         }
@@ -61,7 +54,5 @@ namespace Assets.Game.Plot.Steps
             happeningManager.OnFinishHappening -= HappenFinsihHandler;
             OnFinishStep?.Invoke();
         }
-
-        
     }
 }

@@ -5,13 +5,13 @@ using UnityEngine;
 namespace Assets.GameModules.Narrative
 {
     [Serializable]
-    class NarrativeObserverCondition<StepType>
+    class StepObserverCondition<StepType>
     {
         [SerializeField] protected ExecutingCondition executingCondition;
         [SerializeField] protected StepType expectedStep;
-        [SerializeField] protected NarrativeObserverAction action;
+        [SerializeField] protected StepObserverAction action;
         public ExecutingCondition ExecutingCondition => executingCondition;
         public StepType ExpectedStep => expectedStep;
-        public NarrativeObserverAction Action => action;
+        public StepObserverAction Action => action;
     }
 }

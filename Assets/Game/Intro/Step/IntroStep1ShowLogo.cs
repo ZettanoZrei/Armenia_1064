@@ -14,7 +14,7 @@ namespace Assets.Game.Intro.Step
         private readonly ShowUIElementsModel showUIElementsModel;
 
         public override event Action OnFinishStep;
-        public override event Action<INarrativeStep<IntroStepType>> OnLaunchStep;
+        public override event Action<IStep<IntroStepType>> OnLaunchStep;
 
         public IntroStep1ShowLogo(IntroConfig config, ShowUIElementsModel showUIElementsModel)
         {

@@ -22,16 +22,14 @@ namespace Assets.Game.Plot.Steps
 {
     //13
     class PStep13GameTitle : PlotStep, 
-        IInitializable, 
-        ISceneFinish, 
+        IGameLeave, 
         IExtraInject
     {
         public override event Action OnFinishStep;
-        public override event Action<INarrativeStep<PlotStepType>> OnLaunchStep;
+        public override event Action<IStep<PlotStepType>> OnLaunchStep;
 
         [ExtraInject] private PopupManager popupManager;
         private readonly ShowUIElementsModel showUIElementsModel;
-        private readonly SignalBus signalBus;
         private GameTitleConfig config;
 
         private BlackPanelPopup blackPanel;
@@ -39,18 +37,14 @@ namespace Assets.Game.Plot.Steps
 
         CancellationTokenSource cancelTokenSource;
 
-        public PStep13GameTitle(PlotConfig plotConfig, ShowUIElementsModel showUIElementsModel, SignalBus signalBus)
+        public PStep13GameTitle(PlotConfig plotConfig, ShowUIElementsModel showUIElementsModel)
         {
             this.stepType = PlotStepType.GameTitle;
             this.showUIElementsModel = showUIElementsModel;
-            this.signalBus = signalBus;
             this.config = plotConfig.gameTitlePlot;
         }
-        void IInitializable.Initialize()
-        {
-            signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
-        }
-        void ISceneFinish.FinishScene()
+
+        void IGameLeave.LeaveGame()
         {
             if (cancelTokenSource != null)
                 cancelTokenSource.Cancel();
@@ -88,6 +82,6 @@ namespace Assets.Game.Plot.Steps
             //disposables.Clear();
             blackPanel.Stop();
             OnFinishStep?.Invoke();
-        }              
+        }
     }
 }

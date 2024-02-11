@@ -1,11 +1,13 @@
 ﻿using Assets.Game.Configurations;
+using Assets.Game.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Zenject;
 
 namespace Loader
 {
-    public class TaskLaunchGame : IInitializable
+    public class TaskLaunchGame : IStep<LoadStepType>
     {       
         private readonly StartSceneConfig startSceneConfig;
         private readonly IMenuCommand newGameCoomand;
@@ -18,14 +20,24 @@ namespace Loader
             this.introConfig = introConfig;
         }
 
-        void IInitializable.Initialize()
+        public LoadStepType StepType => LoadStepType.LoadHappening;
+
+        public event Action OnFinishStep;
+        public event Action<IStep<LoadStepType>> OnLaunchStep;
+
+        public void Begin()
         {
-            if(introConfig.activate)            
-                MySceneManager.LoadSceneForBegin(Scene.PlotScene);          
+            if (introConfig.activate)
+                MySceneManager.LoadSceneForBegin(Scene.PlotScene);
             else if (startSceneConfig.fullStart)
                 MySceneManager.LoadSceneForBegin(Scene.MainMenuScene);
             else
                 newGameCoomand.Execute();
+        }
+
+        public void Finish()
+        {
+
         }
     }
 }

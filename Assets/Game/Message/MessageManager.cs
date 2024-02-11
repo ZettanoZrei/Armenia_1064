@@ -1,6 +1,7 @@
 ﻿using Assets.Game.HappeningSystem;
 using Assets.Modules;
 using Entities;
+using ExtraInjection;
 using Model.Entities.Answers;
 using System;
 using System.Threading.Tasks;
@@ -8,16 +9,12 @@ using Zenject;
 
 namespace Assets.Game.Message
 {
-    public class MessageManager : ICallBack
+    public class MessageManager : ICallBack, IExtraInject
     {
-        private readonly PopupManager popupManager;
+        [ExtraInject] private PopupManager popupManager;
         private IPopup popup;
         private MessageAdapter messageAdapter;
         public event Action OnFinishMessage;
-        public MessageManager(PopupManager popupManager)
-        {
-            this.popupManager = popupManager;
-        }
 
         public void Perform(Consequences consequences)
         {

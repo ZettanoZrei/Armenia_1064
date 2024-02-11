@@ -8,7 +8,7 @@ namespace Assets.Game.Plot.Steps
     class PStep11ChangePersonSprites : PlotStep
     {
         public override event Action OnFinishStep;
-        public override event Action<INarrativeStep<PlotStepType>> OnLaunchStep;
+        public override event Action<IStep<PlotStepType>> OnLaunchStep;
 
         private readonly DialogPersonPackCatalog personPacks;
         public PStep11ChangePersonSprites(DialogPersonPackCatalog personPacks)

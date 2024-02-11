@@ -5,10 +5,10 @@ using UnityEngine;
 
 namespace Assets.Game.Tutorial.Core
 {
-    abstract class TutorialStep : INarrativeStep<TutorialStepType>
+    abstract class TutorialStep : IStep<TutorialStepType>
     {
         public abstract event Action OnFinishStep;
-        public abstract event Action<INarrativeStep<TutorialStepType>> OnLaunchStep;
+        public abstract event Action<IStep<TutorialStepType>> OnLaunchStep;
         public TutorialStepType StepType => stepType;
 
         protected TutorialStepType stepType;

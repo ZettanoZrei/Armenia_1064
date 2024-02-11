@@ -82,7 +82,7 @@ namespace Assets.Game.Plot
                 await saveManager.SaveAsync();
         }
 
-        private async void PlotManager_OnShowStep(INarrativeStep<PlotStepType> scene)
+        private async void PlotManager_OnShowStep(IStep<PlotStepType> scene)
         {
             if (scenes.Contains(scene.StepType))
             {

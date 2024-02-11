@@ -1,20 +1,20 @@
 ﻿using Assets.Game.HappeningSystem;
 using Assets.Game.Parameters;
+using ExtraInjection;
 using Model.Entities.Happenings;
 
 namespace Assets.Game.UI.FailGameSystem
 {
 
-    class GameOverManager 
+    class GameOverManager : IExtraInject
     {
-        private readonly PopupManager popupManager;
+        [ExtraInject] private PopupManager popupManager;
         private readonly MySceneManager sceneManager;
         private readonly HappeningLauncher happeningLauncher;
         private GameOverPopup popup;
         
-        public GameOverManager(PopupManager popupManager, MySceneManager sceneManager, HappeningLauncher happeningLauncher)
+        public GameOverManager(MySceneManager sceneManager, HappeningLauncher happeningLauncher)
         {
-            this.popupManager = popupManager;
             this.sceneManager = sceneManager;
             this.happeningLauncher = happeningLauncher;
         }

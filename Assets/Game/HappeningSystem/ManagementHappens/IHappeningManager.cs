@@ -1,4 +1,5 @@
 ﻿using Assets.Modules;
+using ExtraInjection;
 using Model.Entities.Happenings;
 
 namespace Assets.Game.HappeningSystem

@@ -7,6 +7,7 @@ using Assets.Game.SceneScripts;
 using Assets.Game.Tutorial.Observers;
 using Assets.Game.UI.FailGameSystem;
 using Assets.GameEngine.Zenject;
+using ExtraInjection;
 using GameSystems;
 using System;
 using System.Collections.Generic;
@@ -21,8 +22,9 @@ namespace Assets.Systems.Zenject
     {
         public override void InstallBindings()
         {
-            Container.Bind<MenuManager>().AsSingle();
+            Container.BindInterfacesAndSelfTo<MenuManager>().AsSingle();
             Container.Bind<MenuModel>().AsSingle();
+            Container.BindInterfacesTo<ExtraInjector>().AsSingle();
             Container.BindInterfacesTo<KeyInputController>().AsSingle();
             Container.BindInterfacesTo<GameOverController>().AsSingle();
             
@@ -31,6 +33,8 @@ namespace Assets.Systems.Zenject
 
             Container.BindInterfacesTo<SceneStartBeacon>().FromComponentInHierarchy().AsCached();
             Container.BindSceneScriptSystem();
+            //TODO: необходимо придумать как заставить работать ExtraInject в объектах созданных через фабрики. Либо переделать эту систему
+            Container.BindCustomHappenManager(); 
         }        
     }
 }

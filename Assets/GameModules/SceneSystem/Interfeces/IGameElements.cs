@@ -29,13 +29,36 @@ namespace GameSystems.Modules
         void FinishScene();
     }
 
-    public interface IScenePause : IGameElement
+    public interface ISceneFinish<T> : IGameElement
     {
-        void PauseScene();
+        T Scene { get; }
+        void FinishScene();
     }
 
-    public interface ISceneResume : IGameElement
+    public interface IGamePause : IGameElement
     {
-        void ResumeScene();
+        void PauseGame();
+    }
+
+    public interface IGameResume : IGameElement
+    {
+        void ResumeGame();
+    }
+
+    /// <summary>
+    /// Выполнятеся при начале процесса игры (не входа в программу, а именно игры)
+    /// </summary>
+    public interface IGameStart : IGameElement //TODO: применить
+    {
+        void StartGame();
+    }
+
+
+    /// <summary>
+    /// Выход из процесса игры в главное меню
+    /// </summary>
+    public interface IGameLeave : IGameElement //TODO: применить
+    {
+        void LeaveGame();
     }
 }

@@ -49,11 +49,12 @@ namespace Assets.Game.HappeningSystem
             campQuestTriggerModes = finiteTriggerCatalog.GetElements<CampQuestTriggerModel>();
             dialogBackTriggers = finiteTriggerCatalog.GetElements<DialogBackTrigger>();
             //stoppageTriggers = finiteTriggerCatalog.GetElements<StoppageTrigger>(); //TODO: оно здесь должно быть?
+            campIcons = MonoBehaviour.FindObjectsOfType<CampIcon>();
         }
 
         void ISceneReady.ReadyScene()
         {
-            //campIcons = MonoBehaviour.FindObjectsOfType<CampIcon>();
+            
             Subscribe();
         }
         void ISceneFinish.FinishScene()

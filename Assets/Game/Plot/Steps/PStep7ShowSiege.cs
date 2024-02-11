@@ -15,34 +15,30 @@ using Zenject;
 namespace Assets.Game.Plot.Steps
 {
     //7
-    class PStep7ShowSiege : PlotStep, IInitializable, ISceneFinish, IExtraInject
+    class PStep7ShowSiege : PlotStep, IExtraInject, IGameLeave
     {
         [ExtraInject] private PopupManager popupManager;
         private readonly PlotStoryModel storyModel;
-        private readonly SignalBus signalBus;
         private PlotStoryPopup popup;
         private PlotStoryPresenter plotStoryPresenter;
         private PlotCamerasViewConponent cameraConponent;
 
         public override event Action OnFinishStep;
-        public override event Action<INarrativeStep<PlotStepType>> OnLaunchStep;
+        public override event Action<IStep<PlotStepType>> OnLaunchStep;
 
 
-        public PStep7ShowSiege(PlotStoryModel storyModel, SignalBus signalBus)
+        public PStep7ShowSiege(PlotStoryModel storyModel)
         {
             this.storyModel = storyModel;
-            this.signalBus = signalBus;
             this.stepType = PlotStepType.Siege;
         }
-        void IInitializable.Initialize()
-        {
-            signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
-        }
-        void ISceneFinish.FinishScene()
+
+        void IGameLeave.LeaveGame()
         {
             if (plotStoryPresenter != null)
                 plotStoryPresenter.OnFinish -= Finish;
-        }      
+        }
+
         public override void Begin()
         {
             popup = popupManager.ShowPopup(PopupType.PlotStoryPopup) as PlotStoryPopup;
@@ -68,6 +64,6 @@ namespace Assets.Game.Plot.Steps
             popupManager.ClosePopup(PopupType.PlotStoryPopup);
             cameraConponent.gameObject.SetActive(false);
             OnFinishStep?.Invoke();
-        }       
+        }
     }
 }

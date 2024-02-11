@@ -9,9 +9,9 @@ using Zenject;
 
 namespace Assets.Game.Tutorial.Core
 {
-    public class TutorialManager : NarrativeManager<TutorialStepType>, IInitializable, ILateDisposable
+    public class TutorialManager : StepManager<TutorialStepType>, IInitializable, ILateDisposable
     {
-        public TutorialManager(List<INarrativeStep<TutorialStepType>> tutorialSteps, ConfigurationRuntime config) : base(tutorialSteps)
+        public TutorialManager(List<IStep<TutorialStepType>> tutorialSteps, ConfigurationRuntime config) : base(tutorialSteps)
         {
             this.config = config.TutorialConfig;
         }

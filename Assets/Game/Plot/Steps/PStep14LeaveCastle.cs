@@ -10,7 +10,7 @@ namespace Assets.Game.Plot.Steps
         private readonly SetupCampManager setupCampManager;
 
         public override event Action OnFinishStep;
-        public override event Action<INarrativeStep<PlotStepType>> OnLaunchStep;
+        public override event Action<IStep<PlotStepType>> OnLaunchStep;
         public PStep14LeaveCastle(SetupCampManager setupCampManager)
         {
             this.setupCampManager = setupCampManager;

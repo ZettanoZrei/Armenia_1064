@@ -7,7 +7,7 @@ using System;
 namespace Assets.Game.Configurations
 {
     [Serializable]
-    public class PlotConfig : INarrativeConfig, IClone<PlotConfig>
+    public class PlotConfig : IStepConfig, IClone<PlotConfig>
     {
         public bool activate;
         public PlotStepType startStep;

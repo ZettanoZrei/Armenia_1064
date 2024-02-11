@@ -7,11 +7,13 @@ using Zenject;
 using UnityEngine;
 using System.Reflection;
 using ModestTree;
-
+using Assets.Game.HappeningSystem.ManagementHappens;
+using Assets.Game.HappeningSystem;
 
 namespace ExtraInjection
 {
-    //Этот класс служит для того чтобы внедрять зависимости в глобальные классы, когда они переходят на новые сцены.
+    //Этот класс служит для того чтобы внедрять зависимости которых нет в глобальном контексете в глобальные классы,
+    //когда они переходят на новые сцены в контексте которых они есть
     public class ExtraInjector : IInitializable
     {
         private readonly DiContainer container;

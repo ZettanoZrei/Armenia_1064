@@ -2,10 +2,10 @@
 
 namespace Assets.Game.Core
 {
-    public interface INarrativeStep<T>
+    public interface IStep<T>
     {
         event Action OnFinishStep;
-        event Action<INarrativeStep<T>> OnLaunchStep;
+        event Action<IStep<T>> OnLaunchStep;
         T StepType { get; }
         void Begin();
         void Finish();

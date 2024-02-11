@@ -13,7 +13,7 @@ namespace Assets.Game.Plot.Steps
     internal class PStep0ChangeStartScene : PlotStep
     {
         public override event Action OnFinishStep;
-        public override event Action<INarrativeStep<PlotStepType>> OnLaunchStep;
+        public override event Action<IStep<PlotStepType>> OnLaunchStep;
 
         private readonly StartSceneConfig sceneConfig;
         private readonly MySceneManager sceneManager;

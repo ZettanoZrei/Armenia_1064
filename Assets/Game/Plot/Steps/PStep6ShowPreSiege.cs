@@ -14,7 +14,7 @@ namespace Assets.Game.Plot.Steps
     class PStep6ShowPreSiege : PlotStep, IExtraInject
     {
         public override event Action OnFinishStep;
-        public override event Action<INarrativeStep<PlotStepType>> OnLaunchStep;
+        public override event Action<IStep<PlotStepType>> OnLaunchStep;
 
         [ExtraInject] private PopupManager popupManager;
         private PlotWordPresentor presentor;

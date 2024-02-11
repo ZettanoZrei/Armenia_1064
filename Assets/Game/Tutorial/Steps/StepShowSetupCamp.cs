@@ -10,7 +10,7 @@ namespace Assets.Game.Tutorial.Steps
 {
     class StepShowSetupCamp : StepShowPopup
     {
-        public override event Action<INarrativeStep<TutorialStepType>> OnLaunchStep;
+        public override event Action<IStep<TutorialStepType>> OnLaunchStep;
         private readonly MySceneManager sceneManager;
 
         public StepShowSetupCamp(PopupType popupType, MySceneManager sceneManager, SignalBus signalBus)

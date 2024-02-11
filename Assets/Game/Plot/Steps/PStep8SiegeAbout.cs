@@ -15,28 +15,24 @@ using Zenject;
 namespace Assets.Game.Plot.Steps
 {
     //8
-    class PStep8SiegeAbout : PlotStep, IInitializable, ISceneFinish
+    class PStep8SiegeAbout : PlotStep, IGameLeave
     {
         public override event Action OnFinishStep;
-        public override event Action<INarrativeStep<PlotStepType>> OnLaunchStep;
+        public override event Action<IStep<PlotStepType>> OnLaunchStep;
 
         private readonly HappeningManager happeningManager;
-        private readonly SignalBus signalBus;
 
-        public PStep8SiegeAbout(HappeningManager happeningManager, SignalBus signalBus)
+        public PStep8SiegeAbout(HappeningManager happeningManager)
         {
             this.happeningManager = happeningManager;
-            this.signalBus = signalBus;
             this.stepType = PlotStepType.SiegeAbout;
         }
-        void IInitializable.Initialize()
-        {
-            signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
-        }
-        void ISceneFinish.FinishScene()
+
+        void IGameLeave.LeaveGame()
         {
             happeningManager.OnFinishHappening -= DoFinsih;
         }
+
         public override async void Begin()
         {
             await Task.Delay(1000);
@@ -52,6 +48,6 @@ namespace Assets.Game.Plot.Steps
         {
             happeningManager.OnFinishHappening -= DoFinsih;
             OnFinishStep?.Invoke();
-        }        
+        }
     }
 }

@@ -1,11 +1,10 @@
-using Assets.Game.DialogBackTriggers;
+﻿using Assets.Game.DialogBackTriggers;
 using Assets.Game.HappeningSystem;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public class TriggerInstaller : MonoInstaller
+[CreateAssetMenu(fileName = "TriggersInstaller", menuName = "Installers/TriggersInstaller")]
+public class TriggersInstaller : ScriptableObjectInstaller<TriggersInstaller>
 {
     public override void InstallBindings()
     {

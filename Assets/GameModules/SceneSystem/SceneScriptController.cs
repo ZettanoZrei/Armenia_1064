@@ -16,15 +16,15 @@ namespace Assets.Modules
 
         private void Start()
         {
-            sceneManager.InitGame();
-            sceneManager.ReadyGame();
-            sceneManager.StartGame();
+            sceneManager.InitScene();
+            sceneManager.ReadyScene();
+            sceneManager.StartScene();
         }
 
         void ILateDisposable.LateDispose()
         {
             if (sceneManager.GameState != SceneState.Finished)
-                sceneManager.EndGame();
+                sceneManager.FinishScene();
         }
     }
 }

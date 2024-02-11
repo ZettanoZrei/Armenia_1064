@@ -4673,8 +4673,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1987090236}
   - component: {fileID: 1987090237}
-  - component: {fileID: 1987090238}
   - component: {fileID: 1987090239}
+  - component: {fileID: 1987090238}
+  - component: {fileID: 1987090240}
   m_Layer: 0
   m_Name: Triggers
   m_TagString: Untagged
@@ -4736,9 +4737,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 1987090235}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4fc3933b42276640a9518ff9a2e5709, type: 3}
+  m_Script: {fileID: 11500000, guid: 08eca9f7688a0a24685b89133b020c8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _scriptableObjectInstallers:
+  - {fileID: 11400000, guid: 6d8f11b4c80f29f468196e7f927f30e7, type: 2}
+  _monoInstallers: []
+  _installerPrefabs: []
+  _autoRun: 1
+  _kernel: {fileID: 0}
+--- !u!114 &1987090240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1987090235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0166d8ff8d905b048b2448179e1f5d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _components:
+  - {fileID: 1987090238}
+  _identifier: 
+  _useSceneContext: 1
+  _context: {fileID: 0}
+  _bindType: 2
 --- !u!4 &1991363419 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4069635717177907680, guid: 5dee2a531e1904748b4380fd6f2d46cf, type: 3}

@@ -11,9 +11,9 @@ using Zenject;
 
 namespace Assets.Game.Intro
 {
-    internal class IntroManager : NarrativeManager<IntroStepType>, IInitializable, ILateDisposable
+    internal class IntroManager : StepManager<IntroStepType>, IInitializable, ILateDisposable
     {
-        public IntroManager(List<INarrativeStep<IntroStepType>> steps, IntroConfig introConfig) : base(steps)
+        public IntroManager(List<IStep<IntroStepType>> steps, IntroConfig introConfig) : base(steps)
         {
             this.config = introConfig;
         }

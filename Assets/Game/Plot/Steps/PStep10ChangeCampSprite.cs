@@ -10,30 +10,24 @@ using Zenject;
 namespace Assets.Game.Plot.Steps
 {
     //10
-    class PStep10ChangeCampSprite : PlotStep, IInitializable, ISceneFinish
+    class PStep10ChangeCampSprite : PlotStep, IGameLeave
     {
         private readonly SetupCampManager campManager;
         private readonly CampIncomingData incomingData;
         private readonly MySceneManager sceneManager;
-        private readonly SignalBus signalBus;
 
         public override event Action OnFinishStep;
-        public override event Action<INarrativeStep<PlotStepType>> OnLaunchStep;
+        public override event Action<IStep<PlotStepType>> OnLaunchStep;
 
-        public PStep10ChangeCampSprite(SetupCampManager campManager, CampIncomingData incomingData, MySceneManager sceneManager, SignalBus signalBus)
+        public PStep10ChangeCampSprite(SetupCampManager campManager, CampIncomingData incomingData, MySceneManager sceneManager)
         {
             this.stepType = PlotStepType.ChangeCampSprite;
             this.campManager = campManager;
             this.incomingData = incomingData;
             this.sceneManager = sceneManager;
-            this.signalBus = signalBus;
-        }
-        void IInitializable.Initialize()
-        {
-            signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
         }
 
-        void ISceneFinish.FinishScene()
+        void IGameLeave.LeaveGame()
         {
             sceneManager.OnChangeScene_Post -= DoFinish;
         }
@@ -55,6 +49,6 @@ namespace Assets.Game.Plot.Steps
         {
             sceneManager.OnChangeScene_Post -= DoFinish;
             OnFinishStep?.Invoke();
-        }        
+        }
     }
 }

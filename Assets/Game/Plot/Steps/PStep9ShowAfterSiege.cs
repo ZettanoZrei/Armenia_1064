@@ -13,28 +13,23 @@ using Zenject;
 namespace Assets.Game.Plot.Steps
 {
     //9
-    class PStep9ShowAfterSiege : PlotStep, IInitializable, ISceneFinish, IExtraInject
+    class PStep9ShowAfterSiege : PlotStep, IExtraInject, IGameLeave
     {
         [ExtraInject] private PopupManager popupManager;
-        private readonly SignalBus signalBus;
         private readonly PlotConfig plotConfig;
         private PlotWordPresentor presentor;
 
         public override event Action OnFinishStep;
-        public override event Action<INarrativeStep<PlotStepType>> OnLaunchStep;
+        public override event Action<IStep<PlotStepType>> OnLaunchStep;
         private readonly string text = "Спустя три недели...";
 
-        public PStep9ShowAfterSiege(ConfigurationRuntime config, SignalBus signalBus)
+        public PStep9ShowAfterSiege(ConfigurationRuntime config)
         {
             this.stepType = PlotStepType.AfterSiege;
-            this.signalBus = signalBus;
             this.plotConfig = config.PlotConfig;
         }
-        void IInitializable.Initialize()
-        {
-            signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
-        }
-        void ISceneFinish.FinishScene()
+
+        void IGameLeave.LeaveGame()
         {
             if (presentor != null)
                 presentor.OnFinish -= Finish;
@@ -55,6 +50,5 @@ namespace Assets.Game.Plot.Steps
             //sceneManager.LoadCamp();
             OnFinishStep?.Invoke();
         }
-            
     }
 }

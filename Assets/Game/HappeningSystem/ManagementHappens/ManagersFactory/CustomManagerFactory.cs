@@ -1,4 +1,5 @@
-﻿using ModestTree;
+﻿using ExtraInjection;
+using ModestTree;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace Assets.Game.HappeningSystem.ManagementHappens
         private readonly DialogManager.Factory dialogFactory;
         private readonly AccidentManager.Factory accidentFactory;
         private readonly ManagerTypeResolver managerTypeResolver;
+
         public CustomManagerFactory(ManagerTypeResolver managerTypeResolver, DialogManager.Factory dialogFactory, 
             AccidentManager.Factory accidentFactory)
         {

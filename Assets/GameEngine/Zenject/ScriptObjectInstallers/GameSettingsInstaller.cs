@@ -5,6 +5,7 @@ using Assets.Game.Tutorial.Core;
 using UnityEngine;
 using Zenject;
 
+
 [CreateAssetMenu(fileName = "GameSettingsInstaller", menuName = "Installers/GameSettingsInstaller")]
 public class GameSettingsInstaller : ScriptableObjectInstaller<GameSettingsInstaller>
 {

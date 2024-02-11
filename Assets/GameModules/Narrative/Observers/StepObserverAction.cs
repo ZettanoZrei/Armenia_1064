@@ -5,7 +5,7 @@ using UnityEngine.Events;
 namespace Assets.GameModules.Narrative
 {
     [Serializable]
-    class NarrativeObserverAction 
+    class StepObserverAction 
     {
         public GameObject observed;
         public UnityEvent<GameObject> unityEvent;

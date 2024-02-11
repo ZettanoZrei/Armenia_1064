@@ -20,7 +20,7 @@ namespace Assets.Game.Tutorial.Steps
         private readonly DialogModelDecorator dialogModelDecorator;
 
 
-        public override event Action<INarrativeStep<TutorialStepType>> OnLaunchStep;
+        public override event Action<IStep<TutorialStepType>> OnLaunchStep;
         public StepShowDialogRelation(MySceneManager sceneManager, DialogModelDecorator dialogModelDecorator, 
             SignalBus signalBus, PopupType popupType) : base(popupType, signalBus)
         {

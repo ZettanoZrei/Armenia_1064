@@ -9,8 +9,8 @@ class MoveController : IInitializable,
     ISceneInitialize, 
     ISceneReady, 
     ISceneStart, 
-    IScenePause, 
-    ISceneResume,
+    IGamePause, 
+    IGameResume,
     ISceneFinish 
 {
     private IMoveComponent moveComponent;
@@ -47,12 +47,12 @@ class MoveController : IInitializable,
         setupCampManager.OnSetupCamp_Before -= moveComponent.Stop;
         moveComponent.Stop();
     }
-    void IScenePause.PauseScene()
+    void IGamePause.PauseGame()
     {
         moveComponent.Stop();
     }
 
-    void ISceneResume.ResumeScene()
+    void IGameResume.ResumeGame()
     {
         moveComponent.Move();
     }

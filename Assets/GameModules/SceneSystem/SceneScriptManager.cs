@@ -9,16 +9,16 @@ namespace Assets.Modules
 {
     public class SceneScriptManager 
     {
-        private readonly IEnumerable<SceneScriptContext> sceneContexts;
+        private readonly IEnumerable<ScriptContext> sceneContexts;
         public SceneState GameState { get; private set; }
 
-        public SceneScriptManager(IEnumerable<SceneScriptContext> sceneContexts)
+        public SceneScriptManager(IEnumerable<ScriptContext> sceneContexts)
         {
             this.sceneContexts = sceneContexts;
         }
 
        
-        public void InitGame()
+        public void InitScene()
         {
             GameState = SceneState.Init;
             foreach (var context in sceneContexts)
@@ -33,7 +33,7 @@ namespace Assets.Modules
             }
             
         }
-        public void ReadyGame()
+        public void ReadyScene()
         {
             GameState = SceneState.Ready;
             foreach (var context in sceneContexts)
@@ -48,7 +48,7 @@ namespace Assets.Modules
             }
                
         }
-        public void StartGame()
+        public void StartScene()
         {
             GameState = SceneState.Played;
             foreach (var context in sceneContexts)
@@ -62,7 +62,7 @@ namespace Assets.Modules
                 }
             }               
         }
-        public void EndGame()
+        public void FinishScene()
         {
             GameState = SceneState.Finished;
             foreach (var context in sceneContexts)
@@ -84,24 +84,24 @@ namespace Assets.Modules
             {
                 for (var i = 0; i < context.Elements.Count; i++)
                 {
-                    if (context.Elements[i] is IScenePause gameElement)
+                    if (context.Elements[i] is IGamePause gameElement)
                     {
-                        gameElement.PauseScene();
+                        gameElement.PauseGame();
                     }
                 }
             }
             
         }
-        public void ContinueGame()
+        public void ResumeGame()
         {
             GameState = SceneState.Played;
             foreach (var context in sceneContexts)
             {
                 for (var i = 0; i < context.Elements.Count; i++)
                 {
-                    if (context.Elements[i] is ISceneResume gameElement)
+                    if (context.Elements[i] is IGameResume gameElement)
                     {
-                        gameElement.ResumeScene();
+                        gameElement.ResumeGame();
                     }
                 }
             }

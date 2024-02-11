@@ -1,40 +1,51 @@
-﻿using Assets.Game.HappeningSystem;
+﻿using Assets.Game.Core;
+using Assets.Game.HappeningSystem;
+using System;
 using Zenject;
 
 namespace Loader
 {
-    public class TaskCutText : IInitializable
+    public class TaskCutText : IStep<LoadStepType>
     {
         private readonly HappeningCatalog catalog;
+
+        public LoadStepType StepType => LoadStepType.CutText;
+
+        public event Action OnFinishStep;
+        public event Action<IStep<LoadStepType>> OnLaunchStep;
 
         public TaskCutText(HappeningCatalog catalog)
         {
             this.catalog = catalog;
         }
+        
 
-        void IInitializable.Initialize()
+        public void Begin()
         {
-            foreach(var happening in catalog)
+            foreach (var happening in catalog)
             {
-                foreach(var node in happening.Nodes)
+                foreach (var node in happening.Nodes)
                 {
                     foreach (var phrase in node.Phrases)
                         phrase.Text = CutString(phrase.Text);
 
-                    foreach(var answer in node.Answers)
+                    foreach (var answer in node.Answers)
                         answer.Text = CutString(answer.Text);
 
-                    foreach(var advice in node.Advices)
-                        advice.Text = CutString(advice.Text);   
+                    foreach (var advice in node.Advices)
+                        advice.Text = CutString(advice.Text);
                 }
             }
         }
-
         private string CutString(string text)
         {
-            if (string.IsNullOrEmpty(text) || !text.Contains("\r\n")) 
+            if (string.IsNullOrEmpty(text) || !text.Contains("\r\n"))
                 return text;
             return text.Substring(0, text.Length - 2);
+        }
+        public void Finish()
+        {
+
         }
     }
 }

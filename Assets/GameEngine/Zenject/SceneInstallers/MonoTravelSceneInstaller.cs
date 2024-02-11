@@ -29,11 +29,9 @@ public class MonoTravelSceneInstaller : MonoInstaller
     public override void InstallBindings()
     {
         CommonInstaller.Install(Container);
-        Container.Bind<IEntity>().WithId("caravan").To<MonoEntity>().FromInstance(caravan).AsSingle();      
-        Container.Bind<FiniteTriggerCatalog>().FromComponentInHierarchy().AsSingle();       
+        Container.Bind<IEntity>().WithId("caravan").To<MonoEntity>().FromInstance(caravan).AsSingle();        
         Container.BindInterfacesTo<TravelSceneNavigatorController>().AsTransient();
         Container.Bind<NextTravelSceneTrigger>().FromComponentsInHierarchy().AsSingle();
-
 
         //UI
         Container.Bind<SimpleButton>().WithId("setupCampButton").FromInstance(setupCampButton).AsCached();
@@ -60,11 +58,9 @@ public class MonoTravelSceneInstaller : MonoInstaller
         Container.BindInterfacesTo<InputController>().AsSingle();
         Container.BindInterfacesTo<PopupPauseController>().AsSingle();
         Container.BindInterfacesTo<CaravanRepositoryBSController>().AsSingle();
+      
+        Container.BindEndingParamSystem();
 
-        
-        //Triggers
-        Container.Bind<FiniteTriggerCatalog>().FromComponentInHierarchy().AsCached();
-
-        Container.BindSceneScriptSystem();     
+        Container.BindPopupSystem();
     }    
 }

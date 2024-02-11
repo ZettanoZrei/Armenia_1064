@@ -9,8 +9,8 @@ using Zenject;
 namespace Assets.Game.UI.EndPopupSystem
 {
     class EndGameManager : 
-        ISceneReady, 
-        ISceneFinish, 
+        IInitializable, 
+        ILateDisposable, 
         IExtraInject
     {
         [ExtraInject] private PopupManager popupManager;
@@ -24,12 +24,12 @@ namespace Assets.Game.UI.EndPopupSystem
             this.happeningManager = happeningManager;
         }
 
-        void ISceneReady.ReadyScene()
+        void IInitializable.Initialize()
         {
             happeningManager.OnFinishHappening += CheckLastHappening;
         }
 
-        void ISceneFinish.FinishScene()
+        void ILateDisposable.LateDispose()
         {
             happeningManager.OnFinishHappening -= CheckLastHappening;
         }
@@ -52,6 +52,5 @@ namespace Assets.Game.UI.EndPopupSystem
             popupManager.ClosePopup(PopupType.EndGamePopup);
             sceneManager.LoadMainMenuScene();
         }
-
     }
 }

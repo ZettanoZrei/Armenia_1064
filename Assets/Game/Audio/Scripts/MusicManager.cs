@@ -110,14 +110,14 @@ namespace Assets.Game.Plot.Scripts
             }
         }
 
-        private void SwitchCauseIntro(INarrativeStep<IntroStepType> step)
+        private void SwitchCauseIntro(IStep<IntroStepType> step)
         {
             if (step.StepType == IntroStepType.History)
             {
                 musicMechancis.SwitchOnMusic(soundConfig.title, 0.3f, 0.15f);
             }
         }
-        private void ChooseAudio(INarrativeStep<PlotStepType> step)
+        private void ChooseAudio(IStep<PlotStepType> step)
         {
             switch (step.StepType)
             {

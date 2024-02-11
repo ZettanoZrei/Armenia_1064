@@ -6,6 +6,9 @@ using Assets.Systems.Zenject;
 using Assets.Game.HappeningSystem.View.Advice;
 using Assets.Game.Parameters.EndedParamSystem;
 using Assets.Game.InputSystem;
+using Assets.GameEngine.Zenject;
+using Assets.Modules.UI;
+using UnityEditor;
 
 public class MonoDialogSceneInstaller : MonoInstaller
 {
@@ -13,6 +16,7 @@ public class MonoDialogSceneInstaller : MonoInstaller
     [SerializeField] private ParamsWidget paramsWidget;
     [SerializeField] private PeopleWidget peopleWidget;
     [SerializeField] private RelationPanelView relationPanelView;
+    [SerializeField] private SimpleButton menu;
     public override void InstallBindings()
     {
         CommonInstaller.Install(Container);
@@ -20,7 +24,7 @@ public class MonoDialogSceneInstaller : MonoInstaller
         Container.Bind<FigurePersonManager>().FromInstance(figurePersonManager).AsCached();
         Container.Bind<DialogBackgroundManager>().AsSingle();
         Container.BindInterfacesAndSelfTo<DialogView>().FromComponentInHierarchy().AsSingle();
-        Container.BindInterfacesTo<DialogPresenter>().FromComponentInHierarchy().AsCached();
+        Container.BindInterfacesTo<DialogPresenter>().AsSingle();
         Container.Bind<DialogBackgroundView>().FromComponentsInHierarchy().AsSingle();
         Container.Bind<ReactionPopupManager>().AsSingle();
         Container.BindInterfacesAndSelfTo<ReactionPopupController>().AsSingle();
@@ -29,11 +33,15 @@ public class MonoDialogSceneInstaller : MonoInstaller
         Container.BindInterfacesTo<EndedParamController>().AsSingle();
         Container.BindInterfacesTo<InputController>().AsSingle();
         Container.BindInterfacesTo<PopupPauseController>().AsSingle();
+        Container.BindEndingParamSystem();
 
         //ui
         Container.Bind<ParamsWidget>().FromInstance(paramsWidget).AsCached();
         Container.Bind<PeopleWidget>().FromInstance(peopleWidget).AsCached();
         Container.Bind<RelationPanelView>().FromInstance(relationPanelView).AsCached();
+        Container.BindPopupSystem();
+        Container.Bind<SimpleButton>().WithId("menu").FromInstance(menu).AsCached();
+
 
     }
 }

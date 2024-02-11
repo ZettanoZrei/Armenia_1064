@@ -1,19 +1,19 @@
-﻿using Zenject;
+﻿using ExtraInjection;
+using Zenject;
 
 namespace Assets.Game.Menu
 {
-    class MenuManager 
+    class MenuManager : IExtraInject
     {
         private readonly MenuModel menuModel;
-        private readonly PopupManager popupManager;
+        [ExtraInject] private PopupManager popupManager;
         private bool isActive;
 
         public bool IsActive => isActive; 
 
-        public MenuManager(MenuModel menuModel, PopupManager popupManager)
+        public MenuManager(MenuModel menuModel)
         {
             this.menuModel = menuModel;
-            this.popupManager = popupManager;
         }
 
         public void ShowMenu()

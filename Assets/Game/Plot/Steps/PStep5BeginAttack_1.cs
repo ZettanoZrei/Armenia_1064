@@ -12,31 +12,25 @@ using Zenject;
 namespace Assets.Game.Plot.Steps
 {
     //5.1
-    class PStep5BeginAttack_1 : PlotStep, IInitializable, ISceneFinish
+    class PStep5BeginAttack_1 : PlotStep, IGameLeave
     {
         private readonly CampIncomingData incomingData;
         private readonly HappeningManager happeningManager;
-        private readonly SignalBus signalBus;
+
 
         public override event Action OnFinishStep;
-        public override event Action<INarrativeStep<PlotStepType>> OnLaunchStep;
-        public PStep5BeginAttack_1(CampIncomingData incomingData, HappeningManager happeningManager, SignalBus signalBus)
+        public override event Action<IStep<PlotStepType>> OnLaunchStep;
+        public PStep5BeginAttack_1(CampIncomingData incomingData, HappeningManager happeningManager)
         {
             this.incomingData = incomingData;
             this.happeningManager = happeningManager;
-            this.signalBus = signalBus;
             this.stepType = PlotStepType.BeginAttack_1;
         }
 
-        void ISceneFinish.FinishScene()
+        void IGameLeave.LeaveGame()
         {
             incomingData.OnDialogAvailableChange -= CheckIfAllDialogFinished;
             happeningManager.OnFinishHappeningAsync -= DoFinish;
-        }
-
-        void IInitializable.Initialize()
-        {
-            signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
         }
         public override void Begin()
         {
@@ -62,7 +56,5 @@ namespace Assets.Game.Plot.Steps
         {
             OnFinishStep?.Invoke();
         }
-
-        
     }
 }

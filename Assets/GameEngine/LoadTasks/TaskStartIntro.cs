@@ -1,9 +1,11 @@
-﻿using Assets.Game.Intro;
+﻿using Assets.Game.Core;
+using Assets.Game.Intro;
+using System;
 using Zenject;
 
 namespace Loader
 {
-    class TaskStartIntro : IInitializable
+    class TaskStartIntro : IStep<LoadStepType>
     {
         private readonly IntroManager introManager;
 
@@ -11,9 +13,20 @@ namespace Loader
         {
             this.introManager = introManager;
         }
-        void IInitializable.Initialize()
+
+        public LoadStepType StepType => LoadStepType.StartIntro;
+
+        public event Action OnFinishStep;
+        public event Action<IStep<LoadStepType>> OnLaunchStep;
+
+        public void Begin()
         {
             introManager.Begin();
+        }
+
+        public void Finish()
+        {
+
         }
     }
 }

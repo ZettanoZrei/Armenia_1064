@@ -21,7 +21,7 @@ public class MonoMenuSceneInstaller : MonoInstaller
         Container.Bind<SimpleButton>().WithId("encyclopedia").FromInstance(encyclopedia).AsCached();
 
         Container.BindInterfacesTo<MenuController>().AsSingle();
-        Container.BindInterfacesTo<ClearOldData>().AsSingle();
+        //Container.BindInterfacesTo<ClearOldData>().AsSingle();  //TODO: убрать это?
         Container.BindSceneScriptSystem();
     }
 }

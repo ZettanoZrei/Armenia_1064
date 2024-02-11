@@ -16,7 +16,7 @@ namespace Assets.Game.Tutorial.Steps
         private string expectedHappening;
         private readonly MySceneManager sceneManager;
 
-        public override event Action<INarrativeStep<TutorialStepType>> OnLaunchStep;
+        public override event Action<IStep<TutorialStepType>> OnLaunchStep;
 
         public StepShowRest(PopupType popupType, HappeningManager happeningManager,
              MySceneManager sceneManager, SignalBus signalBus) : base(popupType, signalBus)

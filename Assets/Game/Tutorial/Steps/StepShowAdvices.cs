@@ -16,7 +16,7 @@ namespace Assets.Game.Tutorial.Steps
     class StepShowAdvices : StepShowPopup
     {
         private readonly HappeningManager happeningManager;
-        public override event Action<INarrativeStep<TutorialStepType>> OnLaunchStep;
+        public override event Action<IStep<TutorialStepType>> OnLaunchStep;
         protected string expectedHappening;
         private readonly DialogModelDecorator dialogModelDecorator;
 

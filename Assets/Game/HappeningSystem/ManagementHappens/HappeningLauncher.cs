@@ -1,6 +1,7 @@
 ﻿using Assets.Game.HappeningSystem.ManagementHappens;
 using Assets.GameEngine;
 using Assets.Modules;
+using ExtraInjection;
 using GameSystems.Modules;
 using Model.Entities.Happenings;
 using System;
@@ -12,24 +13,22 @@ using Zenject;
 
 namespace Assets.Game.HappeningSystem
 {
-    public class HappeningLauncher : IInitializable, ICallBack, ISceneFinish
+    public class HappeningLauncher : IInitializable, ICallBack, ISceneFinish, IExtraInject
     {
         private readonly List<Happening> happeningsQueue = new List<Happening>();
 
         public event Action<Happening> OnBeginHappening;
         public event Action<Happening> OnFinishHappening;
         public event Func<Task> OnFinishHappeningAsync;
-        private readonly HappeningManagerFactory managerFactory;
-        private readonly ManagerTypeResolver typeResolver;
+        [ExtraInject] private HappeningManagerFactory managerFactory;
+        [ExtraInject] private ManagerTypeResolver typeResolver;
         private readonly SignalBus signalBus;
         private bool isHappeningActive;
 
         public bool IsHappeningActive => isHappeningActive; 
 
-        public HappeningLauncher(HappeningManagerFactory managerFactory, ManagerTypeResolver typeResolver, SignalBus signalBus)
+        public HappeningLauncher(SignalBus signalBus)
         {
-            this.managerFactory = managerFactory;
-            this.typeResolver = typeResolver;
             this.signalBus = signalBus;
         }
 
