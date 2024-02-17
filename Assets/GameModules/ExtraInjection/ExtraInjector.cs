@@ -41,7 +41,10 @@ namespace ExtraInjection
                                 var value = container.Resolve(field.FieldType);
                                 field.SetValue(glob, value);
                             }
-                            catch(Exception ex) { }
+                            catch (Exception ex)
+                            {
+                                Debug.Log($"{ex.Message}");
+                            }
                         }
                     }
                 }

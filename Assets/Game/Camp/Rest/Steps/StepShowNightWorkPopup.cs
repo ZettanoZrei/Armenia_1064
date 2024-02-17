@@ -1,6 +1,7 @@
 ﻿using Assets.Game.HappeningSystem;
 using Assets.Modules;
 using Entities;
+using ExtraInjection;
 using Model.Entities.Answers;
 using Model.Types;
 using UnityEngine;
@@ -9,7 +10,7 @@ using Zenject;
 namespace Assets.Game.Camp
 {
     //1
-    class StepShowNightWorkPopup : IRestStep
+    class StepShowNightWorkPopup : IRestStep, IExtraInject
     {
         private readonly PopupManager popupManager;
         private readonly NightWorkAdapter nightWorkAdapter;

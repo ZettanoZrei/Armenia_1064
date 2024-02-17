@@ -7,7 +7,7 @@ using Zenject;
 
 namespace Assets.Game.Camp.Background
 {
-    public class CampBackgroundManager : IInitializable, ISceneReady
+    public class CampBackgroundManager : IInitializable, ISceneInitialize
     {
         private readonly Transform backContainer;
         private readonly SignalBus signalBus;
@@ -27,7 +27,7 @@ namespace Assets.Game.Camp.Background
             signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
         }
 
-        void ISceneReady.ReadyScene()
+        void ISceneInitialize.InitScene()
         {
             var path = $"Background/Camp/{сampIncomingData.CampImagePrefab}";
             this.CampBackground = MonoBehaviour.Instantiate(Resources.Load<MonoEntity>(path), backContainer).Element<CampBackground>();

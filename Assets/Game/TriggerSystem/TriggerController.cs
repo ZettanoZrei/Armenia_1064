@@ -4,7 +4,6 @@ using Assets.Modules;
 using GameSystems.Modules;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 using UnityEngine.Events;
 using Zenject;
 
@@ -15,14 +14,13 @@ namespace Assets.Game.HappeningSystem
         ISceneReady, 
         ISceneFinish
     {
-        private QuestManager questManager;
-        private HappeningManager happeningManager;
+        private readonly QuestManager questManager;
+        private readonly HappeningManager happeningManager;
         private IEnumerable<ActivatorStaticTrigger> staticRoadTriggers;
         private IEnumerable<LaunchStaticTrigger> beginHappeningTriggers;
         private IEnumerable<FastPointerTrigger> fastPointerTriggers;
         private IEnumerable<CampQuestTriggerModel> campQuestTriggerModes;
         private IEnumerable<DialogBackTrigger> dialogBackTriggers; 
-        private IEnumerable<CampIcon> campIcons;
         private DialogBackgroundKeeper backgroundManager;
         private readonly SignalBus signalBus;
         private readonly FiniteTriggerCatalog finiteTriggerCatalog;
@@ -49,12 +47,11 @@ namespace Assets.Game.HappeningSystem
             campQuestTriggerModes = finiteTriggerCatalog.GetElements<CampQuestTriggerModel>();
             dialogBackTriggers = finiteTriggerCatalog.GetElements<DialogBackTrigger>();
             //stoppageTriggers = finiteTriggerCatalog.GetElements<StoppageTrigger>(); //TODO: оно здесь должно быть?
-            campIcons = MonoBehaviour.FindObjectsOfType<CampIcon>();
+            
         }
 
         void ISceneReady.ReadyScene()
         {
-            
             Subscribe();
         }
         void ISceneFinish.FinishScene()
@@ -77,17 +74,10 @@ namespace Assets.Game.HappeningSystem
             happeningManager.LaunchHappenFromQueue();
         }
 
-        //for camp quest
-        private void LaunchHappenOutOfQueue(string quest)
-        {
-            happeningManager.LaunchHappenWithoutQueue(quest);
-        }
+
 
         private void Subscribe()
         {
-            foreach (var trigger in campIcons)
-                trigger.OnIconClick += LaunchHappenOutOfQueue;
-
             foreach (var trigger in staticRoadTriggers)
                 trigger.OnActivateQuest += ActivateHappening;
 
@@ -107,9 +97,6 @@ namespace Assets.Game.HappeningSystem
 
         private void Unsubscribe()
         {
-            foreach (var trigger in campIcons)
-                trigger.OnIconClick -= LaunchHappenOutOfQueue;
-
             foreach (var trigger in staticRoadTriggers)
                 trigger.OnActivateQuest -= ActivateHappening;
 
@@ -124,8 +111,6 @@ namespace Assets.Game.HappeningSystem
 
             foreach (var trigger in dialogBackTriggers)
                 trigger.OnChangeDialogBack -= backgroundManager.SetDialogBackground;
-        }
-
-        
+        }       
     }
 }

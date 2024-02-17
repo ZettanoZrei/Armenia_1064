@@ -1,5 +1,6 @@
 ﻿using Assets.Game.Configurations;
 using Assets.Game.UI.FlyingParamPopup;
+using ExtraInjection;
 using Model.Types;
 using System;
 using System.Collections.Generic;
@@ -10,16 +11,15 @@ using Zenject;
 
 namespace Assets.Game.Parameters.EndedParamSystem
 {
-    class EndedParamViewHandler : IInitializable, ILateDisposable
+    class EndedParamViewHandler : IInitializable, ILateDisposable, IExtraInject
     {
         private readonly EndedParamMechanics endedParamMechanics;
-        private readonly PopupManager popupManager;
+        [ExtraInject] private PopupManager popupManager;
         private readonly PopupConfig popupConfig;
 
-        public EndedParamViewHandler(EndedParamMechanics endedParamMechanics, PopupManager popupManager, PopupConfig popupConfig)
+        public EndedParamViewHandler(EndedParamMechanics endedParamMechanics, PopupConfig popupConfig)
         {
             this.endedParamMechanics = endedParamMechanics;
-            this.popupManager = popupManager;
             this.popupConfig = popupConfig;
         }
 

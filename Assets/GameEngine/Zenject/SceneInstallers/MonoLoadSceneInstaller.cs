@@ -1,22 +1,16 @@
-﻿using Assets.GameEngine.LoadTasks.Core;
-using Loader;
+﻿using Assets.Game.SceneScripts;
+using Assets.Modules;
+using ExtraInjection;
 using Zenject;
 
 public class MonoLoadSceneInstaller : MonoInstaller
 {
     public override void InstallBindings()
     {
-        BindLoadTasks();
-    }
-
-    private void BindLoadTasks()
-    {
-        Container.Bind<LoadTaskManager>().AsSingle();
-        Container.BindInterfacesTo<TaskLoadHappenings>().AsTransient();
-        Container.BindInterfacesTo<TaskCutText>().AsTransient();
-        Container.BindInterfacesTo<TaskStartIntro>().AsTransient();
-        Container.BindInterfacesTo<TaskLaunchGame>().AsTransient();
-
+        Container.BindInterfacesTo<SceneStartBeacon>().FromComponentInHierarchy().AsCached();
+        Container.Bind<SceneScriptManager>().AsSingle();
+        Container.BindInterfacesTo<SceneScriptController>().FromComponentInHierarchy().AsCached();
+        Container.BindInterfacesTo<ExtraInjector>().AsSingle();
     }
 }
 

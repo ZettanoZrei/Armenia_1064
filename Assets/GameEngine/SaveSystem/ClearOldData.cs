@@ -6,12 +6,14 @@ using Assets.Game.Parameters.EndedParamSystem;
 using Entities;
 using Zenject;
 using Assets.Save;
+using GameSystems.Modules;
+using Assets.Modules;
 
 namespace Loader
 {
-    class ClearOldData : IInitializable  //TODO: удалить это или изменить под сцен систему
+    class ClearOldData : ISceneReady, IInitializable
     {
-        private readonly MySceneManager sceneManager;
+        private readonly SignalBus signalBus;
         private readonly QuestManager questManager;
         private readonly RelationManager relationManager;
         private readonly ParametersManager parametersManager;
@@ -22,11 +24,11 @@ namespace Loader
         private readonly BSRepositoryCampQuestTrigger repositoryCampQuests;
         private readonly BSRepositoryCaravan repositoryCaravan;
 
-        public ClearOldData(MySceneManager sceneManager, QuestManager questManager, RelationManager relationManager, ParametersManager parametersManager, 
+        public ClearOldData(SignalBus signalBus, QuestManager questManager, RelationManager relationManager, ParametersManager parametersManager, 
             HappeningReplaceManager replaceManager, EndedParamMechanics endedParamMechanics, HappeningManager happeningManager, BSRepositoryTrigger repositoryTriggers,
             BSRepositoryCampQuestTrigger repositoryCampQuests, BSRepositoryCaravan repositoryCaravan)
         {
-            this.sceneManager = sceneManager;
+            this.signalBus = signalBus;
             this.questManager = questManager;
             this.relationManager = relationManager;
             this.parametersManager = parametersManager;
@@ -37,20 +39,13 @@ namespace Loader
             this.repositoryCampQuests = repositoryCampQuests;
             this.repositoryCaravan = repositoryCaravan;
         }
-
-        
-
         void IInitializable.Initialize()
         {
-            sceneManager.OnChangeScene_Post += CheckMenuScene;
+            signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
         }
-
-        private void CheckMenuScene(Scene scene)
+        void ISceneReady.ReadyScene()
         {
-            if(scene == Scene.MainMenuScene)
-            {
-                Clear();
-            }
+            Clear();
         }
         private void Clear()
         {
@@ -64,6 +59,6 @@ namespace Loader
             repositoryCaravan.Clear();
             repositoryTriggers.Clear();
             repositoryCampQuests.Clear();
-        }
+        }      
     }
 }

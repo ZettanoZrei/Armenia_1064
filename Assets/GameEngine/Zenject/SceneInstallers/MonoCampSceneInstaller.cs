@@ -15,15 +15,17 @@ using Assets.Game.UI.TimeUI;
 using Assets.Game.Parameters.EndedParamSystem;
 using Assets.Game.InputSystem;
 using Assets.GameEngine.Zenject;
+using UnityEditor.IMGUI.Controls;
+using UnityEditor;
 
 public class MonoCampSceneInstaller : MonoInstaller
 {
     [SerializeField] private GameObject campIconPrefab;
     [SerializeField] private SimpleButton restButton;
     [SerializeField] private SimpleButton leaveButton;
-    [SerializeField] private ParamsWidget paramsWidget;
-    [SerializeField] private PeopleWidget peopleWidget;
-    [SerializeField] private RelationPanelView relationPanelView;
+    [SerializeField] private Transform backContainer;
+    [SerializeField] private SimpleButton menu;
+
     public override void InstallBindings()
     {
         CommonInstaller.Install(Container);
@@ -32,11 +34,14 @@ public class MonoCampSceneInstaller : MonoInstaller
 
 
         //UI
+        Container.Bind<SimpleButton>().WithId("menu").FromInstance(menu).AsCached();
         Container.Bind<SimpleButton>().WithId("restButton").FromInstance(restButton).AsCached();
         Container.Bind<SimpleButton>().WithId("leaveButton").FromInstance(leaveButton).AsCached();
-        Container.Bind<ParamsWidget>().FromInstance(paramsWidget).AsCached();
-        Container.Bind<PeopleWidget>().FromInstance(peopleWidget).AsCached();
-        Container.Bind<RelationPanelView>().FromInstance(relationPanelView).AsCached();
+        Container.Bind<Transform>().WithId("backContainer").FromInstance(backContainer).AsCached();
+        Container.Bind<ParamsWidget>().FromComponentInHierarchy().AsCached();
+        Container.Bind<PeopleWidget>().FromComponentInHierarchy().AsCached();
+        Container.Bind<RelationPanelView>().FromComponentInHierarchy().AsCached();
+        Container.Bind<TimeView>().FromComponentInHierarchy().AsCached();
 
 
         //adapters
@@ -53,17 +58,18 @@ public class MonoCampSceneInstaller : MonoInstaller
         Container.BindInterfacesTo<EndedParamController>().AsSingle();
         Container.BindInterfacesTo<InputController>().AsSingle();
         Container.BindInterfacesTo<PopupPauseController>().AsSingle();
-        Container.BindInterfacesTo<TriggerController>().AsSingle();
+        Container.BindInterfacesTo<CampIconController>().AsSingle();
 
 
         Container.BindInterfacesAndSelfTo<CampBackgroundManager>().AsSingle();
-        Container.BindSceneScriptSystem(); 
-
 
         Container.BindFactory<bool, string, CampIcon, CampIcon.Factory>()
                     .FromComponentInNewPrefab(campIconPrefab)
                     .UnderTransform(Container.Resolve<PortaitHeap>().transform);
         Container.Bind<IconsFabrica>().AsSingle();
+
+       
+        Container.BindPopupSystem();
     }
 
     private void BindRestMechanics()

@@ -7,8 +7,8 @@ using Zenject;
 
 namespace Loader
 {
-    public class TaskLaunchGame : IStep<LoadStepType>
-    {       
+    public class TaskLaunchGame : IInitializable
+    {
         private readonly StartSceneConfig startSceneConfig;
         private readonly IMenuCommand newGameCoomand;
         private readonly IntroConfig introConfig;
@@ -19,12 +19,10 @@ namespace Loader
             this.newGameCoomand = menuCommands.First(x => x is NewGameCommand);
             this.introConfig = introConfig;
         }
-
-        public LoadStepType StepType => LoadStepType.LoadHappening;
-
-        public event Action OnFinishStep;
-        public event Action<IStep<LoadStepType>> OnLaunchStep;
-
+        void IInitializable.Initialize()
+        {
+            Begin();
+        }
         public void Begin()
         {
             if (introConfig.activate)
@@ -33,11 +31,6 @@ namespace Loader
                 MySceneManager.LoadSceneForBegin(Scene.MainMenuScene);
             else
                 newGameCoomand.Execute();
-        }
-
-        public void Finish()
-        {
-
         }
     }
 }

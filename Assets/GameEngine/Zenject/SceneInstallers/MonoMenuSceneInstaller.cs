@@ -1,6 +1,8 @@
-﻿using Assets.GameEngine.Zenject;
+﻿using Assets.Game.SceneScripts;
+using Assets.GameEngine.Zenject;
 using Assets.Modules.UI;
 using Assets.Systems.Zenject;
+using ExtraInjection;
 using Loader;
 using UnityEditor;
 using Zenject;
@@ -19,9 +21,10 @@ public class MonoMenuSceneInstaller : MonoInstaller
         Container.Bind<SimpleButton>().WithId("settings").FromInstance(settings).AsCached();
         Container.Bind<SimpleButton>().WithId("exit").FromInstance(exit).AsCached();
         Container.Bind<SimpleButton>().WithId("encyclopedia").FromInstance(encyclopedia).AsCached();
-
+        Container.BindInterfacesTo<SceneStartBeacon>().FromComponentInHierarchy().AsCached();
         Container.BindInterfacesTo<MenuController>().AsSingle();
-        //Container.BindInterfacesTo<ClearOldData>().AsSingle();  //TODO: убрать это?
+        Container.BindInterfacesTo<ExtraInjector>().AsSingle();
+        Container.BindInterfacesTo<ClearOldData>().AsSingle();  //TODO: убрать это?
         Container.BindSceneScriptSystem();
     }
 }

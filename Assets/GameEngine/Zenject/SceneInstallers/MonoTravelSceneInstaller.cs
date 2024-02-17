@@ -22,10 +22,7 @@ public class MonoTravelSceneInstaller : MonoInstaller
     [SerializeField] private MonoEntity caravan;
     [SerializeField] private SimpleButton setupCampButton;
     [SerializeField] private SimpleButton menu;
-    [SerializeField] private TimeView timeView;
-    [SerializeField] private ParamsWidget paramsWidget;
-    [SerializeField] private PeopleWidget peopleWidget;
-    [SerializeField] private RelationPanelView relationPanelView;
+
     public override void InstallBindings()
     {
         CommonInstaller.Install(Container);
@@ -36,10 +33,10 @@ public class MonoTravelSceneInstaller : MonoInstaller
         //UI
         Container.Bind<SimpleButton>().WithId("setupCampButton").FromInstance(setupCampButton).AsCached();
         Container.Bind<SimpleButton>().WithId("menu").FromInstance(menu).AsCached();
-        Container.Bind<TimeView>().FromInstance(timeView).AsCached();
-        Container.Bind<ParamsWidget>().FromInstance(paramsWidget).AsCached();
-        Container.Bind<PeopleWidget>().FromInstance(peopleWidget).AsCached();
-        Container.Bind<RelationPanelView>().FromInstance(relationPanelView).AsCached();
+        Container.Bind<TimeView>().FromComponentInHierarchy().AsCached();
+        Container.Bind<ParamsWidget>().FromComponentInHierarchy().AsCached();
+        Container.Bind<PeopleWidget>().FromComponentInHierarchy().AsCached();
+        Container.Bind<RelationPanelView>().FromComponentInHierarchy().AsCached();
 
         //Adapters
         Container.BindInterfacesTo<TimeAdapter>().AsSingle();
@@ -59,8 +56,6 @@ public class MonoTravelSceneInstaller : MonoInstaller
         Container.BindInterfacesTo<PopupPauseController>().AsSingle();
         Container.BindInterfacesTo<CaravanRepositoryBSController>().AsSingle();
       
-        Container.BindEndingParamSystem();
-
         Container.BindPopupSystem();
     }    
 }

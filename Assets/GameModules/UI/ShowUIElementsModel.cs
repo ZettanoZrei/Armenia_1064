@@ -2,12 +2,13 @@
 using ExtraInjection;
 using System;
 using UniRx;
+using Zenject;
 
 namespace Assets.Game.Intro.Step
 {
-    class ShowUIElementsModel : IExtraInject
+    class ShowUIElementsModel
     {
-        [ExtraInject] private PopupManager popupManager;
+        [Inject] private PopupManager popupManager;
         private ShowUiElements popup;
         private PopupType popupType;
         private float startDelayTime;

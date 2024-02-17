@@ -5,7 +5,7 @@ using Zenject;
 
 namespace Loader
 {
-    class TaskStartIntro : IStep<LoadStepType>
+    class TaskStartIntro : IInitializable
     {
         private readonly IntroManager introManager;
 
@@ -14,19 +14,9 @@ namespace Loader
             this.introManager = introManager;
         }
 
-        public LoadStepType StepType => LoadStepType.StartIntro;
-
-        public event Action OnFinishStep;
-        public event Action<IStep<LoadStepType>> OnLaunchStep;
-
-        public void Begin()
+        void IInitializable.Initialize()
         {
             introManager.Begin();
-        }
-
-        public void Finish()
-        {
-
         }
     }
 }

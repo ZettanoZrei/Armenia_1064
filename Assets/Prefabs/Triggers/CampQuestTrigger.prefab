@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8873536609209623632}
   - component: {fileID: 5632421201873926199}
   m_Layer: 0
-  m_Name: CampQuestMode
+  m_Name: CampQuestModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

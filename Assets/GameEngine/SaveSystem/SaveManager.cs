@@ -40,13 +40,13 @@ namespace Assets.Systems.SaveSystem
         private readonly PlotManager plotManager;
         private readonly HappeningManager happeningManager;
         private readonly DialogPersonPackCatalog personPacks;
-        [ExtraInject] private EndedParamMechanics endedParamMechanics;
+        private readonly EndedParamMechanics endedParamMechanics;
 
         public SaveManager(Repository repository, DialogBackgroundKeeper backgroundManager, MySceneManager sceneManager, QuestManager questManager,
                 RelationManager relationManager, ParametersManager parametersManager, TravelSceneNavigator travelSceneNavigator, PlotManager plotManager,
                 BSRepositoryCaravan repositoryCaravan, BSRepositoryTrigger repositoryTriggers, BSRepositoryCampQuestTrigger repositoryCampQuests,
                 HappeningReplaceManager replaceManager, CampIncomingData campIncomingData, TimeMechanics timeManager,
-                TutorialManager tutorialManager, HappeningManager happeningManager,
+                TutorialManager tutorialManager, HappeningManager happeningManager, EndedParamMechanics endedParamMechanics,
                 DialogPersonPackCatalog personPacks)
         {
             this.backgroundManager = backgroundManager;
@@ -66,6 +66,7 @@ namespace Assets.Systems.SaveSystem
             this.plotManager = plotManager;
             this.happeningManager = happeningManager;
             this.personPacks = personPacks;
+            this.endedParamMechanics = endedParamMechanics;
         }
 
         public async Task SaveAsync()

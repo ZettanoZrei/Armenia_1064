@@ -712,7 +712,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1603283801}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &348738346
 MonoBehaviour:
@@ -729,10 +729,6 @@ MonoBehaviour:
   caravan: {fileID: 0}
   setupCampButton: {fileID: 0}
   menu: {fileID: 0}
-  timeView: {fileID: 0}
-  paramsWidget: {fileID: 0}
-  peopleWidget: {fileID: 0}
-  relationPanelView: {fileID: 0}
 --- !u!1001 &360094503
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3564,8 +3560,8 @@ Transform:
   m_LocalPosition: {x: 0.57439864, y: 0.014932629, z: 213.25993}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1644946131985588714}
   - {fileID: 348738345}
+  - {fileID: 1644946131985588714}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4503,6 +4499,8 @@ GameObject:
   - component: {fileID: 1987090236}
   - component: {fileID: 1987090237}
   - component: {fileID: 1987090238}
+  - component: {fileID: 1987090240}
+  - component: {fileID: 1987090239}
   m_Layer: 0
   m_Name: Triggers
   m_TagString: Untagged
@@ -4555,6 +4553,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0347f650a6068244c87bfcd62c7a356e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1987090239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1987090235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0166d8ff8d905b048b2448179e1f5d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _components:
+  - {fileID: 1987090238}
+  _identifier: 
+  _useSceneContext: 1
+  _context: {fileID: 0}
+  _bindType: 2
+--- !u!114 &1987090240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1987090235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08eca9f7688a0a24685b89133b020c8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scriptableObjectInstallers:
+  - {fileID: 11400000, guid: 6d8f11b4c80f29f468196e7f927f30e7, type: 2}
+  _monoInstallers: []
+  _installerPrefabs: []
+  _autoRun: 1
+  _kernel: {fileID: 0}
 --- !u!114 &2002882133 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5441169668979846088, guid: b51e0eb59ad322345b0b65dddd2bd46a, type: 3}

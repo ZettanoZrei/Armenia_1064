@@ -30,6 +30,7 @@ using Assets.Game.UI.FailGameSystem;
 using Assets.GameEngine.Zenject;
 using Assets.Modules;
 using UnityEngine.UIElements;
+using ExtraInjection;
 
 public class MonoGlobalInstaller : MonoInstaller
 {
@@ -73,18 +74,29 @@ public class MonoGlobalInstaller : MonoInstaller
         Container.Bind<ConfigurationRuntime>().AsSingle();
         Container.BindInterfacesTo<EndGameManager>().AsSingle();
         Container.BindInterfacesAndSelfTo<GameOverManager>().AsSingle();
-        Container.Bind<ShowUIElementsModel>().AsTransient();
+        
 
         Container.BindHappeningSystem();
 
         Container.BindFactory<string, ReactionPart, ReactionPart.Factory>()
             .FromMonoPoolableMemoryPool(x => x.WithInitialSize(6).FromComponentInNewPrefab(reactionPartPrefab).UnderTransform(uiHeap.transform));
 
+
         Container.BindInterfacesAndSelfTo<ScriptContext>().AsSingle();
+        Container.BindLoadTasks();
+        Container.BindEndingParamSystem();
 
-
+        InitExecutionOrder();
         SignalBusInstaller.Install(Container);
         Container.DeclareSignal<ConnectGameElementEvent>();
+    }
+
+    private void InitExecutionOrder()
+    {
+        Container.BindInitializableExecutionOrder<TaskLoadHappenings>(1);
+        Container.BindInitializableExecutionOrder<TaskCutText>(2);
+        Container.BindInitializableExecutionOrder<TaskLaunchGame>(3);
+        Container.BindInitializableExecutionOrder<TaskStartIntro>(4);
     }
 
     private void BindDialogSubSystem()
@@ -115,21 +127,21 @@ public class MonoGlobalInstaller : MonoInstaller
         Container.BindFactory<InputIntroController, InputIntroController.Factory>().FromComponentInNewPrefab(inputIntroController);
 
         Container.Bind<IStep<IntroStepType>>().To<IntroStep0CreateSkipController>().AsSingle();
-        Container.Bind<IStep<IntroStepType>>().To<IntroStep1ShowLogo>().AsSingle();
-        Container.Bind<IStep<IntroStepType>>().To<IntroStep2ShowHistory>().AsSingle();
+        Container.Bind(typeof(IStep<IntroStepType>), typeof(IExtraInject)).To<IntroStep1ShowLogo>().AsSingle();
+        Container.Bind(typeof(IStep<IntroStepType>), typeof(IExtraInject)).To<IntroStep2ShowHistory>().AsSingle();
         Container.Bind<IStep<IntroStepType>>().To<IntroStep3LaunchGame>().AsSingle();
     }
     private void BindTutorialSystem()
     {
         Container.BindInterfacesAndSelfTo<TutorialManager>().AsSingle();
 
-        Container.Bind<IStep<TutorialStepType>>().To<StepComeInCastleCheck>().AsSingle();
-        Container.Bind<IStep<TutorialStepType>>().To<StepShowDialogRelation>().AsSingle().WithArguments(PopupType.TutorRelationPopup);
-        Container.Bind<IStep<TutorialStepType>>().To<StepComeFromCastleCheck>().AsSingle();
-        Container.Bind<IStep<TutorialStepType>>().To<StepShowInterfaceInstructions>().AsSingle().WithArguments(PopupType.TutorInterfacePopup);
-        Container.Bind<IStep<TutorialStepType>>().To<StepShowAdvices>().AsSingle().WithArguments(PopupType.TutorAdvicePopup);
-        Container.Bind<IStep<TutorialStepType>>().To<StepShowRest>().AsSingle().WithArguments(PopupType.TutorRestPopup);
-        Container.Bind<IStep<TutorialStepType>>().To<StepShowSetupCamp>().AsSingle().WithArguments(PopupType.TutorSetupCampPopup);
+        Container.BindInterfacesTo<StepComeInCastleCheck>().AsSingle();
+        Container.BindInterfacesTo<StepShowDialogRelation>().AsSingle().WithArguments(PopupType.TutorRelationPopup);
+        Container.BindInterfacesTo<StepComeFromCastleCheck>().AsSingle();
+        Container.BindInterfacesTo<StepShowInterfaceInstructions>().AsSingle().WithArguments(PopupType.TutorInterfacePopup);
+        Container.BindInterfacesTo<StepShowAdvices>().AsSingle().WithArguments(PopupType.TutorAdvicePopup);
+        Container.BindInterfacesTo<StepShowRest>().AsSingle().WithArguments(PopupType.TutorRestPopup);
+        Container.BindInterfacesTo<StepShowSetupCamp>().AsSingle().WithArguments(PopupType.TutorSetupCampPopup);
     }
 
     private void BindPlotSystem()
@@ -137,22 +149,22 @@ public class MonoGlobalInstaller : MonoInstaller
         Container.BindInterfacesAndSelfTo<PlotManager>().AsSingle();
         Container.BindInterfacesAndSelfTo<PlotSaveController>().AsSingle();
 
-        Container.Bind<IStep<PlotStepType>>().To<PStep0ChangeStartScene>().AsSingle();
-        Container.Bind<IStep<PlotStepType>>().To<PStep1ShowMapPopup>().AsSingle().WithArguments(plotMapModel);
-        Container.Bind<IStep<PlotStepType>>().To<PStep2BeginGame>().AsSingle();
-        Container.Bind<IStep<PlotStepType>>().To<PStep3ShowFirstWords>().AsSingle();
-        Container.Bind<IStep<PlotStepType>>().To<PStep4ShowDialog>().AsSingle().WithArguments(plotDialogModel);        
-        Container.Bind<IStep<PlotStepType>>().To<PStep5BeginAttack_1>().AsSingle();
-        Container.Bind<IStep<PlotStepType>>().To<PStep5BeginAttack_2>().AsSingle();
-        Container.Bind<IStep<PlotStepType>>().To<PStep6ShowPreSiege>().AsSingle();
-        Container.Bind<IStep<PlotStepType>>().To<PStep7ShowSiege>().AsSingle().WithArguments(plotSiegeModel);
-        Container.Bind<IStep<PlotStepType>>().To<PStep8SiegeAbout>().AsSingle();
-        Container.Bind<IStep<PlotStepType>>().To<PStep9ShowAfterSiege>().AsSingle();
-        Container.Bind<IStep<PlotStepType>>().To<PStep10ChangeCampSprite>().AsSingle();
-        Container.Bind<IStep<PlotStepType>>().To<PStep11ChangePersonSprites>().AsSingle();
-        Container.Bind<IStep<PlotStepType>>().To<PStep12Storming>().AsSingle();
-        Container.Bind<IStep<PlotStepType>>().To<PStep13GameTitle>().AsSingle();
-        Container.Bind<IStep<PlotStepType>>().To<PStep14LeaveCastle>().AsSingle();
+        Container.BindInterfacesTo<PStep0ChangeStartScene>().AsSingle();
+        Container.BindInterfacesTo<PStep1ShowMapPopup>().AsSingle().WithArguments(plotMapModel);
+        Container.BindInterfacesTo<PStep2BeginGame>().AsSingle();
+        Container.BindInterfacesTo<PStep3ShowFirstWords>().AsSingle();
+        Container.BindInterfacesTo<PStep4ShowDialog>().AsSingle().WithArguments(plotDialogModel);        
+        Container.BindInterfacesTo<PStep5BeginAttack_1>().AsSingle();
+        Container.BindInterfacesTo<PStep5BeginAttack_2>().AsSingle();
+        Container.BindInterfacesTo<PStep6ShowPreSiege>().AsSingle();
+        Container.BindInterfacesTo<PStep7ShowSiege>().AsSingle().WithArguments(plotSiegeModel);
+        Container.BindInterfacesTo<PStep8SiegeAbout>().AsSingle();
+        Container.BindInterfacesTo<PStep9ShowAfterSiege>().AsSingle();
+        Container.BindInterfacesTo<PStep10ChangeCampSprite>().AsSingle();
+        Container.BindInterfacesTo<PStep11ChangePersonSprites>().AsSingle();
+        Container.BindInterfacesTo<PStep12Storming>().AsSingle();
+        Container.BindInterfacesTo<PStep13GameTitle>().AsSingle();
+        Container.BindInterfacesTo<PStep14LeaveCastle>().AsSingle();
     }
 
     

@@ -29,7 +29,7 @@ namespace Assets.Game.Plot.Steps
         public override event Action<IStep<PlotStepType>> OnLaunchStep;
 
         [ExtraInject] private PopupManager popupManager;
-        private readonly ShowUIElementsModel showUIElementsModel;
+        [ExtraInject] private ShowUIElementsModel showUIElementsModel;
         private GameTitleConfig config;
 
         private BlackPanelPopup blackPanel;
@@ -37,10 +37,9 @@ namespace Assets.Game.Plot.Steps
 
         CancellationTokenSource cancelTokenSource;
 
-        public PStep13GameTitle(PlotConfig plotConfig, ShowUIElementsModel showUIElementsModel)
+        public PStep13GameTitle(PlotConfig plotConfig)
         {
             this.stepType = PlotStepType.GameTitle;
-            this.showUIElementsModel = showUIElementsModel;
             this.config = plotConfig.gameTitlePlot;
         }
 

@@ -11,10 +11,10 @@ namespace Assets.Game.Parameters.EndedParamSystem
         ISceneReady, 
         ISceneFinish
     {
-        private ParameterEndedObserver endedObserver;
-        private PopupManager popupManager;
-        private MySceneManager sceneManager;
-        private EndedParamMechanics endedParamMechanics;
+        private readonly ParameterEndedObserver endedObserver;
+        private readonly PopupManager popupManager;
+        private readonly MySceneManager sceneManager;
+        private readonly EndedParamMechanics endedParamMechanics;
         private readonly SignalBus signalBus;
 
         public EndedParamController(ParameterEndedObserver endedObserver, PopupManager popupManager, MySceneManager sceneManager, EndedParamMechanics endedParamMechanics,
@@ -33,6 +33,8 @@ namespace Assets.Game.Parameters.EndedParamSystem
         }
         void ISceneReady.ReadyScene()
         {
+            if (sceneManager.CurrentScene == Scene.Prologue_0) return;
+
             endedObserver.OnParamZero += BeginPeopleRemoveTimer;
             endedObserver.OnParamNonZero += FinishPeopleRemoveTimer;
             popupManager.OnPopupChanged += CheckPopup;

@@ -10,12 +10,13 @@ using Zenject;
 
 namespace Assets.Game.Camp.IconsSystem
 {
-    public class IconController : IInitializable, ISceneReady
+    public class IconController : IInitializable, ISceneReady, ISceneInitialize
     {
         private readonly IconsFabrica iconsManager;
         private readonly CampBackgroundManager campBackgroundManager;
         private readonly CampIncomingData incomingData;
         private readonly SignalBus signalBus;
+        private List<CampIcon> icons;
 
         public IconController(IconsFabrica iconsManager, CampBackgroundManager campBackgroundManager, CampIncomingData incomingData,
             SignalBus signalBus)
@@ -31,14 +32,17 @@ namespace Assets.Game.Camp.IconsSystem
             signalBus.Fire(new ConnectGameElementEvent { GameElement = this });
         }
 
-        void ISceneReady.ReadyScene()
+        void ISceneInitialize.InitScene()
         {
             IEnumerable<Quest> availableCampQuests = incomingData.DialogAvailable > 0 ? incomingData.CampQuests.OrderByDescending(x => x.IsRequired)
-                : incomingData.CampQuests.Where(x => x.IsRequired);
+    : incomingData.CampQuests.Where(x => x.IsRequired);
 
             Logger.WriteLog($"availableCampQuests: {availableCampQuests.Count()}");
 
-            var icons = iconsManager.GreateCampQuests(availableCampQuests);
+            icons = iconsManager.GreateCampQuests(availableCampQuests);
+        }
+        void ISceneReady.ReadyScene()
+        {
             var iconGenerator = new IconsFieldAllocator();
             iconGenerator.AllocateIcons(icons, campBackgroundManager.CampBackground.Fields);
 
@@ -52,6 +56,7 @@ namespace Assets.Game.Camp.IconsSystem
         {
             incomingData.MinusDialogAvailable(1);
             incomingData.MinusCampDialog(quest);
-        }       
+        }
+
     }
 }

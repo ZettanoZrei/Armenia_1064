@@ -2,24 +2,24 @@
 using Assets.Game.Core;
 using Assets.Game.Plot.Core;
 using Assets.Game.Plot.UI;
+using ExtraInjection;
 using System;
 using UniRx;
 using UnityEngine.SceneManagement;
 
 namespace Assets.Game.Intro.Step
 {
-    class IntroStep1ShowLogo : IntroStep
+    class IntroStep1ShowLogo : IntroStep, IExtraInject
     {
         private readonly IntroConfig config;
-        private readonly ShowUIElementsModel showUIElementsModel;
+        [ExtraInject] private ShowUIElementsModel showUIElementsModel;
 
         public override event Action OnFinishStep;
         public override event Action<IStep<IntroStepType>> OnLaunchStep;
 
-        public IntroStep1ShowLogo(IntroConfig config, ShowUIElementsModel showUIElementsModel)
+        public IntroStep1ShowLogo(IntroConfig config)
         {
             this.config = config;
-            this.showUIElementsModel = showUIElementsModel;
             stepType = IntroStepType.Logo;
 
         }

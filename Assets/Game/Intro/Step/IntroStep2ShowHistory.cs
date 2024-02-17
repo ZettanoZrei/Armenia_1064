@@ -1,22 +1,22 @@
 ﻿using Assets.Game.Configurations;
 using Assets.Game.Core;
 using Assets.Game.Plot.UI;
+using ExtraInjection;
 using System;
 
 namespace Assets.Game.Intro.Step
 {
-    class IntroStep2ShowHistory : IntroStep
+    class IntroStep2ShowHistory : IntroStep, IExtraInject
     {
         private readonly IntroConfig config;
-        private readonly ShowUIElementsModel showUIElementsModel;
+        [ExtraInject] private ShowUIElementsModel showUIElementsModel;
 
         public override event Action OnFinishStep;
         public override event Action<IStep<IntroStepType>> OnLaunchStep;
-        public IntroStep2ShowHistory(IntroConfig config, ShowUIElementsModel showUIElementsModel)
+        public IntroStep2ShowHistory(IntroConfig config)
         {
             this.stepType = IntroStepType.History;
             this.config = config;
-            this.showUIElementsModel = showUIElementsModel;
         }
 
         public override void Begin()

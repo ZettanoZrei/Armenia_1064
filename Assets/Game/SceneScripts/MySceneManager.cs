@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class MySceneManager
 {
     public event Action<Scene> OnChangeScene_Post;
+    public event Action<Scene> OnChangeScene_Before;
     public event Action OnOutOfTravelScene;
     public event Func<Task> OnToMenuScene;
     public event Action OnToTravelScene;
@@ -87,6 +88,7 @@ public class MySceneManager
         {
             OnToTravelScene?.Invoke();
         }
+        OnChangeScene_Before?.Invoke(CurrentScene);
     }
     public void InvokeOnChangeScene(Scene scene)
     {

@@ -16,7 +16,7 @@ using Assets.Game.Tutorial.Core;
 using System.Linq;
 using ExtraInjection;
 
-public class LoadManager : IExtraInject
+public class LoadManager
 {
     private readonly Repository repository;
     private readonly QuestManager questManager;
@@ -35,13 +35,13 @@ public class LoadManager : IExtraInject
     private readonly PlotManager plotManager;
     private readonly TutorialManager tutorialManager;
     private readonly HappeningManager happeningManager;
-    [ExtraInject] private EndedParamMechanics endedParamMechanics;
+    private readonly EndedParamMechanics endedParamMechanics;
 
     public LoadManager(Repository repository, QuestManager questManager, ConfigurationRuntime configurationRuntime, DialogBackgroundKeeper backgroundManager,
         RelationManager relationManager, ParametersManager parametersManager, TravelSceneNavigator travelSceneNavigator, BSRepositoryCaravan repositoryCaravan,
         BSRepositoryTrigger repositoryTriggers, BSRepositoryCampQuestTrigger repositoryCampQuests, HappeningManager happeningManager,
         HappeningReplaceManager replaceManager, CampIncomingData campIncomingData, TimeMechanics timeManager, 
-        DialogPersonPackCatalog personPacks, PlotManager plotManager, TutorialManager tutorialManager)
+        DialogPersonPackCatalog personPacks, PlotManager plotManager, TutorialManager tutorialManager, EndedParamMechanics endedParamMechanics)
     {
         this.repository = repository;
         this.questManager = questManager;
@@ -61,6 +61,7 @@ public class LoadManager : IExtraInject
         this.plotManager = plotManager;
         this.tutorialManager = tutorialManager;
         this.happeningManager = happeningManager;
+        this.endedParamMechanics = endedParamMechanics;
     }
 
     public void LoadData()

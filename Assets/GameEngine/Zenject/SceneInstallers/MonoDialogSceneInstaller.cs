@@ -13,9 +13,6 @@ using UnityEditor;
 public class MonoDialogSceneInstaller : MonoInstaller
 {
     [SerializeField] private FigurePersonManager figurePersonManager;
-    [SerializeField] private ParamsWidget paramsWidget;
-    [SerializeField] private PeopleWidget peopleWidget;
-    [SerializeField] private RelationPanelView relationPanelView;
     [SerializeField] private SimpleButton menu;
     public override void InstallBindings()
     {
@@ -33,12 +30,11 @@ public class MonoDialogSceneInstaller : MonoInstaller
         Container.BindInterfacesTo<EndedParamController>().AsSingle();
         Container.BindInterfacesTo<InputController>().AsSingle();
         Container.BindInterfacesTo<PopupPauseController>().AsSingle();
-        Container.BindEndingParamSystem();
 
         //ui
-        Container.Bind<ParamsWidget>().FromInstance(paramsWidget).AsCached();
-        Container.Bind<PeopleWidget>().FromInstance(peopleWidget).AsCached();
-        Container.Bind<RelationPanelView>().FromInstance(relationPanelView).AsCached();
+        Container.Bind<ParamsWidget>().FromComponentInHierarchy().AsCached();
+        Container.Bind<PeopleWidget>().FromComponentInHierarchy().AsCached();
+        Container.Bind<RelationPanelView>().FromComponentInHierarchy().AsCached();
         Container.BindPopupSystem();
         Container.Bind<SimpleButton>().WithId("menu").FromInstance(menu).AsCached();
 

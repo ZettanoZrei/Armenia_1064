@@ -5,21 +5,21 @@ using Zenject;
 
 namespace Loader
 {
-    public class TaskCutText : IStep<LoadStepType>
+    public class TaskCutText : IInitializable
     {
         private readonly HappeningCatalog catalog;
 
-        public LoadStepType StepType => LoadStepType.CutText;
-
-        public event Action OnFinishStep;
-        public event Action<IStep<LoadStepType>> OnLaunchStep;
 
         public TaskCutText(HappeningCatalog catalog)
         {
             this.catalog = catalog;
         }
-        
 
+
+        void IInitializable.Initialize()
+        {
+            Begin();
+        }
         public void Begin()
         {
             foreach (var happening in catalog)
@@ -42,10 +42,6 @@ namespace Loader
             if (string.IsNullOrEmpty(text) || !text.Contains("\r\n"))
                 return text;
             return text.Substring(0, text.Length - 2);
-        }
-        public void Finish()
-        {
-
         }
     }
 }

@@ -29,12 +29,6 @@ namespace GameSystems.Modules
         void FinishScene();
     }
 
-    public interface ISceneFinish<T> : IGameElement
-    {
-        T Scene { get; }
-        void FinishScene();
-    }
-
     public interface IGamePause : IGameElement
     {
         void PauseGame();

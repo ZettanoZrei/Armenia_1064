@@ -8,6 +8,11 @@ using Assets.Game.Parameters.EndedParamSystem;
 using Assets.Game.Parameters;
 using Assets.Game;
 using Assets.Modules;
+using Assets.GameEngine.LoadTasks.Core;
+using Assets.GameEngine.LoadTasks;
+using Loader;
+using System.ComponentModel;
+using Assets.Game.Intro.Step;
 
 namespace Assets.GameEngine.Zenject
 {
@@ -36,7 +41,7 @@ namespace Assets.GameEngine.Zenject
             Container.BindFactory<AccidentManager, AccidentManager.Factory>();
             Container.BindFactory<IHappeningManager, HappeningManagerFactory>().FromFactory<CustomManagerFactory>();
         }
-        public static void BindEndingParamSystem(this DiContainer Container)
+        public static void BindEndingParamSystem(this DiContainer Container) //TODO Перенести обратно на глобал? Данные с него должны сохраняться 
         {
             Container.BindInterfacesAndSelfTo<ParameterEndedObserver>().AsSingle();
             Container.BindInterfacesAndSelfTo<EndedParamMechanics>().AsSingle();
@@ -50,7 +55,8 @@ namespace Assets.GameEngine.Zenject
             Container.Bind<PopupFabrica>().AsSingle();
             Container.Bind<PopupCatalog>().FromScriptableObjectResource("Entities/PopupCatalog").AsSingle();
             Container.Bind<PopupContainer>().FromComponentInHierarchy().AsCached();    
-            Container.Bind<BlockCurtain>().FromComponentInHierarchy().AsCached();    
+            Container.Bind<BlockCurtain>().FromComponentInHierarchy().AsCached();
+            Container.Bind<ShowUIElementsModel>().AsTransient();
         }
 
         public static void BindSceneScriptSystem(this DiContainer Container)
@@ -58,6 +64,17 @@ namespace Assets.GameEngine.Zenject
             Container.Bind<SceneScriptManager>().AsSingle();
             Container.BindInterfacesAndSelfTo<ScriptContext>().AsSingle();
             Container.BindInterfacesTo<SceneScriptController>().FromComponentInHierarchy().AsCached();
+        }
+
+        public static void BindLoadTasks(this DiContainer Container)
+        {
+            //Container.BindInterfacesTo<LoadTaskManager>().AsSingle();
+            //Container.Bind<LoadTaskSettings>().AsTransient();
+
+            Container.BindInterfacesTo<TaskLoadHappenings>().AsTransient();
+            Container.BindInterfacesTo<TaskCutText>().AsTransient();
+            Container.BindInterfacesTo<TaskLaunchGame>().AsTransient();
+            Container.BindInterfacesTo<TaskStartIntro>().AsTransient();            
         }
     }
 }

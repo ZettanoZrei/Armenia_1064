@@ -1,36 +1,35 @@
 ﻿using GameSystems.Modules;
 using System.Collections.Generic;
+using System.Xml.Linq;
 using Zenject;
 
 namespace Assets.Modules
 {
-    //TODO: Для глобального контекста FinishScene не сработает ведь там нет менеджера
-    public class ScriptContext : ISceneFinish<Scene>
+    //TODO: ISceneFinish будет срабатывать каждую сцену для глобального контекста, это костыль
+    public class ScriptContext: ISceneFinish
     {
         private readonly List<IGameElement> elements = new List<IGameElement>();
-        private readonly SignalBus signalBus;
+        protected readonly SignalBus signalBus;
 
         public ScriptContext(SignalBus signalBus)
         {
             this.signalBus = signalBus;
+            elements.Add(this);
             signalBus.Subscribe<ConnectGameElementEvent>(AddElement);
         }
 
         public List<IGameElement> Elements => elements;
-
-        public Scene Scene => Scene.LoadScene;
-
-        public void FinishScene()
+        void ISceneFinish.FinishScene()
         {
-            signalBus.Unsubscribe<ConnectGameElementEvent>(AddElement);
+            signalBus.TryUnsubscribe<ConnectGameElementEvent>(AddElement);
         }
 
-        private void AddElement(ConnectGameElementEvent e)
+        protected void AddElement(ConnectGameElementEvent e)
         {
             if (!elements.Contains(e.GameElement))
             {
                 elements.Add(e.GameElement);
             }
-        }
+        }      
     }
 }
