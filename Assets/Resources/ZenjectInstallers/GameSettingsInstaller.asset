@@ -30,7 +30,7 @@ MonoBehaviour:
       dialogBackCamp: Arevberd_Dialog2
       state: 0
   caravanConfig:
-    speed: 14
+    speed: 30
     spendTime: 2
     staminaSpend: 0.52
     foodSpendCoef: 0.0052
@@ -92,6 +92,7 @@ MonoBehaviour:
   saveConfing:
     isSave: 1
     timeSave: 2
+    savesNumber: 10
   introConfig:
     activate: 0
     startStep: 0
@@ -102,3 +103,5 @@ MonoBehaviour:
     historyAppearTime: 2
     historyStayTime: 30
     historyFadeime: 2
+  logConfig:
+    isActive: 0

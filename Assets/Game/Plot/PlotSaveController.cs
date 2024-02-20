@@ -7,8 +7,6 @@ using Model.Entities.Happenings;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Zenject;
 
 namespace Assets.Game.Plot
@@ -39,7 +37,7 @@ namespace Assets.Game.Plot
             if (!plotConfig.activate)
                 return;
 
-            saveConfing.isSave = false;
+            saveConfing.IsPlotSegment = true;
             plotManager.OnShowStep += PlotManager_OnShowStep;
             happeningManager.OnFinishHappening += HappeningManager_OnFinishHappening;
             sceneManager.OnChangeScene_Post += ComeInCastle;
@@ -49,7 +47,7 @@ namespace Assets.Game.Plot
 
         private async void ComeInTravelScene_1(Scene scene)
         {
-            if(scene == Scene.Travel_1)
+            if (scene == Scene.Travel_1)
             {
                 await saveManager.SaveAsync();
                 FinishThisControllerWork();
@@ -58,7 +56,7 @@ namespace Assets.Game.Plot
 
         private void FinishThisControllerWork()
         {
-            saveConfing.isSave = true;
+            saveConfing.IsPlotSegment = false;
             plotManager.OnShowStep -= PlotManager_OnShowStep;
             happeningManager.OnFinishHappening -= HappeningManager_OnFinishHappening;
             sceneManager.OnChangeScene_Post -= ComeInCastle;
@@ -67,7 +65,7 @@ namespace Assets.Game.Plot
 
         private async void ComeInCastle(Scene scene)
         {
-            if (scene == Scene.CampScene)
+            if (scene == Scene.CampScene && sceneManager.PreviousScene != Scene.MainMenuScene)
             {
                 sceneManager.OnChangeScene_Post -= ComeInCastle;
                 await saveManager.SaveAsync();

@@ -6,14 +6,15 @@ namespace Assets.Game.Menu
     class MenuManager : IExtraInject
     {
         private readonly MenuModel menuModel;
-        [ExtraInject] private PopupManager popupManager;
+        private PopupManager popupManager;
         private bool isActive;
 
         public bool IsActive => isActive; 
 
-        public MenuManager(MenuModel menuModel)
+        public MenuManager(MenuModel menuModel, PopupManager popupManager)
         {
             this.menuModel = menuModel;
+            this.popupManager = popupManager;
         }
 
         public void ShowMenu()

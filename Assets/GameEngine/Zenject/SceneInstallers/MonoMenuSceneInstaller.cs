@@ -1,10 +1,12 @@
 ﻿using Assets.Game.SceneScripts;
+using Assets.Game.UI.DebugLoading;
 using Assets.GameEngine.Zenject;
 using Assets.Modules.UI;
 using Assets.Systems.Zenject;
 using ExtraInjection;
 using Loader;
 using UnityEditor;
+using UnityEngine;
 using Zenject;
 
 public class MonoMenuSceneInstaller : MonoInstaller
@@ -14,6 +16,9 @@ public class MonoMenuSceneInstaller : MonoInstaller
     public SimpleButton settings;
     public SimpleButton exit;
     public SimpleButton encyclopedia;
+
+    public LoadGameButton prefab;
+    public Transform loadGameButtonPrefab;
     public override void InstallBindings()
     {
         Container.Bind<SimpleButton>().WithId("continue").FromInstance(_continue).AsCached();
@@ -26,5 +31,10 @@ public class MonoMenuSceneInstaller : MonoInstaller
         Container.BindInterfacesTo<ExtraInjector>().AsSingle();
         Container.BindInterfacesTo<ClearOldData>().AsSingle();  //TODO: убрать это?
         Container.BindSceneScriptSystem();
+
+        //debug
+        Container.BindFactory<LoadGameButton, LoadGameButton.Factory>()
+           .FromComponentInNewPrefab(prefab)
+           .UnderTransform(loadGameButtonPrefab);
     }
 }

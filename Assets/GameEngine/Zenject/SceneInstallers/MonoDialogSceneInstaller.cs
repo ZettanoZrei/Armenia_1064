@@ -38,6 +38,7 @@ public class MonoDialogSceneInstaller : MonoInstaller
         Container.BindPopupSystem();
         Container.Bind<SimpleButton>().WithId("menu").FromInstance(menu).AsCached();
 
-
+        //adapter
+        Container.BindInterfacesTo<ParamWidgetAdapter>().AsSingle();
     }
 }

@@ -110,7 +110,7 @@ public class MonoGlobalInstaller : MonoInstaller
     {
         //main menu
         Container.Bind<LoadManager>().AsTransient();
-        Container.Bind<IMenuCommand>().To<ContinueCommand>().AsTransient();
+        Container.BindInterfacesAndSelfTo<ContinueCommand>().AsTransient();
         Container.Bind<IMenuCommand>().To<NewGameCommand>().AsTransient();
         Container.Bind<IMenuCommand>().To<SettingsCommand>().AsTransient();
         Container.Bind<ING_Task>().To<NG_TaskLaunchStartConfigs>().AsTransient();

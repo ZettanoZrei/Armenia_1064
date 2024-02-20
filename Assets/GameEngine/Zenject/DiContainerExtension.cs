@@ -52,9 +52,9 @@ namespace Assets.GameEngine.Zenject
         public static void BindPopupSystem(this DiContainer Container)
         {
             Container.Bind<PopupManager>().AsSingle();
-            Container.Bind<PopupFabrica>().AsSingle();
+            Container.BindInterfacesAndSelfTo<PopupFabrica>().AsSingle();
             Container.Bind<PopupCatalog>().FromScriptableObjectResource("Entities/PopupCatalog").AsSingle();
-            Container.Bind<PopupContainer>().FromComponentInHierarchy().AsCached();    
+            Container.BindInterfacesAndSelfTo<PopupContainer>().FromComponentInHierarchy().AsCached();    
             Container.Bind<BlockCurtain>().FromComponentInHierarchy().AsCached();
             Container.Bind<ShowUIElementsModel>().AsTransient();
         }

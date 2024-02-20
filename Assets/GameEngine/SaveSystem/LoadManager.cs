@@ -40,7 +40,7 @@ public class LoadManager
     public LoadManager(Repository repository, QuestManager questManager, ConfigurationRuntime configurationRuntime, DialogBackgroundKeeper backgroundManager,
         RelationManager relationManager, ParametersManager parametersManager, TravelSceneNavigator travelSceneNavigator, BSRepositoryCaravan repositoryCaravan,
         BSRepositoryTrigger repositoryTriggers, BSRepositoryCampQuestTrigger repositoryCampQuests, HappeningManager happeningManager,
-        HappeningReplaceManager replaceManager, CampIncomingData campIncomingData, TimeMechanics timeManager, 
+        HappeningReplaceManager replaceManager, CampIncomingData campIncomingData, TimeMechanics timeManager,
         DialogPersonPackCatalog personPacks, PlotManager plotManager, TutorialManager tutorialManager, EndedParamMechanics endedParamMechanics)
     {
         this.repository = repository;
@@ -64,9 +64,9 @@ public class LoadManager
         this.endedParamMechanics = endedParamMechanics;
     }
 
-    public void LoadData()
+    public void LoadData(string path = "")
     {
-        repository.LoadSaveData();
+        repository.LoadSaveData(path);
         LoadCaravanPosition();
         LoadCampBackground();
         LoadDialogBackground();
@@ -129,7 +129,7 @@ public class LoadManager
     private void LoadTutorialStep()
     {
         var data = repository.LoadTutorialStep();
-        configurationRuntime.TutorialConfig.startStep = (TutorialStepType)data.CurrentStep; 
+        configurationRuntime.TutorialConfig.startStep = (TutorialStepType)data.CurrentStep;
         tutorialManager.IsComplete = data.IsComplete;
         tutorialManager.LastShownStep = (TutorialStepType)data.LastShowStep;
     }
@@ -157,14 +157,14 @@ public class LoadManager
 
     private void LoadCampQuestTrigger()
     {
-        foreach(var sceneData in repository.LoadCampQuestTrigger())
+        foreach (var sceneData in repository.LoadCampQuestTrigger())
         {
             repositoryCampQuests.Add(sceneData.Key, sceneData.Value);
         }
     }
     private void LoadTriggers()
     {
-        foreach(var sceneData in repository.LoadTrigger())
+        foreach (var sceneData in repository.LoadTrigger())
         {
             repositoryTriggers.Add(sceneData.Key, sceneData.Value);
         }
@@ -186,7 +186,7 @@ public class LoadManager
     private void LoadCaravanPosition()
     {
         var data = repository.LoadCaravanPosition();
-        foreach(var sceneData in data)
+        foreach (var sceneData in data)
         {
             repositoryCaravan.Add(sceneData.Key, sceneData.Value);
         }

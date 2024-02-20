@@ -27,9 +27,10 @@ public class Repository
 
 
     //use before other methods
-    public void LoadSaveData()
+    public void LoadSaveData(string path = "")
     {
-        SaveData = saveHelper.LoadModel();
+        SaveData = string.IsNullOrEmpty(path) 
+            ? saveHelper.LoadModel() : saveHelper.LoadModel(path);
     }
 
     public void InitNewSaveData()

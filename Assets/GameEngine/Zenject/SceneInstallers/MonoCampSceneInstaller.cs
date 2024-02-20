@@ -17,6 +17,8 @@ using Assets.Game.InputSystem;
 using Assets.GameEngine.Zenject;
 using UnityEditor.IMGUI.Controls;
 using UnityEditor;
+using Assets.Game.Menu;
+using ExtraInjection;
 
 public class MonoCampSceneInstaller : MonoInstaller
 {
@@ -62,6 +64,7 @@ public class MonoCampSceneInstaller : MonoInstaller
 
 
         Container.BindInterfacesAndSelfTo<CampBackgroundManager>().AsSingle();
+        
 
         Container.BindFactory<bool, string, CampIcon, CampIcon.Factory>()
                     .FromComponentInNewPrefab(campIconPrefab)

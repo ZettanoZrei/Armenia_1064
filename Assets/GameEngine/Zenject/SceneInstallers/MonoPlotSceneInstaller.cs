@@ -16,6 +16,7 @@ public class MonoPlotSceneInstaller : MonoInstaller
         Container.BindInterfacesTo<SceneStartBeacon>().FromComponentInHierarchy().AsCached();
         Container.BindPopupSystem();
         Container.BindSceneScriptSystem();
+        Container.BindCustomHappenManager();
         Container.BindInterfacesTo<ExtraInjector>().AsSingle();
     }
 }

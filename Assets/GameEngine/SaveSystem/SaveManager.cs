@@ -41,13 +41,14 @@ namespace Assets.Systems.SaveSystem
         private readonly HappeningManager happeningManager;
         private readonly DialogPersonPackCatalog personPacks;
         private readonly EndedParamMechanics endedParamMechanics;
+        private readonly SaveConfing saveConfing;
 
         public SaveManager(Repository repository, DialogBackgroundKeeper backgroundManager, MySceneManager sceneManager, QuestManager questManager,
                 RelationManager relationManager, ParametersManager parametersManager, TravelSceneNavigator travelSceneNavigator, PlotManager plotManager,
                 BSRepositoryCaravan repositoryCaravan, BSRepositoryTrigger repositoryTriggers, BSRepositoryCampQuestTrigger repositoryCampQuests,
                 HappeningReplaceManager replaceManager, CampIncomingData campIncomingData, TimeMechanics timeManager,
                 TutorialManager tutorialManager, HappeningManager happeningManager, EndedParamMechanics endedParamMechanics,
-                DialogPersonPackCatalog personPacks)
+                DialogPersonPackCatalog personPacks, ConfigurationRuntime configurationRuntime)
         {
             this.backgroundManager = backgroundManager;
             this.sceneManager = sceneManager;
@@ -67,10 +68,13 @@ namespace Assets.Systems.SaveSystem
             this.happeningManager = happeningManager;
             this.personPacks = personPacks;
             this.endedParamMechanics = endedParamMechanics;
+            this.saveConfing = configurationRuntime.SaveConfing;
         }
 
         public async Task SaveAsync()
         {
+            if (!saveConfing.isSave)
+                return;
             repository.InitNewSaveData();
             FillSaveData();
 

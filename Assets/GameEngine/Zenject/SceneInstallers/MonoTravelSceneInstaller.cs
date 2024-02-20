@@ -16,6 +16,7 @@ using Assets.Game.Parameters.EndedParamSystem;
 using Assets.Game.UI.TimeUI;
 using Assets.Game.InputSystem;
 using Assets.GameEngine.Zenject;
+using ExtraInjection;
 
 public class MonoTravelSceneInstaller : MonoInstaller
 {

@@ -1,5 +1,6 @@
 using Entities;
 using GameSystems;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,7 @@ using Zenject;
 
 namespace Assets.Game
 {
-    public class PopupFabrica
+    public class PopupFabrica : ILateDisposable
     {
         private PopupContainer popupContainer;
         private PopupCatalog happenViewsCatalog;
@@ -16,6 +17,12 @@ namespace Assets.Game
         {
             this.happenViewsCatalog = happenViewsCatalog;
             this.popupContainer = popupContainer;
+        }
+
+
+        void ILateDisposable.LateDispose()
+        {
+
         }
 
         internal IPopup GetPopup(PopupType popupName)

@@ -22,11 +22,13 @@ public class GameSettingsInstaller : ScriptableObjectInstaller<GameSettingsInsta
     public OtherConfig otherConfig;
     public SaveConfing saveConfing;
     public IntroConfig introConfig;
+    public LogConfig logConfig;
+
 
     public override void InstallBindings()
     {
         Container.BindInstances(caravanConfig, parametersConfig, startBackgroundsConfig, restConfiguration,
-            startSceneConfig, soundConfig, tutorialConfig, plotConfig, timeConfig, popupConfig, otherConfig, saveConfing, introConfig);
+            startSceneConfig, soundConfig, tutorialConfig, plotConfig, timeConfig, popupConfig, otherConfig, saveConfing, introConfig, logConfig);
 
         //Container.Bind<INarrativeConfig>().To<TutorialConfig>().FromInstance(tutorialConfig);
     }
@@ -43,5 +45,7 @@ public class GameSettingsInstaller : ScriptableObjectInstaller<GameSettingsInsta
         plotConfig.activate = true;
         plotConfig.startStep = PlotStepType.ChangeStartScene;
         introConfig.activate = true;
+        saveConfing.savesNumber = 1;
+        saveConfing.isSave = true;
     }
 }

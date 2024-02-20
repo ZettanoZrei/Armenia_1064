@@ -24,7 +24,7 @@ namespace Assets.Systems.Zenject
         {
             Container.BindInterfacesAndSelfTo<MenuManager>().AsSingle();
             Container.Bind<MenuModel>().AsSingle();
-            Container.BindInterfacesTo<ExtraInjector>().AsSingle();
+            Container.BindInterfacesTo<ExtraInjector>().AsTransient();
             Container.BindInterfacesTo<KeyInputController>().AsSingle();
             Container.BindInterfacesTo<GameOverController>().AsSingle();
             

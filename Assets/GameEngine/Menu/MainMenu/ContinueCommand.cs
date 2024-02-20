@@ -19,10 +19,10 @@ class ContinueCommand : IMenuCommand
         this.plotManager = plotManager;
         this.tutorialManager = tutorialManager;
     }
-
+    public string LoadPath { get; set; } //for debug loading game
     void IMenuCommand.Execute()
     {
-        loadManager.LoadData();
+        loadManager.LoadData(LoadPath);
         var scene = loadManager.LoadScene();
         sceneManager.OnChangeScene_Post += TurnOnPlot;
         sceneManager.LoadScene(scene);

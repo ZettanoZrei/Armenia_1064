@@ -55,7 +55,7 @@ namespace Assets.GameSystems.SaveSystem
 
         private async void SaveAsync()
         {
-            if (CheckPermittedScenes(sceneManager.CurrentScene) && saveConfing.isSave)
+            if (CheckPermittedScenes(sceneManager.CurrentScene) && !saveConfing.IsPlotSegment)
                 await saveManager.SaveAsync();
         }
         private void CheckScene(Scene scene)

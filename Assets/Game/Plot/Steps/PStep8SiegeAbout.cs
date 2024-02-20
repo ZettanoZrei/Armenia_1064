@@ -35,7 +35,7 @@ namespace Assets.Game.Plot.Steps
 
         public override async void Begin()
         {
-            //await Task.Delay(1000);
+            await Task.Delay(1000);
             happeningManager.LaunchHappenWithoutQueue("Аревберд_Штурм"); 
             happeningManager.OnFinishHappening += DoFinsih;
             OnLaunchStep?.Invoke(this);

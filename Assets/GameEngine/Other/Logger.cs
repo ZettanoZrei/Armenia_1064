@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Assets.Game.Configurations;
+using System;
 using System.IO;
 
-public static class Logger
+public class Logger
 {
     private static readonly string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), @"Armenia 1064\Logs");
+    private static readonly LogConfig _config; 
 
     static Logger()
     {
@@ -18,6 +20,8 @@ public static class Logger
     }
     public static void WriteLog(string text)
     {
+        if (true) //TODO: Переделать на обычны класс, чтобы можно было пролучать настройки
+            return;
         using (var writer = new StreamWriter(path, true))
             writer.WriteLine($"{DateTime.Now}: {text}");
     }
