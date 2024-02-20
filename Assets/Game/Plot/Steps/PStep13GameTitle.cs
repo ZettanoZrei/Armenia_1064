@@ -71,7 +71,7 @@ namespace Assets.Game.Plot.Steps
             {
                 return;
             }
-            blackPanel = popupManager.ShowPopup(PopupType.BlackPanelPopup) as BlackPanelPopup;
+            blackPanel = popupManager.ShowPopup(PopupType.BlackPanelPopup, false) as BlackPanelPopup;
             blackPanel.Show(0.002f, 0, config.blackoutTime);
         }
 
