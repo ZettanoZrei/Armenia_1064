@@ -13,10 +13,10 @@ public class Logger
         {
             Directory.CreateDirectory(path);
         }
-        var fileName = $"log_{DateTime.Now:G}";
-        fileName = fileName.Replace(':', '-').Replace('\\','.').Replace('/','.');
-        path = Path.Combine(path, $"{fileName}.txt");
-        File.Create(path).Close();
+        //var fileName = $"log_{DateTime.Now:G}";
+        //fileName = fileName.Replace(':', '-').Replace('\\','.').Replace('/','.');
+        //path = Path.Combine(path, $"{fileName}.txt");
+        //File.Create(path).Close();
     }
     public static void WriteLog(string text)
     {
