@@ -16,5 +16,9 @@ class GameSettingsInstaller_Editor : Editor
         {
             tagetScript.SetReleaseState();
         }
+        if (GUILayout.Button("Debug State"))
+        {
+            tagetScript.SetDebugState();
+        }
     }
 }

@@ -48,4 +48,18 @@ public class GameSettingsInstaller : ScriptableObjectInstaller<GameSettingsInsta
         saveConfing.savesNumber = 1;
         saveConfing.isSave = true;
     }
+
+    public void SetDebugState()
+    {
+        caravanConfig.speed = 5f;
+        startSceneConfig.fullStart = false;
+        startSceneConfig.startScene = Scene.Travel_1;
+        soundConfig.activateMusic = false;
+        soundConfig.activateSounds = true;
+        tutorialConfig.activate = false;
+        plotConfig.activate = false;
+        introConfig.activate = false;
+        saveConfing.savesNumber = 10;
+        saveConfing.isSave = true;
+    }
 }
