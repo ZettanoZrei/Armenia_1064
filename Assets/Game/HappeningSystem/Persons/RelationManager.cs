@@ -1,5 +1,6 @@
 ﻿using GameSystems;
 using Model.Entities.Answers;
+using Newtonsoft.Json.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,15 @@ namespace Assets.Game.HappeningSystem.Persons
             {
                 relation.Value.Value = Mathf.Max(relation.Value.Value + personConsequences.Value, 0);
                 Logger.WriteLog($"Relation. {personConsequences.PersonName.Name} - {personConsequences.Value}");
+            }
+        }
+        public void ChangeRelation(string name, int value)
+        {
+            var relation = relations.FirstOrDefault(x => x.Name == name);
+            if (relation != null)
+            {
+                relation.Value.Value = Mathf.Max(relation.Value.Value + value, 0);
+                Logger.WriteLog($"Relation. {name} - {value}");
             }
         }
 

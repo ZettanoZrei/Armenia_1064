@@ -34,7 +34,10 @@ namespace Assets.Systems.Zenject
             Container.BindInterfacesTo<SceneStartBeacon>().FromComponentInHierarchy().AsCached();
             Container.BindSceneScriptSystem();
             //TODO: необходимо придумать как заставить работать ExtraInject в объектах созданных через фабрики. Либо переделать эту систему
-            Container.BindCustomHappenManager(); 
+            Container.BindCustomHappenManager();
+
+            Container.BindInterfacesTo<DialogsCnainController>().FromComponentsInHierarchy().AsCached();
+            Container.BindInterfacesTo<DialogResultManager>().FromComponentsInHierarchy().AsCached();
         }        
     }
 }

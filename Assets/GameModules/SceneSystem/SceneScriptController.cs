@@ -23,6 +23,16 @@ namespace Assets.Modules
             sceneManager.StartScene();
         }
 
+
+        public void PauseGame()
+        {
+            sceneManager.PauseGame();
+        }
+
+        public void ResumeGame()
+        {
+            sceneManager.ResumeGame();
+        }
         void ILateDisposable.LateDispose()
         {
             if (sceneManager.GameState != SceneState.Finished)

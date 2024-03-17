@@ -31,6 +31,7 @@ using Assets.GameEngine.Zenject;
 using Assets.Modules;
 using UnityEngine.UIElements;
 using ExtraInjection;
+using PixelCrushers.DialogueSystem.Wrappers;
 
 public class MonoGlobalInstaller : MonoInstaller
 {
@@ -45,12 +46,16 @@ public class MonoGlobalInstaller : MonoInstaller
 
     [SerializeField] private ReactionPart reactionPartPrefab;
     [SerializeField] private GameObject inputIntroController;
+
+    private DialogueSystemController dialogueSystemController;
+
     private PortaitHeap uiHeap;
     private Transform core;
     public override void InstallBindings()
     {
         uiHeap = GameObject.FindWithTag("portrait_heap").GetComponent<PortaitHeap>();
         core = GameObject.FindWithTag("core").GetComponent<Transform>();
+        dialogueSystemController = GameObject.FindObjectOfType<DialogueSystemController>();
 
         BindQuestSystem();
         BindParameters();
@@ -64,6 +69,7 @@ public class MonoGlobalInstaller : MonoInstaller
         BindIntroSystem();
         BindMenu();
         BindDialogSubSystem();
+        NewDialogSistem();
 
         Container.Bind<PortaitHeap>().FromInstance(uiHeap);
         Container.Bind<TimeMechanics>().AsSingle();
@@ -89,6 +95,11 @@ public class MonoGlobalInstaller : MonoInstaller
         InitExecutionOrder();
         SignalBusInstaller.Install(Container);
         Container.DeclareSignal<ConnectGameElementEvent>();
+    }
+
+    private void NewDialogSistem()
+    {
+        Container.Bind<DialogueSystemController>().FromInstance(dialogueSystemController).AsCached();
     }
 
     private void InitExecutionOrder()

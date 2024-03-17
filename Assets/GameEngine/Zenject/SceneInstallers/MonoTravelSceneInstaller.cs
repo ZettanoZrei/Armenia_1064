@@ -23,7 +23,8 @@ public class MonoTravelSceneInstaller : MonoInstaller
     [SerializeField] private MonoEntity caravan;
     [SerializeField] private SimpleButton setupCampButton;
     [SerializeField] private SimpleButton menu;
-
+    [SerializeField] private Transform conversationActor;
+    [SerializeField] private Transform storyActor;
     public override void InstallBindings()
     {
         CommonInstaller.Install(Container);
@@ -58,5 +59,8 @@ public class MonoTravelSceneInstaller : MonoInstaller
         Container.BindInterfacesTo<CaravanRepositoryBSController>().AsSingle();
       
         Container.BindPopupSystem();
+
+        Container.Bind<Transform>().WithId("conversationActor").FromInstance(conversationActor).AsCached();
+        Container.Bind<Transform>().WithId("storyActor").FromInstance(storyActor).AsCached();
     }    
 }
