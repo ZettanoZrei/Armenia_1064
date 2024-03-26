@@ -1009,7 +1009,7 @@ MonoBehaviour:
     m_textMeshProUGUI: {fileID: 8899631735763867683}
   addSpeakerName: 0
   addSpeakerNameFormat: '{0}: {1}'
-  accumulateText: 1
+  accumulateText: 0
   maxLines: 100
   delayTypewriterUntilOpen: 0
   continueButton: {fileID: 8899631734566992604}
@@ -1046,7 +1046,7 @@ GameObject:
   - component: {fileID: 8899631735473936598}
   - component: {fileID: 8899631735473936599}
   m_Layer: 5
-  m_Name: Story UI
+  m_Name: Conversation UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1098,7 +1098,8 @@ MonoBehaviour:
     mainPanel: {fileID: 8899631735705030365}
     dontDeactivateMainPanel: 0
     waitForMainPanelOpen: 0
-    subtitlePanels: []
+    subtitlePanels:
+    - {fileID: 8899631735403781455}
     defaultNPCSubtitlePanel: {fileID: 8899631735403781455}
     defaultPCSubtitlePanel: {fileID: 8899631735403781455}
     allowOpenSubtitlePanelsOnStartConversation: 1
@@ -1419,7 +1420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.764151, g: 0.7618404, b: 0.6740388, a: 1}
+  m_Color: {r: 0.75, g: 1, b: 0.95837057, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

@@ -1,4 +1,7 @@
-﻿using Assets.Game;
+﻿using Assets.DialogSystem.Scripts.Conclusion;
+using Assets.DialogSystem.Scripts.UI;
+using Assets.DialogSystem.Scripts;
+using Assets.Game;
 using Assets.Game.HappeningSystem;
 using Assets.Game.InputSystem;
 using Assets.Game.Menu;
@@ -15,6 +18,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Zenject;
+using PixelCrushers.DialogueSystem;
 
 namespace Assets.Systems.Zenject
 {
@@ -36,8 +40,25 @@ namespace Assets.Systems.Zenject
             //TODO: необходимо придумать как заставить работать ExtraInject в объектах созданных через фабрики. Либо переделать эту систему
             Container.BindCustomHappenManager();
 
-            Container.BindInterfacesTo<DialogsCnainController>().FromComponentsInHierarchy().AsCached();
-            Container.BindInterfacesTo<DialogResultManager>().FromComponentsInHierarchy().AsCached();
-        }        
+            NewDialogSistem();
+        }
+
+        private void NewDialogSistem() //todo refactoring
+        {
+            //Container.Bind<w.DialogueSystemController>().FromInstance(dialogueSystemController).AsCached();
+            Container.BindInterfacesAndSelfTo<DialogConclusionManager>().AsSingle();
+            Container.BindInterfacesTo<DialogController>().FromComponentInHierarchy().AsCached();
+            Container.Bind<ActorEventObserver>().FromComponentInHierarchy().AsCached();
+            Container.Bind<ConversaionActor>().FromComponentInHierarchy().AsCached();
+            Container.Bind<StoryActor>().FromComponentInHierarchy().AsCached();
+
+            Container.BindInterfacesAndSelfTo<DialogAgent>().AsTransient();
+            Container.Bind<DialogConclusionAgent>().AsTransient();
+
+            Container.BindFactory<string, string, DialogStarter, DialogStarter.Factory>();
+            Container.BindFactory<LeaveCampStarter, LeaveCampStarter.Factory>();
+            Container.BindFactory<int, SetupCampStarter, SetupCampStarter.Factory>();
+        }
+        
     }
 }

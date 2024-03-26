@@ -59,8 +59,5 @@ public class MonoTravelSceneInstaller : MonoInstaller
         Container.BindInterfacesTo<CaravanRepositoryBSController>().AsSingle();
       
         Container.BindPopupSystem();
-
-        Container.Bind<Transform>().WithId("conversationActor").FromInstance(conversationActor).AsCached();
-        Container.Bind<Transform>().WithId("storyActor").FromInstance(storyActor).AsCached();
     }    
 }

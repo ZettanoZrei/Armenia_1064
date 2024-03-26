@@ -83,3 +83,4 @@ MonoBehaviour:
   plotDialogModel: {fileID: 11400000, guid: 544aed70ad8e4104188d336562ae3f83, type: 2}
   reactionPartPrefab: {fileID: 3245656713914925054, guid: 43d627d38f58e364f823743908bcdd54, type: 3}
   inputIntroController: {fileID: 7625729412185511057, guid: fb5ad3c70c7277447b5df177f622637c, type: 3}
+  conclusionDialogueUI: {fileID: 2366097462075031814, guid: f7f352c48df6c174d9227d1923b677c3, type: 3}

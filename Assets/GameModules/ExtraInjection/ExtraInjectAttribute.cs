@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ExtraInjection
 {
+    /// <summary>
+    /// Внедряет новую зависимость в глобальный класс при каждом переходе на новую сцену
+    /// </summary>
     [AttributeUsage(AttributeTargets.Field, Inherited = false, AllowMultiple = true)]
     public class ExtraInjectAttribute : Attribute
     {

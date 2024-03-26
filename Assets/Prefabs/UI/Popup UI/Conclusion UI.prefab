@@ -664,10 +664,10 @@ GameObject:
   - component: {fileID: 7541502942625482907}
   - component: {fileID: 6343151408175774623}
   - component: {fileID: 3682861927942672341}
-  - component: {fileID: 1709893200228699364}
-  - component: {fileID: 4498268553582849018}
+  - component: {fileID: 2366097462075031814}
+  - component: {fileID: 5753544991293771417}
   m_Layer: 5
-  m_Name: Result UI
+  m_Name: Conclusion UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -771,7 +771,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 1
---- !u!114 &1709893200228699364
+--- !u!114 &2366097462075031814
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -780,7 +780,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7541502942625482909}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9888f0d13032ad4bb14acdba3472d3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 988ed40a6c7eed649bb31d80f21c6f88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   alertUIElements:
@@ -809,7 +809,11 @@ MonoBehaviour:
     QTEIndicators: []
   addEventSystemIfNeeded: 1
   verifyPanelAssignments: 1
---- !u!114 &4498268553582849018
+  messageParamViews: []
+  relationPrefab: {fileID: 3839432618564579563, guid: d5b4e1e5714a8014dabff237e47708b9, type: 3}
+  containerPerson: {fileID: 4503953289577045047}
+  containerParams: {fileID: 7541502943384253492}
+--- !u!114 &5753544991293771417
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -863,7 +867,7 @@ MonoBehaviour:
       skipPCSubtitleAfterResponseMenu: 0
       subtitleCharsPerSecond: 30
       minSubtitleSeconds: 2
-      continueButton: 1
+      continueButton: 0
       requireContinueOnLastLine: 0
       richTextEmphases: 1
       informSequenceStartAndEnd: 0

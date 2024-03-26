@@ -17,9 +17,18 @@ MonoBehaviour:
   - functionName: StartDialog
     parameters: 0200000003000000
     returnValue: 0
+  - functionName: SetupCamp
+    parameters: 01000000
+    returnValue: 0
+  - functionName: LeaveCamp
+    parameters: 
+    returnValue: 0
   - functionName: SetRelationship
     parameters: 0300000001000000
     returnValue: 0
   - functionName: AddItems
     parameters: 0100000008000000
+    returnValue: 0
+  - functionName: LaunchConclusion
+    parameters: 
     returnValue: 0

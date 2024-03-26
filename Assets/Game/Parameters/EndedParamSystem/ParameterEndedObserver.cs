@@ -44,14 +44,14 @@ namespace Assets.Game.Parameters
             {
                 OnParamZero?.Invoke(ParameterType.Spirit);
                 isSpiritZero = true;
-                Debug.Log("OnParamZero");
+                //Debug.Log("OnParamZero");
             }
 
             if (isSpiritZero && spirit != 0)
             {
                 OnParamNonZero?.Invoke(ParameterType.Spirit);
                 isSpiritZero = false;
-                Debug.Log("OnParamNonZero");
+                //Debug.Log("OnParamNonZero");
             }
         }
 

@@ -3,7 +3,7 @@ using Assets.Game.HappeningSystem;
 using System;
 using System.Linq;
 
-class SetupCampManager
+public class SetupCampManager
 {
     public event Action OnSetupCamp_Before;
     public event Action OnLeaveCamp_Before;

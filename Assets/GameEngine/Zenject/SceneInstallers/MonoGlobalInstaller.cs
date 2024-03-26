@@ -31,7 +31,11 @@ using Assets.GameEngine.Zenject;
 using Assets.Modules;
 using UnityEngine.UIElements;
 using ExtraInjection;
-using PixelCrushers.DialogueSystem.Wrappers;
+using w = PixelCrushers.DialogueSystem.Wrappers;
+using Assets.DialogSystem.Scripts.UI;
+using Assets.DialogSystem.Scripts;
+using Assets.DialogSystem.Scripts.Conclusion;
+using PixelCrushers.DialogueSystem;
 
 public class MonoGlobalInstaller : MonoInstaller
 {
@@ -46,16 +50,18 @@ public class MonoGlobalInstaller : MonoInstaller
 
     [SerializeField] private ReactionPart reactionPartPrefab;
     [SerializeField] private GameObject inputIntroController;
+    [SerializeField] private ConclusionDialogueUI conclusionDialogueUI;
 
-    private DialogueSystemController dialogueSystemController;
+    [SerializeField] private GameObject dialogSystem;
 
     private PortaitHeap uiHeap;
     private Transform core;
+    private Transform dialogCanvas;
     public override void InstallBindings()
     {
-        uiHeap = GameObject.FindWithTag("portrait_heap").GetComponent<PortaitHeap>();
         core = GameObject.FindWithTag("core").GetComponent<Transform>();
-        dialogueSystemController = GameObject.FindObjectOfType<DialogueSystemController>();
+        uiHeap = GameObject.FindWithTag("portrait_heap").GetComponent<PortaitHeap>();
+        dialogCanvas = GameObject.FindWithTag("dialogCanvas").transform;
 
         BindQuestSystem();
         BindParameters();
@@ -69,7 +75,6 @@ public class MonoGlobalInstaller : MonoInstaller
         BindIntroSystem();
         BindMenu();
         BindDialogSubSystem();
-        NewDialogSistem();
 
         Container.Bind<PortaitHeap>().FromInstance(uiHeap);
         Container.Bind<TimeMechanics>().AsSingle();
@@ -91,15 +96,16 @@ public class MonoGlobalInstaller : MonoInstaller
         Container.BindInterfacesAndSelfTo<ScriptContext>().AsSingle();
         Container.BindLoadTasks();
         Container.BindEndingParamSystem();
-
+        NewDialogSistemGlobal();
         InitExecutionOrder();
         SignalBusInstaller.Install(Container);
         Container.DeclareSignal<ConnectGameElementEvent>();
     }
 
-    private void NewDialogSistem()
+    private void NewDialogSistemGlobal()
     {
-        Container.Bind<DialogueSystemController>().FromInstance(dialogueSystemController).AsCached();
+        Container.Bind<ConclusionDialogueUI>().FromComponentInNewPrefab(conclusionDialogueUI).UnderTransform(dialogCanvas).AsCached();
+        Container.BindInterfacesAndSelfTo<DialogSequenceManager>().AsSingle();
     }
 
     private void InitExecutionOrder()

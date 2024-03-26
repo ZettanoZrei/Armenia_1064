@@ -10,6 +10,8 @@ TagManager:
   - portrait_heap
   - core
   - bas
+  - dialogCanvas
+  - dialogObserver
   layers:
   - Default
   - TransparentFX

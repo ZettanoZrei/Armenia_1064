@@ -1,3 +1,4 @@
+using Model.Types;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,10 @@ public class MessageParamView : MonoBehaviour
 {
     [SerializeField] private Text uiText;
     [SerializeField] private GameObject panel;
+
+    [SerializeField] private ParameterType type;
+
+    public ParameterType ParameterType => type; 
 
     public void SetParam(int value)
     {
