@@ -1,13 +1,16 @@
-﻿using GameSystems;
+﻿using Assets.Modules;
+using GameSystems;
+using GameSystems.Modules;
 using Model.Entities.Answers;
 using Newtonsoft.Json.Linq;
+using PixelCrushers.DialogueSystem;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
-
+using Zenject;
 
 namespace Assets.Game.HappeningSystem.Persons
 {
@@ -15,6 +18,7 @@ namespace Assets.Game.HappeningSystem.Persons
     {
         private readonly List<Relation> relations = new List<Relation>();
 
+        
         public void ChangeRelation(SinglePersonConsequences personConsequences)
         {
             var relation = relations.FirstOrDefault(x => x.Name == personConsequences.PersonName.Name);
@@ -24,12 +28,12 @@ namespace Assets.Game.HappeningSystem.Persons
                 Logger.WriteLog($"Relation. {personConsequences.PersonName.Name} - {personConsequences.Value}");
             }
         }
-        public void ChangeRelation(string name, int value)
+        public void ChangeRelation(string name, double value)
         {
             var relation = relations.FirstOrDefault(x => x.Name == name);
             if (relation != null)
             {
-                relation.Value.Value = Mathf.Max(relation.Value.Value + value, 0);
+                relation.Value.Value = Mathf.Max(relation.Value.Value + (int)value, 0);
                 Logger.WriteLog($"Relation. {name} - {value}");
             }
         }
@@ -70,5 +74,7 @@ namespace Assets.Game.HappeningSystem.Persons
         {
             return ((IEnumerable)relations).GetEnumerator();
         }
+
+        
     }
 }

@@ -1,9 +1,6 @@
-﻿using Assets.Game.HappeningSystem.AfterHappenAction;
-using Assets.Game.HappeningSystem.Happenings;
-using Assets.Game.HappeningSystem;
+﻿using Assets.Game.HappeningSystem;
 using Assets.Game.Message;
 using Zenject;
-using Assets.Game.HappeningSystem.ManagementHappens;
 using Assets.Game.Parameters.EndedParamSystem;
 using Assets.Game.Parameters;
 using Assets.Game;
@@ -20,27 +17,11 @@ namespace Assets.GameEngine.Zenject
     {
         public static void BindHappeningSystem(this DiContainer Container)
         {
-            Container.Bind<HappeningManager>().AsSingle();
-            Container.BindInterfacesAndSelfTo<HappeningLauncher>().AsSingle();
-            Container.Bind<AfterActionManager>().AsSingle();
-            Container.Bind<HappeningModel>().AsTransient();
-            Container.Bind<DialogModelDecorator>().AsSingle();
-            Container.Bind<AccidentPresenter>().AsSingle();
             Container.BindInterfacesAndSelfTo<MessageManager>().AsSingle();
-            Container.Bind<HappeningReplaceManager>().AsSingle();
             Container.BindInterfacesTo<LaunchComeOutFromCamp>().AsSingle();
-            Container.BindInterfacesTo<ConsequencesController>().AsSingle();
-            Container.Bind<ConsequencesHandler>().AsSingle();
             //Container.BindCustomHappenManager();
         }
 
-        public static void BindCustomHappenManager(this DiContainer Container)
-        {
-            Container.Bind<ManagerTypeResolver>().AsSingle();
-            Container.BindFactory<DialogManager, DialogManager.Factory>();
-            Container.BindFactory<AccidentManager, AccidentManager.Factory>();
-            Container.BindFactory<IHappeningManager, HappeningManagerFactory>().FromFactory<CustomManagerFactory>();
-        }
         public static void BindEndingParamSystem(this DiContainer Container) //TODO Перенести обратно на глобал? Данные с него должны сохраняться 
         {
             Container.BindInterfacesAndSelfTo<ParameterEndedObserver>().AsSingle();
@@ -71,8 +52,6 @@ namespace Assets.GameEngine.Zenject
             //Container.BindInterfacesTo<LoadTaskManager>().AsSingle();
             //Container.Bind<LoadTaskSettings>().AsTransient();
 
-            Container.BindInterfacesTo<TaskLoadHappenings>().AsTransient();
-            Container.BindInterfacesTo<TaskCutText>().AsTransient();
             Container.BindInterfacesTo<TaskLaunchGame>().AsTransient();
             Container.BindInterfacesTo<TaskStartIntro>().AsTransient();            
         }

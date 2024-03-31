@@ -11,12 +11,11 @@ namespace Assets.Game.HappeningSystem
     class LaunchComeOutFromCamp : IInitializable, ILateDisposable
     {
         private readonly MySceneManager sceneManager;
-        private readonly HappeningManager happeningManager;
+        //private readonly HappeningManager happeningManager;
 
-        public LaunchComeOutFromCamp(MySceneManager sceneManager, HappeningManager happeningManager)
+        public LaunchComeOutFromCamp(MySceneManager sceneManager)
         {
             this.sceneManager = sceneManager;
-            this.happeningManager = happeningManager;
         }
 
         void IInitializable.Initialize()
@@ -52,7 +51,7 @@ namespace Assets.Game.HappeningSystem
             if (sceneManager.IsTravelScene(sceneManager.CurrentScene))
             {
                 var priority = 4;
-                happeningManager.LaunchHappenFromQueue(priority);
+                //happeningManager.LaunchHappenFromQueue(priority);
             }
         }
 

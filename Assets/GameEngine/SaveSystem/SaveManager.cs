@@ -33,12 +33,10 @@ namespace Assets.Systems.SaveSystem
         private readonly BSRepositoryCaravan repositoryCaravan;
         private readonly BSRepositoryTrigger repositoryTriggers;
         private readonly BSRepositoryCampQuestTrigger repositoryCampQuests;
-        private readonly HappeningReplaceManager replaceManager;
         private readonly CampIncomingData campIncomingData;
         private readonly TimeMechanics timeManager;
         private readonly TutorialManager tutorialManager;
         private readonly PlotManager plotManager;
-        private readonly HappeningManager happeningManager;
         private readonly DialogPersonPackCatalog personPacks;
         private readonly EndedParamMechanics endedParamMechanics;
         private readonly SaveConfing saveConfing;
@@ -46,8 +44,8 @@ namespace Assets.Systems.SaveSystem
         public SaveManager(Repository repository, DialogBackgroundKeeper backgroundManager, MySceneManager sceneManager, QuestManager questManager,
                 RelationManager relationManager, ParametersManager parametersManager, TravelSceneNavigator travelSceneNavigator, PlotManager plotManager,
                 BSRepositoryCaravan repositoryCaravan, BSRepositoryTrigger repositoryTriggers, BSRepositoryCampQuestTrigger repositoryCampQuests,
-                HappeningReplaceManager replaceManager, CampIncomingData campIncomingData, TimeMechanics timeManager,
-                TutorialManager tutorialManager, HappeningManager happeningManager, EndedParamMechanics endedParamMechanics,
+                CampIncomingData campIncomingData, TimeMechanics timeManager,
+                TutorialManager tutorialManager, EndedParamMechanics endedParamMechanics,
                 DialogPersonPackCatalog personPacks, ConfigurationRuntime configurationRuntime)
         {
             this.backgroundManager = backgroundManager;
@@ -60,12 +58,10 @@ namespace Assets.Systems.SaveSystem
             this.repositoryCaravan = repositoryCaravan;
             this.repositoryTriggers = repositoryTriggers;
             this.repositoryCampQuests = repositoryCampQuests;
-            this.replaceManager = replaceManager;
             this.campIncomingData = campIncomingData;
             this.timeManager = timeManager;
             this.tutorialManager = tutorialManager;
             this.plotManager = plotManager;
-            this.happeningManager = happeningManager;
             this.personPacks = personPacks;
             this.endedParamMechanics = endedParamMechanics;
             this.saveConfing = configurationRuntime.SaveConfing;
@@ -93,11 +89,9 @@ namespace Assets.Systems.SaveSystem
             SaveParameters();
             SaveScene();
             SaveTravelScene();
-            SaveReplacements();
             SaveTime();
             SavePlotStep();
             SaveParamsTimers();
-            SaveActivedHappening();
             SaveTutorialStep();
             SavePersonPackIndex();
         }
@@ -106,13 +100,7 @@ namespace Assets.Systems.SaveSystem
         {
             repository.SavePersonPackIndex(personPacks.First().complectIndex);
         }
-        private void SaveActivedHappening()
-        {
-            foreach (var happen in happeningManager.EnumerableHappenings())
-            {
-                repository.SaveActivedHappenig(happen.Title);
-            }
-        }
+
         private void SavePlotStep()
         {
             repository.SavePlotState(plotManager.CurrentStepIndex, plotManager.IsComplete, (int)plotManager.LastShownStep);
@@ -191,14 +179,6 @@ namespace Assets.Systems.SaveSystem
         private void SaveTravelScene()
         {
             repository.SaveTravelScene(travelSceneNavigator.ScenePointer);
-        }
-
-        private void SaveReplacements()
-        {
-            foreach (var item in replaceManager)
-            {
-                repository.SaveReplacement(item.Key, item.Value);
-            }
         }
 
         private void SaveTime()

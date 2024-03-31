@@ -15,23 +15,21 @@ namespace Assets.Game.UI.EndPopupSystem
     {
         [ExtraInject] private PopupManager popupManager;
         private readonly MySceneManager sceneManager;
-        private readonly HappeningManager happeningManager;
         private EndGamePopup popup;
 
-        public EndGameManager(MySceneManager sceneManager, HappeningManager happeningManager)
+        public EndGameManager(MySceneManager sceneManager)
         {
             this.sceneManager = sceneManager;
-            this.happeningManager = happeningManager;
         }
 
         void IInitializable.Initialize()
         {
-            happeningManager.OnFinishHappening += CheckLastHappening;
+            //happeningManager.OnFinishHappening += CheckLastHappening;
         }
 
         void ILateDisposable.LateDispose()
         {
-            happeningManager.OnFinishHappening -= CheckLastHappening;
+            //happeningManager.OnFinishHappening -= CheckLastHappening;
         }
 
         private void CheckLastHappening(Happening happening)

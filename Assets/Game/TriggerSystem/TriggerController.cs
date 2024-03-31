@@ -15,7 +15,6 @@ namespace Assets.Game.HappeningSystem
         ISceneFinish
     {
         private readonly QuestManager questManager;
-        private readonly HappeningManager happeningManager;
         private IEnumerable<ActivatorStaticTrigger> staticRoadTriggers;
         private IEnumerable<LaunchStaticTrigger> beginHappeningTriggers;
         private IEnumerable<FastPointerTrigger> fastPointerTriggers;
@@ -25,14 +24,13 @@ namespace Assets.Game.HappeningSystem
         private readonly SignalBus signalBus;
         private readonly FiniteTriggerCatalog finiteTriggerCatalog;
 
-        public TriggerController(HappeningManager happeningManager, QuestManager questManager, DialogBackgroundKeeper backgroundManager, SignalBus signalBus,
+        public TriggerController(QuestManager questManager, DialogBackgroundKeeper backgroundManager, SignalBus signalBus,
             FiniteTriggerCatalog finiteTriggerCatalog)
         {
             this.questManager = questManager;
             this.backgroundManager = backgroundManager;
             this.signalBus = signalBus;
-            this.finiteTriggerCatalog = finiteTriggerCatalog;
-            this.happeningManager = happeningManager;             
+            this.finiteTriggerCatalog = finiteTriggerCatalog;         
         }
         void IInitializable.Initialize()
         {
@@ -61,20 +59,18 @@ namespace Assets.Game.HappeningSystem
        
         private void ActivateHappening(string quest)
         {
-            happeningManager.PutHappeningToQueue(quest);
+            //happeningManager.PutHappeningToQueue(quest);
         }
 
         private void CancelHappening(string quest)
         {
-            happeningManager.CancelHappening(quest);
+            //happeningManager.CancelHappening(quest);
         }
 
         private void LaunchHappenFromQueue()
         {
-            happeningManager.LaunchHappenFromQueue();
+            //happeningManager.LaunchHappenFromQueue();
         }
-
-
 
         private void Subscribe()
         {

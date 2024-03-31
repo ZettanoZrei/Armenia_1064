@@ -18,17 +18,16 @@ namespace Assets.Game.Plot.Steps
     {
         public override event Action OnFinishStep;
         public override event Action<IStep<PlotStepType>> OnLaunchStep;
-        private HappeningManager happeningManager;
 
-        public PStep12Storming(HappeningManager happeningManager)
+
+        public PStep12Storming()
         {
-            this.happeningManager = happeningManager;
             stepType = PlotStepType.Storming;
         }
 
         void IGameLeave.LeaveGame()
         {
-            happeningManager.OnFinishHappening -= HappenFinsihHandler;
+            //happeningManager.OnFinishHappening -= HappenFinsihHandler;
         }
         public override async void Begin()
         {
@@ -39,8 +38,8 @@ namespace Assets.Game.Plot.Steps
         {
             await Task.Delay(1000);
             OnLaunchStep?.Invoke(this);
-            happeningManager.LaunchHappenWithoutQueue("Аревберд_Штурм"); 
-            happeningManager.OnFinishHappening += HappenFinsihHandler;
+            //happeningManager.LaunchHappenWithoutQueue("Аревберд_Штурм"); 
+            //happeningManager.OnFinishHappening += HappenFinsihHandler;
         }
 
         private void HappenFinsihHandler(Happening happening)
@@ -51,7 +50,7 @@ namespace Assets.Game.Plot.Steps
 
         public override void Finish()
         {
-            happeningManager.OnFinishHappening -= HappenFinsihHandler;
+            //happeningManager.OnFinishHappening -= HappenFinsihHandler;
             OnFinishStep?.Invoke();
         }
     }

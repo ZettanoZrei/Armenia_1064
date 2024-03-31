@@ -17,15 +17,13 @@ namespace Assets.GameSystems.SaveSystem
     {
         private readonly SaveManager saveManager;
         private readonly MySceneManager sceneManager;
-        private readonly HappeningManager happeningManager;
         private readonly SaveConfing saveConfing;
         private readonly TimerScript timerScript;
 
-        public SaveController(SaveManager saveManager, MySceneManager sceneManager, ConfigurationRuntime configurationRuntime, HappeningManager happeningManager)
+        public SaveController(SaveManager saveManager, MySceneManager sceneManager, ConfigurationRuntime configurationRuntime)
         {
             this.saveManager = saveManager;
             this.sceneManager = sceneManager;
-            this.happeningManager = happeningManager;
             this.saveConfing = configurationRuntime.SaveConfing;
             timerScript = new TimerScript(saveConfing.timeSave);
         }

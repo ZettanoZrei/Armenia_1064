@@ -19,25 +19,21 @@ namespace Assets.Game.Plot.Steps
     {
         public override event Action OnFinishStep;
         public override event Action<IStep<PlotStepType>> OnLaunchStep;
-
-        private readonly HappeningManager happeningManager;
-
-        public PStep8SiegeAbout(HappeningManager happeningManager)
+        public PStep8SiegeAbout()
         {
-            this.happeningManager = happeningManager;
             this.stepType = PlotStepType.SiegeAbout;
         }
 
         void IGameLeave.LeaveGame()
         {
-            happeningManager.OnFinishHappening -= DoFinsih;
+            //happeningManager.OnFinishHappening -= DoFinsih;
         }
 
         public override async void Begin()
         {
             await Task.Delay(1000);
-            happeningManager.LaunchHappenWithoutQueue("Аревберд_Штурм"); 
-            happeningManager.OnFinishHappening += DoFinsih;
+            //happeningManager.LaunchHappenWithoutQueue("Аревберд_Штурм"); 
+            //happeningManager.OnFinishHappening += DoFinsih;
             OnLaunchStep?.Invoke(this);
         }
         private void DoFinsih(Happening _)
@@ -46,7 +42,7 @@ namespace Assets.Game.Plot.Steps
         }
         public override void Finish()
         {
-            happeningManager.OnFinishHappening -= DoFinsih;
+            //happeningManager.OnFinishHappening -= DoFinsih;
             OnFinishStep?.Invoke();
         }
     }

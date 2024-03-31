@@ -7,7 +7,6 @@ using Zenject;
 using UnityEngine;
 using System.Reflection;
 using ModestTree;
-using Assets.Game.HappeningSystem.ManagementHappens;
 using Assets.Game.HappeningSystem;
 
 namespace ExtraInjection

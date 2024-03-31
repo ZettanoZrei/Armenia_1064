@@ -1,6 +1,4 @@
 ﻿using Assets.Game.Core;
-using Assets.Game.HappeningSystem;
-using Assets.Game.HappeningSystem.Happenings;
 using Assets.Game.Tutorial.Core;
 using Assets.Game.Tutorial.UI;
 using Assets.GameEngine;
@@ -17,16 +15,15 @@ namespace Assets.Game.Tutorial.Steps
     class StepShowDialogRelation : StepShowPopup
     {
         private readonly MySceneManager sceneManager;
-        private readonly DialogModelDecorator dialogModelDecorator;
+
 
 
         public override event Action<IStep<TutorialStepType>> OnLaunchStep;
-        public StepShowDialogRelation(MySceneManager sceneManager, DialogModelDecorator dialogModelDecorator, 
+        public StepShowDialogRelation(MySceneManager sceneManager,
             SignalBus signalBus, PopupType popupType) : base(popupType, signalBus)
         {
             this.stepType = TutorialStepType.DialogRelation;
             this.sceneManager = sceneManager;
-            this.dialogModelDecorator = dialogModelDecorator;
         }
 
         public override void Begin()
@@ -45,12 +42,12 @@ namespace Assets.Game.Tutorial.Steps
         private void DoBegin1()
         {
             sceneManager.OnChangeScene_Post -= CheckIfDialog;
-            dialogModelDecorator.OnShowAnswers += DoBegin2;
+            //dialogModelDecorator.OnShowAnswers += DoBegin2;
         }
 
         private void DoBegin2()
         {
-            dialogModelDecorator.OnShowAnswers -= DoBegin2;
+            //dialogModelDecorator.OnShowAnswers -= DoBegin2;
             OnLaunchStep?.Invoke(this);
             popup = popupManager.ShowPopup(popupType) as TutorialPopup;
             popup.OnFinish += Finish;
@@ -59,8 +56,8 @@ namespace Assets.Game.Tutorial.Steps
         public override void FinishScene()
         {
             sceneManager.OnChangeScene_Post -= CheckIfDialog;
-            if (dialogModelDecorator.IsModel)
-                dialogModelDecorator.OnShowAnswers -= DoBegin2;
+            //if (dialogModelDecorator.IsModel)
+            //    dialogModelDecorator.OnShowAnswers -= DoBegin2;
         }
     }
 }

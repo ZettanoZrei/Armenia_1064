@@ -15,20 +15,17 @@ namespace Assets.Game.Plot.Scripts
         private readonly MusicMechanics musicMechancis;
         private readonly MySceneManager sceneManager;
         private readonly SoundConfig soundConfig;
-        private readonly HappeningManager happeningManager;
         private readonly IntroManager introManager;
 
         public float SoundValue => soundConfig.volumeSounds;
         public float MusicValue => soundConfig.volumeMusic;
 
-        public MusicManager(PlotManager plotManager, MusicMechanics musicMechancis, MySceneManager sceneManager, SoundConfig soundConfig,
-            HappeningManager happeningManager, IntroManager introManager)
+        public MusicManager(PlotManager plotManager, MusicMechanics musicMechancis, MySceneManager sceneManager, SoundConfig soundConfig, IntroManager introManager)
         {
             this.plotManager = plotManager;
             this.musicMechancis = musicMechancis;
             this.sceneManager = sceneManager;
             this.soundConfig = soundConfig;
-            this.happeningManager = happeningManager;
             this.introManager = introManager;
         }
 
@@ -38,8 +35,8 @@ namespace Assets.Game.Plot.Scripts
 
             plotManager.OnShowStep += ChooseAudio;
             sceneManager.OnChangeScene_Post += SwitchMusicForScene;
-            happeningManager.OnLaunchHappening += SwitchCauseLaunchEvent;
-            happeningManager.OnFinishHappening += SwitchCauseFinishEvent;
+            //happeningManager.OnLaunchHappening += SwitchCauseLaunchEvent;
+            //happeningManager.OnFinishHappening += SwitchCauseFinishEvent;
             introManager.OnShowStep += SwitchCauseIntro;
 
         }
@@ -48,8 +45,8 @@ namespace Assets.Game.Plot.Scripts
         {
             plotManager.OnShowStep -= ChooseAudio;
             sceneManager.OnChangeScene_Post -= SwitchMusicForScene;
-            happeningManager.OnLaunchHappening -= SwitchCauseLaunchEvent;
-            happeningManager.OnFinishHappening -= SwitchCauseFinishEvent;
+            //happeningManager.OnLaunchHappening -= SwitchCauseLaunchEvent;
+            //happeningManager.OnFinishHappening -= SwitchCauseFinishEvent;
             introManager.OnShowStep -= SwitchCauseIntro;
         }
 

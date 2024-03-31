@@ -19,17 +19,16 @@ namespace Assets.Game.Plot.Steps
     {
         public override event Action OnFinishStep;
         public override event Action<IStep<PlotStepType>> OnLaunchStep;
-        private readonly HappeningManager happeningManager;
 
-        public PStep5BeginAttack_2(HappeningManager happeningManager)
+
+        public PStep5BeginAttack_2()
         {
-            this.happeningManager = happeningManager;
             this.stepType = PlotStepType.BeginAttack_2;
         }
 
         void IGameLeave.LeaveGame()
         {
-            happeningManager.OnFinishHappening -= DoFinsih;
+            //happeningManager.OnFinishHappening -= DoFinsih;
         }
         public override void Begin()
         {
@@ -38,11 +37,11 @@ namespace Assets.Game.Plot.Steps
 
         private async Task DoBegin()
         {
-            happeningManager.OnFinishHappeningAsync -= DoBegin;
+            //happeningManager.OnFinishHappeningAsync -= DoBegin;
             await Task.Delay(TimeSpan.FromSeconds(1.5));
             OnLaunchStep?.Invoke(this);
-            happeningManager.LaunchHappenWithoutQueue("Аревберд Нападение");
-            happeningManager.OnFinishHappening += DoFinsih;
+            //happeningManager.LaunchHappenWithoutQueue("Аревберд Нападение");
+            //happeningManager.OnFinishHappening += DoFinsih;
         }
 
         private void DoFinsih(Happening happening)
@@ -53,7 +52,7 @@ namespace Assets.Game.Plot.Steps
 
         public override void Finish()
         {
-            happeningManager.OnFinishHappening -= DoFinsih;
+            //happeningManager.OnFinishHappening -= DoFinsih;
             OnFinishStep?.Invoke();
         }
 

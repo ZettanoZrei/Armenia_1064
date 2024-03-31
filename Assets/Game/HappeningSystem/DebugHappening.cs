@@ -16,27 +16,14 @@ public class DebugHappening : MonoBehaviour
     [Inject]
     SetupCampManager setupCamp;
 
-    [Inject]
-    HappeningManager happeningManager;
-
     [Inject] ParametersManager parametersManager;
 
     public TextAsset file;
 
-    [ContextMenu("Launch")]
-    public void Launch()
-    {
-        happeningManager.LaunchHappenWithoutQuest(happeningName);
-    }
 
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.C))
-        {
-            happeningManager.LaunchHappenWithoutQuest(happeningName);
-        }
-
         if(Input.GetKeyDown(KeyCode.L)) 
         {
             setupCamp.LeaveCamp();

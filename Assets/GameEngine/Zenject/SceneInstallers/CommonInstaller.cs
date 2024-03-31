@@ -22,6 +22,7 @@ using PixelCrushers.DialogueSystem;
 
 namespace Assets.Systems.Zenject
 {
+    //TODO: необходимо придумать как заставить работать ExtraInject в объектах созданных через фабрики
     internal class CommonInstaller : Installer<CommonInstaller>
     {
         public override void InstallBindings()
@@ -37,8 +38,8 @@ namespace Assets.Systems.Zenject
 
             Container.BindInterfacesTo<SceneStartBeacon>().FromComponentInHierarchy().AsCached();
             Container.BindSceneScriptSystem();
-            //TODO: необходимо придумать как заставить работать ExtraInject в объектах созданных через фабрики. Либо переделать эту систему
-            Container.BindCustomHappenManager();
+            
+
 
             NewDialogSistem();
         }

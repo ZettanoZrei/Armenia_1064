@@ -15,22 +15,19 @@ namespace Assets.Game.Plot.Steps
     class PStep5BeginAttack_1 : PlotStep, IGameLeave
     {
         private readonly CampIncomingData incomingData;
-        private readonly HappeningManager happeningManager;
-
 
         public override event Action OnFinishStep;
         public override event Action<IStep<PlotStepType>> OnLaunchStep;
-        public PStep5BeginAttack_1(CampIncomingData incomingData, HappeningManager happeningManager)
+        public PStep5BeginAttack_1(CampIncomingData incomingData)
         {
             this.incomingData = incomingData;
-            this.happeningManager = happeningManager;
             this.stepType = PlotStepType.BeginAttack_1;
         }
 
         void IGameLeave.LeaveGame()
         {
             incomingData.OnDialogAvailableChange -= CheckIfAllDialogFinished;
-            happeningManager.OnFinishHappeningAsync -= DoFinish;
+            //happeningManager.OnFinishHappeningAsync -= DoFinish;
         }
         public override void Begin()
         {
@@ -41,13 +38,13 @@ namespace Assets.Game.Plot.Steps
             if (value <= 0)
             {
                 incomingData.OnDialogAvailableChange -= CheckIfAllDialogFinished;
-                happeningManager.OnFinishHappeningAsync += DoFinish;
+                //happeningManager.OnFinishHappeningAsync += DoFinish;
             }
         }
 
         private Task DoFinish()
         {
-            happeningManager.OnFinishHappeningAsync -= DoFinish;
+            //happeningManager.OnFinishHappeningAsync -= DoFinish;
             Finish();
             return Task.CompletedTask;
         }

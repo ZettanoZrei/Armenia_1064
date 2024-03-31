@@ -15,19 +15,16 @@ namespace Assets.Game.Plot
     {
         private readonly PlotManager plotManager;
         private readonly SaveManager saveManager;
-        private readonly HappeningManager happeningManager;
         private readonly MySceneManager sceneManager;
         private readonly SaveConfing saveConfing;
         private readonly PlotConfig plotConfig;
         private IEnumerable<PlotStepType> scenes = new List<PlotStepType> { PlotStepType.BeginGame, PlotStepType.FirstWords, PlotStepType.Dialog,
             PlotStepType.BeginAttack_2, PlotStepType.Storming, PlotStepType.GameTitle };
-        public PlotSaveController(ConfigurationRuntime configurationRuntime, PlotManager plotManager, SaveManager saveManager, HappeningManager happeningManager,
-            MySceneManager sceneManager)
+        public PlotSaveController(ConfigurationRuntime configurationRuntime, PlotManager plotManager, SaveManager saveManager, MySceneManager sceneManager)
         {
             saveConfing = configurationRuntime.SaveConfing;
             this.plotManager = plotManager;
             this.saveManager = saveManager;
-            this.happeningManager = happeningManager;
             this.sceneManager = sceneManager;
             this.plotConfig = configurationRuntime.PlotConfig;
         }
@@ -39,7 +36,7 @@ namespace Assets.Game.Plot
 
             saveConfing.IsPlotSegment = true;
             plotManager.OnShowStep += PlotManager_OnShowStep;
-            happeningManager.OnFinishHappening += HappeningManager_OnFinishHappening;
+            //happeningManager.OnFinishHappening += HappeningManager_OnFinishHappening;
             sceneManager.OnChangeScene_Post += ComeInCastle;
             sceneManager.OnChangeScene_Post += ComeInTravelScene_1;
 
@@ -58,7 +55,7 @@ namespace Assets.Game.Plot
         {
             saveConfing.IsPlotSegment = false;
             plotManager.OnShowStep -= PlotManager_OnShowStep;
-            happeningManager.OnFinishHappening -= HappeningManager_OnFinishHappening;
+            //happeningManager.OnFinishHappening -= HappeningManager_OnFinishHappening;
             sceneManager.OnChangeScene_Post -= ComeInCastle;
             sceneManager.OnChangeScene_Post -= ComeInTravelScene_1;
         }

@@ -17,24 +17,20 @@ namespace Loader
         private readonly QuestManager questManager;
         private readonly RelationManager relationManager;
         private readonly ParametersManager parametersManager;
-        private readonly HappeningReplaceManager replaceManager;
         private readonly EndedParamMechanics endedParamMechanics;
-        private readonly HappeningManager happeningManager;
         private readonly BSRepositoryTrigger repositoryTriggers;
         private readonly BSRepositoryCampQuestTrigger repositoryCampQuests;
         private readonly BSRepositoryCaravan repositoryCaravan;
 
         public ClearOldData(SignalBus signalBus, QuestManager questManager, RelationManager relationManager, ParametersManager parametersManager, 
-            HappeningReplaceManager replaceManager, EndedParamMechanics endedParamMechanics, HappeningManager happeningManager, BSRepositoryTrigger repositoryTriggers,
+             EndedParamMechanics endedParamMechanics, BSRepositoryTrigger repositoryTriggers,
             BSRepositoryCampQuestTrigger repositoryCampQuests, BSRepositoryCaravan repositoryCaravan)
         {
             this.signalBus = signalBus;
             this.questManager = questManager;
             this.relationManager = relationManager;
             this.parametersManager = parametersManager;
-            this.replaceManager = replaceManager;
             this.endedParamMechanics = endedParamMechanics;
-            this.happeningManager = happeningManager;
             this.repositoryTriggers = repositoryTriggers;
             this.repositoryCampQuests = repositoryCampQuests;
             this.repositoryCaravan = repositoryCaravan;
@@ -52,10 +48,7 @@ namespace Loader
             questManager.Clear();
             relationManager.Clear();
             parametersManager.Clear();
-            replaceManager.Clear();
             endedParamMechanics.Clear();
-            happeningManager.Clear();
-
             repositoryCaravan.Clear();
             repositoryTriggers.Clear();
             repositoryCampQuests.Clear();

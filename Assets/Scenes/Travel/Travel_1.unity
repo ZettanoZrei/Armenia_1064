@@ -1816,7 +1816,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 499867774}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -31.55, y: -0.03, z: 0}
+  m_LocalPosition: {x: -33.84, y: -0.03, z: 0}
   m_LocalScale: {x: 0.2131, y: 14, z: 1}
   m_Children: []
   m_Father: {fileID: 1374840245}
@@ -2119,6 +2119,11 @@ SpriteRenderer:
 --- !u!4 &536919360 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1193167287921275326, guid: 55a8fef9a5b357a458fa4645430482fd, type: 3}
+  m_PrefabInstance: {fileID: 372653120}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &552485653 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1193167289446574845, guid: 55a8fef9a5b357a458fa4645430482fd, type: 3}
   m_PrefabInstance: {fileID: 372653120}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &553936105
@@ -5366,6 +5371,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2065616080}
   - component: {fileID: 2065616081}
+  - component: {fileID: 2065616079}
   m_Layer: 0
   m_Name: Debug
   m_TagString: Untagged
@@ -5373,6 +5379,82 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2065616079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065616078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c593457cd8105e148906690e1707c592, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trigger: 16
+  condition:
+    luaConditions: []
+    questConditions: []
+    acceptedTags: []
+    acceptedGameObjects: []
+    luaWizardIndex: -1
+    lastEvaluationValue: 0
+  setQuestState: 1
+  questName: 
+  questState: 0
+  setQuestEntryState: 0
+  questEntryNumber: 1
+  questEntryState: 0
+  setAnotherQuestEntryState: 0
+  anotherQuestEntryNumber: 1
+  anotherQuestEntryState: 0
+  luaCode: 
+  sequence: 
+  sequenceSpeaker: {fileID: 0}
+  sequenceListener: {fileID: 0}
+  waitOneFrameOnStartOrEnable: 1
+  alertMessage: 
+  textTable: {fileID: 0}
+  alertDuration: 0
+  sendMessages: []
+  barkSource: 0
+  barkConversation: 
+  barkEntryID: -1
+  barkEntryTitle: 
+  barkText: 
+  barkTextSequence: 
+  barker: {fileID: 0}
+  barkTarget: {fileID: 0}
+  barkOrder: 0
+  allowBarksDuringConversations: 0
+  skipBarkIfNoValidEntries: 0
+  cacheBarkLines: 0
+  conversation: "\u0420\u0430\u0437\u0433\u043E\u0432\u043E\u0440_1"
+  conversationConversant: {fileID: 0}
+  conversationActor: {fileID: 552485653}
+  startConversationEntryID: -1
+  startConversationEntryTitle: 
+  exclusive: 0
+  replace: 0
+  queue: 0
+  skipIfNoValidEntries: 0
+  preventRestartOnSameFrameEnded: 0
+  stopConversationOnTriggerExit: 0
+  stopConversationIfTooFar: 0
+  maxConversationDistance: 5
+  monitorConversationDistanceFrequency: 1
+  showCursorDuringConversation: 0
+  pauseGameDuringConversation: 0
+  setActiveActions: []
+  setEnabledActions: []
+  setAnimatorStateActions: []
+  onExecute:
+    m_PersistentCalls:
+      m_Calls: []
+  useConversationTitlePicker: 1
+  useBarkTitlePicker: 1
+  useQuestNamePicker: 1
+  selectedDatabase: {fileID: 11400000, guid: 79d852f50c17b6248be13deda0219d11, type: 2}
 --- !u!4 &2065616080
 Transform:
   m_ObjectHideFlags: 0

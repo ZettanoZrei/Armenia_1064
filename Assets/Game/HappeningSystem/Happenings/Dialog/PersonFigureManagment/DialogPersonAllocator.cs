@@ -7,7 +7,7 @@ using System;
 using Model.Types;
 using Model.Entities.Persons;
 using Zenject;
-using Assets.Game.HappeningSystem.Happenings;
+
 
 namespace Assets.Game.HappeningSystem
 {

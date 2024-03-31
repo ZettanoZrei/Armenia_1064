@@ -544,7 +544,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: Variable["Trial"] = false
+      userScript: Variable["Trial"] = false;
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -768,7 +768,9 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: Variable["Trial"] == false
-      userScript: Variable["TE"] = "TestEvent2"
+      userScript: 'Variable["TE"] = "TestEvent2";
+
+        SetupCamp(1)'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -830,8 +832,10 @@ MonoBehaviour:
       conditionsString: Variable["Trial"] == true
       userScript: 'Variable["TE"] = "TestEvent3";
 
+        SetupCamp(1)
+
         StartDialog("TestEvent_1",
-        "Conversation")'
+        "Conversation");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -1031,13 +1035,7 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 1
-        originDialogueID: 12
-        destinationConversationID: 1
-        destinationDialogueID: 13
-        isConnector: 0
-        priority: 2
+      outgoingLinks: []
       conditionsString: 
       userScript: LaunchConclusion();
       onExecute:
@@ -1049,58 +1047,9 @@ MonoBehaviour:
         y: 471
         width: 160
         height: 30
-    - id: 13
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 5
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "\u041A\u043E\u043D\u0435\u0446"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 1
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 537
-        y: 521
-        width: 160
-        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 6.8181763, y: 151.87967}
-    canvasZoom: 0.87999964
+    canvasScrollPosition: {x: 5.931278, y: 0}
+    canvasZoom: 0.8199997
   syncInfo:
     syncActors: 0
     syncItems: 0

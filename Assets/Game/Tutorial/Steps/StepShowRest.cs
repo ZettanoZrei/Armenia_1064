@@ -12,17 +12,15 @@ namespace Assets.Game.Tutorial.Steps
 {
     class StepShowRest : StepShowPopup
     {
-        private readonly HappeningManager happeningManager;
         private string expectedHappening;
         private readonly MySceneManager sceneManager;
 
         public override event Action<IStep<TutorialStepType>> OnLaunchStep;
 
-        public StepShowRest(PopupType popupType, HappeningManager happeningManager,
+        public StepShowRest(PopupType popupType,
              MySceneManager sceneManager, SignalBus signalBus) : base(popupType, signalBus)
         {
             this.stepType = TutorialStepType.Rest;
-            this.happeningManager = happeningManager;
             this.expectedHappening = "Эпизод_2.1";
             this.sceneManager = sceneManager;
         }
@@ -30,7 +28,7 @@ namespace Assets.Game.Tutorial.Steps
 
         public override void Begin()
         {
-            happeningManager.OnFinishHappening += CheckCampIntroduceHappening;
+            //happeningManager.OnFinishHappening += CheckCampIntroduceHappening;
         }
 
         private void CheckCampIntroduceHappening(Happening happening)
@@ -42,7 +40,7 @@ namespace Assets.Game.Tutorial.Steps
         }
         private void DoBegin1()
         {
-            happeningManager.OnFinishHappening -= CheckCampIntroduceHappening;
+            //happeningManager.OnFinishHappening -= CheckCampIntroduceHappening;
             sceneManager.OnChangeScene_Post += CheckReturnToCamp;
         }
         private void CheckReturnToCamp(Scene scene)
@@ -61,7 +59,7 @@ namespace Assets.Game.Tutorial.Steps
 
         public override void FinishScene()
         {
-            happeningManager.OnFinishHappening -= CheckCampIntroduceHappening;
+            //happeningManager.OnFinishHappening -= CheckCampIntroduceHappening;
             sceneManager.OnChangeScene_Post -= CheckReturnToCamp;
 
             if (popup != null)

@@ -32,3 +32,6 @@ MonoBehaviour:
   - functionName: LaunchConclusion
     parameters: 
     returnValue: 0
+  - functionName: ChangeRelation
+    parameters: 0300000001000000
+    returnValue: 0

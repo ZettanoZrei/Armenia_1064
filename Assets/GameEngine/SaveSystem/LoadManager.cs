@@ -28,19 +28,17 @@ public class LoadManager
     private readonly BSRepositoryCaravan repositoryCaravan;
     private readonly BSRepositoryTrigger repositoryTriggers;
     private readonly BSRepositoryCampQuestTrigger repositoryCampQuests;
-    private readonly HappeningReplaceManager replaceManager;
     private readonly CampIncomingData campIncomingData;
     private readonly TimeMechanics timeManager;
     private readonly DialogPersonPackCatalog personPacks;
     private readonly PlotManager plotManager;
     private readonly TutorialManager tutorialManager;
-    private readonly HappeningManager happeningManager;
     private readonly EndedParamMechanics endedParamMechanics;
 
     public LoadManager(Repository repository, QuestManager questManager, ConfigurationRuntime configurationRuntime, DialogBackgroundKeeper backgroundManager,
         RelationManager relationManager, ParametersManager parametersManager, TravelSceneNavigator travelSceneNavigator, BSRepositoryCaravan repositoryCaravan,
-        BSRepositoryTrigger repositoryTriggers, BSRepositoryCampQuestTrigger repositoryCampQuests, HappeningManager happeningManager,
-        HappeningReplaceManager replaceManager, CampIncomingData campIncomingData, TimeMechanics timeManager,
+        BSRepositoryTrigger repositoryTriggers, BSRepositoryCampQuestTrigger repositoryCampQuests,
+        CampIncomingData campIncomingData, TimeMechanics timeManager,
         DialogPersonPackCatalog personPacks, PlotManager plotManager, TutorialManager tutorialManager, EndedParamMechanics endedParamMechanics)
     {
         this.repository = repository;
@@ -53,14 +51,12 @@ public class LoadManager
         this.repositoryCaravan = repositoryCaravan;
         this.repositoryTriggers = repositoryTriggers;
         this.repositoryCampQuests = repositoryCampQuests;
-        this.replaceManager = replaceManager;
         this.campIncomingData = campIncomingData;
         this.timeManager = timeManager;
         this.endedParamMechanics = endedParamMechanics;
         this.personPacks = personPacks;
         this.plotManager = plotManager;
         this.tutorialManager = tutorialManager;
-        this.happeningManager = happeningManager;
         this.endedParamMechanics = endedParamMechanics;
     }
 
@@ -76,12 +72,10 @@ public class LoadManager
         LoadRelations();
         LoadParameters();
         LoadTravelScenePointer();
-        LoadHappenReplacements();
         LoadTime();
         LoadPlotStep();
         LoadTutorialStep();
         LoadParamsTimers();
-        LoadActivedHappening();
         SavePersonPackIndex();
     }
 
@@ -99,13 +93,6 @@ public class LoadManager
         {
             person.complectIndex = value;
             person.portraitIndex = value;
-        }
-    }
-    private void LoadActivedHappening()
-    {
-        foreach (var happenName in repository.LoadActivedHappening())
-        {
-            happeningManager.PutHappenigToQueueForLoader(happenName);
         }
     }
     private void LoadParamsTimers()
@@ -197,13 +184,6 @@ public class LoadManager
         travelSceneNavigator.SetNextScene(repository.LoadTravelScene());
     }
 
-    private void LoadHappenReplacements()
-    {
-        foreach (var item in repository.LoadReplacement())
-        {
-            replaceManager.AddHappeningRaplacement(new SingleHappeningConsequences { OldHappening = item.Key, NewHappening = item.Value });
-        }
-    }
 
     private void LoadTime()
     {

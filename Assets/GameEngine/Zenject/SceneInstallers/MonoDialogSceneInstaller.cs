@@ -21,7 +21,6 @@ public class MonoDialogSceneInstaller : MonoInstaller
         Container.Bind<FigurePersonManager>().FromInstance(figurePersonManager).AsCached();
         Container.Bind<DialogBackgroundManager>().AsSingle();
         Container.BindInterfacesAndSelfTo<DialogView>().FromComponentInHierarchy().AsSingle();
-        Container.BindInterfacesTo<DialogPresenter>().AsSingle();
         Container.Bind<DialogBackgroundView>().FromComponentsInHierarchy().AsSingle();
         Container.Bind<ReactionPopupManager>().AsSingle();
         Container.BindInterfacesAndSelfTo<ReactionPopupController>().AsSingle();

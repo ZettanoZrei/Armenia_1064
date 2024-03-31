@@ -110,8 +110,8 @@ public class MonoGlobalInstaller : MonoInstaller
 
     private void InitExecutionOrder()
     {
-        Container.BindInitializableExecutionOrder<TaskLoadHappenings>(1);
-        Container.BindInitializableExecutionOrder<TaskCutText>(2);
+        //Container.BindInitializableExecutionOrder<TaskLoadHappenings>(1);
+        //Container.BindInitializableExecutionOrder<TaskCutText>(2);
         Container.BindInitializableExecutionOrder<TaskLaunchGame>(3);
         Container.BindInitializableExecutionOrder<TaskStartIntro>(4);
     }
@@ -216,8 +216,7 @@ public class MonoGlobalInstaller : MonoInstaller
         Container.Bind<QuestManager>().AsSingle();
     }
     private void BindHappeningsSystem()
-    {       
-        Container.Bind<HappeningCatalog>().AsSingle();          
+    {              
         Container.BindFactory<PortraitButton, PortraitButton.Factory>()
             .FromComponentInNewPrefab(portraitButtonPrefab)
             .UnderTransform(uiHeap.transform);      
