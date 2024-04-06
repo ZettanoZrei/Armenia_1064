@@ -1419,6 +1419,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1193167288725065306, guid: 55a8fef9a5b357a458fa4645430482fd, type: 3}
+      propertyPath: standardDialogueUISettings.customMenuPanel
+      value: 
+      objectReference: {fileID: 2293030665248711024, guid: 5a660041491b3c148b920246e55ed3a9, type: 3}
+    - target: {fileID: 1193167288725065306, guid: 55a8fef9a5b357a458fa4645430482fd, type: 3}
+      propertyPath: standardDialogueUISettings.menuPanelNumber
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55a8fef9a5b357a458fa4645430482fd, type: 3}
 --- !u!4 &372653121 stripped
@@ -5378,7 +5386,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2065616079
 MonoBehaviour:
   m_ObjectHideFlags: 0
