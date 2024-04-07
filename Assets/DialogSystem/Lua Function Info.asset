@@ -35,3 +35,6 @@ MonoBehaviour:
   - functionName: ChangeRelation
     parameters: 0300000001000000
     returnValue: 0
+  - functionName: TestPortrait
+    parameters: 0300000002000000
+    returnValue: 0

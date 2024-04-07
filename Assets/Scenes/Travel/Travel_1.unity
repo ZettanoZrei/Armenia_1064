@@ -1425,7 +1425,7 @@ PrefabInstance:
       objectReference: {fileID: 2293030665248711024, guid: 5a660041491b3c148b920246e55ed3a9, type: 3}
     - target: {fileID: 1193167288725065306, guid: 55a8fef9a5b357a458fa4645430482fd, type: 3}
       propertyPath: standardDialogueUISettings.menuPanelNumber
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55a8fef9a5b357a458fa4645430482fd, type: 3}
