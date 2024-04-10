@@ -596,6 +596,8 @@ namespace PixelCrushers.DialogueSystem
 
         protected virtual void SetSubtitleTextContent(Subtitle subtitle)
         {
+            var mini = subtitleText.gameObject.transform.GetChild(0).transform.GetChild(0).GetComponent<UnityEngine.UI.Image>();
+            mini.sprite = portraitImage.sprite;
             TypewriterUtility.StopTyping(subtitleText);
             var previousText = accumulateText ? m_accumulatedText : string.Empty;
             if (accumulateText && !string.IsNullOrEmpty(subtitle.formattedText.text))
