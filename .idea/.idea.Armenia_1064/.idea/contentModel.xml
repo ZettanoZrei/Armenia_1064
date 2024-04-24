@@ -110,6 +110,11 @@
         </e>
         <e p="Font" t="Include" />
         <e p="Game" t="Include">
+          <e p="Animation" t="Include">
+            <e p="Barseg" t="Include" />
+            <e p="Vasiliy" t="Include" />
+            <e p="Wan" t="Include" />
+          </e>
           <e p="Audio" t="Include">
             <e p="Music" t="Include">
               <e p="Davids" t="Include" />
