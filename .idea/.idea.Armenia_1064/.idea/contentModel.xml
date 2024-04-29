@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\ZettanoZrei\AppData\local\JetBrains\Rider2020.1\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\ZettanoZrei\AppData\local\JetBrains\Rider2020.1\resharper-host\local\Transient\ReSharperHost\v201\SolutionCaches\_Armenia_1064.227199627.00" t="ExcludeRecursive" />
-    <e p="D:\work\Armenia_1064" t="IncludeRecursive">
+    <e p="C:\Users\yakush_ss\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\yakush_ss\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_Armenia_1064.592600651.00" t="ExcludeRecursive" />
+    <e p="E:\work\unity\unity\test-build-project\Armenia_1064" t="IncludeRecursive">
       <e p="Armenia_1064.sln" t="IncludeFlat" />
       <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
@@ -39,20 +39,14 @@
           </e>
         </e>
         <e p="Dialogue System Extras" t="Include">
+          <e p="UI Smooth Follow" t="Include">
+            <e p="UISmoothFollow.cs" t="Include" />
+          </e>
           <e p="Visual Novel Framework" t="Include">
             <e p="_README.txt" t="Include" />
-            <e p="Data" t="Include" />
             <e p="Example" t="Include">
               <e p="_README.txt" t="Include" />
-              <e p="Textures" t="Include">
-                <e p="Achievements" t="Include" />
-                <e p="Resources" t="Include" />
-              </e>
             </e>
-            <e p="Prefabs" t="Include">
-              <e p="Menu Panels" t="Include" />
-            </e>
-            <e p="Scenes" t="Include" />
             <e p="Scripts" t="Include">
               <e p="Achievements" t="Include">
                 <e p="Achievements.cs" t="Include" />
@@ -94,9 +88,6 @@
           <e p="Menu_Functions.cs" t="Include" />
           <e p="TestSaving_Editor.cs" t="Include" />
         </e>
-        <e p="Editor Default Resources" t="Include">
-          <e p="Dialogue System" t="Include" />
-        </e>
         <e p="Entities" t="Include">
           <e p="Entities.asmdef" t="Include" />
           <e p="Scripts" t="Include">
@@ -108,18 +99,8 @@
             <e p="MonoEntityProxy.cs" t="Include" />
           </e>
         </e>
-        <e p="Font" t="Include" />
         <e p="Game" t="Include">
-          <e p="Animation" t="Include">
-            <e p="Barseg" t="Include" />
-            <e p="Vasiliy" t="Include" />
-            <e p="Wan" t="Include" />
-          </e>
           <e p="Audio" t="Include">
-            <e p="Music" t="Include">
-              <e p="Davids" t="Include" />
-              <e p="Mine" t="Include" />
-            </e>
             <e p="Scripts" t="Include">
               <e p="ButtonAudio.cs" t="Include" />
               <e p="Debug_Music.cs" t="Include" />
@@ -175,28 +156,6 @@
             </e>
           </e>
           <e p="Caravan" t="Include">
-            <e p="Animation" t="Include">
-              <e p="Barseg" t="Include" />
-              <e p="Barseg_prologue" t="Include" />
-              <e p="BigTruck" t="Include" />
-              <e p="Default_1" t="Include" />
-              <e p="Default_2" t="Include" />
-              <e p="Default_3" t="Include" />
-              <e p="Default_4" t="Include" />
-              <e p="Default_5" t="Include" />
-              <e p="Default_6" t="Include" />
-              <e p="Default_7" t="Include" />
-              <e p="Default_8" t="Include" />
-              <e p="Default_9" t="Include" />
-              <e p="Egishe" t="Include" />
-              <e p="Flag" t="Include" />
-              <e p="Garegin" t="Include" />
-              <e p="Grigor" t="Include" />
-              <e p="Mariam" t="Include" />
-              <e p="Ruzan" t="Include" />
-              <e p="Truck" t="Include" />
-              <e p="Vasiliy_prologue" t="Include" />
-            </e>
             <e p="DebugMoving.cs" t="Include" />
             <e p="Move" t="Include">
               <e p="CaravanData.cs" t="Include" />
@@ -282,11 +241,6 @@
           </e>
           <e p="DialogBackgroundTriggers" t="Include">
             <e p="DialogBackTrigger.cs" t="Include" />
-          </e>
-          <e p="Enviroment" t="Include">
-            <e p="Animation" t="Include">
-              <e p="Baner" t="Include" />
-            </e>
           </e>
           <e p="Extensions" t="Include">
             <e p="XmlExtensions.cs" t="Include" />
@@ -396,7 +350,6 @@
             <e p="MessageView.cs" t="Include" />
           </e>
           <e p="Parameters" t="Include">
-            <e p="Anima" t="Include" />
             <e p="Debug_Param.cs" t="Include" />
             <e p="EndedParamSystem" t="Include">
               <e p="DEBUGEndedController.cs" t="Include" />
@@ -412,10 +365,6 @@
             </e>
           </e>
           <e p="Plot" t="Include">
-            <e p="Animation" t="Include">
-              <e p="Smoke" t="Include" />
-              <e p="Smoke2" t="Include" />
-            </e>
             <e p="Core" t="Include">
               <e p="PlotManager.cs" t="Include" />
               <e p="PlotObserver.cs" t="Include" />
@@ -462,7 +411,6 @@
               <e p="PlotWordsPopup.cs" t="Include" />
             </e>
           </e>
-          <e p="Plugins" t="Include" />
           <e p="SceneScripts" t="Include">
             <e p="MySceneManager.cs" t="Include" />
             <e p="NextTravelSceneTrigger.cs" t="Include" />
@@ -482,7 +430,6 @@
             <e p="Debug" t="Include">
               <e p="DEBUG_Triggers.cs" t="Include" />
             </e>
-            <e p="DI" t="Include" />
             <e p="FiniteTriggerCatalog.cs" t="Include" />
             <e p="TriggerController.cs" t="Include" />
             <e p="TriggerRepositoryBSController.cs" t="Include" />
@@ -712,7 +659,6 @@
             <e p="SimpleButton.cs" t="Include" />
           </e>
         </e>
-        <e p="Gizmos" t="Include" />
         <e p="PathCreator" t="Include">
           <e p="Core" t="Include">
             <e p="Editor" t="Include">
@@ -742,13 +688,8 @@
                 <e p="VertexPathUtility.cs" t="Include" />
               </e>
             </e>
-            <e p="Settings" t="Include" />
           </e>
-          <e p="Documentation" t="Include" />
           <e p="Examples" t="Include">
-            <e p="Materials" t="Include" />
-            <e p="Prefabs" t="Include" />
-            <e p="Scenes" t="Include" />
             <e p="Scripts" t="Include">
               <e p="Editor" t="Include">
                 <e p="PathSceneToolEditor.cs" t="Include" />
@@ -765,9 +706,6 @@
         <e p="Plugins" t="Include">
           <e p="Demigiant" t="Include">
             <e p="DOTween" t="Include">
-              <e p="Editor" t="Include">
-                <e p="Imgs" t="Include" />
-              </e>
               <e p="Modules" t="Include">
                 <e p="DOTweenModuleAudio.cs" t="Include" />
                 <e p="DOTweenModuleEPOOutline.cs" t="Include" />
@@ -784,7 +722,6 @@
           <e p="Pixel Crushers" t="Include">
             <e p="Common" t="Include">
               <e p="_README.txt" t="Include" />
-              <e p="Documentation" t="Include" />
               <e p="Scripts" t="Include">
                 <e p="Editor" t="Include">
                   <e p="Message System" t="Include">
@@ -947,7 +884,6 @@
               <e p="Templates" t="Include">
                 <e p="SaverTemplate.cs" t="Include" />
               </e>
-              <e p="Third Party Support" t="Include" />
               <e p="Wrappers" t="Include">
                 <e p="Editor" t="Include">
                   <e p="Text" t="Include">
@@ -1040,29 +976,10 @@
               <e p="Demo" t="Include">
                 <e p="_README.txt" t="Include" />
                 <e p="Art" t="Include">
-                  <e p="Recon Troop" t="Include">
-                    <e p="Animator" t="Include" />
-                    <e p="Materials" t="Include" />
-                    <e p="Model" t="Include" />
-                    <e p="ShaderMaps" t="Include" />
-                    <e p="Textures" t="Include" />
-                  </e>
-                  <e p="Scifi Environment" t="Include">
-                    <e p="Materials" t="Include" />
-                    <e p="Models" t="Include" />
-                    <e p="Room" t="Include" />
-                    <e p="Textures" t="Include" />
-                  </e>
                   <e p="Sounds" t="Include">
                     <e p="_README.txt" t="Include" />
                   </e>
-                  <e p="Textures" t="Include">
-                    <e p="Portraits" t="Include" />
-                  </e>
                 </e>
-                <e p="Data" t="Include" />
-                <e p="Prefabs" t="Include" />
-                <e p="Resources" t="Include" />
                 <e p="Scenes" t="Include">
                   <e p="New Input System" t="Include">
                     <e p="_New_Input_System_Setup.txt" t="Include" />
@@ -1073,11 +990,6 @@
               </e>
               <e p="Prefabs" t="Include">
                 <e p="Art" t="Include">
-                  <e p="Animation" t="Include">
-                    <e p="Canvas Group Animator" t="Include" />
-                    <e p="Expanding Panel Animator" t="Include" />
-                    <e p="Portrait Animator" t="Include" />
-                  </e>
                   <e p="Fonts" t="Include">
                     <e p="Bitwise Font" t="Include">
                       <e p="!license.txt" t="Include" />
@@ -1090,59 +1002,21 @@
                     <e p="_README.txt" t="Include" />
                   </e>
                   <e p="Textures" t="Include">
-                    <e p="Basic" t="Include" />
-                    <e p="Bubble" t="Include" />
                     <e p="Circle" t="Include">
                       <e p="_README.txt" t="Include" />
                     </e>
-                    <e p="JRPG" t="Include" />
-                    <e p="Mobile" t="Include" />
-                    <e p="Nuke" t="Include" />
-                    <e p="Runic" t="Include" />
-                    <e p="Sci-fi" t="Include" />
                     <e p="Shared Textures" t="Include">
                       <e p="_README.txt" t="Include" />
                     </e>
-                    <e p="SMS" t="Include" />
                     <e p="UnityUI" t="Include">
                       <e p="_README.txt" t="Include" />
                     </e>
-                    <e p="VN" t="Include">
-                      <e p="Animation" t="Include" />
-                    </e>
-                    <e p="Wheel" t="Include" />
                   </e>
                 </e>
                 <e p="Camera Angle Studio" t="Include">
                   <e p="_README.txt" t="Include" />
                 </e>
-                <e p="Standard UI Prefabs" t="Include">
-                  <e p="Pro" t="Include">
-                    <e p="Circle" t="Include" />
-                    <e p="Computer" t="Include" />
-                    <e p="Mobile" t="Include" />
-                    <e p="Nuke" t="Include" />
-                    <e p="Old School" t="Include" />
-                    <e p="Runic" t="Include" />
-                    <e p="Sci-fi" t="Include" />
-                    <e p="Scrolling" t="Include" />
-                    <e p="SMS" t="Include" />
-                    <e p="Wheel" t="Include" />
-                  </e>
-                  <e p="Templates" t="Include">
-                    <e p="Basic" t="Include" />
-                    <e p="Bubble" t="Include" />
-                    <e p="Focus" t="Include" />
-                    <e p="JRPG" t="Include" />
-                    <e p="Letterbox" t="Include">
-                      <e p="Letterbox Animator" t="Include" />
-                    </e>
-                    <e p="VN" t="Include" />
-                    <e p="WRPG" t="Include" />
-                  </e>
-                </e>
               </e>
-              <e p="Resources" t="Include" />
               <e p="Scripts" t="Include">
                 <e p="_README.txt" t="Include" />
                 <e p="Demo Scripts" t="Include">
@@ -1695,7 +1569,6 @@
                       <e p="EntrytagFormat.cs" t="Include" />
                       <e p="Field.cs" t="Include" />
                       <e p="FieldType.cs" t="Include" />
-                      <e p="Icons" t="Include" />
                       <e p="Item.cs" t="Include" />
                       <e p="Link.cs" t="Include" />
                       <e p="Location.cs" t="Include" />
@@ -2160,8 +2033,6 @@
                 </e>
               </e>
               <e p="Templates" t="Include">
-                <e p="Articy Draft Template Project" t="Include" />
-                <e p="Chat Mapper Template Project" t="Include" />
                 <e p="Link" t="Include">
                   <e p="_README.txt" t="Include" />
                   <e p="link.xml" t="Include" />
@@ -2778,14 +2649,6 @@
                     <e p="Foo.cs" t="Include" />
                     <e p="Foo2.cs" t="Include" />
                   </e>
-                  <e p="Resources" t="Include">
-                    <e p="TestBindFactory" t="Include" />
-                    <e p="TestBindFactoryFive" t="Include" />
-                    <e p="TestBindFactoryOne" t="Include" />
-                    <e p="TestGameObjectFactoryOne" t="Include" />
-                    <e p="TestGameObjectFactoryZero" t="Include" />
-                    <e p="TestPrefabFactory" t="Include" />
-                  </e>
                   <e p="TestBindFactory" t="Include">
                     <e p="Bar.cs" t="Include" />
                     <e p="Foo.cs" t="Include" />
@@ -2801,10 +2664,6 @@
                   </e>
                 </e>
                 <e p="Installers" t="Include">
-                  <e p="Resources" t="Include">
-                    <e p="TestMonoInstallers" t="Include" />
-                    <e p="TestScriptableObjectInstallers" t="Include" />
-                  </e>
                   <e p="TestInstallers" t="Include">
                     <e p="BarInstaller.cs" t="Include" />
                     <e p="FooInstaller.cs" t="Include" />
@@ -2823,42 +2682,21 @@
                 </e>
                 <e p="Misc" t="Include">
                   <e p="TestAnimationStateBehaviourInject" t="Include">
-                    <e p="Resources" t="Include">
-                      <e p="TestAnimationStateBehaviourInject" t="Include" />
-                    </e>
                     <e p="StateBehaviour1.cs" t="Include" />
                   </e>
                   <e p="TestZenAutoInjecter" t="Include">
                     <e p="Bar.cs" t="Include" />
                     <e p="Gorp.cs" t="Include" />
                     <e p="Qux.cs" t="Include" />
-                    <e p="Resources" t="Include">
-                      <e p="TestZenAutoInjecter" t="Include" />
-                    </e>
                   </e>
-                </e>
-                <e p="Resources" t="Include">
-                  <e p="TestBindGameObject" t="Include" />
-                  <e p="TestDiContainerMethods" t="Include" />
-                  <e p="TestFromComponentInHierarchyGameObjectContext" t="Include" />
-                  <e p="TestFromNewScriptableObjectResource" t="Include" />
-                  <e p="TestFromPrefab" t="Include" />
-                  <e p="TestFromPrefabInstaller" t="Include" />
-                  <e p="TestFromPrefabResource" t="Include" />
-                  <e p="TestFromResource" t="Include" />
-                  <e p="TestFromSubContainerPrefab" t="Include" />
-                  <e p="TestFromSubContainerPrefabResource" t="Include" />
-                  <e p="TestInstantiateCallback" t="Include" />
                 </e>
                 <e p="SceneContractTests" t="Include">
                   <e p="AutoLoader" t="Include">
-                    <e p="Resources" t="Include" />
                     <e p="Scene1Installer.cs" t="Include" />
                     <e p="Scene2Installer.cs" t="Include" />
                     <e p="Scene3Installer.cs" t="Include" />
                   </e>
                   <e p="Decorators" t="Include">
-                    <e p="Resources" t="Include" />
                     <e p="Scene1Installer.cs" t="Include" />
                     <e p="Scene2Installer.cs" t="Include" />
                   </e>
@@ -2873,17 +2711,11 @@
                     <e p="FooMonoBehaviourUnderSceneContext3.cs" t="Include" />
                     <e p="ProjectInstaller.cs" t="Include" />
                     <e p="readme.txt" t="Include" />
-                    <e p="RenameThisResources" t="Include" />
                     <e p="Scene1Installer.cs" t="Include" />
                     <e p="Scene2Installer.cs" t="Include" />
                   </e>
                   <e p="TestSceneContextEvents" t="Include">
                     <e p="SceneContextEventsTester.cs" t="Include" />
-                    <e p="Tests" t="Include">
-                      <e p="Resources" t="Include">
-                        <e p="SceneTestFixtureSettings" t="Include" />
-                      </e>
-                    </e>
                   </e>
                 </e>
                 <e p="Tests" t="Include">
@@ -3009,9 +2841,6 @@
                     <e p="MpmWindow.cs" t="Include" />
                   </e>
                   <e p="MpmSettingsInstaller.cs" t="Include" />
-                  <e p="Resources" t="Include">
-                    <e p="Installers" t="Include" />
-                  </e>
                   <e p="Zenject-PoolMonitor-Editor.asmdef" t="Include" />
                 </e>
               </e>
@@ -3020,7 +2849,6 @@
                   <e p="CecilExtensions.cs" t="Include" />
                   <e p="ReflectionBakingModuleEditor.cs" t="Include" />
                 </e>
-                <e p="Lib" t="Include" />
                 <e p="unity" t="Include">
                   <e p="AssemblyPathRegistry.cs" t="Include" />
                   <e p="ReflectionBakingBuildObserver.cs" t="Include" />
@@ -3038,40 +2866,12 @@
                     <e p="Space.txt" t="Include" />
                   </e>
                   <e p="Imported" t="Include">
-                    <e p="Materials" t="Include" />
-                    <e p="Rocks" t="Include">
-                      <e p="meshes" t="Include">
-                        <e p="Materials" t="Include" />
-                      </e>
-                      <e p="Textures" t="Include" />
-                    </e>
                     <e p="Shaders" t="Include">
                       <e p="Add_Layer.shader" t="Include" />
                       <e p="AddSmooth_Layer.shader" t="Include" />
                       <e p="Particle Alpha Blend_IgnoreFog.shader" t="Include" />
                     </e>
-                    <e p="SpaceShip" t="Include">
-                      <e p="Materials" t="Include" />
-                      <e p="Space_Shooter.fbm" t="Include" />
-                      <e p="Textures" t="Include" />
-                    </e>
-                    <e p="Textures" t="Include" />
                   </e>
-                  <e p="Materials" t="Include" />
-                  <e p="meshes" t="Include">
-                    <e p="Materials" t="Include" />
-                  </e>
-                  <e p="Physics" t="Include" />
-                  <e p="Sounds" t="Include" />
-                  <e p="Textures" t="Include">
-                    <e p="Background" t="Include">
-                      <e p="Materials" t="Include" />
-                    </e>
-                  </e>
-                </e>
-                <e p="Prefabs" t="Include" />
-                <e p="Resources" t="Include">
-                  <e p="Installers" t="Include" />
                 </e>
                 <e p="Scripts" t="Include">
                   <e p="Asteroid" t="Include">
@@ -3110,20 +2910,6 @@
                 </e>
               </e>
               <e p="SampleGame2 (Advanced)" t="Include">
-                <e p="Media" t="Include">
-                  <e p="Materials" t="Include" />
-                  <e p="Models" t="Include">
-                    <e p="Materials" t="Include" />
-                  </e>
-                  <e p="Physics" t="Include" />
-                  <e p="Prefabs" t="Include" />
-                  <e p="Sounds" t="Include" />
-                  <e p="Textures" t="Include" />
-                </e>
-                <e p="Resources" t="Include">
-                  <e p="SpaceFighter" t="Include" />
-                </e>
-                <e p="Scenes" t="Include" />
                 <e p="Scripts" t="Include">
                   <e p="Enemy" t="Include">
                     <e p="EnemyCommonSettings.cs" t="Include" />
@@ -3712,35 +3498,6 @@
             <e p="zenject.asmdef" t="Include" />
           </e>
         </e>
-        <e p="Prefabs" t="Include">
-          <e p="DialogScene" t="Include" />
-          <e p="Plot" t="Include" />
-          <e p="Systems" t="Include" />
-          <e p="TravelScenes" t="Include">
-            <e p="Caravans" t="Include" />
-          </e>
-          <e p="Triggers" t="Include" />
-          <e p="UI" t="Include">
-            <e p="Interfece" t="Include">
-              <e p="Buttons" t="Include" />
-              <e p="Panels" t="Include" />
-            </e>
-            <e p="Popup" t="Include">
-              <e p="Advice" t="Include" />
-              <e p="Intro" t="Include" />
-              <e p="Menu" t="Include" />
-              <e p="Message" t="Include" />
-              <e p="Parts" t="Include" />
-              <e p="Plot" t="Include" />
-              <e p="Portraits" t="Include" />
-              <e p="Reaction" t="Include" />
-              <e p="Tutorial" t="Include" />
-            </e>
-            <e p="Popup UI" t="Include">
-              <e p="Story" t="Include" />
-            </e>
-          </e>
-        </e>
         <e p="readme.txt" t="Include" />
         <e p="Resources" t="Include">
           <e p="Accidents" t="Include">
@@ -3770,12 +3527,7 @@
               <e p="tiredness.xml" t="Include" />
             </e>
           </e>
-          <e p="Background" t="Include">
-            <e p="Camp" t="Include" />
-            <e p="Dialog" t="Include" />
-          </e>
           <e p="Entities" t="Include">
-            <e p="Persons" t="Include" />
             <e p="Plot" t="Include">
               <e p="Plot dialog text.xml" t="Include" />
               <e p="Plot map text.xml" t="Include" />
@@ -3927,126 +3679,6 @@
               <e p="Эпизод_2.1.json" t="Include" />
               <e p="Яблони_Случай.json" t="Include" />
             </e>
-            <e p="Info" t="Include" />
-          </e>
-          <e p="ZenjectInstallers" t="Include" />
-        </e>
-        <e p="Scenes" t="Include">
-          <e p="Travel" t="Include" />
-        </e>
-        <e p="Sprite" t="Include">
-          <e p="CampBackground" t="Include" />
-          <e p="Caravan" t="Include">
-            <e p="Barseg" t="Include" />
-            <e p="Barseg_prolog" t="Include" />
-            <e p="Default_1" t="Include" />
-            <e p="Default_2" t="Include" />
-            <e p="Default_3" t="Include" />
-            <e p="Default_4" t="Include" />
-            <e p="Default_5" t="Include" />
-            <e p="Default_6" t="Include" />
-            <e p="Default_7" t="Include" />
-            <e p="Default_8" t="Include" />
-            <e p="Default_9" t="Include" />
-            <e p="Egishe" t="Include" />
-            <e p="Flag" t="Include" />
-            <e p="Garegin" t="Include" />
-            <e p="Grigor" t="Include" />
-            <e p="Mariam" t="Include" />
-            <e p="Ruzan" t="Include" />
-            <e p="Truck" t="Include">
-              <e p="Big" t="Include" />
-              <e p="Little" t="Include" />
-            </e>
-            <e p="Vasiliy" t="Include" />
-            <e p="Vasiliy_prolog" t="Include" />
-          </e>
-          <e p="Characters" t="Include">
-            <e p="Figure" t="Include">
-              <e p="Аматуни" t="Include" />
-              <e p="Барсег" t="Include" />
-              <e p="Ваан" t="Include" />
-              <e p="Василий" t="Include" />
-              <e p="Византиец" t="Include" />
-              <e p="Военачальник" t="Include" />
-              <e p="Гарегин" t="Include" />
-              <e p="Гаянэ" t="Include" />
-              <e p="Гонец" t="Include" />
-              <e p="Егишь" t="Include" />
-              <e p="Женщина" t="Include" />
-              <e p="Курд" t="Include" />
-              <e p="Марал" t="Include" />
-              <e p="Мариам" t="Include" />
-              <e p="Монах Арутюн" t="Include" />
-              <e p="Настоятель" t="Include" />
-              <e p="Разбойник" t="Include" />
-              <e p="Рузан" t="Include" />
-              <e p="Сако" t="Include" />
-              <e p="Тер-Григор" t="Include" />
-              <e p="Торгул" t="Include" />
-              <e p="Турок" t="Include" />
-            </e>
-            <e p="Portraits" t="Include" />
-          </e>
-          <e p="Enviroment" t="Include">
-            <e p="castleFlag" t="Include" />
-            <e p="Prologue" t="Include" />
-            <e p="Travel_1" t="Include" />
-            <e p="Travel_2" t="Include" />
-          </e>
-          <e p="Mocaps" t="Include" />
-          <e p="Plot" t="Include">
-            <e p="Mgla" t="Include" />
-            <e p="Mgla2" t="Include" />
-            <e p="Siege" t="Include" />
-            <e p="Smoke" t="Include" />
-          </e>
-          <e p="Settings" t="Include">
-            <e p="Back" t="Include" />
-            <e p="Slider" t="Include" />
-          </e>
-          <e p="Signs" t="Include" />
-          <e p="Tutorial" t="Include">
-            <e p="Arrows" t="Include" />
-            <e p="Complete" t="Include" />
-          </e>
-          <e p="UI" t="Include">
-            <e p="BottomPanel" t="Include" />
-            <e p="CloseDialog" t="Include" />
-            <e p="Diary" t="Include" />
-            <e p="Leave" t="Include" />
-            <e p="MainMenu" t="Include">
-              <e p="Continue" t="Include" />
-              <e p="Encyclopedia" t="Include" />
-              <e p="Exit" t="Include" />
-              <e p="Icon" t="Include" />
-              <e p="NewGame" t="Include" />
-              <e p="Settings" t="Include" />
-            </e>
-            <e p="Map" t="Include" />
-            <e p="OldParameters" t="Include" />
-            <e p="ParamPanel" t="Include" />
-            <e p="PauseMenu" t="Include" />
-            <e p="Popups" t="Include">
-              <e p="Accident" t="Include">
-                <e p="ButtonScroller" t="Include" />
-              </e>
-              <e p="AdviceArrow" t="Include" />
-              <e p="Dialog" t="Include">
-                <e p="ButtonScroller" t="Include" />
-              </e>
-              <e p="End" t="Include" />
-              <e p="Message" t="Include">
-                <e p="MessageCancel" t="Include" />
-                <e p="ParamsSigns" t="Include" />
-              </e>
-              <e p="NightWork" t="Include" />
-            </e>
-            <e p="Portrait" t="Include" />
-            <e p="RelationPanel" t="Include" />
-            <e p="Rest" t="Include" />
-            <e p="SetupCamp" t="Include" />
-            <e p="Timer" t="Include" />
           </e>
         </e>
         <e p="Test" t="Include">
@@ -4055,16 +3687,12 @@
           <e p="Test1.cs" t="Include" />
         </e>
         <e p="TextMesh Pro" t="Include">
-          <e p="Documentation" t="Include" />
           <e p="Fonts" t="Include">
             <e p="LiberationSans - OFL.txt" t="Include" />
           </e>
           <e p="Resources" t="Include">
-            <e p="Fonts &amp; Materials" t="Include" />
             <e p="LineBreaking Following Characters.txt" t="Include" />
             <e p="LineBreaking Leading Characters.txt" t="Include" />
-            <e p="Sprite Assets" t="Include" />
-            <e p="Style Sheets" t="Include" />
           </e>
           <e p="Shaders" t="Include">
             <e p="TMP_Bitmap-Custom-Atlas.shader" t="Include" />
