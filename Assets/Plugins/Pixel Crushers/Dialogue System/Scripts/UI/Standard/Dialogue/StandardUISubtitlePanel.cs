@@ -722,6 +722,7 @@ namespace PixelCrushers.DialogueSystem
                 if (dialogueActor != null) // && dialogueActor.standardDialogueUISettings.portraitAnimatorController != null)
                 {
                     var speakerPanelNumber = dialogueActor.GetSubtitlePanelNumber();
+                    
                     var isMyPanel =
                         (actorOverridingPanel == subtitle.speakerInfo.transform) ||
                         (PanelNumberUtility.GetSubtitlePanelIndex(speakerPanelNumber) == this.panelNumber) ||

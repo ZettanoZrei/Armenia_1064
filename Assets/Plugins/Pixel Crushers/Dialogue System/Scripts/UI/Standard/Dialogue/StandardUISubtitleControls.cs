@@ -1,5 +1,6 @@
 // Copyright (c) Pixel Crushers. All rights reserved.
 
+using System;
 using UnityEngine;
 using System.Collections.Generic;
 
@@ -720,6 +721,7 @@ namespace PixelCrushers.DialogueSystem
             var actorTransform = GetActorTransform(actor.Name);
             DialogueActor dialogueActor;
             var panel = GetActorTransformPanel(actorTransform, actor.IsPlayer ? m_defaultPCPanel : m_defaultNPCPanel, out dialogueActor);
+
             if (m_actorIdOverridePanel.ContainsKey(actor.id))
             {
                 panel = m_actorIdOverridePanel[actor.id];
@@ -735,6 +737,10 @@ namespace PixelCrushers.DialogueSystem
                 panel.OpenOnStartConversation(actorPortrait, actorName, dialogueActor);
                 SetLastActorToUsePanel(panel, actorID);
             }
+
+            var index = panel.name.Split(" ")[2];
+            var point = CustomDialoguePosition.GetPosition(Convert.ToInt16(index));
+            actorTransform.position = point;
         }
 
         public void SetLastActorToUsePanel(StandardUISubtitlePanel panel, int actorID)
