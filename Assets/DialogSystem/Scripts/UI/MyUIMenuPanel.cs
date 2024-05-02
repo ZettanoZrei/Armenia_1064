@@ -22,17 +22,18 @@ public class MyUIMenuPanel : StandardUIMenuPanel
             var conversation = database.actors.First(x => x.id == response.destinationEntry.ConversantID);
             if (!RelationManager.Instance.TryGetRelation(conversation.Name, out int relation))
                 return;
-            
-            if(button is AdviceUIButton adviceUI) 
-            {                
+
+            if (button is AdviceUIButton adviceUI)
+            {
                 var info = personInfoCatalog.GetPack(conversation.Name);
                 adviceUI.SetRelation(relation);
                 adviceUI.SetPortrait(info.Portret);
                 var enabled = RelationManager.Instance.RelationNeededForAdvice < relation;
                 myResponse.SetState(enabled);
             }
-            else if(button is ResponseUIButton responseUI){
-                var relationField = response.destinationEntry.fields.FirstOrDefault(x=>x.title=="Relations");
+            else if (button is ResponseUIButton responseUI)
+            {
+                var relationField = response.destinationEntry.fields.FirstOrDefault(x => x.title == "Relations"); //from dialog entry templates (all fields)
                 if (relationField == null)
                     return;
 
