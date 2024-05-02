@@ -24,7 +24,7 @@ MonoBehaviour:
     parameters: 
     returnValue: 0
   - functionName: SetRelationship
-    parameters: 0300000001000000
+    parameters: 0100000003000000
     returnValue: 0
   - functionName: AddItems
     parameters: 0100000008000000
@@ -32,9 +32,6 @@ MonoBehaviour:
   - functionName: LaunchConclusion
     parameters: 
     returnValue: 0
-  - functionName: ChangeRelation
+  - functionName: ChangeRelationship
     parameters: 0300000001000000
-    returnValue: 0
-  - functionName: TestPortrait
-    parameters: 0300000002000000
     returnValue: 0

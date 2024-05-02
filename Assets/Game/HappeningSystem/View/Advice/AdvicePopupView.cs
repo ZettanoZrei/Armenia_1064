@@ -24,7 +24,9 @@ public class AdvicePopupView : MonoBehaviour
 
     public event Action<PersonName> OnClickPortrait;
 
-    public void ShowAdvicePanel(List<PortraitButton> portraits)
+
+
+    public void ShowAdvicePanel(List<PortraitButton> portraits) //delete?
     {
         try
         {
@@ -40,6 +42,11 @@ public class AdvicePopupView : MonoBehaviour
         catch(Exception ex) { Logger.WriteLog($"{ex}"); }
     }
 
+
+    public void ActiveAdvicePanel()
+    {
+        this.gameObject.SetActive(true);
+    }
     public void HideAdvicePanel()
     {
         this.gameObject.SetActive(false);

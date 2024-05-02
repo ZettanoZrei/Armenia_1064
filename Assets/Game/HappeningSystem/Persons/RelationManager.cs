@@ -17,7 +17,14 @@ namespace Assets.Game.HappeningSystem.Persons
     public class RelationManager : IEnumerable<Relation>
     {
         private readonly List<Relation> relations = new List<Relation>();
+        public int RelationNeededForAdvice { get; private set; } //todo to settings
+        public RelationManager() 
+        {
+            Instance = this;
+        }
+        public static RelationManager Instance { get; private set; } //костыль
 
+        
         
         public void ChangeRelation(SinglePersonConsequences personConsequences)
         {
@@ -38,9 +45,15 @@ namespace Assets.Game.HappeningSystem.Persons
             }
         }
 
-        public int GetRelation(string person)
+        public bool TryGetRelation(string person, out int relation)
         {
-            return relations.FirstOrDefault(x => x.Name == person).Value.Value;
+            relation = -1;
+            if (relations.Any(x => x.Name == person))
+            {
+                relation = relations.FirstOrDefault(x => x.Name == person).Value.Value;
+                return true;
+            }
+            return false;
         }
 
         public void InitPersonRelation(string person, int value)

@@ -27,6 +27,7 @@ namespace Assets.DialogSystem.Scripts.UI
             if (containerParams)
                 containerParams.gameObject.SetActive(false);
         }
+
         public void SetParameters(Dictionary<ParameterType, int> parameters)
         {
             foreach(var parameter in parameters)

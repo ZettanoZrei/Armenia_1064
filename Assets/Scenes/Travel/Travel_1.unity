@@ -1419,14 +1419,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1193167288725065306, guid: 55a8fef9a5b357a458fa4645430482fd, type: 3}
-      propertyPath: standardDialogueUISettings.customMenuPanel
-      value: 
-      objectReference: {fileID: 2293030665248711024, guid: 5a660041491b3c148b920246e55ed3a9, type: 3}
-    - target: {fileID: 1193167288725065306, guid: 55a8fef9a5b357a458fa4645430482fd, type: 3}
-      propertyPath: standardDialogueUISettings.menuPanelNumber
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55a8fef9a5b357a458fa4645430482fd, type: 3}
 --- !u!4 &372653121 stripped
@@ -1969,7 +1961,7 @@ MonoBehaviour:
   allowBarksDuringConversations: 0
   skipBarkIfNoValidEntries: 0
   cacheBarkLines: 0
-  conversation: TestEvent_1
+  conversation: New Conversation 3
   conversationConversant: {fileID: 0}
   conversationActor: {fileID: 372653122}
   startConversationEntryID: -1
@@ -2127,11 +2119,6 @@ SpriteRenderer:
 --- !u!4 &536919360 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1193167287921275326, guid: 55a8fef9a5b357a458fa4645430482fd, type: 3}
-  m_PrefabInstance: {fileID: 372653120}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &552485653 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1193167289446574845, guid: 55a8fef9a5b357a458fa4645430482fd, type: 3}
   m_PrefabInstance: {fileID: 372653120}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &553936105
@@ -5386,7 +5373,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2065616079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5437,9 +5424,9 @@ MonoBehaviour:
   allowBarksDuringConversations: 0
   skipBarkIfNoValidEntries: 0
   cacheBarkLines: 0
-  conversation: "\u0420\u0430\u0437\u0433\u043E\u0432\u043E\u0440_1"
-  conversationConversant: {fileID: 0}
-  conversationActor: {fileID: 552485653}
+  conversation: TestEvent_1
+  conversationConversant: {fileID: 372653122}
+  conversationActor: {fileID: 372653122}
   startConversationEntryID: -1
   startConversationEntryTitle: 
   exclusive: 0

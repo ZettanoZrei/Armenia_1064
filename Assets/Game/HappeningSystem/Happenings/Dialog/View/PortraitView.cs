@@ -6,7 +6,6 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-
 public class PortraitView : MonoBehaviour
 {
     [SerializeField] private Image portrait;

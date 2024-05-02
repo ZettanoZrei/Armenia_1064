@@ -179,7 +179,7 @@ MonoBehaviour:
           m_TargetAssemblyTypeName: Assets.DialogSystem.Scripts.ActorEventObserver,
             Assembly-CSharp
           m_MethodName: TriggerDialogStartEvent
-          m_Mode: 1
+          m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -365,7 +365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   priority: 0
-  ui: {fileID: 8899631735473936600, guid: 9cb467c0dfc2c824594803eedc1a331f, type: 3}
+  ui: {fileID: 5156491365146423292, guid: db73c9279e3167b4a8968ab661b4d4a7, type: 3}
   dontDestroyPrefabIntance: 1
 --- !u!114 &1193167288725065306
 MonoBehaviour:
@@ -391,7 +391,7 @@ MonoBehaviour:
     customSubtitlePanel: {fileID: 0}
     customSubtitlePanelOffset: {x: 0, y: 0, z: 0}
     menuPanelNumber: 0
-    customMenuPanel: {fileID: 0}
+    customMenuPanel: {fileID: 2293030665248711024, guid: 5a660041491b3c148b920246e55ed3a9, type: 3}
     customMenuPanelOffset: {x: 0, y: 0, z: 0}
     useMenuPanelFor: 0
     portraitAnimatorController: {fileID: 0}
@@ -420,7 +420,7 @@ MonoBehaviour:
           m_TargetAssemblyTypeName: Assets.DialogSystem.Scripts.ActorEventObserver,
             Assembly-CSharp
           m_MethodName: TriggerDialogStartEvent
-          m_Mode: 1
+          m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -451,7 +451,20 @@ MonoBehaviour:
         m_Calls: []
     onConversationLine:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 1193167288711699783}
+          m_TargetAssemblyTypeName: Assets.DialogSystem.Scripts.ActorEventObserver,
+            Assembly-CSharp
+          m_MethodName: TriggerShowSubtitleEvent
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     onConversationLineEnd:
       m_PersistentCalls:
         m_Calls: []
@@ -460,7 +473,20 @@ MonoBehaviour:
         m_Calls: []
     onConversationResponseMenu:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 1193167288711699783}
+          m_TargetAssemblyTypeName: Assets.DialogSystem.Scripts.ActorEventObserver,
+            Assembly-CSharp
+          m_MethodName: TriggerShowResponseMenuEvent
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     onConversationResponseMenuTimeout:
       m_PersistentCalls:
         m_Calls: []

@@ -1,5 +1,7 @@
 ﻿using Assets.Game.Menu;
 using Entities;
+using PixelCrushers.DialogueSystem;
+using System;
 using UnityEngine;
 using Zenject;
 
@@ -26,5 +28,10 @@ public class DebugMoving : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Q))
             menuManager.ShowMenu();
 
+    }
+
+    public void ShowResponse(Response[] responses)
+    {
+        Console.WriteLine("!!!");
     }
 }
