@@ -2,11 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CustomDialoguePosition : MonoBehaviour
 {
     private static CustomDialoguePosition m_instance = null;
-
+    public static UnityEvent<bool> IsFlipped = new();
     private void Awake()
     {
         m_instance = this;
@@ -29,5 +30,16 @@ public class CustomDialoguePosition : MonoBehaviour
             position = new Vector3(position.x, position.y, -1);
         
         return position;
+    }
+
+    public static bool GetFlippedState()
+    {
+        return MathF.Abs(m_instance.transform.rotation.z) > 0.5f;
+    }
+
+    public static void Flip(float angle)
+    {
+        m_instance.transform.rotation = new Quaternion(m_instance.transform.rotation.x, m_instance.transform.rotation.y, angle, m_instance.transform.rotation.w);
+        IsFlipped.Invoke(GetFlippedState());
     }
 }

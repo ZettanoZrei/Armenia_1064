@@ -240,6 +240,8 @@ namespace PixelCrushers.DialogueSystem
             Open();
             SetUIElementsActive(true);
             SetPortraitImage(portraitSprite);
+            dialogueActor.SetActive(true);
+            Debug.Log($"OpenOnStartConversation: {dialogueActor.actor}");
             portraitActorName = (dialogueActor != null) ? dialogueActor.GetActorName() : portraitName;
             if (this.portraitName != null) this.portraitName.text = portraitActorName;
             if (subtitleText.text != null) subtitleText.text = string.Empty;
@@ -282,6 +284,10 @@ namespace PixelCrushers.DialogueSystem
         protected virtual void ShowSubtitleNow(Subtitle subtitle)
         {
             SetUIElementsActive(true);
+            var dialogueActor = subtitle.speakerInfo.transform.GetComponent<DialogueActor>();
+            dialogueActor.SetActive(true);
+            
+            
             if (!isOpen)
             {
                 hasFocus = false;
@@ -455,6 +461,7 @@ namespace PixelCrushers.DialogueSystem
         {
             Tools.SetGameObjectActive(panel, value);
             Tools.SetGameObjectActive(portraitImage, value && portraitImage != null && portraitImage.sprite != null);
+            
             portraitName.SetActive(value);
             subtitleText.SetActive(value);
             Tools.SetGameObjectActive(continueButton, false); // Let ConversationView determine if continueButton should be shown.

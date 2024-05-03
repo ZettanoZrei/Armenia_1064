@@ -328,7 +328,11 @@ namespace PixelCrushers.DialogueSystem
             {
                 m_useBarkUIs.Remove(dialogueActor.transform);
             }
-            m_actorPanelCache[dialogueActor.transform] = GetPanelFromNumber(subtitlePanelNumber, dialogueActor.standardDialogueUISettings.customSubtitlePanel);
+            var p = GetPanelFromNumber(subtitlePanelNumber, dialogueActor.standardDialogueUISettings.customSubtitlePanel);
+            m_actorPanelCache[dialogueActor.transform] = p;
+
+            var index = Convert.ToInt16(p.name.Split(" ")[2]);
+            dialogueActor.SetPosition(index);
         }
 
         #endregion
@@ -738,9 +742,8 @@ namespace PixelCrushers.DialogueSystem
                 SetLastActorToUsePanel(panel, actorID);
             }
 
-            var index = panel.name.Split(" ")[2];
-            var point = CustomDialoguePosition.GetPosition(Convert.ToInt16(index));
-            actorTransform.position = point;
+            var index =Convert.ToInt16(panel.name.Split(" ")[2]);
+            dialogueActor.SetPosition(index);
         }
 
         public void SetLastActorToUsePanel(StandardUISubtitlePanel panel, int actorID)

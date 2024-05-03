@@ -55,11 +55,18 @@ namespace PixelCrushers.DialogueSystem.VisualNovelFramework
             
             if (dialogueActor != null)
             {
-                var position = PanelNumberUtility.GetSubtitlePanelIndex(dialogueActor.GetSubtitlePanelNumber());
+                Debug.Log($"{subtitle.dialogueEntry.subtitleText}");
+                var position = dialogueActor.customScenePosition;
+                
                 if (position > 0)
-                    subAdress = position % 2 == 0 ? "_back" : "";
+                    subAdress = position % 2 == 0 ? "" : "_back";
                 else
-                    subAdress = subtitle.speakerInfo.isPlayer ? "_back" : "";
+                    subAdress = subtitle.speakerInfo.isPlayer ? "" : "_back";
+
+                if (subAdress == "")
+                    CustomDialoguePosition.Flip(0);
+                else 
+                    CustomDialoguePosition.Flip(180);
             }
 
             if (!string.IsNullOrEmpty(locationIndex))
