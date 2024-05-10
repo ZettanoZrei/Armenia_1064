@@ -330,9 +330,8 @@ namespace PixelCrushers.DialogueSystem
             }
             var p = GetPanelFromNumber(subtitlePanelNumber, dialogueActor.standardDialogueUISettings.customSubtitlePanel);
             m_actorPanelCache[dialogueActor.transform] = p;
-
-            var index = Convert.ToInt16(p.name.Split(" ")[2]);
-            dialogueActor.SetPosition(index);
+            
+            dialogueActor.SetPanel(p);
         }
 
         #endregion
@@ -538,6 +537,7 @@ namespace PixelCrushers.DialogueSystem
             {
                 panel.FinishSubtitle();
             }
+
         }
 
         /// <summary>
@@ -742,8 +742,7 @@ namespace PixelCrushers.DialogueSystem
                 SetLastActorToUsePanel(panel, actorID);
             }
 
-            var index =Convert.ToInt16(panel.name.Split(" ")[2]);
-            dialogueActor.SetPosition(index);
+            dialogueActor.SetPanel(panel);
         }
 
         public void SetLastActorToUsePanel(StandardUISubtitlePanel panel, int actorID)

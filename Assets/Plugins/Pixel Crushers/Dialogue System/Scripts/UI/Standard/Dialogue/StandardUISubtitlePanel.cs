@@ -150,11 +150,13 @@ namespace PixelCrushers.DialogueSystem
         public Transform m_actorOverridingPanel = null;
         public Transform actorOverridingPanel { get { return m_actorOverridingPanel; } set { m_actorOverridingPanel = value; } }
         private int m_lastActorID = -1;
+        private DialogueActor _actor;
         protected int lastActorID { get { return m_lastActorID; } set { m_lastActorID = value; } }
         protected int frameLastSetContent = -1; // Frame when we last set this panel's content.
         protected bool shouldShowContinueButton = false;
         protected const float WaitForCloseTimeoutDuration = 8f;
         private StandardDialogueUI m_dialogueUI = null;
+
         public StandardDialogueUI dialogueUI
         {
             get
@@ -240,8 +242,7 @@ namespace PixelCrushers.DialogueSystem
             Open();
             SetUIElementsActive(true);
             SetPortraitImage(portraitSprite);
-            dialogueActor.SetActive(true);
-            Debug.Log($"OpenOnStartConversation: {dialogueActor.actor}");
+            //dialogueActor.SetActive(true);
             portraitActorName = (dialogueActor != null) ? dialogueActor.GetActorName() : portraitName;
             if (this.portraitName != null) this.portraitName.text = portraitActorName;
             if (subtitleText.text != null) subtitleText.text = string.Empty;
@@ -284,10 +285,6 @@ namespace PixelCrushers.DialogueSystem
         protected virtual void ShowSubtitleNow(Subtitle subtitle)
         {
             SetUIElementsActive(true);
-            var dialogueActor = subtitle.speakerInfo.transform.GetComponent<DialogueActor>();
-            dialogueActor.SetActive(true);
-            
-            
             if (!isOpen)
             {
                 hasFocus = false;
@@ -603,8 +600,7 @@ namespace PixelCrushers.DialogueSystem
 
         protected virtual void SetSubtitleTextContent(Subtitle subtitle)
         {
-            //var mini = subtitleText.gameObject.transform.GetChild(0).transform.GetChild(0).GetComponent<UnityEngine.UI.Image>();
-            //mini.sprite = portraitImage.sprite;
+
             TypewriterUtility.StopTyping(subtitleText);
             var previousText = accumulateText ? m_accumulatedText : string.Empty;
             if (accumulateText && !string.IsNullOrEmpty(subtitle.formattedText.text))

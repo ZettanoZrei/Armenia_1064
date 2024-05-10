@@ -150,6 +150,7 @@ namespace PixelCrushers.DialogueSystem
         /// </param>
         public void StartSubtitle(Subtitle subtitle, bool isPCResponseMenuNext, bool isPCAutoResponseNext)
         {
+
             notifyOnFinishSubtitle = true;
             if (subtitle != null)
             {

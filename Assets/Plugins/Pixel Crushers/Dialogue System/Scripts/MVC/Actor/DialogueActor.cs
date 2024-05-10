@@ -99,6 +99,7 @@ namespace PixelCrushers.DialogueSystem
 
         public StandardDialogueUISettings standardDialogueUISettings = new StandardDialogueUISettings();
 
+        private StandardUISubtitlePanel _currentPanel;
         protected virtual void Awake()
         {
             
@@ -108,9 +109,15 @@ namespace PixelCrushers.DialogueSystem
             SetActive(false);
         }
 
+        public virtual void SetPanel(StandardUISubtitlePanel panel)
+        {
+            _currentPanel = panel;
+            var index = Convert.ToInt16(panel.name.Split(" ")[2]);
+            SetPosition(index);
+        }
+
         public virtual void SetPosition(int position)
         {
-            Debug.Log($"{actor} POSITION: {position}");
             customScenePosition = position;
             if (position % 2 == 0)
                 this.GetComponent<SpriteRenderer>().flipX = true;
@@ -146,6 +153,8 @@ namespace PixelCrushers.DialogueSystem
             }
             var position = CustomDialoguePosition.GetPosition(customScenePosition);
             this.transform.position = position;
+            bool active = _currentPanel != null ? _currentPanel.gameObject.activeSelf : false;
+            SetActive(active);
         }
 
         public virtual void SetActive(bool state)

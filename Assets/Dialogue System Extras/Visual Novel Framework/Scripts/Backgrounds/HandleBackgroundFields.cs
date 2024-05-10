@@ -55,7 +55,7 @@ namespace PixelCrushers.DialogueSystem.VisualNovelFramework
             
             if (dialogueActor != null)
             {
-                Debug.Log($"{subtitle.dialogueEntry.subtitleText}");
+                
                 var position = dialogueActor.customScenePosition;
                 
                 if (position > 0)
