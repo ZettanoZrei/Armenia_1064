@@ -3,6 +3,7 @@
 #if !(USE_NLUA || OVERRIDE_LUA)
 using Language.Lua;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using UnityEngine;
 
@@ -1102,6 +1103,26 @@ namespace PixelCrushers.DialogueSystem
         public static Lua.Result GetLocationField(string location, string field)
         {
             return GetTableField("Location", location, field);
+        }
+        public static Lua.Result GetLocationFieldByIndex(int locationIndex, string field)
+        {
+            var table = "Location";
+            LuaTable luaTable = Lua.Environment.GetValue(table) as LuaTable;
+            if (luaTable == null) return Lua.NoResult;
+            int index = 1;
+            var location = "";
+            foreach (var item in luaTable.Dict)
+            {
+                if (index == locationIndex)
+                {
+                    location = item.Key.Value.ToString();
+                    break;
+                }
+
+                index++;
+            }
+            
+            return GetTableField(table, location, field);
         }
 
         /// <summary>

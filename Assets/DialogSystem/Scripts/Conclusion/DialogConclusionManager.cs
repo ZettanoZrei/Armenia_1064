@@ -4,7 +4,6 @@ using Assets.Game.Parameters;
 using Assets.Modules;
 using GameSystems.Modules;
 using PixelCrushers.DialogueSystem;
-using PixelCrushers.DialogueSystem.ChatMapper;
 using System;
 using System.Linq;
 using UnityEngine;
@@ -38,18 +37,16 @@ public class DialogConclusionManager :
 
     void ISceneReady.ReadyScene()
     {
-        Lua.RegisterFunction(nameof(AddItems), this, SymbolExtensions.GetMethodInfo(() => AddItems(0, string.Empty)));
-        //Lua.RegisterFunction(nameof(SetRelationship), this, SymbolExtensions.GetMethodInfo(() => SetRelationship(0, string.Empty)));
+        Lua.RegisterFunction(nameof(AddItems), this, SymbolExtensions.GetMethodInfo(() => AddItems(default(int), string.Empty)));
+        Lua.RegisterFunction(nameof(SetRelationship), this, SymbolExtensions.GetMethodInfo(() => SetRelationship(string.Empty, default(int))));
         Lua.RegisterFunction(nameof(LaunchConclusion), this, SymbolExtensions.GetMethodInfo(() => LaunchConclusion()));
-        Lua.RegisterFunction(nameof(ChangeRelationship), this, SymbolExtensions.GetMethodInfo(() => ChangeRelationship(string.Empty, 0)));
     }
 
     void ISceneFinish.FinishScene()
     {
         Lua.UnregisterFunction(nameof(AddItems));
-        //Lua.UnregisterFunction(nameof(SetRelationship));
+        Lua.UnregisterFunction(nameof(SetRelationship));
         Lua.UnregisterFunction(nameof(LaunchConclusion));
-        Lua.UnregisterFunction(nameof(ChangeRelationship));
     }
     public void LaunchConclusion()
     {
@@ -78,39 +75,21 @@ public class DialogConclusionManager :
 
     }
 
-
-    public void ChangeRelationship(string name, double value)
+    public void SetRelationship(string actor, double value)
     {
-        Debug.Log(name);
         if (dialogConclusion == null) return;
-        if (dialogConclusion.persons.Any(x => x.actor == name))
+        if (dialogConclusion.persons.Any(x => x.actor == actor))
         {
-            var person = dialogConclusion.persons.First(x => x.actor == name);
+            var person = dialogConclusion.persons.First(x => x.actor == actor);
             person.relations.Add((int)value);
         }
         else
         {
-            var person = new DialogConclusion.PersonResult { actor = name };
+            var person = new DialogConclusion.PersonResult { actor = actor };
             person.relations.Add((int)value);
             dialogConclusion.persons.Add(person);
         }
     }
-
-    //public void SetRelationship(double value, string actor)
-    //{
-    //    if (dialogConclusion == null) return;
-    //    if (dialogConclusion.persons.Any(x => x.actor == actor))
-    //    {
-    //        var person = dialogConclusion.persons.First(x => x.actor == actor);
-    //        person.relations.Add((int)value);
-    //    }
-    //    else
-    //    {
-    //        var person = new DialogConclusion.PersonResult { actor = actor };
-    //        person.relations.Add((int)value);
-    //        dialogConclusion.persons.Add(person);
-    //    }
-    //}
 
     //Один dialogConclusion может использоваться на несколько диалогов
     public void CreateDialogConclusion()

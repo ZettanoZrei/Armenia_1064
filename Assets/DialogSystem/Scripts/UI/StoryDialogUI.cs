@@ -15,15 +15,15 @@ namespace Assets.DialogSystem.Scripts.UI
         public override void OnEnable()
         {
             base.OnEnable();
-            actorEventObserver.ShowResponseMenuEvent += ShowAdvicePanel;
-            actorEventObserver.ShowSubtitleEvent += TryHideAdvicePanel;
+            //actorEventObserver.ShowResponseMenuEvent += ShowAdvicePanel;
+            //actorEventObserver.ShowSubtitleEvent += TryHideAdvicePanel;
         }
 
         public override void OnDisable()
         {
             base.OnDisable();
-            actorEventObserver.ShowResponseMenuEvent -= ShowAdvicePanel;
-            actorEventObserver.ShowSubtitleEvent -= TryHideAdvicePanel;
+            //actorEventObserver.ShowResponseMenuEvent -= ShowAdvicePanel;
+            //actorEventObserver.ShowSubtitleEvent -= TryHideAdvicePanel;
         }
 
         private void TryHideAdvicePanel(PixelCrushers.DialogueSystem.Subtitle obj)

@@ -34,8 +34,8 @@ namespace PixelCrushers.DialogueSystem.SequencerCommands
         {
             // Get the values of the parameters:
             original = string.Equals(GetParameter(0), "original");
-            subject = original ? null : GetSubject(0, speaker);
-            targetSize = GetParameterAsFloat(1, 16);
+            subject = original ? null : speaker.transform;
+            targetSize = GetParameterAsFloat(1, 10);
             duration = GetParameterAsFloat(2, 0);
 
             // Log to the console:
@@ -54,6 +54,8 @@ namespace PixelCrushers.DialogueSystem.SequencerCommands
             {
                 Debug.LogWarning(string.Format("{0}: Sequencer: Camera subject '{1}' wasn't found.", new System.Object[] { DialogueDebug.Prefix, GetParameter(0) }));
             }
+            
+            
 
             // Start moving the camera:
             sequencer.TakeCameraControl();
@@ -90,12 +92,20 @@ namespace PixelCrushers.DialogueSystem.SequencerCommands
 
         public void Update()
         {
+            if (sequencer != null && sequencer.sequencerCamera != null)
+                targetPosition = new Vector3(subject.position.x, subject.position.y, sequencer.sequencerCamera.transform.position.z);
             // Keep smoothing for the specified duration:
             if (DialogueTime.time < endTime)
             {
+
                 float elapsed = (DialogueTime.time - startTime) / duration;
                 if (sequencer != null && sequencer.sequencerCamera != null)
                 {
+                    var dialogueActorZoom = subject.gameObject.GetComponent<DialogueActorZoom>();
+                    if (dialogueActorZoom != null && targetSize == 10)
+                    {
+                        targetSize = dialogueActorZoom.ZoomValue;
+                    }
                     sequencer.sequencerCamera.transform.position = Vector3.Lerp(originalPosition, targetPosition, elapsed);
                     sequencer.sequencerCamera.orthographicSize = Mathf.Lerp(originalSize, targetSize, elapsed);
                 }
@@ -111,8 +121,15 @@ namespace PixelCrushers.DialogueSystem.SequencerCommands
             // Final position:
             if (subject != null || original)
             {
+                targetPosition = new Vector3(subject.position.x, subject.position.y, sequencer.sequencerCamera.transform.position.z);
                 if (sequencer != null && sequencer.sequencerCamera != null)
                 {
+                    var dialogueActorZoom = subject.gameObject.GetComponent<DialogueActorZoom>();
+                    if (dialogueActorZoom != null && targetSize == 10)
+                    {
+                        targetSize = dialogueActorZoom.ZoomValue;
+                    }
+                    
                     sequencer.sequencerCamera.transform.position = targetPosition;
                     sequencer.sequencerCamera.orthographicSize = targetSize;
                 }

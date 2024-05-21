@@ -15,7 +15,7 @@ namespace PixelCrushers.DialogueSystem.DialogueEditor
     public partial class DialogueEditorWindow
     {
 
-        private readonly string[] falseConditionActionStrings = { "Block", "Passthrough"};
+        private readonly string[] falseConditionActionStrings = { "Block", "Passthrough" };
         private readonly string[] priorityStrings = { "Low", "Below Normal", "Normal", "Above Normal", "High" };
         private const float DialogueEntryIndent = 16;
         private const int MaxNodeTextLength = 26;

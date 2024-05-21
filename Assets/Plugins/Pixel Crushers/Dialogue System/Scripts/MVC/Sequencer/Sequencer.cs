@@ -2143,6 +2143,7 @@ namespace PixelCrushers.DialogueSystem
             if (dialogueUI != null)
             {
                 var standardDialogueUI = dialogueUI as StandardDialogueUI;
+                
                 if (show)
                 {
                     // Show dialogue panel:

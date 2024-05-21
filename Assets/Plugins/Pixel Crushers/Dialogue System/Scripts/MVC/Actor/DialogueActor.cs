@@ -2,6 +2,7 @@
 
 using UnityEngine;
 using System;
+//using Unity.VisualScripting;
 
 namespace PixelCrushers.DialogueSystem
 {
@@ -36,7 +37,7 @@ namespace PixelCrushers.DialogueSystem
 
         [Tooltip("Optional portrait. If unassigned, will use portrait of actor in database. This field allows you to assign a Sprite.")]
         public Sprite spritePortrait;
-
+        public int customScenePosition = -1;
         [Serializable]
         public class BarkUISettings
         {
@@ -92,14 +93,91 @@ namespace PixelCrushers.DialogueSystem
 
             [Tooltip("Color to use for this actor's subtitles.")]
             public Color subtitleColor = Color.white;
+
+            
         }
 
         public StandardDialogueUISettings standardDialogueUISettings = new StandardDialogueUISettings();
 
+        private StandardUISubtitlePanel _currentPanel;
+        private SpriteRenderer _spriteRenderer;
+        private Animator _animator;
         protected virtual void Awake()
         {
+            _spriteRenderer = this.GetComponent<SpriteRenderer>();
+            _animator = this.transform.GetComponent<Animator>();
             SetupBarkUI();
             SetupDialoguePanels();
+            CustomDialoguePosition.IsFlipped.AddListener(UpdateAnimation);
+            SetActive(false);
+        }
+
+        public virtual void SetPanel(StandardUISubtitlePanel panel)
+        {
+            _currentPanel = panel;
+            Debug.Log($"{this.actor}: {panel.name}");
+            if (panel.name.Contains("Subtitle Panel"))
+            {
+                var index = Convert.ToInt16(panel.name.Split(" ")[2]);
+                SetPosition(index);
+            }
+        }
+
+        public virtual void SetPosition(int position)
+        {
+            customScenePosition = position;
+            if (_spriteRenderer == null)
+                return;
+            if (position % 2 == 0)
+                _spriteRenderer.flipX = true;
+            else
+                _spriteRenderer.flipX = false;
+            //UpdateAnimation(CustomDialoguePosition.GetFlippedState());
+        }
+
+        protected virtual void UpdateAnimation(bool state)
+        {
+            if (_spriteRenderer == null)
+                return;
+            if (customScenePosition == -1 || !_spriteRenderer.enabled)
+                return;
+            if (_animator == null)
+                return;
+            
+            if (state)
+            {
+                if (customScenePosition % 2 == 0)
+                    _animator.Play("Back");
+                else
+                    _animator.Play("Idle");
+            }
+            else
+            {
+                if (customScenePosition % 2 != 0)
+                    _animator.Play("Back");
+                else
+                    _animator.Play("Idle");
+            }
+        }
+        protected void FixedUpdate()
+        {
+            if (customScenePosition == -1)
+            {
+                return;
+            }
+            var position = CustomDialoguePosition.GetPosition(customScenePosition);
+            this.transform.localPosition = position;
+            bool active = _currentPanel != null ? _currentPanel.gameObject.activeSelf : false;
+            SetActive(active);
+        }
+
+        public virtual void SetActive(bool state)
+        {
+            if (_spriteRenderer == null)
+                return;
+            
+            
+            _spriteRenderer.enabled = state;
         }
 
         public virtual Sprite GetPortraitSprite()
@@ -243,6 +321,7 @@ namespace PixelCrushers.DialogueSystem
         /// <returns>The subtitle text adjusted for the actor's color settings.</returns>
         public virtual string AdjustSubtitleColor(Subtitle subtitle)
         {
+
             var text = subtitle.formattedText.text;
             if (!standardDialogueUISettings.setSubtitleColor)
             {

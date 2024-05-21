@@ -268,6 +268,7 @@ namespace PixelCrushers
             {
                 eventSystem.SetSelectedGameObject(null);
             }
+ 
         }
 
         public virtual void SetOpen(bool value)

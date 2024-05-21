@@ -1,5 +1,6 @@
 // Copyright (c) Pixel Crushers. All rights reserved.
 
+using System;
 using UnityEngine;
 using System.Collections.Generic;
 
@@ -327,7 +328,10 @@ namespace PixelCrushers.DialogueSystem
             {
                 m_useBarkUIs.Remove(dialogueActor.transform);
             }
-            m_actorPanelCache[dialogueActor.transform] = GetPanelFromNumber(subtitlePanelNumber, dialogueActor.standardDialogueUISettings.customSubtitlePanel);
+            var p = GetPanelFromNumber(subtitlePanelNumber, dialogueActor.standardDialogueUISettings.customSubtitlePanel);
+            m_actorPanelCache[dialogueActor.transform] = p;
+            
+            dialogueActor.SetPanel(p);
         }
 
         #endregion
@@ -533,6 +537,7 @@ namespace PixelCrushers.DialogueSystem
             {
                 panel.FinishSubtitle();
             }
+
         }
 
         /// <summary>
@@ -720,6 +725,7 @@ namespace PixelCrushers.DialogueSystem
             var actorTransform = GetActorTransform(actor.Name);
             DialogueActor dialogueActor;
             var panel = GetActorTransformPanel(actorTransform, actor.IsPlayer ? m_defaultPCPanel : m_defaultNPCPanel, out dialogueActor);
+
             if (m_actorIdOverridePanel.ContainsKey(actor.id))
             {
                 panel = m_actorIdOverridePanel[actor.id];
@@ -735,6 +741,8 @@ namespace PixelCrushers.DialogueSystem
                 panel.OpenOnStartConversation(actorPortrait, actorName, dialogueActor);
                 SetLastActorToUsePanel(panel, actorID);
             }
+
+            dialogueActor.SetPanel(panel);
         }
 
         public void SetLastActorToUsePanel(StandardUISubtitlePanel panel, int actorID)
