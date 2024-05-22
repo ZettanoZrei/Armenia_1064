@@ -125,6 +125,7 @@ namespace PixelCrushers.DialogueSystem
 
         public virtual void SetPosition(int position)
         {
+            
             customScenePosition = position;
             if (_spriteRenderer == null)
                 return;

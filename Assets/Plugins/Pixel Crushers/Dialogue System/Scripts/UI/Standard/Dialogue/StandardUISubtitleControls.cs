@@ -330,8 +330,11 @@ namespace PixelCrushers.DialogueSystem
             }
             var p = GetPanelFromNumber(subtitlePanelNumber, dialogueActor.standardDialogueUISettings.customSubtitlePanel);
             m_actorPanelCache[dialogueActor.transform] = p;
-            
-            dialogueActor.SetPanel(p);
+            if (dialogueActor != null)
+            {
+                Debug.Log($"ACTOR: {dialogueActor.name}");
+                dialogueActor.SetPanel(p);
+            }
         }
 
         #endregion
@@ -512,6 +515,7 @@ namespace PixelCrushers.DialogueSystem
                 }
                 SupercedeOtherPanels(panel);
                 panel.ShowSubtitle(subtitle);
+
             }
         }
 

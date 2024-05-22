@@ -6,7 +6,7 @@ public class DialogueFadaController : MonoBehaviour
 {
     // Start is called before the first frame update
     private Animator _animator;
-    public float Duration = 0.1f;
+    public float Duration = 0f;
     void Start()
     {
         _animator= this.GetComponent<Animator>();
