@@ -6,11 +6,30 @@
   <component name="ChangeListManager">
     <list default="true" id="29f73c5c-659e-4f54-8482-cb57bc8a5e4c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Armenia_1064/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Armenia_1064/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dialogue System Extras/Visual Novel Framework/Scripts/Backgrounds/HandleBackgroundFields.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dialogue System Extras/Visual Novel Framework/Scripts/Backgrounds/HandleBackgroundFields.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Pixel Crushers/Dialogue System/Prefabs/Standard UI Prefabs/Templates/Armenia/Barseg.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Pixel Crushers/Dialogue System/Prefabs/Standard UI Prefabs/Templates/Armenia/Barseg.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Pixel Crushers/Dialogue System/Prefabs/Standard UI Prefabs/Templates/Armenia/Location.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Pixel Crushers/Dialogue System/Prefabs/Standard UI Prefabs/Templates/Armenia/Location.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Pixel Crushers/Dialogue System/Prefabs/Standard UI Prefabs/Templates/Armenia/Ruzan.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Pixel Crushers/Dialogue System/Prefabs/Standard UI Prefabs/Templates/Armenia/Ruzan.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Pixel Crushers/Dialogue System/Prefabs/Standard UI Prefabs/Templates/Armenia/Vasiliy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Pixel Crushers/Dialogue System/Prefabs/Standard UI Prefabs/Templates/Armenia/Vasiliy.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Plugins/Pixel Crushers/Dialogue System/Scripts/MVC/Actor/DialogueActor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Pixel Crushers/Dialogue System/Scripts/MVC/Actor/DialogueActor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Pixel Crushers/Dialogue System/Scripts/UI/Standard/Dialogue/Panel Numbers/DialogueFadaController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Pixel Crushers/Dialogue System/Scripts/UI/Standard/Dialogue/Panel Numbers/DialogueFadaController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Pixel Crushers/Dialogue System/Scripts/MVC/Sequencer/Commands/SequencerCommandZoom2D.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Pixel Crushers/Dialogue System/Scripts/MVC/Sequencer/Commands/SequencerCommandZoom2D.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Plugins/Pixel Crushers/Dialogue System/Scripts/UI/Standard/Dialogue/StandardUISubtitleControls.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Pixel Crushers/Dialogue System/Scripts/UI/Standard/Dialogue/StandardUISubtitleControls.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Dialogue Database.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Dialogue Database.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Pixel Crushers/Dialogue System/Scripts/Utility/CustomDialoguePosition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Pixel Crushers/Dialogue System/Scripts/Utility/CustomDialoguePosition.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Background/Dialog/Location1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Background/Dialog/Location1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Background/Dialog/Location1_back.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Background/Dialog/Location1_back.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LoadScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LoadScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Characters/Figure/Барсег/Барсег1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprite/Characters/Figure/Барсег/Барсег1.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Characters/Figure/Барсег/Барсег2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprite/Characters/Figure/Барсег/Барсег2.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Characters/Figure/Барсег/Барсег3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprite/Characters/Figure/Барсег/Барсег3.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Characters/Figure/Барсег/Барсег4.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprite/Characters/Figure/Барсег/Барсег4.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Characters/Figure/Василий/Василий1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprite/Characters/Figure/Василий/Василий1.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Characters/Figure/Василий/Василий2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprite/Characters/Figure/Василий/Василий2.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Characters/Figure/Василий/Василий3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprite/Characters/Figure/Василий/Василий3.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Characters/Figure/Василий/Василий4.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprite/Characters/Figure/Василий/Василий4.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Characters/Figure/Рузан/Рузан1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprite/Characters/Figure/Рузан/Рузан1.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Characters/Figure/Рузан/Рузан2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprite/Characters/Figure/Рузан/Рузан2.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Characters/Figure/Рузан/Рузан3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprite/Characters/Figure/Рузан/Рузан3.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Characters/Figure/Рузан/Рузан4.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprite/Characters/Figure/Рузан/Рузан4.png.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,10 +95,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="17328">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="15264">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="17328" />
+      <option name="pid" value="15264" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -96,7 +115,8 @@
       <option name="presentableId" value="Default" />
       <updated>1716278579536</updated>
       <workItem from="1716278584160" duration="12619000" />
-      <workItem from="1716383553216" duration="1484000" />
+      <workItem from="1716383553216" duration="1657000" />
+      <workItem from="1716537086677" duration="10363000" />
     </task>
     <servers />
   </component>

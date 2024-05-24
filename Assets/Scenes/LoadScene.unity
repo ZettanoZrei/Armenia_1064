@@ -817,6 +817,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 11426072, guid: 58ac37417e60e534f91138088a3e6f70, type: 3}
+      propertyPath: displaySettings.cameraSettings.defaultSequence
+      value: "AnimatorPlay(Back,listenerportrait)@0; \nAnimatorPlay(Talk,speakerportrait)@0;
+        \nZoom2D(10, speakerportrait)@0.1;\nrequired AnimatorPlay(Idle,speakerportrait)@{{end}}\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 11426072, guid: 58ac37417e60e534f91138088a3e6f70, type: 3}
       propertyPath: displaySettings.cameraSettings.sequencerCamera
       value: 
       objectReference: {fileID: 1558237446}
@@ -835,7 +840,7 @@ PrefabInstance:
     - target: {fileID: 11426072, guid: 58ac37417e60e534f91138088a3e6f70, type: 3}
       propertyPath: displaySettings.cameraSettings.defaultPlayerSequence
       value: "AnimatorPlay(Back,listenerportrait)@0; \nAnimatorPlay(Talk,speakerportrait)@0;
-        \nZoom2D(10, speakerportrait)@0;\nrequired AnimatorPlay(Idle,speakerportrait)@{{end}}\n"
+        \nZoom2D(10, speakerportrait)@0.1;\nrequired AnimatorPlay(Idle,speakerportrait)@{{end}}\n"
       objectReference: {fileID: 0}
     - target: {fileID: 11426072, guid: 58ac37417e60e534f91138088a3e6f70, type: 3}
       propertyPath: displaySettings.inputSettings.emTagForInvalidResponses

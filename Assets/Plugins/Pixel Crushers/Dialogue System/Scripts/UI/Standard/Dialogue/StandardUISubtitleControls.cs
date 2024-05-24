@@ -474,6 +474,7 @@ namespace PixelCrushers.DialogueSystem
         public override void ShowSubtitle(Subtitle subtitle)
         {
             if (subtitle == null) return;
+            Debug.Log("ShowSubtitle");
             DialogueActor dialogueActor;
             var panel = GetPanel(subtitle, out dialogueActor);
             if (SubtitleUsesBarkUI(subtitle))

@@ -55,7 +55,7 @@ namespace PixelCrushers.DialogueSystem.VisualNovelFramework
             
             if (dialogueActor != null)
             {
-                
+                Debug.Log("OnConversationLine");
                 var position = dialogueActor.customScenePosition;
                 
                 if (position > 0)
@@ -64,9 +64,9 @@ namespace PixelCrushers.DialogueSystem.VisualNovelFramework
                     subAdress = subtitle.speakerInfo.isPlayer ? "" : "_back";
 
                 if (subAdress == "")
-                    CustomDialoguePosition.Flip(0);
+                    CustomDialoguePosition.Flip(false);
                 else 
-                    CustomDialoguePosition.Flip(180);
+                    CustomDialoguePosition.Flip(true);
             }
 
             if (!string.IsNullOrEmpty(locationIndex))

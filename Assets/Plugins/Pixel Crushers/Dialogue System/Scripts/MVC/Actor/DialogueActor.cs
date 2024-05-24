@@ -115,7 +115,6 @@ namespace PixelCrushers.DialogueSystem
         public virtual void SetPanel(StandardUISubtitlePanel panel)
         {
             _currentPanel = panel;
-            Debug.Log($"{this.actor}: {panel.name}");
             if (panel.name.Contains("Subtitle Panel"))
             {
                 var index = Convert.ToInt16(panel.name.Split(" ")[2]);
@@ -138,6 +137,8 @@ namespace PixelCrushers.DialogueSystem
 
         protected virtual void UpdateAnimation(bool state)
         {
+            Debug.Log($"{this.name} UPDATE ANIMATION: {state}");
+            
             if (_spriteRenderer == null)
                 return;
             if (customScenePosition == -1 || !_spriteRenderer.enabled)
@@ -167,7 +168,18 @@ namespace PixelCrushers.DialogueSystem
                 return;
             }
             var position = CustomDialoguePosition.GetPosition(customScenePosition);
-            this.transform.localPosition = position;
+            float height = 0;
+            if (_spriteRenderer != null)
+            {
+                var bounds = _spriteRenderer.sprite.bounds;
+                var pivot = _spriteRenderer.sprite.pivot;
+                var texture = _spriteRenderer.sprite.texture;
+                
+                height = bounds.size.normalized.y / 2f;
+                
+            }
+            this.transform.localPosition = new Vector3(position.x, position.y, position.z);
+            //this.transform.localPosition = new Vector3(this.transform.localPosition.x, this.transform.localPosition.y + height, this.transform.localPosition.z);
             bool active = _currentPanel != null ? _currentPanel.gameObject.activeSelf : false;
             SetActive(active);
         }

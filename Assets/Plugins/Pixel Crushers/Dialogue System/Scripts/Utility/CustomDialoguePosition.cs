@@ -27,10 +27,14 @@ public class CustomDialoguePosition : MonoBehaviour
 
             Vector3 position = m_instance.transform.GetChild(index).position;
 
+            //var isFlipped = GetFlippedState() ? -1: 1;
+            var isFlipped = 1;
+            
             if (index % 2 != 0)
-                position = new Vector3(position.x, position.y, -5);
+                position = new Vector3(position.x, position.y * isFlipped, -5);
             else
-                position = new Vector3(position.x, position.y, -7);
+                position = new Vector3(position.x, position.y * isFlipped, -7);
+            
         
             return position;
         }
@@ -40,12 +44,14 @@ public class CustomDialoguePosition : MonoBehaviour
 
     public static bool GetFlippedState()
     {
-        return MathF.Abs(m_instance.transform.rotation.z) > 0.5f;
+        //return MathF.Abs(m_instance.transform.rotation.z) > 0.5f;
+        return m_instance.transform.localScale.x == -1;
     }
 
-    public static void Flip(float angle)
+    public static void Flip(bool flip)
     {
-        m_instance.transform.rotation = new Quaternion(m_instance.transform.rotation.x, m_instance.transform.rotation.y, angle, m_instance.transform.rotation.w);
+        var state = flip ? -1 : 1;
+        m_instance.transform.localScale = new Vector3(state, m_instance.transform.localScale.y, m_instance.transform.localScale.z);
         IsFlipped.Invoke(GetFlippedState());
     }
 }

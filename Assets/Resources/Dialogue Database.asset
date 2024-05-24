@@ -343,6 +343,20 @@ MonoBehaviour:
       value: Background\Dialog\Location1
       type: 0
       typeString: CustomFieldType_Text
+  - id: 2
+    fields:
+    - title: Name
+      value: New Location 2
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Description
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Background
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
   variables:
   - id: 2
     fields:

@@ -29,6 +29,7 @@ namespace PixelCrushers.DialogueSystem.SequencerCommands
         private float duration;
         private float startTime;
         private float endTime;
+        private float height = 0f;
 
         public void Start()
         {
@@ -37,7 +38,7 @@ namespace PixelCrushers.DialogueSystem.SequencerCommands
             subject = original ? null : speaker.transform;
             targetSize = GetParameterAsFloat(1, 10);
             duration = GetParameterAsFloat(2, 0);
-
+            
             // Log to the console:
             if (DialogueDebug.logInfo)
             {
@@ -61,6 +62,8 @@ namespace PixelCrushers.DialogueSystem.SequencerCommands
             sequencer.TakeCameraControl();
             if (subject != null || original)
             {
+
+                
                 if (original)
                 {
                     targetPosition = sequencer.originalCameraPosition;
@@ -68,7 +71,7 @@ namespace PixelCrushers.DialogueSystem.SequencerCommands
                 }
                 else
                 {
-                    targetPosition = new Vector3(subject.position.x, subject.position.y, sequencer.sequencerCamera.transform.position.z);
+                    targetPosition = new Vector3(subject.position.x, subject.position.y + height, sequencer.sequencerCamera.transform.position.z);
                 }
                 originalPosition = sequencer.sequencerCamera.transform.position;
                 originalSize = sequencer.sequencerCamera.orthographicSize;
@@ -92,8 +95,8 @@ namespace PixelCrushers.DialogueSystem.SequencerCommands
 
         public void Update()
         {
-            if (sequencer != null && sequencer.sequencerCamera != null)
-                targetPosition = new Vector3(subject.position.x, subject.position.y, sequencer.sequencerCamera.transform.position.z);
+
+            UpdatePosition();
             // Keep smoothing for the specified duration:
             if (DialogueTime.time < endTime)
             {
@@ -101,6 +104,7 @@ namespace PixelCrushers.DialogueSystem.SequencerCommands
                 float elapsed = (DialogueTime.time - startTime) / duration;
                 if (sequencer != null && sequencer.sequencerCamera != null)
                 {
+
                     var dialogueActorZoom = subject.gameObject.GetComponent<DialogueActorZoom>();
                     if (dialogueActorZoom != null && targetSize == 10)
                     {
@@ -108,6 +112,7 @@ namespace PixelCrushers.DialogueSystem.SequencerCommands
                     }
                     sequencer.sequencerCamera.transform.position = Vector3.Lerp(originalPosition, targetPosition, elapsed);
                     sequencer.sequencerCamera.orthographicSize = Mathf.Lerp(originalSize, targetSize, elapsed);
+                    Debug.Log($"{subject.name} ZOOM2D UPDATE: {targetPosition}");
                 }
             }
             else
@@ -119,9 +124,9 @@ namespace PixelCrushers.DialogueSystem.SequencerCommands
         public void OnDestroy()
         {
             // Final position:
+            UpdatePosition();
             if (subject != null || original)
             {
-                targetPosition = new Vector3(subject.position.x, subject.position.y, sequencer.sequencerCamera.transform.position.z);
                 if (sequencer != null && sequencer.sequencerCamera != null)
                 {
                     var dialogueActorZoom = subject.gameObject.GetComponent<DialogueActorZoom>();
@@ -132,7 +137,32 @@ namespace PixelCrushers.DialogueSystem.SequencerCommands
                     
                     sequencer.sequencerCamera.transform.position = targetPosition;
                     sequencer.sequencerCamera.orthographicSize = targetSize;
+                    Debug.Log($"{subject.name} ZOOM2D ON DESTROY: {targetPosition}");
                 }
+            }
+        }
+
+        private void UpdatePosition()
+        {
+            if (subject != null)
+            {
+                var spriteRenderer = subject.gameObject.GetComponent<SpriteRenderer>();
+                if (spriteRenderer != null)
+                {
+                    height = 2 * spriteRenderer.sprite.bounds.size.normalized.y;
+                }
+            }
+
+            if (sequencer != null && sequencer.sequencerCamera != null)
+            {
+                var target = new Vector3(subject.position.x, subject.position.y + height, sequencer.sequencerCamera.transform.position.z);
+                var face = subject.transform.Find("Body");
+                if (face != null)
+                {
+                    target = new Vector3(face.position.x, face.position.y + 1, sequencer.sequencerCamera.transform.position.z);
+                }
+
+                targetPosition = target;
             }
         }
 
