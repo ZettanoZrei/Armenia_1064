@@ -35,8 +35,10 @@ namespace PixelCrushers.DialogueSystem.SequencerCommands
         {
             // Get the values of the parameters:
             original = string.Equals(GetParameter(0), "original");
-            subject = original ? null : speaker.transform;
-            targetSize = GetParameterAsFloat(1, 10);
+            var currentSubject = GetSubject(1);
+            subject = original ? null : currentSubject;
+            subject = subject == null ? speaker.transform : subject;
+            targetSize = GetParameterAsFloat(0, 10);
             duration = GetParameterAsFloat(2, 0);
             
             // Log to the console:
@@ -95,7 +97,6 @@ namespace PixelCrushers.DialogueSystem.SequencerCommands
 
         public void Update()
         {
-
             UpdatePosition();
             // Keep smoothing for the specified duration:
             if (DialogueTime.time < endTime)
@@ -112,7 +113,6 @@ namespace PixelCrushers.DialogueSystem.SequencerCommands
                     }
                     sequencer.sequencerCamera.transform.position = Vector3.Lerp(originalPosition, targetPosition, elapsed);
                     sequencer.sequencerCamera.orthographicSize = Mathf.Lerp(originalSize, targetSize, elapsed);
-                    Debug.Log($"{subject.name} ZOOM2D UPDATE: {targetPosition}");
                 }
             }
             else
@@ -137,7 +137,6 @@ namespace PixelCrushers.DialogueSystem.SequencerCommands
                     
                     sequencer.sequencerCamera.transform.position = targetPosition;
                     sequencer.sequencerCamera.orthographicSize = targetSize;
-                    Debug.Log($"{subject.name} ZOOM2D ON DESTROY: {targetPosition}");
                 }
             }
         }

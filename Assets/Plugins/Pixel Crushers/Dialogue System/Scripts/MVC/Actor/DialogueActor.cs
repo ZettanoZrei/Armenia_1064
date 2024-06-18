@@ -115,16 +115,18 @@ namespace PixelCrushers.DialogueSystem
         public virtual void SetPanel(StandardUISubtitlePanel panel)
         {
             _currentPanel = panel;
+            /*
             if (panel.name.Contains("Subtitle Panel"))
             {
                 var index = Convert.ToInt16(panel.name.Split(" ")[2]);
                 SetPosition(index);
             }
+            */
+            SetPosition(panel.panelNumber);
         }
 
         public virtual void SetPosition(int position)
         {
-            
             customScenePosition = position;
             if (_spriteRenderer == null)
                 return;
@@ -132,16 +134,15 @@ namespace PixelCrushers.DialogueSystem
                 _spriteRenderer.flipX = true;
             else
                 _spriteRenderer.flipX = false;
-            //UpdateAnimation(CustomDialoguePosition.GetFlippedState());
-        }
-
-        protected virtual void UpdateAnimation(bool state)
-        {
-            Debug.Log($"{this.name} UPDATE ANIMATION: {state}");
             
+            UpdateAnimation(CustomDialoguePosition.GetFlippedState());
+        }
+        
+        public virtual void UpdateAnimation(bool state)
+        {
             if (_spriteRenderer == null)
                 return;
-            if (customScenePosition == -1 || !_spriteRenderer.enabled)
+            if (customScenePosition == -1/* || !_spriteRenderer.enabled*/)
                 return;
             if (_animator == null)
                 return;

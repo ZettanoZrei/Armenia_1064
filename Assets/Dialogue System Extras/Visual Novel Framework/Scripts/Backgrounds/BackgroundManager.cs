@@ -66,6 +66,9 @@ namespace PixelCrushers.DialogueSystem.VisualNovelFramework
         public static void SetBackgroundImage(string backgroundName)
         {
             
+            
+            
+            
             if (string.IsNullOrEmpty(backgroundName) || string.Equals(backgroundName, "nil")) return;
             m_backgroundName = backgroundName;
             if (DialogueDebug.LogInfo) Debug.Log("Dialogue System: Setting background image to '" + backgroundName + "'.");
@@ -155,10 +158,6 @@ namespace PixelCrushers.DialogueSystem.VisualNovelFramework
                 }
             }
             Instantiate(prefab, m_instance.transform);
-            var fade = FindAnyObjectByType<DialogueFadaController>();
-            if (fade != null)
-                fade.Play();
-            
             yield break;
             /*
             if (Mathf.Approximately(0, fadeDuration))

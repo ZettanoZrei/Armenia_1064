@@ -805,6 +805,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11426072, guid: 58ac37417e60e534f91138088a3e6f70, type: 3}
+      propertyPath: debugLevel
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11426072, guid: 58ac37417e60e534f91138088a3e6f70, type: 3}
       propertyPath: initialDatabase
       value: 
       objectReference: {fileID: 11400000, guid: 79d852f50c17b6248be13deda0219d11, type: 2}
@@ -818,8 +822,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11426072, guid: 58ac37417e60e534f91138088a3e6f70, type: 3}
       propertyPath: displaySettings.cameraSettings.defaultSequence
-      value: "AnimatorPlay(Back,listenerportrait)@0; \nAnimatorPlay(Talk,speakerportrait)@0;
-        \nZoom2D(10, speakerportrait)@0.1;\nrequired AnimatorPlay(Idle,speakerportrait)@{{end}}\n"
+      value: "Zoom2D(9, speaker)@0.1;\nAnimatorPlay(Back,listenerportrait)@0; \nAnimatorPlay(Talk,speakerportrait)@0;
+        \nrequired AnimatorPlay(Idle,speakerportrait)@{{end}}\n"
       objectReference: {fileID: 0}
     - target: {fileID: 11426072, guid: 58ac37417e60e534f91138088a3e6f70, type: 3}
       propertyPath: displaySettings.cameraSettings.sequencerCamera
@@ -835,16 +839,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11426072, guid: 58ac37417e60e534f91138088a3e6f70, type: 3}
       propertyPath: displaySettings.subtitleSettings.minSubtitleSeconds
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11426072, guid: 58ac37417e60e534f91138088a3e6f70, type: 3}
       propertyPath: displaySettings.cameraSettings.defaultPlayerSequence
-      value: "AnimatorPlay(Back,listenerportrait)@0; \nAnimatorPlay(Talk,speakerportrait)@0;
-        \nZoom2D(10, speakerportrait)@0.1;\nrequired AnimatorPlay(Idle,speakerportrait)@{{end}}\n"
+      value: '
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 11426072, guid: 58ac37417e60e534f91138088a3e6f70, type: 3}
       propertyPath: displaySettings.inputSettings.emTagForInvalidResponses
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11426072, guid: 58ac37417e60e534f91138088a3e6f70, type: 3}
+      propertyPath: displaySettings.subtitleSettings.allowPCSubtitleReminders
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11426072, guid: 58ac37417e60e534f91138088a3e6f70, type: 3}
+      propertyPath: displaySettings.cameraSettings.defaultResponseMenuSequence
+      value: "AnimatorPlay(Back,speaker)@0; \nAnimatorPlay(Idle,listener)@0; \nZoom2D(7,
+        listener)@0.1;"
+      objectReference: {fileID: 0}
+    - target: {fileID: 11426072, guid: 58ac37417e60e534f91138088a3e6f70, type: 3}
+      propertyPath: displaySettings.subtitleSettings.showNPCSubtitlesWithResponses
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11426072, guid: 58ac37417e60e534f91138088a3e6f70, type: 3}
+      propertyPath: displaySettings.subtitleSettings.skipPCSubtitleAfterResponseMenu
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6193717574850487428, guid: 58ac37417e60e534f91138088a3e6f70, type: 3}
       propertyPath: m_ReferenceResolution.x

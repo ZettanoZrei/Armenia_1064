@@ -128,6 +128,9 @@ namespace PixelCrushers.DialogueSystem
                     StandardUISubtitlePanel actorCurrentPanel =
                         m_builtinPanels.Find(x => x.isOpen && x.portraitActorName == actor.Name) ??
                         m_customPanels.Find(x => x.isOpen && x.portraitActorName == actor.Name);
+                    
+                    Debug.Log($"OverrideActorPanel: {actor.Name} {subtitlePanelNumber}");
+                    
                     if (actorCurrentPanel != panel)
                     {
                         if (actorCurrentPanel != null)
@@ -332,7 +335,6 @@ namespace PixelCrushers.DialogueSystem
             m_actorPanelCache[dialogueActor.transform] = p;
             if (dialogueActor != null)
             {
-                Debug.Log($"ACTOR: {dialogueActor.name}");
                 dialogueActor.SetPanel(p);
             }
         }
@@ -474,7 +476,6 @@ namespace PixelCrushers.DialogueSystem
         public override void ShowSubtitle(Subtitle subtitle)
         {
             if (subtitle == null) return;
-            Debug.Log("ShowSubtitle");
             DialogueActor dialogueActor;
             var panel = GetPanel(subtitle, out dialogueActor);
             if (SubtitleUsesBarkUI(subtitle))
@@ -491,6 +492,7 @@ namespace PixelCrushers.DialogueSystem
             }
             else
             {
+                
                 // If actor is currently displaying on another panel, close that panel:
                 var actorID = subtitle.speakerInfo.id;
                 if (m_lastPanelUsedByActor.ContainsKey(actorID) && m_lastPanelUsedByActor[actorID] != panel)
@@ -498,8 +500,9 @@ namespace PixelCrushers.DialogueSystem
                     var previousPanel = m_lastPanelUsedByActor[actorID];
                     if (m_lastActorToUsePanel.ContainsKey(previousPanel) && m_lastActorToUsePanel[previousPanel] == actorID)
                     {
-                        if (previousPanel.hasFocus || previousPanel.isFocusing) previousPanel.Unfocus();
-                        if (previousPanel.isOpen) previousPanel.Close();
+                        Debug.Log("m_lastActorToUsePanel.ContainsKey(previousPanel)");
+                        //if (previousPanel.hasFocus || previousPanel.isFocusing) previousPanel.Unfocus();
+                        //if (previousPanel.isOpen) previousPanel.Close();
                     }
                 }
                 SetLastActorToUsePanel(panel, actorID);

@@ -28,6 +28,8 @@ namespace Assets.Game
             if (IsPopupActive(popupType))
                 throw new Exception($"popup: {popupType} is used already");
 
+            
+            Debug.Log($"SHOW POPUP TYPE: {popupType}");
             var popup = popupFabrica.GetPopup(popupType);
             activePopup[popupType] = new PopupInfo { Popup = popup, Pause = pause };
             popup.Activate();

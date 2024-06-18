@@ -3186,7 +3186,7 @@ MonoBehaviour:
     menuPanels:
     - {fileID: 4965264425723980799}
     defaultMenuPanel: {fileID: 4965264425723980799}
-    useFirstResponseForMenuPortrait: 0
+    useFirstResponseForMenuPortrait: 1
     waitForClose: 1
   QTEIndicatorElements:
     QTEIndicators:
